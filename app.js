@@ -6148,8 +6148,21 @@ app.post('/api/auth/exchange-token', function (req, res) {
 });
 
 
+app.get('/test', function (req, res) {
+    const data =
+    {
+        'status': 'Running',
+    };
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(200).send(data);
+});
 
 
-var listener = app.listen(8080, function () {
+var listener = app.listen(8082, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
 });

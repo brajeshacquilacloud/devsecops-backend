@@ -5,6 +5,7 @@
   "private": true,
   "license": "Apache-2.0",
   "author": "Shubham Kale.",
+  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "git@bitbucket.org:Shubhamk54/acquilla-mock-server.git"
