@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
+const PORT = process.env.PORT || 8080
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -6163,6 +6165,6 @@ app.get('/test', function (req, res) {
 });
 
 
-var listener = app.listen(8080, function () {
+var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
 });
