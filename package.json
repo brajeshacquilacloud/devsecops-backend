@@ -14,7 +14,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "deploy": "gcloud app deploy",
+    "deploy": "git push heroku",
     "start": "node app.js",
     "system-test": "repo-tools test app",
     "test": "npm run system-test",
