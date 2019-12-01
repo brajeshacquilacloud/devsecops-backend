@@ -6122,7 +6122,7 @@ app.post('/api/auth/auth-entity', function (req, res) {
     req.body.email
     var data = {
         type: 'OKTA',
-        authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1rmq2yunQt5BnD357&response_type=id_token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A9000&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
+        authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1rmq2yunQt5BnD357&response_type=id_token&scope=openid&redirect_uri=https://acquila-clouds.firebaseapp.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
     };
 
     res.header("Access-Control-Allow-Origin", "*");
