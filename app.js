@@ -4069,7 +4069,7 @@ app.post('/api/instance/schedule', function (req, res) {
                     ]
                 }
             ],
-            default: {
+            defaultConfig: {
                 v1: 12,
                 v2: 10,
                 v3: 9,
@@ -4161,8 +4161,7 @@ app.post('/api/list/instancesbygroup', function (req, res) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
     res.setHeader('Content-Type', 'application/json');
-    res.send(data);
-    //res.status(500).send({ error: "Internal Server Error" });
+    res.status(200).send(data);
 });
 
 app.post('/api/auth/login', function (req, res) {
@@ -4176,7 +4175,9 @@ app.post('/api/auth/login', function (req, res) {
     if (req.body.email === 'zxc' && req.body.password === 'zxc') {
         data =
             {
-                'authToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+                'authToken': 'eye.RefresheyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+                'tokenExpiration': Math.floor(Date.now() / 1000) + 60,
+                'refreshToken': 'this-is-local-refresh-token',
                 'userId': '999',
                 'firstName': 'Harry',
                 'lastName': 'Smith',
@@ -6095,18 +6096,25 @@ app.post('/api/column/update', function (req, res) {
 
 
 app.post('/api/cloud-providers', function (req, res) {
-    var data = [
-        { name: 'AWS', key: 'aws', icon: 'amazon' },
-        { name: 'GCP', key: 'gcp', icon: 'google' },
-        { name: 'Azure', key: 'azure', icon: 'dropbox' }
-    ];
+    console.log('auth: ', req.headers.authorization);
+
+
+    var data = {
+        'cloudProviders': [
+            { name: 'AWS', key: 'aws', icon: 'amazon' },
+            { name: 'GCP', key: 'gcp', icon: 'google' },
+            { name: 'Azure', key: 'azure', icon: 'dropbox' }
+        ]
+    };
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
     res.setHeader('Content-Type', 'application/json');
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+
     res.status(200).send(data);
+
 });
 
 
@@ -6114,7 +6122,7 @@ app.post('/api/auth/auth-entity', function (req, res) {
     req.body.email
     var data = {
         type: 'OKTA',
-        authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1rmq2yunQt5BnD357&response_type=id_token&scope=openid&redirect_uri=https://acquila-clouds.firebaseapp.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
+        authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa2103e6pmOkvmvR357&response_type=id_token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A9000&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
     };
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -6129,6 +6137,8 @@ app.post('/api/auth/exchange-token', function (req, res) {
     const data =
     {
         'authToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgT2t0YSIsImlhdCI6MTUxNjIzOTAyMn0.o7Xd3bWYtjTFUVBLSOVWLSWS03rOxd8zXJJrQtYPDqA',
+        'tokenExpiration': Math.floor(Date.now() / 1000) + 60,
+        'refreshToken': 'this-is-local-refresh-token',
         'userId': '999',
         'firstName': 'Harry',
         'lastName': 'Smith',
@@ -6150,20 +6160,31 @@ app.post('/api/auth/exchange-token', function (req, res) {
 });
 
 
-app.get('/test', function (req, res) {
+app.post('/api/auth/refresh-token', function (req, res) {
     const data =
     {
-        'status': 'Running',
-    };
+        'authToken': 'eye.Refresh.OiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgT2t0YSIsImlhdCI6MTUxNjIzOTAyMn0.o7Xd3bWYtjTFUVBLSOVWLSWS03rOxd8zXJJrQtYPDqA',
+        'tokenExpiration': Math.floor(Date.now() / 1000) + 60,
+        'refreshToken': 'this-is-local-refresh-token',
+        'userId': '999',
+        'firstName': 'Harry',
+        'lastName': 'Smith',
+        'accountNumber': '89861328498',
+        'email': 'business.user.213@gmail.com',
+        'accountType': 'LITE',
+        "roles": "EDITOR",
+        "environmentSelection": false,
+        "envList": ['1', '2', '3', '4', '5'],
+    }
+    responseStatus = 200;
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
     res.setHeader('Content-Type', 'application/json');
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
-    res.status(200).send(data);
+    res.status(responseStatus).send(data);
 });
-
 
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
