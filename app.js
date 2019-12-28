@@ -4,6 +4,7 @@ var cors = require('cors');
 var bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080
 
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -487,16 +488,6 @@ function getFlamingoData() {
 
                         }
                     ]
-                },
-                {
-                    subNodeTitle: 'Schedule',
-                    leafs: [
-                        {
-                            id: 16, leafTitle: 'Manage Schedule',
-                            type: 'schedule',
-                            size: 12,
-                        }
-                    ]
                 }
             ],
 
@@ -881,7 +872,6 @@ function getFlamingoData() {
     ];
 }
 
-
 function componentsData() {
     return [
         {
@@ -1224,7 +1214,6 @@ function drillDownData() {
     ];
 }
 
-
 function getAdministrationDashboard() {
     return [
         {
@@ -1265,22 +1254,29 @@ function getAdministrationDashboard() {
                                     "name": "Email",
                                     "key": "email",
                                     "display": true,
+                                    "filter": true,
+                                    "filterType": 'textField',
                                 },
                                 {
                                     "name": "Role",
                                     "key": "roleName",
                                     "display": true,
+                                    "filter": true,
+                                    "filterType": 'multiselect',
                                 },
                                 {
                                     "name": "Status",
                                     "key": "status",
                                     "type": "status",
                                     "display": true,
+                                    "filter": false,
                                 },
                                 {
                                     "name": "Account",
                                     "key": "accounts",
                                     "display": true,
+                                    "filter": true,
+                                    "filterType": 'multiselect',
                                 },
                                 {
                                     "name": "Delete",
@@ -1805,7 +1801,6 @@ function getAdministrationDashboard() {
     ]
 }
 
-
 function getManageUsersData() {
     return [
         {
@@ -1890,6 +1885,66 @@ function getGroupUIData() {
                         ],
                     },
                 ],
+                customFilters: [
+                    {
+                        id: 1,
+                        defSelectKey: 'region',
+                        size: 3,
+                        title: 'Region',
+                        type: 'select',
+                        apiKey: 'listRegionAPI',
+                        helperText: 'Please select the region',
+                        "metrics": {
+                            "types": [
+                                "*"
+                            ]
+                        },
+                        validation: {
+                            isRequired: true,
+                            message: 'At-least one value should be selected',
+                        }
+                    },
+                    {
+                        id: 2,
+                        defSelectKey: 'cluster',
+                        size: 3,
+                        title: 'Cluster',
+                        type: 'select',
+                        apiKey: 'listClusterAPI',
+                        disableInitApi: true,
+                        helperText: 'Please select the cluster',
+                        "metrics": {
+                            "types": [
+                                "*"
+                            ]
+                        },
+                        "bindLeafData": { "bindWith": "region", "id": 1, },
+                        validation: {
+                            isRequired: true,
+                            message: 'At-least one tenant should be selected',
+                        }
+                    },
+                    {
+                        id: 3,
+                        defSelectKey: 'instance',
+                        size: 3,
+                        title: 'Instance',
+                        type: 'select',
+                        apiKey: 'listInstanceTypeAPI',
+                        disableInitApi: true,
+                        helperText: 'Please select the tenant',
+                        "metrics": {
+                            "types": [
+                                "*"
+                            ]
+                        },
+                        "bindLeafData": { "bindWith": "cluster", "id": 2, },
+                        validation: {
+                            isRequired: true,
+                            message: 'At-least one tenant should be selected',
+                        }
+                    }
+                ],
                 columns: [
                     { name: 'Group name', key: 'name', display: true },
                     { name: 'Type', key: 'type', display: true },
@@ -1962,6 +2017,20 @@ function manageGroup() {
         }
     ];
 }
+
+function getAzureCspData() {
+    return [{
+        "nodeTitle": "Azure", "subNode": [{
+            "subNodeTitle": "Summary", "leafs": [{
+                "leafTitle": "Account Details", "type": "tab", "size": 12, "tabs": [{ "id": 1901, "leafTitle": "Customers", "type": "datatable", "apiKey": "cspCustomersListAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 10, "noDataText": "No Csp Customers Available", "hideToolBar": false, "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId" }, { "name": "Company Name", "key": "companyName" }, { "name": "Domain", "key": "domain" }, { "name": "Subscription Count", "key": "subscriptionCount" }, { "name": "Rate Card", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 1, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }, { "name": "Subscription Detail", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 2, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }, { "name": "Monthly Bills", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 3, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }, { "name": "Monthly Bill Details", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 4, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }] }, { "id": 1905, "role": "ROOT_ADMIN,ADMIN,POWER_USER", "leafTitle": "Rate Card", "type": "datatable", "apiKey": "cspCustomerApprovedRateCardListAPI", "size": 12, "hideToolBar": false, "noDataText": "Rate card not available", "metrics": {}, "defaultRowPerPage": 10, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Import Rate Packs", "modalTitle": "Import Rate Packs", "componentsAPIKey": "importCspRatePacksComponentAPI", "actionIcon": "ImportExportIcon", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Rate Card Line", "modalTitle": "Add Rate Card Line", "componentsAPIKey": "addEditCspRateCardLineComponentAPI", "actionIcon": "AddBox", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Re-generate Bills", "modalTitle": "Re-generate Bills", "componentsAPIKey": "regenerateCspBillComponentAPI", "actionIcon": "EditPencil", "drillParams": [{}] }], "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId" }, { "name": "Region", "key": "region" }, { "name": "Meter ID", "key": "meterId" }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Pack Name", "key": "packName" }, { "name": "Interval", "key": "interval" }, { "name": "Count", "key": "count" }, { "name": "Unit Rate", "key": "unitRate" }, { "name": "Effective Date", "key": "effectiveDate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRateCardLineAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "customerId" }, { "key": "region" }, { "key": "meterId" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "packName" }] }, { "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Card", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }, { "key": "region" }, { "key": "meterId" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "interval" }, { "key": "count" }, { "key": "unitRate" }, { "key": "effectiveDate" }, { "key": "packName" }], "componentsAPIKey": "addEditCspRateCardLineComponentAPI" }] }, { "id": 1902, "leafTitle": "Subscriptions", "type": "datatable", "apiKey": "cspCustomerSubscriptionListAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 10, "noDataText": "No Csp Customer subscriptions Available", "hideToolBar": false, "columns": [{ "name": "Subscription Id", "key": "id" }, { "name": "Offer Id", "key": "offerId" }, { "name": "Offer Name", "key": "offerName" }, { "name": "Quantity", "key": "quantity" }, { "name": "Effective Start Date", "key": "effectiveStartDate" }, { "name": "Effective End Date", "key": "commitmentEndDate" }, { "name": "Status", "key": "status" }, { "name": "Billing Cycle", "key": "billingCycle" }, { "name": "Duration", "key": "termDuration" }] }, { "id": 1903, "leafTitle": "Monthly Bills", "type": "datatable", "apiKey": "cspCustomerMonthlyBillLineItemsAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 20, "noDataText": "No Csp Customer Monthly bills Available", "hideToolBar": false, "columns": [{ "name": "Subscription Id", "key": "subscriptionId", "display": false }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Unit", "key": "unit" }, { "name": "Mapping", "key": "rateMapping" }, { "name": "Rate [INR]", "key": "rate" }, { "name": "CSP Shared Rate [INR]", "key": "cspSharedRate" }, { "name": "Quantity", "key": "quantity" }, { "name": "Agreed Cost [INR]", "key": "actualCost" }, { "name": "CSP Cost [INR]", "key": "cspCost" }] }, { "id": 1904, "leafTitle": "Monthly Detail Bills", "type": "datatable", "apiKey": "cspCustomerMonthlyBillLineItemsDetailsAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 20, "noDataText": "No Csp Customer Monthly bills Available", "hideToolBar": false, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Un-Mapped Rate Card Lines", "modalTitle": "Add Un-Mapped Rate Card Lines", "componentsAPIKey": "addUnMappedCspRatePacksComponentAPI", "actionIcon": "ImportExportIcon", "drillParams": [{ "key": "effectiveRate", "value": "5" }] }], "columns": [{ "name": "Start Date", "key": "startDate", "display": false }, { "name": "End Date", "key": "endDate", "display": false }, { "name": "Subscription Id", "key": "subscriptionId", "display": false }, { "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId", "display": false }, { "name": "Region", "key": "region" }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Unit", "key": "unit" }, { "name": "Pack Name", "key": "packName" }, { "name": "Resource URI", "key": "resourceUri", "display": false }, { "name": "Group", "key": "resourceGroup" }, { "name": "Resource", "key": "resourceName" }, { "name": "Mapping", "key": "rateMapping" }, { "name": "Rate [INR]", "key": "rate" }, { "name": "CSP Shared Rate [INR]", "key": "cspSharedRate" }, { "name": "Effective Rate [INR]", "key": "effectiveRate", "display": false }, { "name": "Quantity", "key": "quantity" }, { "name": "Agreed Cost [INR]", "key": "actualCost" }, { "name": "CSP Cost [INR]", "key": "cspCost" }, { "name": "Rate Card", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Add Rate Card", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId", "display": false }, { "key": "customerId", "display": false }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "unit" }, { "key": "effectiveRate" }, { "key": "cspSharedRate" }], "componentsAPIKey": "addCSPRateCardLineComponentAPI" }, { "name": "Edit Record", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Record", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "startDate", "display": true }, { "key": "endDate", "display": true }, { "key": "tenantId", "display": true }, { "key": "customerId", "display": true }, { "key": "subscriptionId", "display": true }, { "key": "resourceName", "display": true }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "resourceUri", "display": false }, { "key": "unit" }, { "key": "rate" }, { "key": "actualCost" }, { "key": "quantity" }], "componentsAPIKey": "editCSPCostRecordComponentAPI" }, { "name": "Associate Rate Pack", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Associate Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "startDate", "display": true }, { "key": "endDate", "display": true }, { "key": "tenantId", "display": true }, { "key": "customerId", "display": true }, { "key": "subscriptionId", "display": true }, { "key": "resourceName", "display": true }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "resourceUri", "display": false }, { "key": "unit" }, { "key": "rate" }, { "key": "actualCost" }, { "key": "quantity" }], "componentsAPIKey": "associateRatePackComponentAPI" }] }, {
+                    "id": 1906, "role": "ROOT_ADMIN,ADMIN,POWER_USER", "leafTitle": "Rate Pack", "type": "datatable", "apiKey": "cspRatePackListAPI", "size": 12, "hideToolBar": false, "noDataText": "Rate packs not available", "metrics": {}, "defaultRowPerPage": 10, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Rate Pack", "modalTitle": "Add Rate Pack", "componentsAPIKey": "addEditCspRatePackCardComponentAPI", "actionIcon": "AddBox", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Re-generate Bills", "modalTitle": "Re-generate Bills", "componentsAPIKey": "regenerateCspBillComponentAPI", "actionIcon": "EditPencil", "drillParams": [{}] }], "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Pack Name", "key": "packName" }, { "name": "Created Date", "key": "createdDate" }, { "name": "Updated Date", "key": "updatedDate" }, { "name": "Version", "key": "version" },
+                    { "name": "Rate", "key": "rate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRatePackAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "createdDate" }] }, { "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "rate" }], "componentsAPIKey": "addEditCspRatePackCardComponentAPI" }]
+                }]
+            }]
+        }]
+    }];
+}
+
 
 function envSelectionComponentData() {
     return [
@@ -3212,7 +3281,7 @@ app.post('/api/testMetric', function (req, res) {
             "noance": true,
             "scheduled": 'will be scheduled in few days',
             "comments": 'Need manual intervention',
-            "review": 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ',
+            "review": 'Lorem Ipsum is simply dummy text',
             "liability": 'Not accepted',
             "scheduled": 'will be scheduled in few days',
             "isSelectedDefault": true,
@@ -3227,7 +3296,7 @@ app.post('/api/testMetric', function (req, res) {
             "costDailyAverage": 371.197,
             "costCurrent": 2822.31,
             "comments": 'Fully automated and reliadble',
-            "review": "There are many variations of passages of Lorem Ipsum available,",
+            "review": "There are many variations",
             "liability": 'Accepted',
             "costMtm": 3935.91,
             "noance": false,
@@ -3239,13 +3308,13 @@ app.post('/api/testMetric', function (req, res) {
             "alertType": "warning",
             "current": "r66.medium",
             "suggested": "re3.medium",
-            "comments": 'Yes, python 2XX is dead and 3 will rise as in 2020',
+            "comments": 'Yes, python 2XX is dead',
             "liability": 'partially declined',
             "instanceId": 'y-fsdgff31824280',
             "usageDate": "2014-09-30",
             "costDailyAverage": 4321.197,
             "costCurrent": 43243.43,
-            "review": "discovered the undoubtable source. Lorem Ipsum",
+            "review": "discovered source. Lorem Ipsum",
             "costMtm": 424.43,
             "noance": true,
             "scheduled": 'will be scheduled in an hour',
@@ -4174,20 +4243,20 @@ app.post('/api/auth/login', function (req, res) {
     let responseStatus = 400;
     if (req.body.email === 'zxc' && req.body.password === 'zxc') {
         data =
-            {
-                'authToken': 'eye.RefresheyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-                'tokenExpiration': Math.floor(Date.now() / 1000) + 60,
-                'refreshToken': 'this-is-local-refresh-token',
-                'userId': '999',
-                'firstName': 'Harry',
-                'lastName': 'Smith',
-                'accountNumber': '89861328498',
-                'email': 'business.user.213@gmail.com',
-                'accountType': 'PRO',
-                "roles": "ROOT_ADMIN",
-                "environmentSelection": false,
-                "envList": ['1', '2'],
-            };
+        {
+            'authToken': 'eye.RefresheyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+            'tokenExpiration': Math.floor(Date.now() / 1000) + 6000,
+            'refreshToken': 'this-is-local-refresh-token',
+            'userId': '999',
+            'firstName': 'Harry',
+            'lastName': 'Smith',
+            'accountNumber': '89861328498',
+            'email': 'business.user.213@gmail.com',
+            'accountType': 'PRO',
+            "roles": "ROOT_ADMIN",
+            "environmentSelection": false,
+            "envList": ['1', '2'],
+        };
         responseStatus = 200;
     }
 
@@ -4757,6 +4826,9 @@ app.post('/api/scenario', function (req, res) {
         case "AdministrationDashboard":
             data = getAdministrationDashboard();
             break;
+        case "AzureCspDashboard":
+            data = getAzureCspData();
+            break;
         case "Manage Users":
             data = getManageUsersData();
             break;
@@ -4859,7 +4931,7 @@ app.post('/api/scenario', function (req, res) {
 app.post('/api/scenario/modal', function (req, res) {
     addDelay();
     var data = [];
-
+    console.log('Modal:', req.query.name);
     switch (req.query.name) {
         case 'InstanceStateChangeModal':
         case 'InstanceTypeChangeModal':
@@ -5057,7 +5129,7 @@ app.post('/api/scenario/modal', function (req, res) {
         case 'AddEditUserModal':
             data = [
                 {
-                    actionAPIKey: 'updateUserAPI',
+                    actionAPIKey: 'addEditEnvironmentAPI',
                     leafs: [
                         {
                             id: 1,
@@ -5131,21 +5203,70 @@ app.post('/api/scenario/modal', function (req, res) {
                     leafs: [
                         {
                             "id": 1,
-                            "leafTitle": "Idle Instances",
+                            "leafTitle": "Manage Cloud Connections",
                             "size": 12,
-                            "type": "nested-field-selector",
-                            "apiKey": "listElbMetricListAPI",
-                            "defSelectKey": "idleInstances",
-                            inputList: [
+                            "type": "nested-multi-dropdown-field-with-input",
+                            "apiKey": "cloudConnectionsAPI",
+
+                            "defSelectKey": "cloudConnections",
+                            'componentList': [
+                                {
+                                    "id": 'd1',
+                                    "title": "Project",
+                                    "size": 1.5,
+                                    "type": 'select',
+                                    "apiKey": "listRegionAPI",
+                                    "defSelectKey": "listRegionSel",
+                                    "helperText": "Please select Project",
+                                    "metrics": {
+                                        "types": [
+                                            "*"
+                                        ]
+                                    },
+                                },
+                                {
+                                    "id": 'd2',
+                                    "title": "VM Group",
+                                    "type": 'select',
+                                    "size": 1.5,
+                                    "apiKey": "listClusterAPI",
+                                    "defSelectKey": "listClusterSel",
+                                    "helperText": "Please select VM Group",
+                                    "metrics": {
+                                        "types": [
+                                            "*"
+                                        ]
+                                    },
+                                    "bindLeafData": { "id": 'd1', },
+                                },
+                                {
+                                    "id": 'd3',
+                                    "title": "Instance",
+                                    "type": 'select',
+                                    "size": 1.5,
+                                    "apiKey": "listInstanceTypeAPI",
+                                    "defSelectKey": "listInstanceSel",
+                                    "helperText": "Please select Instance",
+                                    "metrics": {
+                                        "types": [
+                                            "*"
+                                        ]
+                                    },
+                                    "bindLeafData": { "id": 'd2', },
+                                },
                                 {
                                     id: "v1",
-                                    label: "Exclude",
-                                    disableWhenId: 'v2',
+                                    type: 'input',
+                                    "size": 4,
+                                    subType: 'number',
+                                    label: "Replicas",
                                 },
                                 {
                                     id: "v2",
-                                    label: "Include",
-                                    disableWhenId: 'v1',
+                                    type: 'input',
+                                    "size": 4,
+                                    subType: 'number',
+                                    label: "Nodes",
                                 }
                             ],
                             "metrics": {},
@@ -5313,13 +5434,15 @@ app.post('/api/instance/singular', function (req, res) {
 app.post('/api/action/instancetype', function (req, res) {
     addDelay();
 
-    var data = [
-        { name: 't1.small', key: 't1.small' },
-        { name: 't8.medium', key: 't8.medium' },
-        { name: 't5.medium', key: 't5.medium' },
-        { name: 't5.large', key: 't5.large' },
-        { name: 't5.small', key: 't5.small' },
-        { name: 't2.large', key: 't2.large' },
+    let types = req.body.types ? req.body.types[0] : 'test';
+
+    let data = [
+        { name: `${types}-t1.small`, key: `${types}-t1.small` },
+        { name: `${types}-t8.medium`, key: `${types}-t8.medium` },
+        { name: `${types}-t5.medium`, key: `${types}-t5.medium` },
+        { name: `${types}-t5.large`, key: `${types}-t5.large` },
+        { name: `${types}-t5.small`, key: `${types}-t5.small` },
+        { name: `${types}-t2.large`, key: `${types}-t2.large` },
 
     ];
 
@@ -5338,7 +5461,7 @@ app.post('/api/action/regionlist', function (req, res) {
     var data = [
         { name: 'US-EAST-region', key: 'us-east' },
         { name: 'US-West-region', key: 'us-west', selected: true },
-        { name: 'AP-North-region', key: 'us-north' },
+        { name: 'US-North-region', key: 'us-north' },
     ];
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -5351,11 +5474,10 @@ app.post('/api/action/regionlist', function (req, res) {
 
 app.post('/api/action/clusters', function (req, res) {
     addDelay();
+    let data = [];
+    let types = req.body.types ? req.body.types[0] : 'test';
 
-    var data = [];
-
-
-    switch (req.body.types[0]) {
+    switch (types) {
         case 'us-east':
             data = [
                 { name: 'East-1231', key: 'east-1231' },
@@ -5380,6 +5502,13 @@ app.post('/api/action/clusters', function (req, res) {
                 { name: 'West-45654', key: 'west-45654', },
             ];
             break;
+        default:
+            data = [
+                { name: 'West-1231', key: 'west-1231' },
+                { name: 'West-645475', key: 'west-645475', },
+                { name: 'West-98576', key: 'west-98576', selected: true },
+                { name: 'West-45654', key: 'west-45654', },
+            ];
     };
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -5731,44 +5860,8 @@ app.post('/api/user/deleteuser', function (req, res) {
 app.post('/api/user/navs', function (req, res) {
 
     var data = {
-        defalultLandingLink: '/schedule',
-        navigations: [
-            { name: 'Admin', link: '/admin', icon: 'InboxIcon', isSetting: true, page: 'FlamingoPage' },
-
-            { name: 'Cost Dashboard', link: '/costdashboard', icon: 'InboxIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Cost Details', link: '/costdetails', icon: 'InboxIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Recommendation Dashboard', link: '/recommendationdashboard', icon: 'ReceiptIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Recommendation Details', link: '/recommendationdetails', icon: 'ReceiptIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Action Dashboard', link: '/actiondashboard', icon: 'ReceiptIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Action Details', link: '/actiondetails', icon: 'ReceiptIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Alert Dashboard', link: '/alertsdashboard', icon: 'AddAlert', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Alerts Details', link: '/alertsdetails', icon: 'AddAlert', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Utilization Dashboard', link: '/utilizationdashboard', icon: 'ShowChart', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Utilization Details', link: '/utilizationdetailsdashboard', icon: 'ShowChart', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Container Dashboard', link: '/containerdashboard', icon: 'StarIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Container Details', link: '/containerdetails', icon: 'StarIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Application Dashboard', link: '/application', icon: 'StarIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Application Details', link: '/applicationdetails', icon: 'StarIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-            { name: 'Startup/shutdown', link: '/schedule', icon: 'SendIcon', isSetting: false, page: 'Schedule' },
-            { name: 'ASG Schedule', link: '/asg-schedule', icon: 'StarIcon', isSetting: false, page: 'Schedule' },
-            { name: 'New Group', link: '/newgroup', icon: 'InboxIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' },
-
-            { link: '/summary', page: 'Dashboard', },
-            { link: '/report', page: 'Dashboard', },
-            { link: '/alerts', page: 'Dashboard', },
-            { link: '/group', page: 'Group', },
-            { link: '/EC2Instance', page: 'EC2Instance', },
-            { link: '/containers', page: 'ContainerPage', },
-            { link: '/applicationcassandra', page: 'ApplicationCassandra', },
-            { link: '/components', page: 'ComponentsPage', },
-
-            { link: '/detail/:id', page: 'DetailView', },
-            { link: '/drill', page: 'DetailView', },
-
-            /***** Keep public exposed URL(s) at very bottom *****/
-            { link: '/login', page: 'Login', },
-            { link: '/register', page: 'RegisterPage', },
-        ]
+        "defalultLandingLink": "/costdashboard", "navigations": [{ "name": "Administration", "link": "/admin", "icon": "InboxIcon", "isSetting": true, "page": "FlamingoPage", "role": "ROOT_ADMIN,ADMIN" }, { "name": "Cost Dashboard", "link": "/costdashboard", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Cost Details", "link": "/costdetails", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Business Service Dashboard", "link": "/businessservicedashboard", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "CSP Dashboard", "link": "/azurecspdashboard", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Recommendation Dashboard", "link": "/recommendationdashboard", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Recommendation Details", "link": "/recommendationdetails", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Action Dashboard", "link": "/actiondashboard", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Action Details", "link": "/actiondetails", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Alert Dashboard", "link": "/alertsdashboard", "icon": "AddAlert", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Alerts Details", "link": "/alertsdetails", "icon": "AddAlert", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Utilization Dashboard", "link": "/utilizationdashboard", "icon": "ShowChart", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Utilization Details", "link": "/utilizationdetailsdashboard", "icon": "ShowChart", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Container Dashboard", "link": "/containerdashboard", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Container Details", "link": "/containerdetails", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Application Dashboard", "link": "/application", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Application Details", "link": "/applicationdetails", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { name: 'ASG Schedule', link: '/asg-schedule', icon: 'StarIcon', isSetting: false, page: 'Schedule' },
+        { name: 'New Group', link: '/newgroup', icon: 'InboxIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' }, { "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
     };
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -6121,8 +6214,8 @@ app.post('/api/cloud-providers', function (req, res) {
 app.post('/api/auth/auth-entity', function (req, res) {
     req.body.email
     var data = {
-        type: 'OKTA',
-        authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1rmq2yunQt5BnD357&response_type=id_token&scope=openid&redirect_uri=https://acquila-clouds.firebaseapp.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
+        type: 'LOCAL',
+        authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1r9u7oni7kCn08357&response_type=id_token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A9000&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
     };
 
     res.header("Access-Control-Allow-Origin", "*");
@@ -6136,7 +6229,7 @@ app.post('/api/auth/auth-entity', function (req, res) {
 app.post('/api/auth/exchange-token', function (req, res) {
     const data =
     {
-        'authToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgT2t0YSIsImlhdCI6MTUxNjIzOTAyMn0.o7Xd3bWYtjTFUVBLSOVWLSWS03rOxd8zXJJrQtYPDqA',
+        'authToken': req.body.sourceToken,
         'tokenExpiration': Math.floor(Date.now() / 1000) + 60,
         'refreshToken': 'this-is-local-refresh-token',
         'userId': '999',
@@ -6164,7 +6257,7 @@ app.post('/api/auth/refresh-token', function (req, res) {
     const data =
     {
         'authToken': 'eye.Refresh.OiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgT2t0YSIsImlhdCI6MTUxNjIzOTAyMn0.o7Xd3bWYtjTFUVBLSOVWLSWS03rOxd8zXJJrQtYPDqA',
-        'tokenExpiration': Math.floor(Date.now() / 1000) + 60,
+        'tokenExpiration': Math.floor(Date.now() / 1000) + 900,
         'refreshToken': 'this-is-local-refresh-token',
         'userId': '999',
         'firstName': 'Harry',
@@ -6185,6 +6278,127 @@ app.post('/api/auth/refresh-token', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
+
+app.post('/api/cloud-connections', function (req, res) {
+    const data =
+        [
+            {
+                "appearDefault": true,
+                "defaultValues": { 'd1': "us-east", 'd2': "west-45654", 'd3': "t5.large", 'v1': '10', 'v2': '20', },
+            },
+            {
+                "appearDefault": true,
+                "defaultValues": { 'd1': "us-central", 'd2': "west-2132", 'd3': "t5.small", 'v1': '30', 'v2': '40' },
+            },
+            {
+                "appearDefault": true,
+                "defaultValues": { 'd1': "us-north", 'd2': "west-7645", 'd3': "t5.medium", 'v1': '50', 'v2': '60', },
+            },
+        ]
+    responseStatus = 200;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
+app.post('/api/csp/customers', function (req, res) {
+    const data = [{ "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "companyName": "DOAGOM (ATMA)", "domain": "DOAGOM.onmicrosoft.com", "subscriptionCount": 8 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "f92ba573-65dc-4d23-920a-89179cc32668", "companyName": "Servion", "domain": "servion.onmicrosoft.com", "subscriptionCount": 6 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "0336464a-c425-408c-a568-15c3416a24b8", "companyName": "Max Healthcare Institute Ltd", "domain": "MaxHealthcareInstituteL.onmicrosoft.com", "subscriptionCount": 5 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "d6b4b447-7721-47a6-a67d-c41e7624bc14", "companyName": "BCT Consulting Pvt. Ltd", "domain": "bctconsultingindia.onmicrosoft.com", "subscriptionCount": 5 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "0632aefb-7e51-4308-a170-4eb69380b706", "companyName": "ISGEC Heavy Engineering Limited", "domain": "isgecfw.com", "subscriptionCount": 4 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "30798b3a-e358-4f4f-9414-529ce291627b", "companyName": "Sify AIS2 Azure", "domain": "sifyais2.onmicrosoft.com", "subscriptionCount": 4 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "ff2f6a94-f828-45f7-8ff5-86f2441ad15c", "companyName": "Insurance Information Bureau Of India", "domain": "iiboi.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "423d44a8-0004-4c25-8ae8-f69f14afbad8", "companyName": "Goltens India Pvt Ltd", "domain": "goltens.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "aefe51b0-2009-4c72-987d-03988faf99d6", "companyName": "Indian Institute of Astrophysics", "domain": "itmtiiap.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "9fb7f5de-057b-4b00-b650-143febd38178", "companyName": "OnProcess Technology India Pvt Ltd", "domain": "OPTIndia.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "1775da10-eb53-4c45-9248-7ccb96c2b22b", "companyName": "JMT AUTO LTD", "domain": "JmtautoIndia.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "06abe061-90f9-4146-a042-44526d16cf6f", "companyName": "HarshRoongta.com", "domain": "harshroongta.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "2b385a20-90f8-44b9-a5fa-d5db68c336c8", "companyName": "Bangalore Baptist Hospital", "domain": "bbhin.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "6f2aecdd-87bf-4682-b47d-6d01f9718cf5", "companyName": "Calyx Spaces LLP", "domain": "calyxgroupllp.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "0951bc8d-d7bc-40d0-9668-9119a55ad78c", "companyName": "Advent Global Solutions Ltd.", "domain": "adventglobal.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "8bb87ac6-0fc6-4ed0-b080-d28833a09ebb", "companyName": "Abdos Lamitubes Private Limited", "domain": "abdosindia.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "e3ea4141-2678-4a2c-8af0-996c385d004e", "companyName": "Intellect Design Arena Limited", "domain": "Intellectdesignarena.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "d42e2961-bb47-4d71-bcc2-535fb99917ca", "companyName": "Baazar Retail Ltd.", "domain": "baazarkolkata.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "9afff424-8480-46bb-85b2-ae981fdb1cff", "companyName": "Vishal Megamart", "domain": "VishalMegamartIn.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "f741ba45-5916-44ea-93f1-936f94303831", "companyName": "SifyBLRAzureStack", "domain": "SifyBLRAzureStack.onmicrosoft.com", "subscriptionCount": 2 }];
+
+    responseStatus = 200;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/csp/customer/approvedratecardlist', function (req, res) {
+    const data = [{ "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Standard SSD Managed Disks", "name": "Disk Operations", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 0.1349, "effectiveDate": "2019-12-26T10:21:38.639", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Virtual Machines", "subCategory": "BS Series Windows", "name": "B8ms", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 35.799, "effectiveDate": "2019-12-26T10:21:38.638", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Standard HDD Managed Disks", "name": "LRS Snapshots", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 3.3709, "effectiveDate": "2019-12-26T10:21:38.64", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Virtual Machines", "subCategory": "BS Series", "name": "B2s", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 3.9776, "effectiveDate": "2019-12-26T10:21:38.638", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Standard Page Blob", "name": "Disk Read Operations", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 0.0242, "effectiveDate": "2019-12-26T10:21:38.641", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Tables", "name": "LRS Data Stored", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 3.3372, "effectiveDate": "2019-12-26T10:21:38.642", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "General Block Blob", "name": "Read Operations", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 0.0242, "effectiveDate": "2019-12-26T10:21:38.64", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Standard SSD Managed Disks", "name": "E6 Disks", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 355.968, "effectiveDate": "2019-12-26T10:21:38.638", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Virtual Machines Licenses", "subCategory": "RHEL for SAP HANA", "name": "4 vCPU VM License", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 4.759, "effectiveDate": "2019-12-26T10:21:38.638", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Standard HDD Managed Disks", "name": "S6 Disks", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 223.0733, "effectiveDate": "2019-12-26T10:21:38.639", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Virtual Machines", "subCategory": "F/FS Series", "name": "F4/F4s", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 14.7646, "effectiveDate": "2019-12-26T10:21:38.638", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Standard Page Blob", "name": "LRS Write Operations", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 0.0242, "effectiveDate": "2019-12-26T10:21:38.64", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Virtual Machines Licenses", "subCategory": "Red Hat Enterprise Linux", "name": "1-4 vCPU VM License", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 4.0451, "effectiveDate": "2019-12-26T10:21:38.638", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Standard HDD Managed Disks", "name": "S4 Disks", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 113.9098, "effectiveDate": "2019-12-26T10:21:38.639", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Virtual Network", "subCategory": "Global Peering", "name": "Ingress", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 6.0677, "effectiveDate": "2019-12-26T10:21:38.643", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Tables", "name": "Read Operations", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 0.0242, "effectiveDate": "2019-12-26T10:21:38.643", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Storage", "subCategory": "Standard SSD Managed Disks", "name": "E40 Disks", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 10355.4317, "effectiveDate": "2019-12-26T10:21:38.638", "status": true }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "region": "Any", "meterId": "Any", "category": "Virtual Network", "subCategory": "IP Addresses", "name": "Static Public IP", "packName": "Default", "count": 1, "currency": "INR", "interval": "Default", "unitRate": 0.2428, "effectiveDate": "2019-12-26T10:21:38.639", "status": true }];
+
+    responseStatus = 200;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
+app.post('/api/csp/customer/subscriptions', function (req, res) {
+    const data = [{ "id": "5feaee19-f8bc-4e00-85b5-0e9fb8f74825", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-12-09T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "1c3a7483-f3fe-4553-afb8-cc169002f114", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "248644f5-5d49-4089-a9b1-cc678b6f3c22", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "deleted", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "2c8f50c0-075c-405f-94d3-01038eb7d6e8", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "62379adc-124b-4f58-8739-60160bb0dadc", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "957cf25f-d430-452f-a31c-05f84e6a1e70", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "1c161303-a6be-4b7e-bd95-bc8ba298b694", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "d2e7061b-5b71-4911-8b1b-1929a2378222", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-03-28T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }];
+
+    responseStatus = 200;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/csp/customer/subscriptions', function (req, res) {
+    const data = [];
+
+    responseStatus = 200;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/csp/customer/mothlybilllineitems', function (req, res) {
+    const data = [{ "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "62379adc-124b-4f58-8739-60160bb0dadc", "region": "", "category": "Virtual Machines", "subCategory": "Dv3/DSv3 Series", "name": "D4 v3/D4s v3", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 16.5848, "effectiveRate": null, "cspSharedRate": 13.8207, "vcore": null, "vcpu": 4.0, "memory": 16.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 1439.8834, "actualCost": 23880.18, "cspCost": 19900.23, "samples": 64, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c3a7483-f3fe-4553-afb8-cc169002f114", "region": "", "category": "Virtual Machines", "subCategory": "F/FS Series", "name": "F4/F4s", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 14.7646, "effectiveRate": null, "cspSharedRate": 12.3038, "vcore": null, "vcpu": 4.0, "memory": 8.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 1441.7334, "actualCost": 21286.62, "cspCost": 17738.82, "samples": 65, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c161303-a6be-4b7e-bd95-bc8ba298b694", "region": "", "category": "Virtual Machines", "subCategory": "BS Series Windows", "name": "B8ms", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 35.799, "effectiveRate": null, "cspSharedRate": 29.8325, "vcore": null, "vcpu": 8.0, "memory": 32.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 589.45, "actualCost": 21101.72, "cspCost": 17584.79, "samples": 29, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c161303-a6be-4b7e-bd95-bc8ba298b694", "region": "", "category": "Virtual Machines", "subCategory": "BS Series", "name": "B2ms", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 8.0227, "effectiveRate": null, "cspSharedRate": 6.6856, "vcore": null, "vcpu": 2.0, "memory": 8.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 1470.7015, "actualCost": 11799.0, "cspCost": 9832.57, "samples": 69, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c161303-a6be-4b7e-bd95-bc8ba298b694", "region": "", "category": "Storage", "subCategory": "Standard SSD Managed Disks", "name": "E40 Disks", "unit": "1/Month", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 10355.4317, "effectiveRate": null, "cspSharedRate": 8629.5264, "vcore": null, "vcpu": null, "memory": null, "diskSize": 68.272128, "maxDiskSize": 2048.0, "minDiskSize": 1024.0, "minIOPS": 500.0, "maxIOPS": 500.0, "quantity": 0.8126, "actualCost": 8414.46, "cspCost": 7012.05, "samples": 26, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c3a7483-f3fe-4553-afb8-cc169002f114", "region": "", "category": "Virtual Machines Licenses", "subCategory": "RHEL for SAP HANA", "name": "4 vCPU VM License", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 4.759, "effectiveRate": null, "cspSharedRate": 3.9658, "vcore": null, "vcpu": null, "memory": null, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 1443.7334, "actualCost": 6870.73, "cspCost": 5725.52, "samples": 66, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c161303-a6be-4b7e-bd95-bc8ba298b694", "region": "", "category": "Virtual Machines Licenses", "subCategory": "Red Hat Enterprise Linux", "name": "1-4 vCPU VM License", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 4.0451, "effectiveRate": null, "cspSharedRate": 3.3709, "vcore": null, "vcpu": null, "memory": null, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 1489.7015, "actualCost": 6025.99, "cspCost": 5021.65, "samples": 68, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "62379adc-124b-4f58-8739-60160bb0dadc", "region": "", "category": "Virtual Machines Licenses", "subCategory": "Red Hat Enterprise Linux", "name": "1-4 vCPU VM License", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 4.0451, "effectiveRate": null, "cspSharedRate": 3.3709, "vcore": null, "vcpu": null, "memory": null, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 1416.8834, "actualCost": 5731.44, "cspCost": 4776.18, "samples": 62, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c3a7483-f3fe-4553-afb8-cc169002f114", "region": "", "category": "Azure Site Recovery", "subCategory": "", "name": "VM Replicated to Azure", "unit": "1/Month", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 1685.4544, "effectiveRate": null, "cspSharedRate": 1404.5453, "vcore": null, "vcpu": null, "memory": null, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 1.9355, "actualCost": 3262.17, "cspCost": 2718.47, "samples": 30, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c3a7483-f3fe-4553-afb8-cc169002f114", "region": "", "category": "Storage", "subCategory": "Standard HDD Managed Disks", "name": "S20 Disks", "unit": "1/Month", "rateMapping": "Mapped", "resourceUri": null, "resourceName": null, "resourceGroup": null, "rate": 1613.7215, "effectiveRate": null, "cspSharedRate": 1344.7679, "vcore": null, "vcpu": null, "memory": null, "diskSize": 17.068032, "maxDiskSize": 512.0, "minDiskSize": 256.0, "minIOPS": 500.0, "maxIOPS": 500.0, "quantity": 1.9696, "actualCost": 3178.39, "cspCost": 2648.66, "samples": 67, "packName": "Default" }];
+
+    responseStatus = 200;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/csp/customer/mothlybillldetailineitems', function (req, res) {
+    const data = [{ "startDate": "2019-12-01T00:00:00.000+0000", "endDate": "2020-01-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c161303-a6be-4b7e-bd95-bc8ba298b694", "region": "insouth", "category": "Virtual Machines", "subCategory": "BS Series Windows", "name": "B8ms", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": "/subscriptions/1c161303-a6be-4b7e-bd95-bc8ba298b694/resourceGroups/panchnama-photographs/providers/Microsoft.Compute/virtualMachines/PanchnamaVM", "resourceName": "PanchnamaVM", "resourceGroup": "panchnama-photographs", "rate": 35.799, "effectiveRate": 35.799, "cspSharedRate": 29.8325, "vcore": null, "vcpu": 8.0, "memory": 32.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 775.7502, "actualCost": 27771.08, "cspCost": 23142.6, "samples": 42, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "1c161303-a6be-4b7e-bd95-bc8ba298b694", "region": "insouth", "category": "Virtual Machines", "subCategory": "BS Series Windows", "name": "B8ms", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": "/subscriptions/1c161303-a6be-4b7e-bd95-bc8ba298b694/resourceGroups/panchnama-photographs/providers/Microsoft.Compute/virtualMachines/PanchnamaVM", "resourceName": "PanchnamaVM", "resourceGroup": "panchnama-photographs", "rate": 35.799, "effectiveRate": 35.799, "cspSharedRate": 29.8325, "vcore": null, "vcpu": 8.0, "memory": 32.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 589.45, "actualCost": 21101.72, "cspCost": 17584.79, "samples": 29, "packName": "Default" }, { "startDate": "2019-12-01T00:00:00.000+0000", "endDate": "2020-01-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "62379adc-124b-4f58-8739-60160bb0dadc", "region": "inwest", "category": "Virtual Machines", "subCategory": "Dv3/DSv3 Series", "name": "D4 v3/D4s v3", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": "/subscriptions/62379adc-124b-4f58-8739-60160bb0dadc/resourceGroups/rg-rainfall/providers/Microsoft.Compute/virtualMachines/VMRainfallApp01", "resourceName": "VMRainfallApp01", "resourceGroup": "rg-rainfall", "rate": 16.5848, "effectiveRate": 16.5848, "cspSharedRate": 13.8207, "vcore": null, "vcpu": 4.0, "memory": 16.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 776.0, "actualCost": 12869.8, "cspCost": 10724.88, "samples": 41, "packName": "Default" }, { "startDate": "2019-12-01T00:00:00.000+0000", "endDate": "2020-01-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "62379adc-124b-4f58-8739-60160bb0dadc", "region": "inwest", "category": "Virtual Machines", "subCategory": "Dv3/DSv3 Series", "name": "D4 v3/D4s v3", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": "/subscriptions/62379adc-124b-4f58-8739-60160bb0dadc/resourceGroups/rg-rainfall/providers/Microsoft.Compute/virtualMachines/VMRainfallDB01", "resourceName": "VMRainfallDB01", "resourceGroup": "rg-rainfall", "rate": 16.5848, "effectiveRate": 16.5848, "cspSharedRate": 13.8207, "vcore": null, "vcpu": 4.0, "memory": 16.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 750.0, "actualCost": 12438.6, "cspCost": 10365.54, "samples": 40, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "62379adc-124b-4f58-8739-60160bb0dadc", "region": "inwest", "category": "Virtual Machines", "subCategory": "Dv3/DSv3 Series", "name": "D4 v3/D4s v3", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": "/subscriptions/62379adc-124b-4f58-8739-60160bb0dadc/resourceGroups/rg-rainfall/providers/Microsoft.Compute/virtualMachines/VMRainfallApp01", "resourceName": "VMRainfallApp01", "resourceGroup": "rg-rainfall", "rate": 16.5848, "effectiveRate": 16.5848, "cspSharedRate": 13.8207, "vcore": null, "vcpu": 4.0, "memory": 16.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 721.9334, "actualCost": 11973.12, "cspCost": 9977.64, "samples": 33, "packName": "Default" }, { "startDate": "2019-11-01T00:00:00.000+0000", "endDate": "2019-12-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "62379adc-124b-4f58-8739-60160bb0dadc", "region": "inwest", "category": "Virtual Machines", "subCategory": "Dv3/DSv3 Series", "name": "D4 v3/D4s v3", "unit": "1 Hour", "rateMapping": "Mapped", "resourceUri": "/subscriptions/62379adc-124b-4f58-8739-60160bb0dadc/resourceGroups/rg-rainfall/providers/Microsoft.Compute/virtualMachines/VMRainfallDB01", "resourceName": "VMRainfallDB01", "resourceGroup": "rg-rainfall", "rate": 16.5848, "effectiveRate": 16.5848, "cspSharedRate": 13.8207, "vcore": null, "vcpu": 4.0, "memory": 16.0, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 717.95, "actualCost": 11907.06, "cspCost": 9922.59, "samples": 31, "packName": "Default" }, { "startDate": "2019-12-01T00:00:00.000+0000", "endDate": "2020-01-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "5feaee19-f8bc-4e00-85b5-0e9fb8f74825", "region": "inwest", "category": "Bandwidth", "subCategory": "", "name": "Data Transfer In", "unit": "1 GB", "rateMapping": "Mapped", "resourceUri": "/subscriptions/5feaee19-f8bc-4e00-85b5-0e9fb8f74825/resourceGroups/vm-agri-db01/providers/Microsoft.Compute/virtualMachines/VM-Agri-DB01", "resourceName": "VM-Agri-DB01", "resourceGroup": "vm-agri-db01", "rate": 0.0, "effectiveRate": 0.0, "cspSharedRate": 0.0, "vcore": null, "vcpu": null, "memory": null, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 0.0276, "actualCost": 0.0, "cspCost": 0.0, "samples": 18, "packName": "Default" }, { "startDate": "2019-12-01T00:00:00.000+0000", "endDate": "2020-01-01T00:00:00.000+0000", "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "subscriptionId": "62379adc-124b-4f58-8739-60160bb0dadc", "region": "inwest", "category": "Bandwidth", "subCategory": "", "name": "Data Transfer In", "unit": "1 GB", "rateMapping": "Mapped", "resourceUri": "/subscriptions/62379adc-124b-4f58-8739-60160bb0dadc/resourceGroups/rg-rainfall/providers/Microsoft.Compute/virtualMachines/VMRainfallApp01", "resourceName": "VMRainfallApp01", "resourceGroup": "rg-rainfall", "rate": 0.0, "effectiveRate": 0.0, "cspSharedRate": 0.0, "vcore": null, "vcpu": null, "memory": null, "diskSize": null, "maxDiskSize": null, "minDiskSize": null, "minIOPS": null, "maxIOPS": null, "quantity": 0.7959, "actualCost": 0.0, "cspCost": 0.0, "samples": 41, "packName": "Default" }];
+
+    responseStatus = 200;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/csp/customer/ratepacks', function (req, res) {
+    const data = [{ "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "packName": "SQL Rate Pack", "createdDate": "2019-12-26T12:54:12.266", "updatedDate": "2019-12-26T12:54:12.266", "version": 0, "rate": 50.0 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "packName": "Test Rate", "createdDate": "2019-12-26T13:43:05.992", "updatedDate": "2019-12-26T13:43:05.992", "version": 0, "rate": 100.0 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "packName": "TestPack2", "createdDate": "2019-12-27T05:45:58.141", "updatedDate": "2019-12-27T05:45:58.141", "version": 0, "rate": 11.0 }];
+
+    responseStatus = 200;
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
 
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
