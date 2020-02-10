@@ -15,10 +15,17 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
 function addDelay() {
     //for (let index = 0; index < 999999999; index++) { }
 }
 
+function setResponseHeaders(res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+    res.setHeader('Content-Type', 'application/json');
+}
 
 function getFlamingoData() {
     return data = [
@@ -1864,7 +1871,7 @@ function getGroupUIData() {
                 type: 'datatable',
                 apiKey: 'fetchGroupsAPI',
                 size: 12,
-                hideToolBar: true,
+                hideToolBar: false,
                 toolBarActions: [
                     {
                         toolbarTitle: 'Auto Group',
@@ -2020,15 +2027,337 @@ function manageGroup() {
 
 function getAzureCspData() {
     return [{
-        "nodeTitle": "Azure", "subNode": [{
-            "subNodeTitle": "Summary", "leafs": [{
-                "leafTitle": "Account Details", "type": "tab", "size": 12, "tabs": [{ "id": 1901, "leafTitle": "Customers", "type": "datatable", "apiKey": "cspCustomersListAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 10, "noDataText": "No Csp Customers Available", "hideToolBar": false, "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId" }, { "name": "Company Name", "key": "companyName" }, { "name": "Domain", "key": "domain" }, { "name": "Subscription Count", "key": "subscriptionCount" }, { "name": "Rate Card", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 1, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }, { "name": "Subscription Detail", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 2, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }, { "name": "Monthly Bills", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 3, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }, { "name": "Monthly Bill Details", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 4, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }] }, { "id": 1905, "role": "ROOT_ADMIN,ADMIN,POWER_USER", "leafTitle": "Rate Card", "type": "datatable", "apiKey": "cspCustomerApprovedRateCardListAPI", "size": 12, "hideToolBar": false, "noDataText": "Rate card not available", "metrics": {}, "defaultRowPerPage": 10, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Import Rate Packs", "modalTitle": "Import Rate Packs", "componentsAPIKey": "importCspRatePacksComponentAPI", "actionIcon": "ImportExportIcon", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Rate Card Line", "modalTitle": "Add Rate Card Line", "componentsAPIKey": "addEditCspRateCardLineComponentAPI", "actionIcon": "AddBox", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Re-generate Bills", "modalTitle": "Re-generate Bills", "componentsAPIKey": "regenerateCspBillComponentAPI", "actionIcon": "EditPencil", "drillParams": [{}] }], "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId" }, { "name": "Region", "key": "region" }, { "name": "Meter ID", "key": "meterId" }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Pack Name", "key": "packName" }, { "name": "Interval", "key": "interval" }, { "name": "Count", "key": "count" }, { "name": "Unit Rate", "key": "unitRate" }, { "name": "Effective Date", "key": "effectiveDate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRateCardLineAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "customerId" }, { "key": "region" }, { "key": "meterId" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "packName" }] }, { "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Card", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }, { "key": "region" }, { "key": "meterId" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "interval" }, { "key": "count" }, { "key": "unitRate" }, { "key": "effectiveDate" }, { "key": "packName" }], "componentsAPIKey": "addEditCspRateCardLineComponentAPI" }] }, { "id": 1902, "leafTitle": "Subscriptions", "type": "datatable", "apiKey": "cspCustomerSubscriptionListAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 10, "noDataText": "No Csp Customer subscriptions Available", "hideToolBar": false, "columns": [{ "name": "Subscription Id", "key": "id" }, { "name": "Offer Id", "key": "offerId" }, { "name": "Offer Name", "key": "offerName" }, { "name": "Quantity", "key": "quantity" }, { "name": "Effective Start Date", "key": "effectiveStartDate" }, { "name": "Effective End Date", "key": "commitmentEndDate" }, { "name": "Status", "key": "status" }, { "name": "Billing Cycle", "key": "billingCycle" }, { "name": "Duration", "key": "termDuration" }] }, { "id": 1903, "leafTitle": "Monthly Bills", "type": "datatable", "apiKey": "cspCustomerMonthlyBillLineItemsAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 20, "noDataText": "No Csp Customer Monthly bills Available", "hideToolBar": false, "columns": [{ "name": "Subscription Id", "key": "subscriptionId", "display": false }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Unit", "key": "unit" }, { "name": "Mapping", "key": "rateMapping" }, { "name": "Rate [INR]", "key": "rate" }, { "name": "CSP Shared Rate [INR]", "key": "cspSharedRate" }, { "name": "Quantity", "key": "quantity" }, { "name": "Agreed Cost [INR]", "key": "actualCost" }, { "name": "CSP Cost [INR]", "key": "cspCost" }] }, { "id": 1904, "leafTitle": "Monthly Detail Bills", "type": "datatable", "apiKey": "cspCustomerMonthlyBillLineItemsDetailsAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 20, "noDataText": "No Csp Customer Monthly bills Available", "hideToolBar": false, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Un-Mapped Rate Card Lines", "modalTitle": "Add Un-Mapped Rate Card Lines", "componentsAPIKey": "addUnMappedCspRatePacksComponentAPI", "actionIcon": "ImportExportIcon", "drillParams": [{ "key": "effectiveRate", "value": "5" }] }], "columns": [{ "name": "Start Date", "key": "startDate", "display": false }, { "name": "End Date", "key": "endDate", "display": false }, { "name": "Subscription Id", "key": "subscriptionId", "display": false }, { "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId", "display": false }, { "name": "Region", "key": "region" }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Unit", "key": "unit" }, { "name": "Pack Name", "key": "packName" }, { "name": "Resource URI", "key": "resourceUri", "display": false }, { "name": "Group", "key": "resourceGroup" }, { "name": "Resource", "key": "resourceName" }, { "name": "Mapping", "key": "rateMapping" }, { "name": "Rate [INR]", "key": "rate" }, { "name": "CSP Shared Rate [INR]", "key": "cspSharedRate" }, { "name": "Effective Rate [INR]", "key": "effectiveRate", "display": false }, { "name": "Quantity", "key": "quantity" }, { "name": "Agreed Cost [INR]", "key": "actualCost" }, { "name": "CSP Cost [INR]", "key": "cspCost" }, { "name": "Rate Card", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Add Rate Card", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId", "display": false }, { "key": "customerId", "display": false }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "unit" }, { "key": "effectiveRate" }, { "key": "cspSharedRate" }], "componentsAPIKey": "addCSPRateCardLineComponentAPI" }, { "name": "Edit Record", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Record", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "startDate", "display": true }, { "key": "endDate", "display": true }, { "key": "tenantId", "display": true }, { "key": "customerId", "display": true }, { "key": "subscriptionId", "display": true }, { "key": "resourceName", "display": true }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "resourceUri", "display": false }, { "key": "unit" }, { "key": "rate" }, { "key": "actualCost" }, { "key": "quantity" }], "componentsAPIKey": "editCSPCostRecordComponentAPI" }, { "name": "Associate Rate Pack", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Associate Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "startDate", "display": true }, { "key": "endDate", "display": true }, { "key": "tenantId", "display": true }, { "key": "customerId", "display": true }, { "key": "subscriptionId", "display": true }, { "key": "resourceName", "display": true }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "resourceUri", "display": false }, { "key": "unit" }, { "key": "rate" }, { "key": "actualCost" }, { "key": "quantity" }], "componentsAPIKey": "associateRatePackComponentAPI" }] }, {
-                    "id": 1906, "role": "ROOT_ADMIN,ADMIN,POWER_USER", "leafTitle": "Rate Pack", "type": "datatable", "apiKey": "cspRatePackListAPI", "size": 12, "hideToolBar": false, "noDataText": "Rate packs not available", "metrics": {}, "defaultRowPerPage": 10, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Rate Pack", "modalTitle": "Add Rate Pack", "componentsAPIKey": "addEditCspRatePackCardComponentAPI", "actionIcon": "AddBox", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Re-generate Bills", "modalTitle": "Re-generate Bills", "componentsAPIKey": "regenerateCspBillComponentAPI", "actionIcon": "EditPencil", "drillParams": [{}] }], "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Pack Name", "key": "packName" }, { "name": "Created Date", "key": "createdDate" }, { "name": "Updated Date", "key": "updatedDate" }, { "name": "Version", "key": "version" },
-                    { "name": "Rate", "key": "rate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRatePackAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "createdDate" }] }, { "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "rate" }], "componentsAPIKey": "addEditCspRatePackCardComponentAPI" }]
+        "nodeTitle": "Azure",
+        "subNode": [
+            {
+                "subNodeTitle": "Summary",
+                "leafs": [{
+                    "leafTitle": "Account Details", "type": "tab", "size": 12,
+                    "tabs": [
+                        {
+                            "id": 1901, "leafTitle": "Customers", "type": "datatable", "apiKey": "cspCustomersListAPI", "size": 12, selectableRows: 'multiple', "metrics": {}, "defaultRowPerPage": 10, "noDataText": "No Csp Customers Available", "hideToolBar": false,
+                            "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false },
+                            { "name": "Customer Id", "key": "customerId" },
+                            { "name": "Company Name", "key": "companyName" }, { "name": "Domain", "key": "domain" }, { "name": "Subscription Count", "key": "subscriptionCount" }, {
+                                "name": "Rate Card", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 1, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                "drillParams": [
+                                    {
+                                        "key": "tenantId",
+                                        "name": "Tenant Id",
+                                        "apiKey": "tenantId",
+                                        "visibility": { 'nodeIndex': '0', 'tabIndex': 1 },
+                                    },
+                                    {
+                                        "key": "customerId",
+                                        "apiKey": "customerId",
+                                        "name": "My Customer ID",
+                                        "metrics": {
+                                            "types": [
+                                                "*"
+                                            ]
+                                        },
+                                        "bindParam": { "bindWith": "tenantId" },
+                                    }
+                                ]
+                            },
+                            { "name": "Subscription Detail", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 2, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }, { "name": "Monthly Bills", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 3, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }] }, {
+                                "name": "Monthly Bill Details", "key": "action", "type": "drill-down",
+                                "drillTo": "drill", "tabIndex": 4, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                "drillParams": [
+                                    {
+                                        "key": "companyName",
+                                        "name": "Company Name",
+                                        "apiKey": "tenantId",
+                                        "visibility": { 'nodeIndex': '0', 'tabIndex': 4 },
+                                    },
+                                    {
+                                        "key": "customerId",
+                                        "apiKey": "customerId",
+                                        "name": "Monthly Bill Details Customer ID",
+                                        "visibility": { 'nodeIndex': '0' },
+                                        "metrics": {
+                                            "types": [
+                                                "*"
+                                            ]
+                                        },
+                                        "bindParam": { "bindWith": "companyName" },
+                                    }
+                                ]
+                            }]
+                        }, { "id": 1905, "role": "ROOT_ADMIN,ADMIN,POWER_USER", "leafTitle": "Rate Card", "type": "datatable", "apiKey": "cspCustomerApprovedRateCardListAPI", "size": 12, "hideToolBar": false, "noDataText": "Rate card not available", "metrics": {}, "defaultRowPerPage": 10, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Import Rate Packs", "modalTitle": "Import Rate Packs", "componentsAPIKey": "importCspRatePacksComponentAPI", "actionIcon": "ImportExportIcon", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Rate Card Line", "modalTitle": "Add Rate Card Line", "componentsAPIKey": "addEditCspRateCardLineComponentAPI", "actionIcon": "AddBox", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Re-generate Bills", "modalTitle": "Re-generate Bills", "componentsAPIKey": "regenerateCspBillComponentAPI", "actionIcon": "EditPencil", "drillParams": [{}] }], "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId" }, { "name": "Region", "key": "region" }, { "name": "Meter ID", "key": "meterId" }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Pack Name", "key": "packName" }, { "name": "Interval", "key": "interval" }, { "name": "Count", "key": "count" }, { "name": "Unit Rate", "key": "unitRate" }, { "name": "Effective Date", "key": "effectiveDate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRateCardLineAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "customerId" }, { "key": "region" }, { "key": "meterId" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "packName" }] }, { "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Card", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }, { "key": "region" }, { "key": "meterId" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "interval" }, { "key": "count" }, { "key": "unitRate" }, { "key": "effectiveDate" }, { "key": "packName" }], "componentsAPIKey": "addEditCspRateCardLineComponentAPI" }] }, { "id": 1902, "leafTitle": "Subscriptions", "type": "datatable", "apiKey": "cspCustomerSubscriptionListAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 10, "noDataText": "No Csp Customer subscriptions Available", "hideToolBar": false, "columns": [{ "name": "Subscription Id", "key": "id" }, { "name": "Offer Id", "key": "offerId" }, { "name": "Offer Name", "key": "offerName" }, { "name": "Quantity", "key": "quantity" }, { "name": "Effective Start Date", "key": "effectiveStartDate" }, { "name": "Effective End Date", "key": "commitmentEndDate" }, { "name": "Status", "key": "status" }, { "name": "Billing Cycle", "key": "billingCycle" }, { "name": "Duration", "key": "termDuration" }] }, { "id": 1903, "leafTitle": "Monthly Bills", "type": "datatable", "apiKey": "cspCustomerMonthlyBillLineItemsAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 20, "noDataText": "No Csp Customer Monthly bills Available", "hideToolBar": false, "columns": [{ "name": "Subscription Id", "key": "subscriptionId", "display": false }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Unit", "key": "unit" }, { "name": "Mapping", "key": "rateMapping" }, { "name": "Rate [INR]", "key": "rate" }, { "name": "CSP Shared Rate [INR]", "key": "cspSharedRate" }, { "name": "Quantity", "key": "quantity" }, { "name": "Agreed Cost [INR]", "key": "actualCost" }, { "name": "CSP Cost [INR]", "key": "cspCost" }] }, { "id": 1904, "leafTitle": "Monthly Detail Bills", "type": "datatable", "apiKey": "cspCustomerMonthlyBillLineItemsDetailsAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 20, "noDataText": "No Csp Customer Monthly bills Available", "hideToolBar": false, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Un-Mapped Rate Card Lines", "modalTitle": "Add Un-Mapped Rate Card Lines", "componentsAPIKey": "addUnMappedCspRatePacksComponentAPI", "actionIcon": "ImportExportIcon", "drillParams": [{ "key": "effectiveRate", "value": "5" }] }], "columns": [{ "name": "Start Date", "key": "startDate", "display": false }, { "name": "End Date", "key": "endDate", "display": false }, { "name": "Subscription Id", "key": "subscriptionId", "display": false }, { "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId", "display": false }, { "name": "Region", "key": "region" }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Unit", "key": "unit" }, { "name": "Pack Name", "key": "packName" }, { "name": "Resource URI", "key": "resourceUri", "display": false }, { "name": "Group", "key": "resourceGroup" }, { "name": "Resource", "key": "resourceName" }, { "name": "Mapping", "key": "rateMapping" }, { "name": "Rate [INR]", "key": "rate" }, { "name": "CSP Shared Rate [INR]", "key": "cspSharedRate" }, { "name": "Effective Rate [INR]", "key": "effectiveRate", "display": false }, { "name": "Quantity", "key": "quantity" }, { "name": "Agreed Cost [INR]", "key": "actualCost" }, { "name": "CSP Cost [INR]", "key": "cspCost" }, { "name": "Rate Card", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Add Rate Card", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId", "display": false }, { "key": "customerId", "display": false }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "unit" }, { "key": "effectiveRate" }, { "key": "cspSharedRate" }], "componentsAPIKey": "addCSPRateCardLineComponentAPI" }, { "name": "Edit Record", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Record", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "startDate", "display": true }, { "key": "endDate", "display": true }, { "key": "tenantId", "display": true }, { "key": "customerId", "display": true }, { "key": "subscriptionId", "display": true }, { "key": "resourceName", "display": true }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "resourceUri", "display": false }, { "key": "unit" }, { "key": "rate" }, { "key": "actualCost" }, { "key": "quantity" }], "componentsAPIKey": "editCSPCostRecordComponentAPI" }, { "name": "Associate Rate Pack", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Associate Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "startDate", "display": true }, { "key": "endDate", "display": true }, { "key": "tenantId", "display": true }, { "key": "customerId", "display": true }, { "key": "subscriptionId", "display": true }, { "key": "resourceName", "display": true }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "resourceUri", "display": false }, { "key": "unit" }, { "key": "rate" }, { "key": "actualCost" }, { "key": "quantity" }], "componentsAPIKey": "associateRatePackComponentAPI" }] }, {
+                            "id": 1906, "role": "ROOT_ADMIN,ADMIN,POWER_USER", "leafTitle": "Rate Pack", "type": "datatable", "apiKey": "cspRatePackListAPI", "size": 12, "hideToolBar": false, "noDataText": "Rate packs not available", "metrics": {}, "defaultRowPerPage": 10, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Rate Pack", "modalTitle": "Add Rate Pack", "componentsAPIKey": "addEditCspRatePackCardComponentAPI", "actionIcon": "AddBox", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Re-generate Bills", "modalTitle": "Re-generate Bills", "componentsAPIKey": "regenerateCspBillComponentAPI", "actionIcon": "EditPencil", "drillParams": [{}] }], "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Pack Name", "key": "packName" }, { "name": "Created Date", "key": "createdDate" }, { "name": "Updated Date", "key": "updatedDate" }, { "name": "Version", "key": "version" },
+                            { "name": "Rate", "key": "rate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRatePackAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "createdDate" }] }, { "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "rate" }], "componentsAPIKey": "addEditCspRatePackCardComponentAPI" }]
+                        }]
+                }],
+                "filters": [
+                    {
+                        "key": "companyName",
+                        "name": "Summary Company Name",
+                        "apiKey": "tenantId",
+                    },
+                    {
+                        "key": "customerId",
+                        "apiKey": "customerId",
+                        "name": "Summary Customer ID",
+                        "metrics": {
+                            "types": [
+                                "*"
+                            ]
+                        },
+                        "bindParam": { "bindWith": "companyName" },
+                    }
+                ]
+            },
+            {
+                "subNodeTitle": "Manage Users",
+                "filters": [
+                    {
+                        "key": "user_name",
+                        "name": "User Name",
+                        "apiKey": "listGroupTypesAPI",
+                    }
+                ],
+                "leafs": [
+                    {
+                        "id": 1,
+                        "leafTitle": "Manage Users",
+                        "type": "datatable",
+                        "apiKey": "listUsersAPI",
+                        "size": 12,
+                        "noDataText": "No sub-users available",
+                        "metrics": {},
+                        "defaultRowPerPage": 10,
+                        "toolBarActions": [
+                            {
+                                "toolbarTitle": "Add User",
+                                "modalTitle": "Add User",
+                                "componentsAPIKey": "addUserComponentAPI",
+                                "actionIcon": "AddBox",
+                                "drillParams": [
+                                    {
+                                        "key": "email"
+                                    }
+                                ]
+                            }
+                        ],
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "userId",
+                                "display": false,
+                            },
+                            {
+                                "name": "Email",
+                                "key": "email",
+                                "display": true,
+                                "filter": true,
+                                "filterType": 'textField',
+                            },
+                            {
+                                "name": "Role",
+                                "key": "roleName",
+                                "display": true,
+                                "filter": true,
+                                "filterType": 'multiselect',
+                            },
+                            {
+                                "name": "Status",
+                                "key": "status",
+                                "type": "status",
+                                "display": true,
+                                "filter": false,
+                            },
+                            {
+                                "name": "Account",
+                                "key": "accounts",
+                                "display": true,
+                                "filter": true,
+                                "filterType": 'multiselect',
+                            },
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "drill-down",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            }
+                        ]
+                    }
+                ]
+            },
+        ]
+
+    },
+    {
+        "nodeTitle": "Azure Stack",
+        "subNode": [
+            {
+                "subNodeTitle": "Manage Users",
+                "leafs": [
+                    {
+                        "id": 1,
+                        "leafTitle": "Manage Users",
+                        "type": "datatable",
+                        "apiKey": "listUsersAPI",
+                        "size": 12,
+                        "noDataText": "No sub-users available",
+                        "metrics": {},
+                        "defaultRowPerPage": 10,
+                        "toolBarActions": [
+                            {
+                                "toolbarTitle": "Add User",
+                                "modalTitle": "Add User",
+                                "componentsAPIKey": "addUserComponentAPI",
+                                "actionIcon": "AddBox",
+                                "drillParams": [
+                                    {
+                                        "key": "email"
+                                    }
+                                ]
+                            }
+                        ],
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "userId",
+                                "display": false,
+                            },
+                            {
+                                "name": "Email",
+                                "key": "email",
+                                "display": true,
+                                "filter": true,
+                                "filterType": 'textField',
+                            },
+                            {
+                                "name": "Role",
+                                "key": "roleName",
+                                "display": true,
+                                "filter": true,
+                                "filterType": 'multiselect',
+                            },
+                            {
+                                "name": "Status",
+                                "key": "status",
+                                "type": "status",
+                                "display": true,
+                                "filter": false,
+                            },
+                            {
+                                "name": "Account",
+                                "key": "accounts",
+                                "display": true,
+                                "filter": true,
+                                "filterType": 'multiselect',
+                            },
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "drill-down",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            }
+                        ]
+                    }
+                ]
+            },
+        ]
+    }
+
+    ];
+}
+
+function getAddEditAzureStackRatePackCardModal() {
+    return [
+        {
+            "actionAPIKey": "addEditAzureStackRatePackAPI",
+            "leafs": [
+                {
+                    "id": 21, "leafTitle": "Name", "type": "text-input", "inputType": "string",
+                    "defSelectKey": "packName", "helperText": "Name of the Rate pack", "metrics": {},
+                    "validation": { "isRequired": true, "message": "At-least one tenant should be selected" }
+                }, {
+                    "id": 22,
+                    "leafTitle": "Enable Pack Level Rates",
+                    "type": "group-radio", "defSelectKey": "packLevelRate",
+                    "size": 3, "apiKey": "cspRatePackTypeListAPI",
+                    "helperText": "Choose between Pack level rates vs line item rates"
+                },
+                {
+                    "id": 23, "leafTitle": "Rate", "type": "text-input", "inputType": "string",
+                    "defSelectKey": "rate", "size": 3, "helperText": "Please enter pack level rates"
+                },
+                {
+                    "id": 24, "leafTitle": "Pack Items", "size": 12,
+                    "type": "nested-multi-dropdown-field-with-input",
+                    "apiKey": "azureStackPackRateDetailsAPI",
+                    "defSelectKey": "cspPackRateDetails",
+                    "componentList":
+                        [{
+                            "id": "d1", "title": "Name", "size": 2,
+                            "type": "select", "apiKey": "listAzureStackMeterAndNameListAPI",
+                            "defSelectKey": "meterId", "helperText": "Please select Name", "metrics": {}
+                        },
+                        {
+                            "id": "d2", "title": "Unit", "type": "select", "size": 2,
+                            "apiKey": "listAzureStackUnitAPI", "selectDefaultValue": true, "defSelectKey": "unit",
+                            "helperText": "", "metrics": {}, "bindLeafData": { "bindWith": "meterId", "id": "d1" }
+                        },
+                        { "id": "v1", "type": "input", "size": 1, "subType": "switch", "label": "Primary" },
+                        { "id": "v3", "type": "input", "size": 2, "subType": "number", "label": "Rate" },
+                        { "id": "v2", "type": "input", "size": 2, "subType": "number", "label": "Quantity" }], "metrics": {}
                 }]
-            }]
-        }]
-    }];
+        }];
 }
 
 
@@ -2268,10 +2597,7 @@ app.post('/data/1', function (req, res) {
                 { name: 'Sep 5', "Optimal Cost": 155, "Real Cost": 447, },
             ];
     }
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
 });
 
@@ -2335,10 +2661,7 @@ app.post('/data/2', function (req, res) {
                 { name: '90+', CPU: 10, Network: 20, Disk: 15 },
             ];
     }
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
 });
 
@@ -2547,10 +2870,7 @@ app.post('/data/3', function (req, res) {
                     { text: 'Reserved', value: 10 },],
             }];
     }
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
 });
 
@@ -2940,10 +3260,7 @@ app.post('/api/perspective', function (req, res) {
     ];
 
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 
@@ -2970,10 +3287,7 @@ app.post('/api/summary', function (req, res) {
         }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 
@@ -3036,10 +3350,7 @@ app.post('/api/metrics', function (req, res) {
         },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
@@ -3104,10 +3415,7 @@ app.post('/api/metricdistributionbyutil', function (req, res) {
                 { text: '90+', CPU: 90, Network: 09, Disk: 78 },
             ];
     }
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
@@ -3125,10 +3433,7 @@ app.post('/api/metricdistributionbyday', function (req, res) {
         { text: 'Sat', Util: 50, Cloud: 20, CPU: 34, Memory: 40 },
         { text: 'Sun', Util: 50, Cloud: 20, CPU: 35, Memory: 12 },
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
@@ -3168,10 +3473,7 @@ app.post('/api/distribution', function (req, res) {
                 { text: 't3.medium', value: 25 }];
     }
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
@@ -3197,10 +3499,7 @@ app.post('/api/aggregatedmetrics', function (req, res) {
         { id: 15, name: 'us-east-9', age: 27, location: 'AUS', level: 'stage-8', mood: 'party', status: 20, action: 'More Detail' },
         { id: 16, name: 'us-south-66', age: 23, location: 'Atlanta', level: 'stage-23', mood: 'dead', status: 30, action: 'More Detail' },
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
@@ -3254,10 +3553,7 @@ app.post('/api/fetchgroups', function (req, res) {
         }
 
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "We are facing some technical issues, please try later" });
 });
@@ -3322,10 +3618,7 @@ app.post('/api/testMetric', function (req, res) {
             "isSelectedDefault": true,
         }
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "We are facing some technical issues, please try later" });
 });
@@ -3361,10 +3654,7 @@ app.post('/api/computedetails', function (req, res) {
             unit: 'S3 Buckets'
         },
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
@@ -3400,10 +3690,7 @@ app.post('/api/containers/recommendation', function (req, res) {
         },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
@@ -4146,10 +4433,7 @@ app.post('/api/instance/schedule', function (req, res) {
         };
     }
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
@@ -4158,10 +4442,7 @@ app.post('/api/instance/schedule', function (req, res) {
 app.post('/api/instance/saveschedule', function (req, res) {
     //Add some delay on purpose.
     addDelay();
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send({ success: "Schedule saved succesfully" });
 });
@@ -4226,10 +4507,7 @@ app.post('/api/list/instancesbygroup', function (req, res) {
         }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     res.status(200).send(data);
 });
 
@@ -4260,10 +4538,7 @@ app.post('/api/auth/login', function (req, res) {
         responseStatus = 200;
     }
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(responseStatus).send(data);
 });
@@ -4271,10 +4546,7 @@ app.post('/api/auth/login', function (req, res) {
 app.post('/api/auth/logout', function (req, res) {
     var data = {};
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4282,30 +4554,21 @@ app.post('/api/auth/logout', function (req, res) {
 app.post('/api/registration/completeregistration', function (req, res) {
     var data = { "status": "success" };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
 
 app.post('/api/registration/checkemailexists', function (req, res) {
     var data = "false";
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
 
 app.post('/api/auth/resetpassword', function (req, res) {
     var data = "true";
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4349,10 +4612,7 @@ app.post('/api/containers/byreservationandutilization', function (req, res) {
             { text: '90+', GPU: 10, Network: 20, },
         ];
     }
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4381,10 +4641,7 @@ app.post('/api/containers/aggregatedcost', function (req, res) {
             trend: -5
         },
         ]
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4398,10 +4655,7 @@ app.post('/api/containers/task/distrubution', function (req, res) {
         { name: 'stopped', value: 4 }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4415,10 +4669,7 @@ app.post('/api/flem/service/status', function (req, res) {
         { name: 'stopped', value: 1 }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4436,10 +4687,7 @@ app.post('/api/containers/task/distribution', function (req, res) {
         { name: 'Pub-Sub', value: 8 },
         { name: 'SQL mockit', value: 4 },
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4459,10 +4707,7 @@ app.post('/api/containers/service/distribution', function (req, res) {
 
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error for multi-cloud" });
     res.status(200).send(data);
 });
@@ -4476,10 +4721,7 @@ app.post('/api/containers/costbytype', function (req, res) {
         { name: 'FARGATE', value: 30, unit: '$' }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4495,10 +4737,7 @@ app.post('/api/containers/clusteraggregates', function (req, res) {
             billingcost: 1234
         }
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4515,10 +4754,7 @@ app.post('/api/containers/serviceaggregates', function (req, res) {
             billingcost: "12341"
         }
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4532,10 +4768,7 @@ app.post('/api/containers/taskaggregates', function (req, res) {
             config: "abc"
         }
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4565,10 +4798,7 @@ app.post('/api/flemingo/summary', function (req, res) {
         },
         ]
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error for summary graph, Regional data can't be displayed" });
     res.status(200).send(data);
 });
@@ -4601,10 +4831,7 @@ app.post('/api/flemingo/costs', function (req, res) {
             },
         ]
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error to test summary component" });
     res.status(200).send(data);
 });
@@ -4640,10 +4867,7 @@ app.post('/api/flemingo/accomodations', function (req, res) {
             "utilization": 70
         }
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4694,10 +4918,7 @@ app.post('/api/flemingo/awsSpending', function (req, res) {
         }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4745,10 +4966,7 @@ app.post('/api/instances/aggregatehistogrammetrics3', function (req, res) {
             "spot": 120,
         }
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4785,10 +5003,7 @@ app.post('/api/instances/getaggregatemetriccountbyday', function (req, res) {
             "utilization": 40
         }
     ];
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -4802,15 +5017,10 @@ app.post('/api/cloud/byconsume', function (req, res) {
         { id: 2, name: 'Bamidele Johnson', age: 18, location: 'Anambra', level: 'stage-4', },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
-
-
 
 
 app.post('/api/scenario', function (req, res) {
@@ -4918,14 +5128,10 @@ app.post('/api/scenario', function (req, res) {
             data = componentsData();
     }
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
-
 
 
 app.post('/api/scenario/modal', function (req, res) {
@@ -5202,18 +5408,40 @@ app.post('/api/scenario/modal', function (req, res) {
                     actionAPIKey: 'saveInstanceTypeChangeAPI',
                     leafs: [
                         {
+                            "id": 21, "leafTitle": "Name", "type": "text-input", "inputType": "string",
+                            "size": 4,
+                            "defSelectKey": "packName", "helperText": "Name of the Rate pack", "metrics": {},
+                            "validation": { "isRequired": true, "message": "At-least one tenant should be selected" }
+                        }, {
+                            "id": 22,
+                            "leafTitle": "Enable Pack Level Rates",
+                            "type": "group-radio",
+                            "defSelectKey": "packLevelRate",
+                            "size": 3, "apiKey": "cspRatePackTypeListAPI",
+                            "helperText": "Choose between Pack level rates vs line item rates"
+                        },
+                        {
+                            "id": 23, "leafTitle": "Rate", "type": "text-input", "inputType": "string",
+                            "defSelectKey": "rate", "size": 3, "helperText": "Please enter pack level rates"
+                        },
+                        {
                             "id": 1,
                             "leafTitle": "Manage Cloud Connections",
                             "size": 12,
                             "type": "nested-multi-dropdown-field-with-input",
                             "apiKey": "cloudConnectionsAPI",
-
+                            "bindLeafData": {
+                                "hideWhen": "false",
+                                "bindWith": "packLevelRate",
+                                "id": 22,
+                                "bindtoComponentId": "v1",
+                            },
                             "defSelectKey": "cloudConnections",
                             'componentList': [
                                 {
                                     "id": 'd1',
                                     "title": "Project",
-                                    "size": 1.5,
+                                    "size": 2,
                                     "type": 'select',
                                     "apiKey": "listRegionAPI",
                                     "defSelectKey": "listRegionSel",
@@ -5228,7 +5456,7 @@ app.post('/api/scenario/modal', function (req, res) {
                                     "id": 'd2',
                                     "title": "VM Group",
                                     "type": 'select',
-                                    "size": 1.5,
+                                    "size": 2,
                                     "apiKey": "listClusterAPI",
                                     "defSelectKey": "listClusterSel",
                                     "helperText": "Please select VM Group",
@@ -5243,7 +5471,7 @@ app.post('/api/scenario/modal', function (req, res) {
                                     "id": 'd3',
                                     "title": "Instance",
                                     "type": 'select',
-                                    "size": 1.5,
+                                    "size": 2,
                                     "apiKey": "listInstanceTypeAPI",
                                     "defSelectKey": "listInstanceSel",
                                     "helperText": "Please select Instance",
@@ -5255,14 +5483,21 @@ app.post('/api/scenario/modal', function (req, res) {
                                     "bindLeafData": { "id": 'd2', },
                                 },
                                 {
-                                    id: "v1",
+                                    "id": "v1",
+                                    "type": "input",
+                                    "size": 1,
+                                    "subType": "switch",
+                                    "label": "Primary"
+                                },
+                                {
+                                    id: "v2",
                                     type: 'input',
                                     "size": 4,
                                     subType: 'number',
                                     label: "Replicas",
                                 },
                                 {
-                                    id: "v2",
+                                    id: "v3",
                                     type: 'input',
                                     "size": 4,
                                     subType: 'number',
@@ -5384,20 +5619,46 @@ app.post('/api/scenario/modal', function (req, res) {
         case "EnvSelection":
             data = envSelectionComponentData();
             break;
+        case "AddEditAzureStackRatePackCardModal":
+            data = getAddEditAzureStackRatePackCardModal();
+            break;
+
         default:
             data = drillDownData();
             break;
     }
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 
 });
 
+app.post('/api/scenario/filters', function (req, res) {
+    addDelay();
+    var data = [
+        {
+            "key": "tenantId",
+            "name": "Tenant Id",
+            "apiKey": "tenantId",
+        },
+        {
+            "key": "customerId",
+            "apiKey": "customerId",
+            "name": "Page Customer ID",
+            "metrics": {
+                "types": [
+                    "*"
+                ]
+            },
+            "bindParam": { "bindWith": "tenantId" },
+        }
+    ];
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Internal Server Error" });
+    res.status(200).send(data);
+});
 
 app.post('/api/instance/singular', function (req, res) {
 
@@ -5423,10 +5684,7 @@ app.post('/api/instance/singular', function (req, res) {
         { "name": "c3.medium", "value": 158.41, "unit": "$" },
         ];
     }
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error testing in progress" });
     res.status(200).send(data);
 });
@@ -5446,10 +5704,7 @@ app.post('/api/action/instancetype', function (req, res) {
 
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -5464,10 +5719,7 @@ app.post('/api/action/regionlist', function (req, res) {
         { name: 'US-North-region', key: 'us-north' },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -5511,10 +5763,7 @@ app.post('/api/action/clusters', function (req, res) {
             ];
     };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -5523,10 +5772,7 @@ app.post('/api/action/state', function (req, res) {
     addDelay();
     var data = ['Start', 'Stop'];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
@@ -5543,10 +5789,7 @@ app.post('/api/user/environment/addeditenvironment', function (req, res) {
         message: 'Details saved succesfully, refereshing your experience',
     };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send("Internal Server Error");
     res.status(200).send(data);
 });
@@ -5559,10 +5802,7 @@ app.post('/api/action/instancetypechange', function (req, res) {
         message: 'Instance details saved succesfully',
     };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send("Internal Server Error");
     res.status(200).send(data);
 });
@@ -5576,10 +5816,7 @@ app.post('/api/action/save-env-details', function (req, res) {
         message: 'Environment details saved succesfully',
     };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send("Internal Server Error");
     res.status(200).send(data);
 });
@@ -5588,10 +5825,7 @@ app.post('/list/resources', function (req, res) {
 
     var data = ['res-123', 'res-1563', 'res-64546', 'res-6423', 'res-9787', 'res-5534'];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send("Internal Server Error");
     res.status(200).send(data);
 });
@@ -5604,10 +5838,7 @@ app.post('/api/resource/summary', function (req, res) {
         [{ title: 'Transaction Amount', value: '320.5000' }],
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5620,10 +5851,7 @@ app.post('/api/action/elbmonitoringtype', function (req, res) {
         { "key": "hybrid", "name": "Hybrid", "selected": false },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5637,10 +5865,7 @@ app.post('/api/action/envtypes', function (req, res) {
         { "key": "3", "name": "Instance-3", "selected": false },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5653,10 +5878,7 @@ app.post('/api/action/availableroles', function (req, res) {
         { "key": "view", "name": "Viewer", "selected": false },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5669,10 +5891,7 @@ app.post('/api/action/elbinstancelist', function (req, res) {
         { "key": "i-adbc123456", "name": "I-adbc123456", "selected": false },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5687,10 +5906,7 @@ app.post('/api/action/alertItemList', function (req, res) {
         { "name": "Kubernetes", "selected": false },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5707,10 +5923,7 @@ app.post('/api/action/accountlist', function (req, res) {
         { "name": "647909876544", "selected": false },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5728,10 +5941,7 @@ app.post('/api/action/elbmetriclist', function (req, res) {
             { "name": "Nginx CPU utilization", "key": "NGINX_CPU_UTILIZATION", "defaultValues": { "v1": 20, } }
         ]
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5742,10 +5952,7 @@ app.post('/api/action/elbmonitoringstatus', function (req, res) {
 
     var data = { "status": true }
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5762,10 +5969,7 @@ app.post('/api/user/userlist', function (req, res) {
         { userId: 7, status: true, email: 'acq.123@gmail.com', roleName: 'View', accounts: '4234324' }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 
@@ -5783,10 +5987,7 @@ app.post('/api/user/alertemaillist', function (req, res) {
         { email: 'acq.123@gmail.com', billing: false, utilization: false, action: true, kubernetes: false, },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5799,10 +6000,7 @@ app.post('/api/action/updatealertprefs', function (req, res) {
         variant: 'success',
         message: 'Email preferences updated succesfully',
     };
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5815,10 +6013,7 @@ app.post('/api/action/updateUser', function (req, res) {
         variant: 'success',
         message: 'User list updated succesfully',
     };
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5831,10 +6026,7 @@ app.post('/api/group/save', function (req, res) {
         variant: 'success',
         message: 'Group added succesfully',
     };
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5848,10 +6040,7 @@ app.post('/api/user/deleteuser', function (req, res) {
         variant: 'success',
         message: 'Email preferences deleted succesfully',
     };
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5860,13 +6049,28 @@ app.post('/api/user/deleteuser', function (req, res) {
 app.post('/api/user/navs', function (req, res) {
 
     var data = {
-        "defalultLandingLink": "/costdashboard", "navigations": [{ "name": "Administration", "link": "/admin", "icon": "InboxIcon", "isSetting": true, "page": "FlamingoPage", "role": "ROOT_ADMIN,ADMIN" }, { "name": "Cost Dashboard", "link": "/costdashboard", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Cost Details", "link": "/costdetails", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Business Service Dashboard", "link": "/businessservicedashboard", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "CSP Dashboard", "link": "/azurecspdashboard", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Recommendation Dashboard", "link": "/recommendationdashboard", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Recommendation Details", "link": "/recommendationdetails", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Action Dashboard", "link": "/actiondashboard", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Action Details", "link": "/actiondetails", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Alert Dashboard", "link": "/alertsdashboard", "icon": "AddAlert", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Alerts Details", "link": "/alertsdetails", "icon": "AddAlert", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Utilization Dashboard", "link": "/utilizationdashboard", "icon": "ShowChart", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Utilization Details", "link": "/utilizationdetailsdashboard", "icon": "ShowChart", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Container Dashboard", "link": "/containerdashboard", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Container Details", "link": "/containerdetails", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Application Dashboard", "link": "/application", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Application Details", "link": "/applicationdetails", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { name: 'ASG Schedule', link: '/asg-schedule', icon: 'StarIcon', isSetting: false, page: 'Schedule' },
-        { name: 'New Group', link: '/newgroup', icon: 'InboxIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' }, { "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
+        "defalultLandingLink": "/azurecspdashboard", "navigations":
+            [{
+                "name": "Administration", "link": "/admin", "icon": "InboxIcon", "isSetting": true,
+                "page": "FlamingoPage", "role": "ROOT_ADMIN,ADMIN"
+            }, {
+                "name": "Cost Dashboard",
+                "link": "/costdashboard",
+                "icon": "InboxIcon",
+                "isSetting": false,
+                "page": "FlamingoPage",
+                "linkedeUrlParam": "nodeIndex"
+            }, { "name": "Cost Details", "link": "/costdetails", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Business Service Dashboard", "link": "/businessservicedashboard", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage" },
+            {
+                "name": "CSP Dashboard",
+                "link": "/azurecspdashboard", "icon": "InboxIcon", "isSetting": false,
+                "page": "FlamingoPage",
+
+            },
+            { "name": "Recommendation Dashboard", "link": "/recommendationdashboard", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Recommendation Details", "link": "/recommendationdetails", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Action Dashboard", "link": "/actiondashboard", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Action Details", "link": "/actiondetails", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Alert Dashboard", "link": "/alertsdashboard", "icon": "AddAlert", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Alerts Details", "link": "/alertsdetails", "icon": "AddAlert", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Utilization Dashboard", "link": "/utilizationdashboard", "icon": "ShowChart", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Utilization Details", "link": "/utilizationdetailsdashboard", "icon": "ShowChart", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Container Dashboard", "link": "/containerdashboard", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Container Details", "link": "/containerdetails", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Application Dashboard", "link": "/application", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Application Details", "link": "/applicationdetails", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { name: 'ASG Schedule', link: '/asg-schedule', icon: 'StarIcon', isSetting: false, page: 'Schedule' },
+            { name: 'New Group', link: '/newgroup', icon: 'InboxIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' }, { "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
     };
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5915,10 +6119,7 @@ app.post('/api/user/environment/environmentlist', function (req, res) {
         }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5927,10 +6128,7 @@ app.post('/api/user/environment/environmentstatus', function (req, res) {
 
     var data = { "status": true };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5941,10 +6139,7 @@ app.post('/api/user/environment/typelist', function (req, res) {
 
     var data = [{ "name": "Amazon AWS", "key": "AWS", "selected": false }, { "name": "KUBERNETES", "key": "KUBERNETES", "selected": true }];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -5953,10 +6148,7 @@ app.post('/api/user/environment/connectionparamlist2', function (req, res) {
 
     var data = [{ "name": "ARN List", "key": "AWS_ARN", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Bucket Name", "key": "BILLING_BUCKET_NAME", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Bucket Region", "key": "BILLING_BUCKET_REGION", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Report Prefix", "key": "BILLING_REPORT_PREFIX", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Report Name", "key": "BILLING_REPORT_NAME", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6087,10 +6279,7 @@ app.post('/api/user/environment/connectionparamlist', function (req, res) {
         }
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6106,10 +6295,7 @@ app.post('/api/user/threshold/thresholdlist', function (req, res) {
         { email: 'acq.123@gmail.com', billing: false, utilization: false, action: true, kubernetes: false, },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6127,10 +6313,7 @@ app.post('/api/action/grouptypes', function (req, res) {
         { "name": "Instance Status", "key": "INST_STATUS", "defaultValues": { "v1": '20', } },
     ];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6141,10 +6324,7 @@ app.post('/api/billing/aggregatedcost', function (req, res) {
 
     var data = { "name": null, "value": 10660.67838084227, "graphData": [{ "date": "2019-01-02", "value": 51.16 }, { "date": "2019-01-03", "value": 51.01 }, { "date": "2019-01-04", "value": 49.46 }, { "date": "2019-01-05", "value": 49.84 }, { "date": "2019-01-06", "value": 49.86 }, { "date": "2019-01-07", "value": 50.23 }, { "date": "2019-01-08", "value": 48.05 }, { "date": "2019-01-09", "value": 48.53 }, { "date": "2019-01-10", "value": 49.87 }, { "date": "2019-01-11", "value": 49.56 }, { "date": "2019-01-12", "value": 49.48 }, { "date": "2019-01-13", "value": 49.51 }, { "date": "2019-01-14", "value": 49.28 }, { "date": "2019-01-15", "value": 50.96 }, { "date": "2019-01-16", "value": 51.52 }, { "date": "2019-01-17", "value": 51.29 }, { "date": "2019-01-18", "value": 51.01 }, { "date": "2019-01-19", "value": 50.98 }, { "date": "2019-01-20", "value": 50.57 }, { "date": "2019-01-21", "value": 50.44 }, { "date": "2019-01-22", "value": 50.86 }, { "date": "2019-01-23", "value": 53.11 }, { "date": "2019-01-24", "value": 53.12 }, { "date": "2019-01-25", "value": 51.69 }, { "date": "2019-01-26", "value": 51.52 }, { "date": "2019-01-27", "value": 51.53 }, { "date": "2019-01-28", "value": 51.39 }, { "date": "2019-01-29", "value": 51.25 }, { "date": "2019-01-30", "value": 52.97 }, { "date": "2019-01-31", "value": 53.11 }, { "date": "2019-02-01", "value": 56.05 }, { "date": "2019-02-02", "value": 53.73 }, { "date": "2019-02-03", "value": 53.73 }, { "date": "2019-02-04", "value": 53.77 }, { "date": "2019-02-05", "value": 55.92 }, { "date": "2019-02-06", "value": 58.23 }, { "date": "2019-02-07", "value": 60.32 }, { "date": "2019-02-08", "value": 60.52 }, { "date": "2019-02-09", "value": 62.22 }, { "date": "2019-02-10", "value": 59.05 }, { "date": "2019-02-11", "value": 60.87 }, { "date": "2019-02-12", "value": 62.62 }, { "date": "2019-02-13", "value": 62.3 }, { "date": "2019-02-14", "value": 66.31 }, { "date": "2019-02-15", "value": 69.31 }, { "date": "2019-02-16", "value": 69.96 }, { "date": "2019-02-17", "value": 68.43 }, { "date": "2019-02-18", "value": 60.46 }, { "date": "2019-02-19", "value": 51.96 }, { "date": "2019-02-20", "value": 51.98 }, { "date": "2019-02-21", "value": 52.19 }, { "date": "2019-02-22", "value": 52.88 }, { "date": "2019-02-23", "value": 54.47 }, { "date": "2019-02-24", "value": 55.18 }, { "date": "2019-02-25", "value": 54.2 }, { "date": "2019-02-26", "value": 58.65 }, { "date": "2019-02-27", "value": 54.91 }, { "date": "2019-02-28", "value": 54.25 }, { "date": "2019-03-01", "value": 51.77 }, { "date": "2019-03-02", "value": 45.2 }, { "date": "2019-03-03", "value": 44.84 }, { "date": "2019-03-04", "value": 46.16 }, { "date": "2019-03-05", "value": 47.34 }, { "date": "2019-03-06", "value": 45.88 }, { "date": "2019-03-07", "value": 46.59 }, { "date": "2019-03-08", "value": 47.0 }, { "date": "2019-03-09", "value": 47.5 }, { "date": "2019-03-10", "value": 46.54 }, { "date": "2019-03-11", "value": 55.41 }, { "date": "2019-03-12", "value": 58.82 }, { "date": "2019-03-13", "value": 53.04 }, { "date": "2019-03-14", "value": 52.6 }, { "date": "2019-03-15", "value": 52.35 }, { "date": "2019-03-16", "value": 50.32 }, { "date": "2019-03-17", "value": 45.87 }, { "date": "2019-03-18", "value": 47.65 }, { "date": "2019-03-19", "value": 47.62 }, { "date": "2019-03-20", "value": 47.59 }, { "date": "2019-03-21", "value": 47.69 }, { "date": "2019-03-22", "value": 47.57 }, { "date": "2019-03-23", "value": 47.78 }, { "date": "2019-03-24", "value": 45.41 }, { "date": "2019-03-25", "value": 48.67 }, { "date": "2019-03-26", "value": 47.86 }, { "date": "2019-03-27", "value": 47.84 }, { "date": "2019-03-28", "value": 48.25 }, { "date": "2019-03-29", "value": 47.63 }, { "date": "2019-03-30", "value": 45.62 }, { "date": "2019-03-31", "value": 44.99 }, { "date": "2019-04-01", "value": 59.58 }, { "date": "2019-04-02", "value": 62.75 }, { "date": "2019-04-03", "value": 68.09 }, { "date": "2019-04-04", "value": 70.1 }, { "date": "2019-04-05", "value": 70.61 }, { "date": "2019-04-06", "value": 68.43 }, { "date": "2019-04-07", "value": 68.21 }, { "date": "2019-04-08", "value": 71.01 }, { "date": "2019-04-09", "value": 71.69 }, { "date": "2019-04-10", "value": 75.67 }, { "date": "2019-04-11", "value": 78.63 }, { "date": "2019-04-12", "value": 81.17 }, { "date": "2019-04-13", "value": 77.71 }, { "date": "2019-04-14", "value": 76.78 }, { "date": "2019-04-15", "value": 78.75 }, { "date": "2019-04-16", "value": 78.66 }, { "date": "2019-04-17", "value": 79.36 }, { "date": "2019-04-18", "value": 79.4 }, { "date": "2019-04-19", "value": 79.37 }, { "date": "2019-04-20", "value": 77.3 }, { "date": "2019-04-21", "value": 76.8 }, { "date": "2019-04-22", "value": 78.17 }, { "date": "2019-04-23", "value": 67.24 }, { "date": "2019-04-24", "value": 53.26 }, { "date": "2019-04-25", "value": 51.37 }, { "date": "2019-04-26", "value": 49.68 }, { "date": "2019-04-27", "value": 47.81 }, { "date": "2019-04-28", "value": 47.77 }, { "date": "2019-04-29", "value": 60.43 }, { "date": "2019-04-30", "value": 59.11 }, { "date": "2019-05-01", "value": 42.14 }, { "date": "2019-05-02", "value": 59.58 }, { "date": "2019-05-03", "value": 63.69 }, { "date": "2019-05-04", "value": 62.14 }, { "date": "2019-05-05", "value": 54.32 }, { "date": "2019-05-06", "value": 55.44 }, { "date": "2019-05-07", "value": 65.71 }, { "date": "2019-05-08", "value": 65.45 }, { "date": "2019-05-09", "value": 77.08 }, { "date": "2019-05-10", "value": 72.44 }, { "date": "2019-05-11", "value": 87.72 }, { "date": "2019-05-12", "value": 88.27 }, { "date": "2019-05-13", "value": 89.34 }, { "date": "2019-05-14", "value": 85.92 }, { "date": "2019-05-15", "value": 86.7 }, { "date": "2019-05-16", "value": 86.65 }, { "date": "2019-05-17", "value": 85.55 }, { "date": "2019-05-18", "value": 84.76 }, { "date": "2019-05-19", "value": 84.35 }, { "date": "2019-05-20", "value": 86.46 }, { "date": "2019-05-21", "value": 86.48 }, { "date": "2019-05-22", "value": 85.98 }, { "date": "2019-05-23", "value": 86.98 }, { "date": "2019-05-24", "value": 85.95 }, { "date": "2019-05-25", "value": 86.66 }, { "date": "2019-05-26", "value": 84.76 }, { "date": "2019-05-27", "value": 89.38 }, { "date": "2019-05-28", "value": 89.92 }, { "date": "2019-05-29", "value": 88.66 }, { "date": "2019-05-30", "value": 88.98 }, { "date": "2019-05-31", "value": 79.08 }, { "date": "2019-06-01", "value": 76.02 }, { "date": "2019-06-02", "value": 70.08 }, { "date": "2019-06-03", "value": 71.26 }, { "date": "2019-06-04", "value": 70.41 }, { "date": "2019-06-05", "value": 70.32 }, { "date": "2019-06-06", "value": 68.87 }, { "date": "2019-06-07", "value": 68.6 }, { "date": "2019-06-08", "value": 64.48 }, { "date": "2019-06-09", "value": 64.17 }, { "date": "2019-06-10", "value": 72.81 }, { "date": "2019-06-11", "value": 76.03 }, { "date": "2019-06-12", "value": 72.28 }, { "date": "2019-06-13", "value": 67.97 }, { "date": "2019-06-14", "value": 70.92 }, { "date": "2019-06-15", "value": 69.57 }, { "date": "2019-06-16", "value": 64.46 }, { "date": "2019-06-17", "value": 67.06 }, { "date": "2019-06-18", "value": 65.72 }, { "date": "2019-06-19", "value": 78.44 }, { "date": "2019-06-20", "value": 80.88 }, { "date": "2019-06-21", "value": 75.38 }, { "date": "2019-06-22", "value": 16.48 }] };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6154,10 +6334,7 @@ app.post('/api/instances/aggregatehistogrammetrics', function (req, res) {
 
     var data = [{ "name": "0-10", "CPU": 34, "Memory": 31 }, { "name": "10-20", "CPU": 3, "Memory": 1 }, { "name": "20-30", "CPU": 1, "Memory": 1 }, { "name": "30-40", "CPU": 1, "Memory": 2 }, { "name": "40-50", "CPU": 0, "Memory": 2 }, { "name": "50-60", "CPU": 0, "Memory": 1 }, { "name": "60-70", "CPU": 0, "Memory": 1 }, { "name": "70-80", "CPU": 0, "Memory": 0 }, { "name": "80-90", "CPU": 0, "Memory": 0 }, { "name": "90+", "CPU": 1, "Memory": 1 }];
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6167,10 +6344,7 @@ app.post('/api/registration/checktokenexists', function (req, res) {
 
     var data = { status: "true" };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6179,10 +6353,7 @@ app.post('/api/column/update', function (req, res) {
 
     var data = { status: "true" };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6200,10 +6371,7 @@ app.post('/api/cloud-providers', function (req, res) {
         ]
     };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
 
     res.status(200).send(data);
@@ -6218,10 +6386,7 @@ app.post('/api/auth/auth-entity', function (req, res) {
         authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1r9u7oni7kCn08357&response_type=id_token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A9000&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
     };
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6244,10 +6409,7 @@ app.post('/api/auth/exchange-token', function (req, res) {
     };
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
@@ -6271,10 +6433,7 @@ app.post('/api/auth/refresh-token', function (req, res) {
     }
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
@@ -6297,10 +6456,7 @@ app.post('/api/cloud-connections', function (req, res) {
         ]
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
@@ -6311,10 +6467,7 @@ app.post('/api/csp/customers', function (req, res) {
 
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
@@ -6324,10 +6477,7 @@ app.post('/api/csp/customer/approvedratecardlist', function (req, res) {
 
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
@@ -6338,10 +6488,7 @@ app.post('/api/csp/customer/subscriptions', function (req, res) {
 
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
@@ -6351,10 +6498,7 @@ app.post('/api/csp/customer/subscriptions', function (req, res) {
 
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
@@ -6364,10 +6508,7 @@ app.post('/api/csp/customer/mothlybilllineitems', function (req, res) {
 
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
@@ -6377,10 +6518,7 @@ app.post('/api/csp/customer/mothlybillldetailineitems', function (req, res) {
 
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
@@ -6390,10 +6528,71 @@ app.post('/api/csp/customer/ratepacks', function (req, res) {
 
     responseStatus = 200;
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-    res.setHeader('Content-Type', 'application/json');
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
+app.post('/api/csp/tenants/fetchtenants', function (req, res) {
+    const data = [
+        {
+            "key": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5",
+            'name': 'dd2af4ea-2053-43da-ab8c-b29fc6488fa5'
+        },
+        {
+            "key": "rwerrt-2053-43da-ab8c-b29fc6488fa5",
+            'name': 'rwerrt-2053-43da-ab8c-b29fc6488fa5',
+            selected: true
+        },
+        {
+            "key": "fdfsgfd-2053-43da-ab8c-b29fc6488fa5",
+            'name': 'fdfsgfd-2053-43da-ab8c-b29fc6488fa5'
+        }
+    ];
+
+    responseStatus = 200;
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
+app.post('/api/csp/customer/fetchcustomers', function (req, res) {
+
+    const data = [
+        {
+            "key": "b29fc6488fa5-2053-43da-ab8c-b29fc6488fa5",
+            'name': 'b29fc6488fa5-2053-43da-ab8c-b29fc6488fa5'
+        },
+        {
+            "key": "ewfd3434-2053-43da-ab8c-b29fc6488fa5",
+            'name': 'ewfd3434-2053-43da-ab8c-b29fc6488fa5',
+            selected: true
+        },
+        {
+            "key": "e34grg-2053-43da-ab8c-b29fc6488fa5",
+            'name': 'e34grg-2053-43da-ab8c-b29fc6488fa5'
+        }
+    ];
+
+    responseStatus = 200;
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
+
+app.post('/api/csp/customer/ratepacks/type', function (req, res) {
+
+    const data = [{ "name": "Yes", "key": "true", "selected": true }, { "name": "No", "key": "false", "selected": false }];
+
+    responseStatus = 200;
+
+    setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
