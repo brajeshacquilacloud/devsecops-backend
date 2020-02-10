@@ -4519,7 +4519,7 @@ app.post('/api/auth/login', function (req, res) {
     }];
 
     let responseStatus = 400;
-    if (req.body.email === 'zxc' && req.body.password === 'zxc') {
+    if (req.body.email === 'shubham.kale@gmail.com' && req.body.password === 'zxc') {
         data =
         {
             'authToken': 'eye.RefresheyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
