@@ -1,0 +1,282 @@
+{
+    "defalultLandingLink": "/csp/billing",
+    "navigations": [
+        {
+            "id": "csp_billing",
+            "name": "CSP Billing",
+            "icon": "home-icon",
+            "selected": true,
+            "link": "/csp",
+            "page": "ComponentsPage",
+            "isHawkUI": true,
+            "subNavs": [
+                {
+                    "id": "cspOverview",
+                    "name": "Overview",
+                    "page": "ComponentsPage",
+                    "link": "/csp/overview",
+                    "isHawkUI": true
+                },
+                {
+                    "id": "cspBilling",
+                    "name": "Billing Summary",
+                    "page": "ComponentsPage",
+                    "link": "/csp/billing",
+                    "isHawkUI": true,
+                    "sliderModalLink": "/catalog",
+                    "pageActions": [
+                        {
+                            "key": "billingCycleFilter",
+                            "title": "Billing Cycle",
+                            "type": "filter",
+                            "dateFormat": "MM/DD/YYYY"
+                        },
+                        {
+                            "key": "pageSearch",
+                            "title": "Search",
+                            "type": "search"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "prod_catalog",
+            "name": "Product Catalog",
+            "icon": "menu-icon",
+            "page": "ComponentsPage",
+            "isHawkUI": true,
+            "link": "/catalog",
+            "subNavs": [
+                {
+                    "id": "rateLine",
+                    "name": "Rate Lines",
+                    "page": "ComponentsPage",
+                    "link": "/catalog/rateline",
+                    "isHawkUI": true
+                },
+                {
+                    "id": "RateCards",
+                    "name": "Rate Cards",
+                    "page": "ComponentsPage",
+                    "link": "/catalog/ratecards",
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "key": "pageSearch",
+                            "title": "Search",
+                            "type": "search"
+                        },
+                        {
+                            "key": "action",
+                            "title": "Action",
+                            "type": "action",
+                            "bindParam": {
+                                "bindWith": "mainDatatable"
+                            },
+                            "complexOptions": [
+                                {
+                                    "groupName": "Edit Bill",
+                                    "groupElements": [
+                                        {
+                                            "lable": "Apply",
+                                            "actionIcon": "apply",
+                                            "type": "save",
+                                            "actionAPIKey": "saveGroupAPI"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "groupName": "Item",
+                                    "groupElements": [
+                                        {
+                                            "lable": "Add",
+                                            "type": "modal",
+                                            "modalTitle": "Add Item",
+                                            "componentsAPIKey": "addRateLineAPI",
+                                            "actionIcon": "add"
+                                        },
+                                        {
+                                            "lable": "Delete",
+                                            "type": "delete",
+                                            "actionIcon": "delete",
+                                            "actionAPIKey": "updateAlertPrefsAPI"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "groupName": "File",
+                                    "groupElements": [
+                                        {
+                                            "lable": "Import",
+                                            "type": "upload",
+                                            "actionIcon": "import",
+                                            "apiKey": "cspBillSentInvoiceDownloadAPI",
+                                            "acceptedFileFormat": ".csv"
+                                        },
+                                        {
+                                            "lable": "Export",
+                                            "type": "export",
+                                            "actionIcon": "export",
+                                            "apiKey": "cspBillSentInvoiceDownloadAPI",
+                                            "fileName": "Rate Cards.pdf"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "Roles",
+                    "name": "Rate Packs",
+                    "page": "ComponentsPage",
+                    "link": "/catalog/ratepacks",
+                    "isHawkUI": true
+                },
+                {
+                    "id": "Environments",
+                    "name": "Services",
+                    "page": "ComponentsPage",
+                    "link": "/catalog/services",
+                    "isHawkUI": true
+                },
+                {
+                    "id": "adjustment",
+                    "name": "Adjustments",
+                    "page": "ComponentsPage",
+                    "link": "/catalog/adjustment",
+                    "isHawkUI": true
+                }
+            ]
+        },
+        {
+            "id": "cust_Set",
+            "name": "Customer Settings",
+            "icon": "customer-setting-icon",
+            "page": "ComponentsPage",
+            "link": "/customer",
+            "isHawkUI": true
+        },
+        {
+            "id": "admin",
+            "name": "Administration",
+            "icon": "admin-icon",
+            "page": "ComponentsPage",
+            "isHawkUI": true,
+            "link": "/admin",
+            "subNavs": [
+                {
+                    "id": "environments",
+                    "name": "Environments",
+                    "link": "/admin/envs",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "key": "add",
+                            "title": "Add",
+                            "type": "modal",
+                            "modalTitle": "Add Environment",
+                            "componentsAPIKey": "addEnvComponentAPI"
+                        }
+                    ],
+                    "className": "admin-icon"
+                },
+                {
+                    "id": "userRoles",
+                    "name": "Manage Roles",
+                    "page": "ComponentsPage",
+                    "link": "/admin/manage-roles",
+                    "isHawkUI": true
+                },
+                {
+                    "id": "users",
+                    "name": "Users",
+                    "page": "ComponentsPage",
+                    "link": "/admin/users",
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "key": "add",
+                            "title": "Add User",
+                            "type": "modal",
+                            "modalTitle": "Add User",
+                            "componentsAPIKey": "addUserComponentAPI",
+                            "isHawkUI": true,
+                            "drillParams": [
+                                {
+                                    "key": "email"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "settings",
+                    "name": "Settings",
+                    "page": "ComponentsPage",
+                    "link": "/admin/settings",
+                    "isHawkUI": true
+                }
+            ]
+        },
+        {
+            "id": "analytics",
+            "name": "Analytics",
+            "icon": "analytics-icon",
+            "page": "ComponentsPage",
+            "className": "analytics-icon",
+            "isHawkUI": true,
+            "subNavs": [
+                {
+                    "id": "costDashboard",
+                    "name": "Cost Dashboard",
+                    "link": "/costdashboard",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
+                }
+            ]
+        },
+        {
+            "id": "aquilaServices",
+            "name": "Aquila Services",
+            "link": "/services",
+            "icon": "InboxIcon",
+            "page": "ComponentsPage",
+            "linkedeUrlParam": "nodeIndex",
+            "isHawkUI": true,
+            "className": "admin-icon"
+        },
+        {
+            "id": "startup",
+            "name": "Startup/shutdown",
+            "link": "/schedule",
+            "icon": "SendIcon",
+            "isSetting": false,
+            "page": "Schedule",
+            "role": "ROOT_ADMIN,ADMIN,POWER_USER"
+        },
+        {
+            "link": "/detail/:id",
+            "page": "DetailView"
+        },
+        {
+            "link": "/drill",
+            "page": "DetailView"
+        },
+        {
+            "link": "/login",
+            "page": "Login"
+        },
+        {
+            "link": "/register",
+            "page": "RegisterPage"
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Manage Users",
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "apiKey": "listUsersAPI",
+                "size": 12,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "defaultRowPerPage": 10,
+                "toolBarActions": [
+                    {
+                        "toolbarTitle": "Add User",
+                        "modalTitle": "Add User",
+                        "componentsAPIKey": "addUserComponentAPI",
+                        "actionIcon": "AddBox",
+                        "isHawkUI": true,
+                        "drillParams": [
+                            {
+                                "key": "email"
+                            }
+                        ]
+                    }
+                ],
+                "columns": [
+                    {
+                        "name": "Id",
+                        "key": "userId",
+                        "display": false
+                    },
+                    {
+                        "name": "Email",
+                        "key": "email",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Role",
+                        "key": "roleName",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "multiselect"
+                    },
+                    {
+                        "name": "Status",
+                        "key": "status",
+                        "type": "status",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Account",
+                        "key": "accounts",
+                        "display": true,
+                        "type": "number",
+                        "filter": true,
+                        "filterType": "multiselect"
+                    },
+                    {
+                        "name": "Delete",
+                        "key": "action",
+                        "sort": false,
+                        "type": "delete",
+                        "display": true,
+                        "apiKey": "deleteUserAPI",
+                        "requestParams": [
+                            {
+                                "key": "userId"
+                            },
+                            {
+                                "key": "email"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Edit",
+                        "key": "action",
+                        "sort": false,
+                        "type": "drill-down",
+                        "display": true,
+                        "drillTo": "modal",
+                        "modalTitle": "Edit user",
+                        "drillParams": [
+                            {
+                                "key": "userId"
+                            },
+                            {
+                                "key": "email"
+                            }
+                        ],
+                        "componentsAPIKey": "addUserComponentAPI"
+                    },
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

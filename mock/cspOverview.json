@@ -1,0 +1,105 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "type": "hawkAmountSummary",
+                "apiKey": "getAmountSummaryData",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
+            },
+            {
+                "id": 2,
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "defSelectKey": "mainDatatable",
+                "apiKey": "listUsersAPI",
+                "size": 12,
+                "hideToolBar": true,
+                "filter": false,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "selectableRows": "multiple",
+                "defaultRowPerPage": 10,
+                "showTotalFooter": true,
+                "totalFooterApi": "getCloudTotal",
+                "columns": [
+                    {
+                        "name": "Id",
+                        "key": "userId",
+                        "display": false
+                    },
+                    {
+                        "name": "Email",
+                        "key": "email",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField",
+                        "isRowSelection": true
+                    },
+                    {
+                        "name": "Role",
+                        "key": "roleName",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "multiselect",
+                        "isRowSelection": true
+                    },
+                    {
+                        "name": "Sales Amount",
+                        "key": "salesAmount",
+                        "type": "amount",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "multiselect"
+                    },
+                    {
+                        "name": "Status",
+                        "key": "status",
+                        "type": "status",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Progress",
+                        "key": "progress",
+                        "secKey": "progressType",
+                        "type": "progress"
+                    },
+                    {
+                        "name": "Amount",
+                        "key": "accounts",
+                        "type": "amount",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "multiselect"
+                    },
+                    {
+                        "name": "Alert",
+                        "key": "alert",
+                        "type": "alert",
+                        "display": true
+                    },
+                    {
+                        "name": "Overview",
+                        "key": "action",
+                        "type": "drill-down",
+                        "display": true,
+                        "drillTo": "overview",
+                        "drillParams": [
+                            {
+                                "key": "userId"
+                            },
+                            {
+                                "key": "email",
+                                "isPrimary": true
+                            }
+                        ],
+                        "componentsAPIKey": "customerOverviewDataAPI"
+                    }
+                ]
+            }
+        ]
+    }
+]

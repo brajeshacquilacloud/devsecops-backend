@@ -3,7 +3,11 @@ var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080
-
+const users = require('./mock/users.json');
+const cspOverview = require('./mock/cspOverview.json');
+const cspBilling = require('./mock/cspBilling.json');
+const rateLine = require('./mock/rateLine.json');
+const navs = require('./mock/navs.json');
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -40,7 +44,8 @@ function getFlamingoData() {
                             leafTitle: 'Cost by test view columns',
                             type: 'datatable',
                             apiKey: 'testMetricAPI',
-                            'noDataText': 'Group Resources can\'t be retrieved',
+                            customToolBarConfig: { "download": false, "print": false, "search": true, "viewColumns": true },
+                            noDataText: 'Group Resources can\'t be retrieved',
                             size: 12,
                             metrics: { contain: 'instance data' },
                             columns: [
@@ -50,22 +55,13 @@ function getFlamingoData() {
                                 { name: 'Noance', key: 'noance', "type": "status", display: true },
                                 { name: 'Comments', key: 'comments', display: true },
                                 { name: 'Review', key: 'review', display: true },
-                                { name: 'Liability', key: 'liability', display: true },
-                                { name: 'Scheduled', key: 'scheduled', display: true },
+                                { name: 'Liability', key: 'liability', display: false },
+                                { name: 'Scheduled', key: 'scheduled', display: false },
                                 { name: 'Suggested Instance Type', key: 'suggested', display: true },
                                 { name: 'Resource Id', key: 'resourceId', display: true },
-                                { name: 'Usage Date', key: 'usageDate', display: true },
+                                { name: 'Usage Date', key: 'usageDate', display: false },
                                 { name: 'Trasaction Date', key: 'usageDate', display: true },
-                                { name: 'Cost', key: 'costMtm', display: true },
-                                { name: 'Real Cost', key: 'costMtm', display: true },
-                                { name: 'With Tax Cost', key: 'costMtm', display: true },
-                                { name: 'Addtional Cost', key: 'costMtm', display: true },
-                                { name: 'Addtional Cost2', key: 'costMtm', display: true },
-                                { name: 'Addtional Cost3', key: 'costMtm', display: true },
-                                { name: 'Addtional Cost4', key: 'costMtm', display: true },
-                                { name: 'Addtional Cost5', key: 'costMtm', display: true },
-                                { name: 'Addtional Cost6', key: 'costMtm', display: true },
-                                { name: 'Addtional Cost7', key: 'costMtm', display: true },
+                                { name: 'Cost', key: 'costMtm', display: true, type: 'amount' },
                                 { name: 'variance', key: 'variance', display: true },
                                 {
                                     name: 'Action', key: 'action', type: 'drill-down', drillTo: 'modal', display: true,
@@ -321,7 +317,7 @@ function getFlamingoData() {
                             leafTitle: 'Top 10 Services by CPU',
                             type: 'bar', isPro: true,
                             apiKey: 'awsSpendingFlemingoAPI',
-                            size: 4,
+                            size: 6,
                             metrics: 'SOLID_STATE',
 
                         },
@@ -359,7 +355,7 @@ function getFlamingoData() {
                             leafTitle: 'Consumers',
                             type: 'bar', isPro: true,
                             apiKey: 'accomodationsyFlemingoAPI',
-                            size: 3,
+                            size: 9,
                             metrics: 'EWES_STATE',
                         },
                         {
@@ -636,7 +632,7 @@ function getFlamingoData() {
                             id: 25, leafTitle: 'Top 10 Services by Network',
                             type: 'bar', isPro: true,
                             apiKey: 'accomodationsyFlemingoAPI',
-                            size: 3,
+                            size: 9,
                             metrics: 'SERVICE_K8',
 
                         }
@@ -855,7 +851,7 @@ function getFlamingoData() {
                             id: 44, leafTitle: 'Top 10 Services by Network',
                             type: 'bar', isPro: true,
                             apiKey: 'accomodationsyFlemingoAPI',
-                            size: 3,
+                            size: 9,
                             metrics: { status: "Not Started", cluster: "8 Nodes" },
                         },
                         {
@@ -875,6 +871,430 @@ function getFlamingoData() {
                     ]
                 }
             ],
+        }
+    ];
+}
+
+
+function EditCustomerScreenData() {
+    return [
+        {
+            leafs: [
+                {
+                    "id": 1,
+                    "leafTitle": "Edit customer",
+                    "subTitle": "Sub-title to displayed for Edit customer screen",
+                    "size": 6,
+                    "type": "complex-form",
+                    "dataAPIKey": "listResourceOrderListAPI",
+                    "actionAPIKey": "saveInstanceTypeChangeAPI",
+                    "subscribedDrillParam": "email",
+                    "components": [
+                        {
+                            "title": "Existing Relationship Details",
+                            "subComponents": [
+                                {
+                                    "id": 1,
+                                    "title": "Customer Type",
+                                    "type": "group-radio",
+                                    "defSelectKey": "customerType",
+                                    "size": 12,
+                                    "apiKey": "billOpsUserTypeListAPI",
+                                    "helperText": "Please select Customer Type"
+                                },
+                                {
+                                    "id": 2,
+                                    "title": "Customer ID/Name",
+                                    "type": "text-input",
+                                    "inputType": "string",
+                                    "defSelectKey": "customerID",
+                                    "size": 12,
+                                    "helperText": "Please select Customer ID",
+                                    "bindLeafData": {
+                                        "hideWhen": "NEW",
+                                        "bindWith": "customerType",
+                                        "id": 1
+                                    },
+                                    "targetLeafData": {
+                                        "tagetWith": "customerType",
+                                        "id": 1
+                                    }
+                                },
+                            ]
+                        },
+                        {
+                            "title": "Organization Details",
+                            "subComponents": [
+                                {
+                                    "id": 3,
+                                    "title": "Name of the organization",
+                                    "type": "text-input",
+                                    "inputType": "string",
+                                    "defSelectKey": "orgName",
+                                    "size": 12,
+                                    "helperText": "Please enter name of the organization",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "message": 'Organization is the required field',
+                                    },
+                                },
+                                {
+                                    "id": 4,
+                                    "title": "Industry Vertical",
+                                    "defSelectKey": "industry",
+                                    "size": 12,
+                                    "type": "select",
+                                    "apiKey": "listAWSInstanceTypeAPI",
+                                    validation: {
+                                        message: 'Atlease one value should be selected',
+                                        type: 'range',
+                                        min: 1,
+                                    },
+                                },
+                                {
+                                    "id": 5,
+                                    "title": "Website Address",
+                                    "type": "text-input",
+                                    "inputType": "string",
+                                    "defSelectKey": "website",
+                                    "size": 12,
+                                    "helperText": "Please enter Website Address",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "type": 'url',
+                                        "message": 'Website Address is the required field',
+                                    },
+                                },
+                                {
+                                    "id": 6,
+                                    "title": "Business turnover",
+                                    "defSelectKey": "turnover",
+                                    "size": 12,
+                                    "type": "select",
+                                    "apiKey": "listAWSInstanceTypeAPI",
+                                    validation: {
+                                        message: 'Atlease one value should be selected',
+                                        type: 'range',
+                                        min: 1,
+                                    },
+                                },
+                                {
+                                    "id": 7,
+                                    "title": "Account Type",
+                                    "defSelectKey": "accountType",
+                                    "size": 12,
+                                    "type": "select",
+                                    "mode": 'multiple',
+                                    "apiKey": "listAWSInstanceTypeAPI",
+                                    validation: {
+                                        message: 'Atlease one value should be selected',
+                                        type: 'range',
+                                        min: 2,
+                                    },
+                                },
+                            ]
+                        }, {
+                            "title": "Business Contact Details",
+                            "subComponents": [
+                                {
+                                    "id": 8,
+                                    "title": "First Name",
+                                    "type": "text-input",
+                                    "inputType": "string",
+                                    "defSelectKey": "firstName",
+                                    "size": 12,
+                                    "helperText": "Please enter your first name",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "message": 'First name is the required field',
+                                    },
+                                },
+                                {
+                                    "id": 9,
+                                    "title": "Last Name",
+                                    "type": "text-input",
+                                    "inputType": "string",
+                                    "defSelectKey": "lastName",
+                                    "size": 12,
+                                    "helperText": "Please enter your last name",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "message": 'Last name is the required field',
+                                    },
+                                },
+                                {
+                                    "id": 10,
+                                    "title": "Designation",
+                                    "type": "text-input",
+                                    "inputType": "string",
+                                    "defSelectKey": "designation",
+                                    "size": 12,
+                                    "helperText": "Please enter Designation",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "message": 'Designation is the required field',
+                                    },
+                                },
+                                {
+                                    "id": 12,
+                                    "title": "Phone Number",
+                                    "type": "text-input",
+                                    "inputType": "number",
+                                    "defSelectKey": "phone",
+                                    "size": 12,
+                                    "helperText": "Please enter Phone Number",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "message": 'Phone Number is the required field',
+                                    },
+                                },
+                                {
+                                    "id": 13,
+                                    "title": "Email",
+                                    "type": "text-input",
+                                    "inputType": "string",
+                                    "defSelectKey": "email",
+                                    "size": 12,
+                                    "helperText": "Please enter Email",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "type": 'email',
+                                        "message": 'Email is the required field',
+                                    },
+                                },
+                                {
+                                    "id": 14,
+                                    "title": "Mobile Number",
+                                    "type": "text-input",
+                                    "inputType": "number",
+                                    "defSelectKey": "mobile",
+                                    "size": 12,
+                                    "helperText": "Please enter Mobile Number",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "message": 'Mobile Number is the required field',
+                                    },
+                                },
+                                {
+                                    "id": 15,
+                                    "title": "UserId",
+                                    "type": "text-input",
+                                    "inputType": "number",
+                                    "defSelectKey": "userId",
+                                    "size": 12,
+                                    "helperText": "Please enter User ID",
+                                    "validation": {
+                                        "isRequired": true,
+                                        "message": 'User ID is the required field',
+                                    },
+                                },
+                            ]
+                        },
+                    ]
+                },
+                {
+                    "id": 2,
+                    "leafTitle": "Manage Bill-OPS Users",
+                    "type": "datatable",
+                    "subscribedDrillParam": "email",
+                    "apiKey": "listUsersAPI",
+                    "size": 6,
+                    "noDataText": "No sub-users available",
+                    "metrics": {},
+                    "defaultRowPerPage": 10,
+                    "toolBarActions": [
+                        {
+                            "toolbarTitle": "Add User",
+                            "modalTitle": "Add User",
+                            "type": "modal",
+                            "componentsAPIKey": "addUserComponentAPI",
+                            "actionIcon": "AddBox",
+                            "drillParams": [
+                                {
+                                    "key": "email"
+                                }
+                            ]
+                        },
+                        {
+                            "toolbarTitle": "Save",
+                            "toolbarTooltip": "In order to reflect the changes please click on save after editing table data.",
+                            "type": "save",
+                            "actionAPIKey": "saveInstanceTypeChangeAPI",
+                            "actionIcon": "Save",
+                            "drillParams": [
+                                {
+                                    "key": "email"
+                                }
+                            ]
+                        }
+                        , {
+                            "toolbarTitle": "Clear",
+                            "type": "reset",
+                            "actionIcon": "Clear",
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "name": "Id",
+                            "key": "userId",
+                            "display": false,
+                        },
+                        {
+                            "name": "Email",
+                            "key": "email",
+                            "display": true,
+                            "filter": true,
+                            "filterType": 'textField',
+                        },
+                        {
+                            "name": "Role",
+                            "key": "roleName",
+                            "display": true,
+                            "filter": true,
+                            "filterType": 'multiselect',
+                        },
+                        {
+                            "name": "Status",
+                            "key": "status",
+                            "type": "status",
+                            "display": true,
+                            "filter": false,
+                        },
+                        {
+                            "name": "Add-On",
+                            "key": "status",
+                            "type": "checkbox",
+                            "display": true,
+                            "filter": false,
+                        },
+                        {
+                            "name": "Enable/Disable",
+                            "key": "mark",
+                            "type": "toggle",
+                            "display": true,
+                            "filter": false,
+                        },
+                        {
+                            "name": "Severity",
+                            "key": "severity",
+                            "type": "select",
+                            "mode": "default",
+                            "apiKey": "listThresholdMetricListAPI",
+                            "display": true,
+                            "filter": false,
+                        },
+                        {
+                            "name": "Projects",
+                            "key": "project",
+                            "type": "select",
+                            "mode": "multiple",
+                            "apiKey": "listThresholdMetricListAPI",
+                            "display": true,
+                            "filter": false,
+                        },
+                        {
+                            "name": "File Name",
+                            "key": "fileName",
+                            "display": true,
+                        },
+                        {
+                            "name": "Account",
+                            "key": "accounts",
+                            "display": true,
+                            "filter": true,
+                            "filterType": 'multiselect',
+                        },
+                        {
+                            "name": "Delete",
+                            "key": "action",
+                            "type": "delete",
+                            "display": true,
+                            "apiKey": "deleteUserAPI",
+                            "requestParams": [
+                                {
+                                    "key": "userId"
+                                },
+                                {
+                                    "key": "email"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Edit",
+                            "key": "action",
+                            "type": "drill-down",
+                            "display": true,
+                            "drillTo": "modal",
+                            "modalTitle": "Edit user",
+                            "drillParams": [
+                                {
+                                    "key": "userId"
+                                },
+                                {
+                                    "key": "email"
+                                }
+                            ],
+                            "componentsAPIKey": "addUserComponentAPI"
+                        },
+                        {
+                            "name": "Edit Customer",
+                            "key": "action",
+                            "type": "drill-down",
+                            "display": true,
+                            "drillTo": "drill",
+                            "drillKey": "edit-customer",
+                            "drillParams": [{ "key": "userId" }, { "key": "email" }],
+                        },
+                        {
+                            "name": "Download",
+                            "key": "action",
+                            "type": "download",
+                            "actionIcon": "Download",
+                            "display": true,
+                            "apiKey": "deleteUserAPI",
+                            "requestParams": [
+                                {
+                                    "key": "userId"
+                                },
+                                {
+                                    "key": "email"
+                                }
+                            ]
+                        },
+                    ]
+                },
+                {
+                    id: 3,
+                    leafTitle: 'List the customers',
+                    type: 'datatable',
+                    apiKey: 'testMetricAPI',
+                    "subscribedDrillParam": "email",
+                    size: 12,
+                    noDataText: 'Data for Cost by Service Type is not currently available',
+                    columns: [
+                        { name: 'Alert Type', key: 'alertType', display: true },
+                        { name: 'Instance ID', key: 'instanceId', display: true },
+                        { name: 'Current Instance Type', key: 'current', display: true },
+                        { name: 'Suggested Instance Type', key: 'suggested', display: true },
+                        { name: 'Resource Id', key: 'resourceId', display: true },
+                        { name: 'Usage Date', key: 'usageDate', display: true },
+                        { name: 'Current Cost', key: 'costMtm', display: true },
+                        { name: 'variance', key: 'variance', display: true },
+                        {
+                            name: 'Action', key: 'action', type: 'drill-down', drillTo: 'modal',
+                            modalTitle: 'Update Instance Type',
+                            drillParams: [
+                                { key: 'instanceId', display: true },
+                                { key: 'current' },
+                                { key: 'suggested', display: true },
+                                { key: 'costMtm', display: true },
+                                { key: 'resourceId', display: true },
+                            ],
+                            componentsAPIKey: 'getInstanceStatesAPI',
+                        }
+                    ]
+                }
+            ]
         }
     ];
 }
@@ -1138,7 +1558,8 @@ function drillDownData() {
                     "leafTitle": "Image Id",
                     "type": "select",
                     "size": 12,
-                    "apiKey": "listInstanceTypeAPI",
+                    "mode": "multiple",
+                    "apiKey": "listAWSInstanceTypeAPI",
                     "defSelectKey": "selectedImage",
                     "helperText": "Choose Image Id",
                     "metrics": {},
@@ -1242,6 +1663,7 @@ function getAdministrationDashboard() {
                                 {
                                     "toolbarTitle": "Add User",
                                     "modalTitle": "Add User",
+                                    "type": "modal",
                                     "componentsAPIKey": "addUserComponentAPI",
                                     "actionIcon": "AddBox",
                                     "drillParams": [
@@ -1249,6 +1671,23 @@ function getAdministrationDashboard() {
                                             "key": "email"
                                         }
                                     ]
+                                },
+                                {
+                                    "toolbarTitle": "Save",
+                                    "toolbarTooltip": "In order to reflect the changes please click on save after editing table data.",
+                                    "type": "save",
+                                    "actionAPIKey": "saveInstanceTypeChangeAPI",
+                                    "actionIcon": "Save",
+                                    "drillParams": [
+                                        {
+                                            "key": "email"
+                                        }
+                                    ]
+                                }
+                                , {
+                                    "toolbarTitle": "Clear",
+                                    "type": "reset",
+                                    "actionIcon": "Clear",
                                 }
                             ],
                             "columns": [
@@ -1277,6 +1716,43 @@ function getAdministrationDashboard() {
                                     "type": "status",
                                     "display": true,
                                     "filter": false,
+                                },
+                                {
+                                    "name": "Add-On",
+                                    "key": "status",
+                                    "type": "checkbox",
+                                    "display": true,
+                                    "filter": false,
+                                },
+                                {
+                                    "name": "Enable/Disable",
+                                    "key": "mark",
+                                    "type": "toggle",
+                                    "display": true,
+                                    "filter": false,
+                                },
+                                {
+                                    "name": "Severity",
+                                    "key": "severity",
+                                    "type": "select",
+                                    "mode": "default",
+                                    "apiKey": "listThresholdMetricListAPI",
+                                    "display": true,
+                                    "filter": false,
+                                },
+                                {
+                                    "name": "Projects",
+                                    "key": "project",
+                                    "type": "select",
+                                    "mode": "multiple",
+                                    "apiKey": "listThresholdMetricListAPI",
+                                    "display": true,
+                                    "filter": false,
+                                },
+                                {
+                                    "name": "File Name",
+                                    "key": "fileName",
+                                    "display": true,
                                 },
                                 {
                                     "name": "Account",
@@ -1316,7 +1792,49 @@ function getAdministrationDashboard() {
                                         }
                                     ],
                                     "componentsAPIKey": "addUserComponentAPI"
-                                }
+                                },
+                                {
+                                    "name": "Overview",
+                                    "key": "action",
+                                    "type": "drill-down",
+                                    "display": true,
+                                    "drillTo": "overview",
+                                    "drillParams": [
+                                        {
+                                            "key": "userId"
+                                        },
+                                        {
+                                            "key": "email"
+                                        }
+                                    ],
+                                    "componentsAPIKey": "customerOverviewDataAPI"
+                                },
+                                {
+                                    "name": "Edit Customer",
+                                    "key": "action",
+                                    "type": "drill-down",
+                                    "display": true,
+                                    "drillTo": "drill",
+                                    "drillKey": "edit-customer",
+                                    "drillParams": [{ "key": "userId" }, { "key": "email" }],
+                                },
+                                {
+                                    "name": "Download",
+                                    "type": "download",
+                                    "key": "action",
+                                    "fileNameKey": "fileName",
+                                    "actionIcon": "PDF",
+                                    "display": true,
+                                    "apiKey": "downloadBillOpsPOAPI",
+                                    "requestParams": [
+                                        {
+                                            "key": "userId"
+                                        },
+                                        {
+                                            "key": "email"
+                                        }
+                                    ]
+                                },
                             ]
                         }
                     ]
@@ -1431,48 +1949,19 @@ function getAdministrationDashboard() {
                             ],
                             "columns": [
                                 {
-                                    "name": "User Id",
-                                    "key": "userId",
-                                    "display": true,
-                                },
-                                {
                                     "name": "Email",
                                     "key": "email",
                                     "display": true,
                                 },
                                 {
-                                    "name": "Alerts",
-                                    "key": "alertsEnabled",
-                                    "type": "status",
+                                    "name": "Customer Id",
+                                    "key": "customerId",
                                     "display": true,
                                 },
                                 {
-                                    "name": "Billing",
-                                    "key": "billingAlerts",
-                                    "type": "status",
-                                    "display": true,
-                                },
-                                {
-                                    "name": "Utilization",
-                                    "key": "utilizationAlerts",
-                                    "type": "status",
-                                    "display": true,
-                                },
-                                {
-                                    "name": "Action",
-                                    "key": "actionAlerts",
-                                    "type": "status",
-                                    "display": true,
-                                },
-                                {
-                                    "name": "Kubernetes",
-                                    "key": "kubernetesAlerts",
-                                    "type": "status"
-                                },
-                                {
-                                    "name": "Subscription Status",
-                                    "key": "emailStatus",
-                                    "display": true,
+                                    "name": "Provider Subscription Id",
+                                    "key": "providerSubscriptionId",
+                                    "display": false,
                                 },
                                 {
                                     "name": "Delete",
@@ -1490,22 +1979,16 @@ function getAdministrationDashboard() {
                                     ]
                                 },
                                 {
-                                    "name": "Edit",
+                                    "name": "Jump",
                                     "key": "action",
                                     "type": "drill-down",
-                                    "drillTo": "modal",
-                                    "modalTitle": "Edit subscription preferences",
-                                    "drillParams": [
-                                        {
-                                            "key": "email",
-                                            "display": false
-                                        },
-                                        {
-                                            "key": "userId"
-                                        }
-                                    ],
-                                    "componentsAPIKey": "addEditAlertEmailSubcribeComponentAPI"
-                                }
+                                    "drillTo": "drill",
+                                    'nodeIndex': 0,
+                                    "subNodeIndex": 0,
+                                    'tabIndex': 2,
+                                    "drillKey": "azurecspdashboard",
+                                    "drillParams": [{ "key": "customerId" }, { "key": "providerSubscriptionId" }]
+                                },
                             ]
                         }
                     ]
@@ -1862,6 +2345,76 @@ function getManageUsersData() {
     ]
 }
 
+
+function getEnvironmentsUIData() {
+    return [{
+        leafs: [
+            {
+                id: 1,
+                type: 'tile',
+                apiKey: 'environmentListAPI',
+                size: 12,
+                tileActions: [
+                    {
+                        key: 'edit',
+                        type: 'modal',
+                        modalTitle: 'Edit Environment',
+                        componentsAPIKey: 'editEnvComponentAPI',
+                    },
+                    {
+                        key: 'delete',
+                        type: 'delete',
+                        title: 'Confirm',
+                        bodyText: 'This action can\'t be undone, please perform only if you are aware about consequences about this action.',
+                        apiKey: 'deleteUserAPI',
+                    }
+                ]
+            },
+        ]
+    }]
+}
+
+function getServicesUIData() {
+    return [{
+        leafs: [
+            {
+                id: 1,
+                type: 'card',
+                apiKey: 'servicesListAPI',
+                size: 12,
+            },
+        ]
+    }]
+}
+
+function getRolesUIData() {
+    return [{
+        leafs: [
+            {
+                id: 1,
+                type: 'tile',
+                apiKey: 'rolesListAPI',
+                size: 12,
+                tileActions: [
+                    {
+                        key: 'edit',
+                        type: 'modal',
+                        modalTitle: 'Edit Roles/Permissions',
+                        componentsAPIKey: 'editEnvComponentAPI',
+                    },
+                    {
+                        key: 'delete',
+                        type: 'delete',
+                        title: 'Confirm',
+                        bodyText: 'This action can\'t be undone, please perform only if you are aware about consequences about this action.',
+                        apiKey: 'deleteUserAPI',
+                    }
+                ]
+            },
+        ]
+    }]
+}
+
 function getGroupUIData() {
     return [{
         leafs: [
@@ -1937,7 +2490,7 @@ function getGroupUIData() {
                         size: 3,
                         title: 'Instance',
                         type: 'select',
-                        apiKey: 'listInstanceTypeAPI',
+                        apiKey: 'listAWSInstanceTypeAPI',
                         disableInitApi: true,
                         helperText: 'Please select the tenant',
                         "metrics": {
@@ -1985,6 +2538,299 @@ function getGroupUIData() {
         ]
     }]
 }
+
+function getChargeBackScreenData() {
+
+    return [
+        {
+            "nodeTitle": "AWS",
+            "subNode": [
+                {
+                    "subNodeTitle": "Chargeback",
+                    "filters": [
+                        {
+                            "key": "id",
+                            "sortOrder": 0,
+                            "display": true,
+                            "name": "Environment",
+                            "apiKey": "chargeBackEnvironmentSelectListAPI"
+                        },
+                        {
+                            "key": "customerId",
+                            "sortOrder": 2,
+                            "display": true,
+                            "apiKey": "chargeBackCustomersListAPI",
+                            "name": "Customer",
+                            "bindParam": { "bindWith": "id" }
+                        },
+                        {
+                            "key": "billingCycleId",
+                            "name": "Billing Cycle",
+                            "sortOrder": 1,
+                            "apiKey": "chargeBackCustomerBillingCycleListAPI",
+                            "bindParam": { "bindWith": "customerId" }
+                        }
+                    ],
+                    "leafs": [
+                        {
+                            "leafTitle": "Environment Details",
+                            "type": "tab",
+                            "size": 12,
+                            "tabs": [
+                                {
+                                    "id": 3001,
+                                    "leafTitle": "Environments",
+                                    "type": "datatable",
+                                    "apiKey": "chargeBackEnvironmentListAPI",
+                                    "size": 12,
+                                    "metrics": {},
+                                    "defaultRowPerPage": 10,
+                                    "noDataText": "No enviornments are enabled for chargeback",
+                                    "hideToolBar": false,
+                                    "columns": [
+                                        { "name": "Environment Id", "key": "id", "display": false },
+                                        { "name": "Type", "key": "type" },
+                                        { "name": "Name", "key": "name" },
+                                        { "name": "Status", "key": "status" },
+                                        {
+                                            "name": "Customers", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 1, "drillKey": "chargebackdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "id", "name": "Environment", "apiKey": "chargeBackEnvironmentSelectListAPI" }]
+                                        },
+                                        {
+                                            "name": "Add Chargeback Customer", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Chargeback Settings", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "id", "display": false }, { "key": "type", "display": false }, { "key": "name", "display": false }],
+                                            "componentsAPIKey": "addEditChargeBackCustomerAPI"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 3002,
+                                    "leafTitle": "Customers",
+                                    "type": "datatable",
+                                    "apiKey": "chargeBackCustomerSummaryListAPI",
+                                    "size": 12,
+                                    "metrics": {},
+                                    "defaultRowPerPage": 10,
+                                    "noDataText": "No customers are enabled for chargeback",
+                                    "hideToolBar": false,
+                                    "columns": [
+                                        { "name": "Environment Id", "key": "id", "display": false },
+                                        { "name": "Customer Id", "key": "customerId", "display": false },
+                                        { "name": "Name", "key": "customerName" },
+                                        { "name": "Status", "key": "status" },
+                                        { "name": "Margin", "key": "margin" },
+                                        { "name": "Created Date", "key": "createdDate" },
+                                        { "name": "Updated Date", "key": "updatedDate" },
+                                        { "name": "Latest Billing Cycle", "key": "billingCycleId" },
+                                        {
+                                            "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Slab Settings", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "id", "display": false },
+                                            { "key": "customerId" },
+                                            { "key": "customerName" },
+                                            { "key": "margin" }],
+                                            "componentsAPIKey": "addEditChargeBackCustomerAPI"
+                                        },
+                                        {
+                                            "name": "Accounts", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 2, "drillKey": "chargebackdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "id", "name": "Environment", "apiKey": "chargeBackEnvironmentSelectListAPI" },
+                                            { "key": "customerId", "name": "Customer", "apiKey": "chargeBackCustomersListAPI" },
+                                            { "key": "billingCycleId", "name": "Billing Cycle", "apiKey": "chargeBackCustomerBillingCycleListAPI" }]
+                                        },
+                                        {
+                                            "name": "Monthly Bills", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 4, "drillKey": "chargebackdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "id", "name": "Environment", "apiKey": "chargeBackEnvironmentSelectListAPI" },
+                                            { "key": "customerId", "name": "Customer", "apiKey": "chargeBackCustomersListAPI" },
+                                            { "key": "billingCycleId", "name": "Billing Cycle", "apiKey": "chargeBackCustomerBillingCycleListAPI" }]
+                                        },
+                                        {
+                                            "name": "Re-generate Bills", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Re-generate Bills", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "id", "display": false }, { "key": "customerName", "display": true }, { "key": "customerId", "display": false }],
+                                            "componentsAPIKey": "regenerateChargeBackCustomerBillComponentAPI"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 3003,
+                                    "leafTitle": "Accounts",
+                                    "type": "datatable",
+                                    "apiKey": "chargeBackAccountsSummaryListAPI",
+                                    "size": 12,
+                                    "metrics": {},
+                                    "defaultRowPerPage": 10,
+                                    "noDataText": "No accounts available",
+                                    "hideToolBar": false,
+                                    "columns": [
+                                        { "name": "Account Id", "key": "accountId" },
+                                        { "name": "Environment Id", "key": "id", "display": false },
+                                        { "name": "Customer Id", "key": "customerId", "display": false },
+                                        { "name": "Status", "key": "status" },
+                                        { "name": "Latest Billing Cycle", "key": "billingCycleId" },
+                                        { "name": "AWS Cost", "key": "awsCost" },
+                                        { "name": "Chargeback Cost", "key": "customCost" },
+                                        {
+                                            "name": "Monthly Details", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 3, "drillKey": "chargebackdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "id", "name": "Environment", "apiKey": "chargeBackEnvironmentSelectListAPI" },
+                                            { "key": "customerId", "name": "Customer", "apiKey": "chargeBackCustomersListAPI" }]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 3006,
+                                    "leafTitle": "Tags",
+                                    "type": "datatable",
+                                    "apiKey": "chargeBackTagMonthlyBillsAPI",
+                                    "size": 12,
+                                    "metrics": {},
+                                    "defaultRowPerPage": 10,
+                                    "noDataText": "No cost allocation tags are enabled for chargeback",
+                                    "hideToolBar": false,
+                                    "toolBarActions": [
+                                        {
+                                            "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "toolbarTitle": "Add Tag Rate Slab",
+                                            "modalTitle": "Add Tag Rate Slab",
+                                            "componentsAPIKey": "addEditChargeBackTagSlabAPI",
+                                            "actionIcon": "AddBox",
+                                            "drillParams": [{ "key": "mode", "value": "add" }]
+                                        }
+                                    ],
+                                    "columns": [
+                                        { "name": "Billing Cycle", "key": "billingCycleId" },
+                                        { "name": "Customer Id", "key": "customerId", "display": false },
+                                        { "name": "Customer Name", "key": "customerName" },
+                                        { "name": "Tag", "key": "tag" },
+                                        { "name": "Type", "key": "costType" },
+                                        { "name": "AWS Cost", "key": "awsCost" },
+                                        { "name": "Chargeback Cost", "key": "customCost" },
+                                        {
+                                            "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Slab Settings", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "customerId" },
+                                            { "key": "customerName" },
+                                            { "key": "tag" }],
+                                            "componentsAPIKey": "addEditChargeBackTagSlabAPI"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 3004,
+                                    "leafTitle": "Monthly Bills",
+                                    "type": "datatable",
+                                    "apiKey": "chargeBackAccountsMonthlyBillsAPI",
+                                    "size": 12,
+                                    "metrics": {},
+                                    "defaultRowPerPage": 10,
+                                    "noDataText": "No monthly bills available",
+                                    "hideToolBar": false,
+                                    "columns": [
+                                        { "name": "Billing Cycle", "key": "billingCycleId" },
+                                        { "name": "Customer Id", "key": "customerId", "display": false },
+                                        { "name": "Customer Name", "key": "customerName" },
+                                        { "name": "Status", "key": "status" },
+                                        { "name": "Type", "key": "costType" },
+                                        { "name": "# Accounts", "key": "accountCount" },
+                                        { "name": "AWS Cost", "key": "awsCost" },
+                                        { "name": "Chargeback Cost", "key": "customCost" },
+                                        { "name": "Rate Slab", "key": "rateSlab" }
+                                    ]
+                                },
+                                {
+                                    "id": 3005,
+                                    "leafTitle": "Monthly Detail Bills",
+                                    "type": "datatable",
+                                    "apiKey": "chargeBackAccountsMonthlyDetailBillsAPI",
+                                    "size": 12,
+                                    "metrics": {},
+                                    "defaultRowPerPage": 10,
+                                    "noDataText": "No monthly detail bills available",
+                                    "hideToolBar": false,
+                                    "columns": [
+                                        { "name": "Billing Cycle", "key": "billingCycleId", "display": false },
+                                        { "name": "Customer Id", "key": "customerId", "display": false },
+                                        { "name": "Account Id", "key": "accountId" },
+                                        { "name": "Payer Account Id", "key": "payerAccountId", "display": false },
+                                        { "name": "Product Family", "key": "productFamily", "type": "label", "display": false },
+                                        { "name": "Product Name", "key": "productName", "display": false, "type": "label" },
+                                        { "name": "Product Code", "key": "productCode", "type": "label" },
+                                        { "name": "Product Group", "key": "productGroup", "display": false, "type": "label" },
+                                        { "name": "Instance Family", "key": "instanceFamily", "display": false },
+                                        { "name": "Instance Type", "key": "instanceType" },
+                                        { "name": "Resource Id", "key": "resourceId", "type": "label" },
+                                        { "name": "Reservation Id", "key": "reservationId", "display": false },
+                                        { "name": "Resource Type", "key": "resourceType", "display": false },
+                                        { "name": "Operation", "key": "operation", "type": "label" },
+                                        { "name": "Line Item Type", "key": "lineItemType", "display": false },
+                                        { "name": "OS", "key": "operatingSystem", "display": false },
+                                        { "name": "AZ", "key": "availabilityZone", "display": false },
+                                        { "name": "Currency", "key": "currency" },
+                                        { "name": "AWS Cost", "key": "awsCost" },
+                                        { "name": "Mapping", "key": "mapping" },
+                                        { "name": "Chargeback Cost", "key": "customCost" },
+                                        { "name": "Chargeback Rate", "key": "customRate" },
+                                        { "name": "Usage Quantity", "key": "usageQuantity" },
+                                        { "name": "Unit", "key": "unit" }
+                                    ]
+                                },
+                                {
+                                    "id": 3007,
+                                    "leafTitle": "Rate Lines",
+                                    "type": "datatable",
+                                    "apiKey": "chargeBackRateLineListAPI",
+                                    "size": 12,
+                                    "metrics": {},
+                                    "defaultRowPerPage": 10,
+                                    "noDataText": "No rate lines available",
+                                    "hideToolBar": false,
+                                    "toolBarActions": [
+                                        {
+                                            "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "toolbarTitle": "Add Rate Line",
+                                            "modalTitle": "Add Rate Line",
+                                            "componentsAPIKey": "addEditChargeBackRateLineAPI",
+                                            "actionIcon": "AddBox",
+                                            "drillParams": [{ "key": "mode", "value": "add" }]
+                                        }
+                                    ],
+                                    "columns": [
+                                        { "name": "Customer Id", "key": "customerId", "display": false },
+                                        { "name": "Environment Id", "key": "id", "display": false },
+                                        { "name": "Rate Line Id", "key": "rateLineId", "display": false },
+                                        { "name": "Status", "key": "status", "display": false },
+                                        { "name": "Product Family", "key": "productFamily" },
+                                        { "name": "Product Code", "key": "productCode" },
+                                        { "name": "Instance Type", "key": "instanceType" },
+                                        { "name": "Operation", "key": "operation" },
+                                        { "name": "Unit", "key": "unit" },
+                                        { "name": "Comment", "key": "comment" },
+                                        { "name": "Created Date", "key": "createdDate", "display": false },
+                                        { "name": "Updated Date", "key": "updatedDate", "display": false },
+                                        {
+                                            "name": "Edit Rate Line", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Line", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "drillParams": [{ "key": "id", "display": false },
+                                            { "key": "customerId", "display": false },
+                                            { "key": "rateLineId", "display": false },
+                                            { "key": "productFamily" },
+                                            { "key": "productCode" },
+                                            { "key": "instanceType" },
+                                            { "key": "operation" },
+                                            { "key": "unit" },
+                                            { "key": "comment" }],
+                                            "componentsAPIKey": "addEditChargeBackRateLineAPI"
+                                        },
+                                        {
+                                            "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCharegbackRateLineAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                            "requestParams": [{ "key": "rateLineId" }, { "key": "id" }, { "key": "customerId" }]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+}
+
 
 function manageGroup() {
     return [
@@ -2038,14 +2884,22 @@ function getAzureCspData() {
                             "id": 1901, "leafTitle": "Customers", "type": "datatable", "apiKey": "cspCustomersListAPI", "size": 12, selectableRows: 'multiple', "metrics": {}, "defaultRowPerPage": 10, "noDataText": "No Csp Customers Available", "hideToolBar": false,
                             "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false },
                             { "name": "Customer Id", "key": "customerId" },
-                            { "name": "Company Name", "key": "companyName" }, { "name": "Domain", "key": "domain" }, { "name": "Subscription Count", "key": "subscriptionCount" }, {
-                                "name": "Rate Card", "key": "action", "type": "drill-down", "drillTo": "drill", "tabIndex": 1, "drillKey": "azurecspdashboard", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                            { "name": "Company Name", "key": "companyName" },
+                            { "name": "Domain", "key": "domain" }, { "name": "Subscription Count", "key": "subscriptionCount" }, {
+                                "name": "Rate Card", "key":
+                                    "action", "type": "drill-down",
+                                "drillTo": "drill",
+                                "subNodeIndex": 1,
+                                "drillKey": "azurecspdashboard",
+                                "role": "ROOT_ADMIN,ADMIN,POWER_USER",
                                 "drillParams": [
                                     {
                                         "key": "tenantId",
-                                        "name": "Tenant Id",
+                                        "name": "Enity Tenant Id",
                                         "apiKey": "tenantId",
                                         "visibility": { 'nodeIndex': '0', 'tabIndex': 1 },
+                                        "bindParam": { "bindWith": "batchTenantId" },
+                                        "sortOrder": 7,
                                     },
                                     {
                                         "key": "customerId",
@@ -2057,6 +2911,7 @@ function getAzureCspData() {
                                             ]
                                         },
                                         "bindParam": { "bindWith": "tenantId" },
+                                        "sortOrder": 6,
                                     }
                                 ]
                             },
@@ -2086,25 +2941,46 @@ function getAzureCspData() {
                             }]
                         }, { "id": 1905, "role": "ROOT_ADMIN,ADMIN,POWER_USER", "leafTitle": "Rate Card", "type": "datatable", "apiKey": "cspCustomerApprovedRateCardListAPI", "size": 12, "hideToolBar": false, "noDataText": "Rate card not available", "metrics": {}, "defaultRowPerPage": 10, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Import Rate Packs", "modalTitle": "Import Rate Packs", "componentsAPIKey": "importCspRatePacksComponentAPI", "actionIcon": "ImportExportIcon", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Rate Card Line", "modalTitle": "Add Rate Card Line", "componentsAPIKey": "addEditCspRateCardLineComponentAPI", "actionIcon": "AddBox", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Re-generate Bills", "modalTitle": "Re-generate Bills", "componentsAPIKey": "regenerateCspBillComponentAPI", "actionIcon": "EditPencil", "drillParams": [{}] }], "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId" }, { "name": "Region", "key": "region" }, { "name": "Meter ID", "key": "meterId" }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Pack Name", "key": "packName" }, { "name": "Interval", "key": "interval" }, { "name": "Count", "key": "count" }, { "name": "Unit Rate", "key": "unitRate" }, { "name": "Effective Date", "key": "effectiveDate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRateCardLineAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "customerId" }, { "key": "region" }, { "key": "meterId" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "packName" }] }, { "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Card", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "customerId" }, { "key": "region" }, { "key": "meterId" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "interval" }, { "key": "count" }, { "key": "unitRate" }, { "key": "effectiveDate" }, { "key": "packName" }], "componentsAPIKey": "addEditCspRateCardLineComponentAPI" }] }, { "id": 1902, "leafTitle": "Subscriptions", "type": "datatable", "apiKey": "cspCustomerSubscriptionListAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 10, "noDataText": "No Csp Customer subscriptions Available", "hideToolBar": false, "columns": [{ "name": "Subscription Id", "key": "id" }, { "name": "Offer Id", "key": "offerId" }, { "name": "Offer Name", "key": "offerName" }, { "name": "Quantity", "key": "quantity" }, { "name": "Effective Start Date", "key": "effectiveStartDate" }, { "name": "Effective End Date", "key": "commitmentEndDate" }, { "name": "Status", "key": "status" }, { "name": "Billing Cycle", "key": "billingCycle" }, { "name": "Duration", "key": "termDuration" }] }, { "id": 1903, "leafTitle": "Monthly Bills", "type": "datatable", "apiKey": "cspCustomerMonthlyBillLineItemsAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 20, "noDataText": "No Csp Customer Monthly bills Available", "hideToolBar": false, "columns": [{ "name": "Subscription Id", "key": "subscriptionId", "display": false }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Unit", "key": "unit" }, { "name": "Mapping", "key": "rateMapping" }, { "name": "Rate [INR]", "key": "rate" }, { "name": "CSP Shared Rate [INR]", "key": "cspSharedRate" }, { "name": "Quantity", "key": "quantity" }, { "name": "Agreed Cost [INR]", "key": "actualCost" }, { "name": "CSP Cost [INR]", "key": "cspCost" }] }, { "id": 1904, "leafTitle": "Monthly Detail Bills", "type": "datatable", "apiKey": "cspCustomerMonthlyBillLineItemsDetailsAPI", "size": 12, "metrics": {}, "defaultRowPerPage": 20, "noDataText": "No Csp Customer Monthly bills Available", "hideToolBar": false, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Un-Mapped Rate Card Lines", "modalTitle": "Add Un-Mapped Rate Card Lines", "componentsAPIKey": "addUnMappedCspRatePacksComponentAPI", "actionIcon": "ImportExportIcon", "drillParams": [{ "key": "effectiveRate", "value": "5" }] }], "columns": [{ "name": "Start Date", "key": "startDate", "display": false }, { "name": "End Date", "key": "endDate", "display": false }, { "name": "Subscription Id", "key": "subscriptionId", "display": false }, { "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Customer Id", "key": "customerId", "display": false }, { "name": "Region", "key": "region" }, { "name": "Category", "key": "category" }, { "name": "Sub-Category", "key": "subCategory" }, { "name": "Name", "key": "name" }, { "name": "Unit", "key": "unit" }, { "name": "Pack Name", "key": "packName" }, { "name": "Resource URI", "key": "resourceUri", "display": false }, { "name": "Group", "key": "resourceGroup" }, { "name": "Resource", "key": "resourceName" }, { "name": "Mapping", "key": "rateMapping" }, { "name": "Rate [INR]", "key": "rate" }, { "name": "CSP Shared Rate [INR]", "key": "cspSharedRate" }, { "name": "Effective Rate [INR]", "key": "effectiveRate", "display": false }, { "name": "Quantity", "key": "quantity" }, { "name": "Agreed Cost [INR]", "key": "actualCost" }, { "name": "CSP Cost [INR]", "key": "cspCost" }, { "name": "Rate Card", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Add Rate Card", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId", "display": false }, { "key": "customerId", "display": false }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "unit" }, { "key": "effectiveRate" }, { "key": "cspSharedRate" }], "componentsAPIKey": "addCSPRateCardLineComponentAPI" }, { "name": "Edit Record", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Record", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "startDate", "display": true }, { "key": "endDate", "display": true }, { "key": "tenantId", "display": true }, { "key": "customerId", "display": true }, { "key": "subscriptionId", "display": true }, { "key": "resourceName", "display": true }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "resourceUri", "display": false }, { "key": "unit" }, { "key": "rate" }, { "key": "actualCost" }, { "key": "quantity" }], "componentsAPIKey": "editCSPCostRecordComponentAPI" }, { "name": "Associate Rate Pack", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Associate Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "startDate", "display": true }, { "key": "endDate", "display": true }, { "key": "tenantId", "display": true }, { "key": "customerId", "display": true }, { "key": "subscriptionId", "display": true }, { "key": "resourceName", "display": true }, { "key": "region" }, { "key": "category" }, { "key": "subCategory" }, { "key": "name" }, { "key": "resourceUri", "display": false }, { "key": "unit" }, { "key": "rate" }, { "key": "actualCost" }, { "key": "quantity" }], "componentsAPIKey": "associateRatePackComponentAPI" }] }, {
                             "id": 1906, "role": "ROOT_ADMIN,ADMIN,POWER_USER", "leafTitle": "Rate Pack", "type": "datatable", "apiKey": "cspRatePackListAPI", "size": 12, "hideToolBar": false, "noDataText": "Rate packs not available", "metrics": {}, "defaultRowPerPage": 10, "toolBarActions": [{ "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Add Rate Pack", "modalTitle": "Add Rate Pack", "componentsAPIKey": "addEditCspRatePackCardComponentAPI", "actionIcon": "AddBox", "drillParams": [{}] }, { "role": "ROOT_ADMIN,ADMIN,POWER_USER", "toolbarTitle": "Re-generate Bills", "modalTitle": "Re-generate Bills", "componentsAPIKey": "regenerateCspBillComponentAPI", "actionIcon": "EditPencil", "drillParams": [{}] }], "columns": [{ "name": "Tenant Id", "key": "tenantId", "display": false }, { "name": "Pack Name", "key": "packName" }, { "name": "Created Date", "key": "createdDate" }, { "name": "Updated Date", "key": "updatedDate" }, { "name": "Version", "key": "version" },
-                            { "name": "Rate", "key": "rate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRatePackAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "createdDate" }] }, { "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "drillParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "rate" }], "componentsAPIKey": "addEditCspRatePackCardComponentAPI" }]
+                            { "name": "Rate", "key": "rate" }, { "name": "Delete", "key": "action", "type": "delete", "apiKey": "deleteCspRatePackAPI", "role": "ROOT_ADMIN,ADMIN,POWER_USER", "requestParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "createdDate" }] },
+                            {
+                                "name": "Edit", "key": "action", "type": "drill-down", "drillTo": "modal", "modalTitle": "Edit Rate Pack", "role": "ROOT_ADMIN,ADMIN,POWER_USER",
+                                "drillParams": [{ "key": "tenantId" }, { "key": "packName" }, { "key": "rate" }], "componentsAPIKey": "addEditCspRatePackCardComponentAPI"
+                            }]
                         }]
                 }],
                 "filters": [
                     {
-                        "key": "companyName",
-                        "name": "Summary Company Name",
-                        "apiKey": "tenantId",
+                        "key": "providerSubscriptionId",
+                        "name": "Provider Subscription Id",
+                        "apiKey": "providerSubscriptionId",
+                        "sortOrder": 0,
+                        "display": true,
                     },
                     {
                         "key": "customerId",
                         "apiKey": "customerId",
                         "name": "Summary Customer ID",
+                        "sortOrder": 1,
+                        "display": true,
                         "metrics": {
                             "types": [
                                 "*"
                             ]
                         },
-                        "bindParam": { "bindWith": "companyName" },
+                        "bindParam": { "bindWith": "providerSubscriptionId" },
+                    },
+                    {
+                        "key": "batchTenantId",
+                        "apiKey": "tenantId",
+                        "name": "Batch Tenant Id",
+                        "sortOrder": 2,
+                        "metrics": {
+                            "types": [
+                                "*"
+                            ]
+                        },
+                        "bindParam": { "bindWith": "customerId" },
+                        "display": true,
                     }
                 ]
             },
@@ -2115,7 +2991,21 @@ function getAzureCspData() {
                         "key": "user_name",
                         "name": "User Name",
                         "apiKey": "listGroupTypesAPI",
-                    }
+                        "display": true,
+                        "sortOrder": 0,
+                    },
+                    {
+                        "key": "customerId",
+                        "apiKey": "customerId",
+                        "name": "Users Customer ID",
+                        "sortOrder": 1,
+                        "display": true,
+                        "metrics": {
+                            "types": [
+                                "*"
+                            ]
+                        },
+                    },
                 ],
                 "leafs": [
                     {
@@ -2232,6 +3122,7 @@ function getAzureCspData() {
                             {
                                 "toolbarTitle": "Add User",
                                 "modalTitle": "Add User",
+                                "type": "modal",
                                 "componentsAPIKey": "addUserComponentAPI",
                                 "actionIcon": "AddBox",
                                 "drillParams": [
@@ -2315,6 +3206,128 @@ function getAzureCspData() {
     }
 
     ];
+}
+
+function getCspData() {
+    return [{
+        "nodeTitle": "CSP Dashboard",
+        "pageConfigData": {
+            "title": {
+                "text": "Overview",
+            },
+            "toolBarActions": [],
+        },
+        "leafs": [
+            {
+                "id": 1,
+                "type": "hawkAmountTotal",
+                "apiKey": "getamounttotaldata",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12,
+            },
+            {
+                "id": 2,
+                "leafTitle": "Manage Users",
+                "type": "hawkDatatable",
+                "apiKey": "listUsersAPI",
+                "size": 12,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "hideToolBar": true,
+                "defaultRowPerPage": 10,
+                "toolBarActions": [
+                    {
+                        "toolbarTitle": "Add User",
+                        "modalTitle": "Add User",
+                        "componentsAPIKey": "addUserComponentAPI",
+                        "actionIcon": "AddBox",
+                        "drillParams": [
+                            {
+                                "key": "email"
+                            }
+                        ]
+                    }
+                ],
+                "columns": [
+                    {
+                        "name": "Id",
+                        "key": "userId",
+                        "display": false,
+                    },
+                    {
+                        "name": "Email",
+                        "key": "email",
+                        "display": true,
+                        "filter": true,
+                        "filterType": 'textField',
+                    },
+                    {
+                        "name": "Role",
+                        "key": "roleName",
+                        "display": true,
+                        "filter": true,
+                        "filterType": 'multiselect',
+                    },
+                    {
+                        "name": "Status",
+                        "key": "status",
+                        "type": "status",
+                        "display": true,
+                        "filter": false,
+                    },
+                    {
+                        "name": "Account",
+                        "key": "accounts",
+                        "display": true,
+                        "filter": true,
+                        "filterType": 'multiselect',
+                    },
+                    {
+                        name: 'Options',
+                        key: 'rowAction',
+                        display: true,
+                        filter: false,
+                        type: 'rowAction',
+                        rowActions: [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            }
+                        ]
+                    }
+                ]
+            },
+        ]
+    }];
 }
 
 function getAddEditAzureStackRatePackCardModal() {
@@ -2545,7 +3558,7 @@ app.post('/api/filters/timefilter', function (req, res) {
 
 //Mock API for the Linear chart Visualization components.
 app.post('/data/1', function (req, res) {
-    var data = [];
+    let data = [];
 
     switch (req.query.time_filter) {
 
@@ -2603,10 +3616,8 @@ app.post('/data/1', function (req, res) {
 
 
 app.post('/data/2', function (req, res) {
-    var data = [];
-    for (let index = 0; index < 999999999; index++) {
+    let data = [];
 
-    }
     switch (req.query.time_filter) {
 
         case "Last 30 Days":
@@ -2668,7 +3679,7 @@ app.post('/data/2', function (req, res) {
 
 //Mock API for the Linear chart Visualization components.
 app.post('/data/3', function (req, res) {
-    var data = [];
+    let data = [];
 
     //Lets add some delay to have some viz.
     addDelay();
@@ -2879,7 +3890,7 @@ app.post('/api/perspective', function (req, res) {
     //Add some delay on purpose.
     addDelay();
 
-    var data = [
+    let data = [
         {
             "key": "Cost - By Groups",
             "data": [
@@ -3272,7 +4283,7 @@ app.post('/api/summary', function (req, res) {
     //Add some delay on purpose.
     addDelay();
 
-    var data = [
+    let data = [
         {
             name: 'Aggregated Cost',
             unit: '$',
@@ -3298,7 +4309,7 @@ app.post('/api/metrics', function (req, res) {
     //Add some delay on purpose.
     addDelay();
 
-    var data = [
+    let data = [
         {
             "date": "2018-07-05 06:00:00.0",
             "Real Cost": 0.105,
@@ -3360,7 +4371,7 @@ app.post('/api/metricdistributionbyutil', function (req, res) {
 
     addDelay();
 
-    var data = [];
+    let data = [];
     //Default will be fetched alwasy as My mock API has some parsing issue.
     switch (req.query.tempFilter) {
         case "Last 30 Days":
@@ -3424,7 +4435,7 @@ app.post('/api/metricdistributionbyutil', function (req, res) {
 app.post('/api/metricdistributionbyday', function (req, res) {
     //Add some delay on purpose.
     addDelay();
-    var data = [
+    let data = [
         { text: 'Mon', Util: 50, Cloud: 20, CPU: 15, Memory: 80 },
         { text: 'Tue', Util: 50, Cloud: 20, CPU: 100, Memory: 89 },
         { text: 'Wed', Util: 50, Cloud: 20, CPU: 10, Memory: 30 },
@@ -3506,7 +4517,7 @@ app.post('/api/aggregatedmetrics', function (req, res) {
 
 
 app.post('/api/fetchgroups', function (req, res) {
-    // APIKEY:fetchGroupsAPI
+
     //Add some delay on purpose.
     addDelay();
     data = [
@@ -3570,6 +4581,7 @@ app.post('/api/testMetric', function (req, res) {
             "costDailyAverage": 3589467.197,
             "costCurrent": 85743.31,
             "costMtm": 756.91,
+            'currency': '₹',
             "instanceId": 'i-783459',
             "action": '',
             "alertType": "success",
@@ -3594,7 +4606,8 @@ app.post('/api/testMetric', function (req, res) {
             "comments": 'Fully automated and reliadble',
             "review": "There are many variations",
             "liability": 'Accepted',
-            "costMtm": 3935.91,
+            "costMtm": 33232935.91,
+            'currency': '$',
             "noance": false,
             "scheduled": 'will be scheduled in an minute',
             "action": '',
@@ -3612,6 +4625,7 @@ app.post('/api/testMetric', function (req, res) {
             "costCurrent": 43243.43,
             "review": "discovered source. Lorem Ipsum",
             "costMtm": 424.43,
+            'currency': '£',
             "noance": true,
             "scheduled": 'will be scheduled in an hour',
             "action": '',
@@ -4519,7 +5533,7 @@ app.post('/api/auth/login', function (req, res) {
     }];
 
     let responseStatus = 400;
-    if (req.body.email === 'shubham.kale@gmail.com' && req.body.password === 'zxc') {
+    if (req.body.email === 'zxc' && req.body.password === 'zxc') {
         data =
         {
             'authToken': 'eye.RefresheyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
@@ -4544,7 +5558,7 @@ app.post('/api/auth/login', function (req, res) {
 });
 
 app.post('/api/auth/logout', function (req, res) {
-    var data = {};
+    let data = {};
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
@@ -4552,7 +5566,7 @@ app.post('/api/auth/logout', function (req, res) {
 });
 
 app.post('/api/registration/completeregistration', function (req, res) {
-    var data = { "status": "success" };
+    let data = { "status": "success" };
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
@@ -4560,25 +5574,34 @@ app.post('/api/registration/completeregistration', function (req, res) {
 });
 
 app.post('/api/registration/checkemailexists', function (req, res) {
-    var data = "false";
+    let data = "true";
     setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
 
 app.post('/api/auth/resetpassword', function (req, res) {
-    var data = "true";
+    let data = "success";
     setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
 
-
+app.post('/api/csp/customer/ratecard/deletecspratecardline', function (req, res) {
+    const data = {
+        key: 'UPDATE_PREF',
+        variant: 'success',
+        message: 'Rate Card deleted succesfully',
+    };
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Internal Server Error" });
+    res.status(200).send(data);
+});
 
 app.post('/api/containers/byreservationandutilization', function (req, res) {
 
 
-    var data = []
+    let data = []
     if (req.body.metrics[0] === 'MEMORY_UTILIZATION') {
         addDelay();
         addDelay();
@@ -4621,7 +5644,7 @@ app.post('/api/containers/byreservationandutilization', function (req, res) {
 app.post('/api/containers/aggregatedcost', function (req, res) {
     addDelay();
 
-    var data =
+    let data =
         [{
             name: 'Aggregated Cost',
             unit: '$',
@@ -4649,7 +5672,7 @@ app.post('/api/containers/aggregatedcost', function (req, res) {
 app.post('/api/containers/task/distrubution', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         { name: 'running', value: 2 },
         { name: 'active', value: 5 },
         { name: 'stopped', value: 4 }
@@ -4663,7 +5686,7 @@ app.post('/api/containers/task/distrubution', function (req, res) {
 app.post('/api/flem/service/status', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         { name: 'running', value: 4 },
         { name: 'active', value: 1 },
         { name: 'stopped', value: 1 }
@@ -4679,7 +5702,7 @@ app.post('/api/flem/service/status', function (req, res) {
 app.post('/api/containers/task/distribution', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         { name: 'ECS', value: 6 },
         { name: 'Azure', value: 8 },
         { name: 'GCP', value: 6 },
@@ -4697,7 +5720,7 @@ app.post('/api/containers/task/distribution', function (req, res) {
 app.post('/api/containers/service/distribution', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         { name: 'Kafka', value: 4 },
         { name: 'Azure', value: 1 },
         { name: 'SQL mockit', value: 9 },
@@ -4715,7 +5738,7 @@ app.post('/api/containers/service/distribution', function (req, res) {
 app.post('/api/containers/costbytype', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         { name: 'ECS', value: 40, unit: '#' },
         { name: 'EKS', value: 30, unit: '$' },
         { name: 'FARGATE', value: 30, unit: '$' }
@@ -4729,7 +5752,7 @@ app.post('/api/containers/costbytype', function (req, res) {
 app.post('/api/containers/clusteraggregates', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         {
             clustername: "abc",
             configmetric: "abc",
@@ -4746,7 +5769,7 @@ app.post('/api/containers/clusteraggregates', function (req, res) {
 app.post('/api/containers/serviceaggregates', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         {
             service: "abc",
             configmetric: "abc",
@@ -4762,7 +5785,7 @@ app.post('/api/containers/serviceaggregates', function (req, res) {
 app.post('/api/containers/taskaggregates', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         {
             task: "abc",
             config: "abc"
@@ -4777,7 +5800,7 @@ app.post('/api/containers/taskaggregates', function (req, res) {
 app.post('/api/flemingo/summary', function (req, res) {
     addDelay();
 
-    var data =
+    let data =
         [{
             name: 'System Spending',
             unit: '₹',
@@ -4806,7 +5829,7 @@ app.post('/api/flemingo/summary', function (req, res) {
 app.post('/api/flemingo/costs', function (req, res) {
     addDelay();
 
-    var data =
+    let data =
         [
             {
                 name: 'Potential Savings',
@@ -4840,7 +5863,7 @@ app.post('/api/flemingo/costs', function (req, res) {
 app.post('/api/flemingo/accomodations', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         {
             "seriesName": "service1",
             "reservation": 100,
@@ -4878,7 +5901,7 @@ app.post('/api/flemingo/accomodations', function (req, res) {
 app.post('/api/flemingo/awsSpending', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         {
             "seriesName": "basic1",
             "reservation": 10,
@@ -4927,7 +5950,7 @@ app.post('/api/flemingo/awsSpending', function (req, res) {
 app.post('/api/instances/aggregatehistogrammetrics3', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         {
             "seriesName": "service1",
             "reservation": 100,
@@ -4975,7 +5998,7 @@ app.post('/api/instances/aggregatehistogrammetrics3', function (req, res) {
 app.post('/api/instances/getaggregatemetriccountbyday', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         {
             "seriesName": "service1",
             "reservation": 100,
@@ -5012,7 +6035,7 @@ app.post('/api/instances/getaggregatemetriccountbyday', function (req, res) {
 
 app.post('/api/cloud/byconsume', function (req, res) {
     addDelay();
-    var data = [
+    let data = [
         { id: 1, name: 't2.small', age: 24, location: 'Lagos', level: 'stage-1', },
         { id: 2, name: 'Bamidele Johnson', age: 18, location: 'Anambra', level: 'stage-4', },
     ];
@@ -5024,9 +6047,39 @@ app.post('/api/cloud/byconsume', function (req, res) {
 
 
 app.post('/api/scenario', function (req, res) {
-    addDelay();
-    var data = [];
+
+
+    let data = [];
+
+    console.log('scenario: ', req.query.name);
+
     switch (req.query.name) {
+
+        /* New pages config from here  */
+        case "users":
+            data = users;
+            break;
+        case "cspOverview":
+        case "RateCards":
+            data = cspOverview;
+            break;
+        case "cspBilling":
+            data = cspBilling;
+            break;
+        case "environments":
+            data = getEnvironmentsUIData();
+            break;
+        case "aquilaServices":
+            data = getServicesUIData();
+            break;
+        case "userRoles":
+            data = getRolesUIData();
+            break;
+        case "rateLine":
+            data = rateLine;
+            break;
+        /* Old pages config from here  */
+
         case "CostDetailsDashboard":
             data = getFlamingoData();
             break;
@@ -5039,6 +6092,14 @@ app.post('/api/scenario', function (req, res) {
         case "AzureCspDashboard":
             data = getAzureCspData();
             break;
+        case "CspDashboard":
+            data = getCspData();
+            break;
+
+        case "ChargeBackDashboard":
+            data = getChargeBackScreenData();
+            break;
+
         case "Manage Users":
             data = getManageUsersData();
             break;
@@ -5121,9 +6182,14 @@ app.post('/api/scenario', function (req, res) {
         case "New Group":
             data = getGroupUIData();
             break;
+
         case "ActionDashboard":
             data = getAdministrationDashboard();
             break;
+        case "Edit Customer":
+            data = EditCustomerScreenData();
+            break;
+
         default:
             data = componentsData();
     }
@@ -5136,7 +6202,7 @@ app.post('/api/scenario', function (req, res) {
 
 app.post('/api/scenario/modal', function (req, res) {
     addDelay();
-    var data = [];
+    let data = [];
     console.log('Modal:', req.query.name);
     switch (req.query.name) {
         case 'InstanceStateChangeModal':
@@ -5149,7 +6215,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             id: 1,
                             leafTitle: 'Instance Type',
                             type: 'select',
-                            apiKey: 'listInstanceTypeAPI',
+                            apiKey: 'listAWSInstanceTypeAPI',
                             defSelectKey: 'current',
                             helperText: 'Please select instance type',
                             metrics: '{ "group" : "AWS Assured"}',
@@ -5214,7 +6280,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             "leafTitle": "Image Id",
                             "type": "select",
                             "size": 12,
-                            "apiKey": "listInstanceTypeAPI",
+                            "apiKey": "listAWSInstanceTypeAPI",
                             "defSelectKey": "selectedImage",
                             "helperText": "Choose Image Id",
                             "metrics": {},
@@ -5243,6 +6309,21 @@ app.post('/api/scenario/modal', function (req, res) {
                                 ]
                             },
                             "bindLeafData": { "bindWith": "regionSel", "id": 32, },
+                        },
+                        {
+                            "id": 2232,
+                            "leafTitle": "Pods",
+                            "type": "multi-checkbox",
+                            "defSelectKey": "pods",
+                            "helperText": "Please select Pods",
+                            "size": 12,
+                            "apiKey": "listElbInstanceAPI",
+                            "metrics": {
+                                "types": [
+                                    "*"
+                                ]
+                            },
+                            "bindLeafData": { "bindWith": "clusterSel", "id": 477, },
                         },
                         {
                             "id": 4,
@@ -5281,25 +6362,6 @@ app.post('/api/scenario/modal', function (req, res) {
                             "helperText": "Please select maximum active count",
                             "metrics": {}
                         },
-                        {
-                            "id": 7,
-                            "defSelectKey": "simpleTable",
-                            'leafTitle': 'Group Resources',
-                            'type': 'datatable',
-                            'noDataText': 'Group Resources can\'t be retrieved',
-                            "apiKey": "testMetricAPI",
-                            'size': 12,
-                            'columns': [
-                                { display: true, name: 'Alert Type', key: 'alertType', },
-                                { display: true, name: 'Instance ID', key: 'instanceId' },
-                                { display: true, name: 'Current Instance Type', key: 'current' },
-                                { display: true, name: 'Suggested Instance Type', key: 'suggested' },
-                                { display: true, name: 'Resource Id', key: 'resourceId', },
-                                { display: true, name: 'Usage Date', key: 'usageDate', },
-                                { display: true, name: 'Current Cost', key: 'costMtm', },
-                                { display: true, name: 'variance', key: 'variance', },
-                            ],
-                        },
                     ]
                 }
             ]
@@ -5336,12 +6398,80 @@ app.post('/api/scenario/modal', function (req, res) {
             data = [
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
+                    actionButtonText: 'Add',
+                    modalWidth: 800,
                     leafs: [
                         {
                             id: 1,
-                            leafTitle: 'Email',
-                            type: 'text-input',
+                            leafTitle: "User Information",
+                            leafSubTitle: "Active",
+                            type: "toggle",
+                            defSelectKey: "envState",
+                            labelSize: 5,
+                            size: 7,
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "User Role",
+                            type: "select",
+                            defSelectKey: "projects",
+                            labelSize: 3,
+                            size: 9,
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "User ID",
+                            type: "text-input",
+                            defSelectKey: 'user-id',
                             inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 4,
+                            leafTitle: "First Name",
+                            type: "text-input",
+                            defSelectKey: 'first-name',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 5,
+                            leafTitle: "Last Name",
+                            type: "text-input",
+                            defSelectKey: 'last-name',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "Phone",
+                            type: "text-input",
+                            defSelectKey: 'phone',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 7,
+                            leafTitle: "Mobile",
+                            type: "text-input",
+                            defSelectKey: 'mobile',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 8,
+                            leafTitle: "Email",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
                             defSelectKey: 'email',
                             metrics: '{ "email" : "user_email"}',
                             validation: {
@@ -5351,51 +6481,469 @@ app.post('/api/scenario/modal', function (req, res) {
                             },
                         },
                         {
-                            id: 2,
-                            leafTitle: 'Password',
-                            type: 'text-input',
-                            inputType: 'password',
+                            "id": 9,
+                            "leafTitle": "Authentication",
+                            "type": "group-radio",
+                            "defSelectKey": "authType",
+                            labelSize: 3,
+                            size: 9,
+                            "apiKey": "listAuthTypeAPI",
+                            "metrics": {},
+                        },
+                        {
+                            id: 10,
+                            leafTitle: "Username",
+                            type: "text-input",
+                            defSelectKey: 'username',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                            "bindLeafData": {
+                                "hideWhen": "okta",
+                                "bindWith": "authType",
+                                "id": 9
+                            }
+                        },
+                        {
+                            id: 11,
+                            leafTitle: "Password",
+                            type: "text-input",
                             defSelectKey: 'password',
-                            validation: {
-                                isRequired: true,
-                                message: 'Password should be atleast 6 digit and combination of symbol, upper and lower case letters',
-                                type: 'password'
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                            "bindLeafData": {
+                                "hideWhen": "okta",
+                                "bindWith": "authType",
+                                "id": 9
+                            }
+                        },
+                        {
+                            "id": 12,
+                            "leafTitle": "Cloud Services",
+                            "type": "multi-checkbox",
+                            "defSelectKey": "instanceId",
+                            "helperText": "Please select Add-on services",
+                            labelSize: 12,
+                            size: 12,
+                            pageId: 1,
+                            "apiKey": "listCloudServicesAPI",
+                            "metrics": {},
+                        },
+                        {
+                            id: 13,
+                            leafTitle: "Accounts",
+                            "isHawkUI": true,
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "acct",
+                            helperText: "Please Select Project",
+                            labelSize: 4,
+                            size: 8,
+                            pageId: 1,
+                            groupId: 'accounts',
+                            apiKey: "providerSubscriptionId",
+                            "bindLeafData": {
+                                "hideWhen": "azure",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
+                            metrics: {},
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "Stack Accounts",
+                            "isHawkUI": true,
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "stkAcc",
+                            helperText: "Please Select Project",
+                            labelSize: 4,
+                            size: 8,
+                            pageId: 1,
+                            groupId: 'accounts',
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "CSP Customers",
+                            "isHawkUI": true,
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "cspCst",
+                            helperText: "Please Select Project",
+                            labelSize: 4,
+                            size: 8,
+                            pageId: 1,
+                            groupId: 'accounts',
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "Stack Subscriptions",
+                            "isHawkUI": true,
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "stkSb",
+                            helperText: "Please Select Project",
+                            labelSize: 4,
+                            size: 8,
+                            pageId: 1,
+                            groupId: 'accounts',
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "Accounts",
+                            "isHawkUI": true,
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "acct1",
+                            helperText: "Please Select Project",
+                            labelSize: 4,
+                            size: 8,
+                            pageId: 1,
+                            groupId: 'accAzure',
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "Stack Accounts",
+                            "isHawkUI": true,
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "stkacc1",
+                            helperText: "Please Select Project",
+                            labelSize: 4,
+                            size: 8,
+                            pageId: 1,
+                            groupId: 'accAzure',
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "CSP Customers",
+                            "isHawkUI": true,
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "cspcst1",
+                            helperText: "Please Select Project",
+                            labelSize: 4,
+                            size: 8,
+                            pageId: 1,
+                            groupId: 'accAzure',
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "Stack Subscriptions",
+                            "isHawkUI": true,
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "stksub1",
+                            helperText: "Please Select Project",
+                            labelSize: 4,
+                            size: 8,
+                            pageId: 1,
+                            groupId: 'accAzure',
+                            "bindLeafData": {
+                                "hideWhen": "azure",
+                                "bindWith": "authType",
+                                "id": 9
+                            },
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+
+                    ]
+                }
+            ];
+            break;
+
+        case 'addRateLine':
+            data = [
+                {
+                    actionAPIKey: 'updateAlertPrefsAPI',
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: 'Item Name',
+                            type: 'text-input',
+                            inputType: 'string',
+                            defSelectKey: 'itemname',
+                            labelSize: 4,
+                            size: 8,
+                        },
+                        {
+                            id: 2,
+                            leafTitle: 'Tage Based Rates',
+                            type: 'group-radio',
+                            "apiKey": "billOpsUserTypeListAPI",
+                            defSelectKey: 'tbr',
+                            labelSize: 4,
+                            size: 8,
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "Tag Name",
+                            type: "select",
+                            isHawkUI: true,
+                            defSelectKey: "tName",
+                            labelSize: 6,
+                            size: 6,
+                            apiKey: "providerSubscriptionId",
+                        },
+                        {
+                            id: 4,
+                            leafTitle: 'Name',
+                            type: 'text-input',
+                            inputType: 'string',
+                            defSelectKey: 'name',
+                            labelSize: 4,
+                            size: 8,
+                        },
+                        {
+                            id: 5,
+                            leafTitle: 'Category',
+                            type: 'text-input',
+                            inputType: 'string',
+                            defSelectKey: 'cat',
+                            labelSize: 4,
+                            size: 8,
+                        },
+                        {
+                            id: 6,
+                            leafTitle: 'Sub-Category',
+                            type: 'text-input',
+                            inputType: 'string',
+                            defSelectKey: 'sCat',
+                            labelSize: 4,
+                            size: 8,
+                        },
+                        {
+                            id: 7,
+                            leafTitle: "Pricing Model",
+                            type: "select",
+                            isHawkUI: true,
+                            defSelectKey: "pModel",
+                            labelSize: 4,
+                            size: 4,
+                            apiKey: "providerSubscriptionId",
+                        },
+                        {
+                            id: 8,
+                            leafTitle: 'Unit',
+                            type: 'text-input',
+                            inputType: 'number',
+                            labelSize: 1,
+                            size: 3,
+                            defSelectKey: 'unit',
+                        },
+                        {
+                            id: 9,
+                            leafTitle: 'Amount',
+                            type: 'text-input',
+                            inputType: 'number',
+                            defSelectKey: 'amt',
+                            labelSize: 4,
+                            size: 4,
+                        },
+                    ]
+                }
+            ]
+            break;
+
+        case 'AddEnv':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add Environment',
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Environment State",
+                            leafSubTitle: "Active",
+                            type: "toggle",
+                            defSelectKey: "envState",
+                            labelSize: 5,
+                            size: 7,
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "Environment Type",
+                            type: "select",
+                            isHawkUI: true,
+                            defSelectKey: "projects",
+                            labelSize: 5,
+                            size: 7,
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            "id": 3,
+                            "leafTitle": "Environment Name",
+                            "type": 'select',
+                            isHawkUI: true,
+                            labelSize: 5,
+                            "size": 7,
+                            isHawkUI: true,
+                            "apiKey": "listClusterAPI",
+                            "defSelectKey": "envName",
+                            "metrics": {
+                                "types": [
+                                    "*"
+                                ]
+                            },
+                        },
+                    ]
+                }
+            ]
+            break;
+        case 'EditEnv':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Confirm',
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Environment State",
+                            leafSubTitle: "Active",
+                            type: "toggle",
+                            defSelectKey: "envState",
+                            labelSize: 5,
+                            size: 7,
+                        },
+                        {
+                            "id": 2,
+                            "leafTitle": "Environment Name",
+                            "type": 'text-input',
+                            inputType: 'string',
+                            labelSize: 5,
+                            "size": 7,
+                            isHawkUI: true,
+                            "defSelectKey": "envName",
+                            "metrics": {
+                                "types": [
+                                    "*"
+                                ]
                             },
                         },
                         {
                             id: 3,
-                            leafTitle: 'Confirm Password',
-                            type: 'text-input',
-                            inputType: 'password',
-                            defSelectKey: 'cofirmPassword',
-                            validation: {
-                                isRequired: true,
-                                message: 'Password does not match',
-                                type: 'conf-password'
-                            },
-                            bindLeafData: {
-                                bindWith: 'password',
-                                id: 2,
-                            },
+                            leafTitle: "Environment Type",
+                            "type": 'select',
+                            labelSize: 5,
+                            "size": 7,
+                            isHawkUI: true,
+                            "apiKey": "providerSubscriptionId",
+                            "defSelectKey": "envType",
                         },
                         {
                             id: 4,
-                            leafTitle: "Role",
-                            type: "group-radio",
-                            defSelectKey: "role",
-                            size: 12,
-                            apiKey: "listAvailableRoles",
-                            helperText: "Please select appropriate role",
+                            leafTitle: "S-2 Tenant ID",
+                            type: "text-input",
+                            inputType: 'string',
+                            isHawkUI: true,
+                            defSelectKey: "envTypeS2",
+                            labelSize: 5,
+                            size: 7,
+                            metrics: {},
+                            groupId: 'subItems',
+                            "bindLeafData": {
+                                "showWhen": "S-2",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
                         },
                         {
-                            id: 5,
-                            leafTitle: "Accounts",
-                            type: "multi-checkbox",
-                            defSelectKey: "accounts",
-                            helperText: "Please select Accounts",
-                            size: 12,
-                            apiKey: "listAccountsAPI",
+                            id: 100,
+                            leafTitle: "S-3 Tenant ID",
+                            type: "text-input",
+                            inputType: 'string',
+                            isHawkUI: true,
+                            defSelectKey: "envTypeS3",
+                            labelSize: 5,
+                            size: 7,
                             metrics: {},
+                            groupId: 'subItems',
+                            "bindLeafData": {
+                                "showWhen": ["S-2", "S-3"],
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+
+                        {
+                            id: 5,
+                            leafTitle: "Application Access Key",
+                            type: "text-input",
+                            inputType: 'string',
+                            isHawkUI: true,
+                            defSelectKey: "appAccessKey",
+                            labelSize: 5,
+                            size: 7,
+                            metrics: {},
+                            groupId: 'subItems',
+                            "bindLeafData": {
+                                "hideWhen": ["S-2", "S-3"],
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "Application ID",
+                            type: "text-input",
+                            inputType: 'string',
+                            isHawkUI: true,
+                            defSelectKey: "appID",
+                            labelSize: 5,
+                            size: 7,
+                            metrics: {},
+                            groupId: 'subItems',
+                        },
+                        {
+                            id: 7,
+                            leafTitle: "Subscription ID",
+                            type: "text-input",
+                            inputType: 'string',
+                            isHawkUI: true,
+                            defSelectKey: "subID",
+                            labelSize: 5,
+                            size: 7,
+                            metrics: {},
+                            groupId: 'subItems',
+                            "bindLeafData": {
+                                "hideWhen": "S-2",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            id: 8,
+                            leafTitle: "Resource Manager Endpoint",
+                            type: "text-input",
+                            inputType: 'string',
+                            isHawkUI: true,
+                            defSelectKey: "resMgrEndpoint",
+                            labelSize: 5,
+                            size: 7,
+                            metrics: {},
+                            groupId: 'subItems',
+                            "bindLeafData": {
+                                "hideWhen": "S-2",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
                         },
                     ]
                 }
@@ -5472,7 +7020,7 @@ app.post('/api/scenario/modal', function (req, res) {
                                     "title": "Instance",
                                     "type": 'select',
                                     "size": 2,
-                                    "apiKey": "listInstanceTypeAPI",
+                                    "apiKey": "listAWSInstanceTypeAPI",
                                     "defSelectKey": "listInstanceSel",
                                     "helperText": "Please select Instance",
                                     "metrics": {
@@ -5609,6 +7157,257 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ];
             break;
+        case 'ManageCspService':
+            data = [
+                {
+                    "actionAPIKey": "saveInstanceTypeChangeAPI",
+                    "leafs": [
+                        {
+                            "id": 1001,
+                            "leafTitle": "Service",
+                            "type": "select",
+                            "defSelectKey": "category",
+                            "size": 12,
+                            "apiKey": "listAWSInstanceTypeAPI",
+                            "helperText": "Please select appropriate service",
+                            "metrics": {}
+                        },
+                        {
+                            "id": 1002,
+                            "leafTitle": "Resource",
+                            "type": "select",
+                            "defSelectKey": "resourceId",
+                            "size": 12,
+                            "mode": "multiple",
+                            "apiKey": "listAWSInstanceTypeAPI",
+                            "helperText": "Please select appropriate resource",
+                            "bindLeafData": {
+                                "bindWith": "category",
+                                "id": "1001"
+                            },
+                            "metrics": {}
+                        },
+                        {
+                            "id": 1006,
+                            "leafTitle": "Cost Type",
+                            "type": "select",
+                            "defSelectKey": "costType",
+                            "size": 6,
+                            "apiKey": "listAWSInstanceTypeAPI",
+                            "helperText": "Please select appropriate cost type",
+                            "metrics": {}
+                        },
+                        {
+                            "id": 1003,
+                            "leafTitle": "Computation Type",
+                            "type": "select",
+                            "defSelectKey": "computationType",
+                            "size": 6,
+                            "apiKey": "listAWSInstanceTypeAPI",
+                            "helperText": "Please select appropriate computation type",
+                            "metrics": {}
+                        },
+                        {
+                            "id": 1004,
+                            "leafTitle": "Comment",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "defSelectKey": "comment",
+                            "size": 12,
+                            "helperText": "Please enter comment"
+                        },
+                        {
+                            "id": 1005,
+                            "leafTitle": "Rate Slab",
+                            "size": 12,
+                            "type": "nested-multi-dropdown-field-with-input",
+                            "apiKey": "cloudConnectionsAPI",
+                            "defSelectKey": "chargeBackCustomerRateSlabDetails",
+                            "metrics": {},
+                            "componentList": [
+                                {
+                                    "id": "d1",
+                                    "title": "Type",
+                                    "size": 2,
+                                    "type": "select",
+                                    "apiKey": "listAWSInstanceTypeAPI",
+                                    "defSelectKey": "type",
+                                    "selectDefaultValue": true,
+                                    "helperText": "Please select cost type",
+                                    "metrics": {}
+                                },
+                                {
+                                    "id": "v2",
+                                    "type": "input",
+                                    "size": 4,
+                                    "subType": "number",
+                                    "label": "Quantity"
+                                },
+                                {
+                                    "id": "v3",
+                                    "type": "input",
+                                    "size": 4,
+                                    "subType": "number",
+                                    "label": "Rate"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        case 'EditRateLine':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add',
+                    leafs: [
+                        {
+                            "id": 1,
+                            "leafTitle": "Price List Name",
+                            "type": 'text-input',
+                            inputType: 'text',
+                            labelSize: 4,
+                            size: 8,
+                            groupId: 'g1',
+                            isHawkUI: true,
+                            "defSelectKey": "priceListName",
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "Tag Name",
+                            "type": 'select',
+                            labelSize: 4,
+                            size: 8,
+                            groupId: 'g1',
+                            isHawkUI: true,
+                            "apiKey": "providerSubscriptionId",
+                            "defSelectKey": "tagName",
+                        },
+                        {
+                            "id": 3,
+                            "leafTitle": "Name",
+                            inputType: 'text',
+                            labelSize: 4,
+                            size: 8,
+                            groupId: 'g1',
+                            isHawkUI: true,
+                            "defSelectKey": "name",
+                        },
+                        {
+                            "id": 4,
+                            "leafTitle": "Category",
+                            "type": 'text-input',
+                            inputType: 'text',
+                            labelSize: 4,
+                            size: 8,
+                            groupId: 'g1',
+                            isHawkUI: true,
+                            "defSelectKey": "category",
+                        },
+                        {
+                            "id": 5,
+                            "leafTitle": "SubCategory",
+                            "type": 'text-input',
+                            inputType: 'text',
+                            labelSize: 4,
+                            size: 8,
+                            groupId: 'g1',
+                            isHawkUI: true,
+                            "defSelectKey": "subCategory",
+                        },
+                        {
+                            "id": 6,
+                            "leafTitle": "Settlement Date",
+                            "type": 'text-input',
+                            inputType: 'date',
+                            labelSize: 4,
+                            size: 5,
+                            groupId: 'g1',
+                            isHawkUI: true,
+                            "defSelectKey": "settleDate",
+                        },
+                        {
+                            "id": 7,
+                            "leafTitle": "Billing Cycle",
+                            "type": 'text-input',
+                            inputType: 'range',
+                            labelSize: 4,
+                            size: 8,
+                            groupId: 'g1',
+                            isHawkUI: true,
+                            "defSelectKey": "billCycle",
+                        },
+                        {
+                            id: 8,
+                            leafTitle: "Pricing Model",
+                            type: "text-input",
+                            inputType: 'string',
+                            isHawkUI: true,
+                            defSelectKey: "pricingModal",
+                            labelSize: 4,
+                            size: 4,
+                            groupId: 'g1',
+                        },
+                        {
+                            id: 9,
+                            leafTitle: "Unit",
+                            type: "text-input",
+                            inputType: 'text',
+                            isHawkUI: true,
+                            defSelectKey: "unit",
+                            labelSize: 1,
+                            size: 3,
+                            groupId: 'g1',
+                        },
+                        {
+                            id: 10,
+                            leafTitle: "Current Amount",
+                            "type": 'text-input',
+                            inputType: 'number',
+                            prefix: '$',
+                            labelSize: 4,
+                            size: 8,
+                            isHawkUI: true,
+                            groupId: 'g1',
+                            defSelectKey: "currAmt",
+                        },
+                        {
+                            id: 11,
+                            leafTitle: "Adjustment",
+                            type: 'price-input',
+                            inputType: 'currency',
+                            labelSize: 4,
+                            size: 8,
+                            isHawkUI: true,
+                            groupId: 'g1',
+                            defSelectKey: "adjustment",
+                            "bindLeafData": {
+                                "bindWith": "currAmt",
+                                "id": 3
+                            },
+                            "bindTargetLeafData": {
+                                "bindWith": "newAmt",
+                                "id": 3
+                            }
+                        },
+                        {
+                            id: 12,
+                            leafTitle: "New Amount",
+                            "type": 'text-input',
+                            inputType: 'number',
+                            prefix: '$',
+                            labelSize: 4,
+                            size: 8,
+                            isHawkUI: true,
+                            groupId: 'g1',
+                            defSelectKey: "newAmt",
+                        },
+                    ]
+                }
+            ]
+            break;
+
         case "AddGroup":
         case "EditGroup":
             data = manageGroup();
@@ -5616,7 +7415,7 @@ app.post('/api/scenario/modal', function (req, res) {
         case "AutoGroup":
             data = autoGroup();
             break;
-        case "EnvSelection":
+        case "EnvSelectionModal":
             data = envSelectionComponentData();
             break;
         case "AddEditAzureStackRatePackCardModal":
@@ -5636,16 +7435,18 @@ app.post('/api/scenario/modal', function (req, res) {
 
 app.post('/api/scenario/filters', function (req, res) {
     addDelay();
-    var data = [
+    let data = [
         {
             "key": "tenantId",
             "name": "Tenant Id",
+            "sortOrder": 5,
             "apiKey": "tenantId",
         },
         {
             "key": "customerId",
             "apiKey": "customerId",
             "name": "Page Customer ID",
+            "sortOrder": 4,
             "metrics": {
                 "types": [
                     "*"
@@ -5663,8 +7464,8 @@ app.post('/api/scenario/filters', function (req, res) {
 app.post('/api/instance/singular', function (req, res) {
 
     addDelay();
-    var data = []
-    if (req.body.filters.timeFilter === 'Last 30 Days') {
+    let data = []
+    if (req.body.filters && req.body.filters.timeFilter === 'Last 30 Days') {
         data = [{ "name": "m5.xlarge", "value": 684.52, "unit": "$" },
         { "name": "t3.xlarge", "value": 336.79, "unit": "$" },
         { "name": "c5.2xlarge", "value": 320.17, "unit": "$" },
@@ -5689,7 +7490,7 @@ app.post('/api/instance/singular', function (req, res) {
     res.status(200).send(data);
 });
 
-app.post('/api/action/instancetype', function (req, res) {
+app.post('/api/chargeback/rateline/instancetype', function (req, res) {
     addDelay();
 
     let types = req.body.types ? req.body.types[0] : 'test';
@@ -5713,7 +7514,7 @@ app.post('/api/action/instancetype', function (req, res) {
 app.post('/api/action/regionlist', function (req, res) {
     addDelay();
 
-    var data = [
+    let data = [
         { name: 'US-EAST-region', key: 'us-east' },
         { name: 'US-West-region', key: 'us-west', selected: true },
         { name: 'US-North-region', key: 'us-north' },
@@ -5730,7 +7531,7 @@ app.post('/api/action/clusters', function (req, res) {
     let types = req.body.types ? req.body.types[0] : 'test';
 
     switch (types) {
-        case 'us-east':
+        case 'regionSel####us-east':
             data = [
                 { name: 'East-1231', key: 'east-1231' },
                 { name: 'East-645475', key: 'east-645475', },
@@ -5738,7 +7539,7 @@ app.post('/api/action/clusters', function (req, res) {
                 { name: 'East-45654', key: 'east-45654', },
             ];
             break;
-        case 'us-north':
+        case 'regionSel####us-north':
             data = [
                 { name: 'North-1231', key: 'north-1231' },
                 { name: 'North-645475', key: 'north-645475', },
@@ -5746,7 +7547,7 @@ app.post('/api/action/clusters', function (req, res) {
                 { name: 'North-45654', key: 'north-45654', },
             ];
             break;
-        case 'us-west':
+        case 'regionSel####us-west':
             data = [
                 { name: 'West-1231', key: 'west-1231' },
                 { name: 'West-645475', key: 'west-645475', },
@@ -5758,8 +7559,8 @@ app.post('/api/action/clusters', function (req, res) {
             data = [
                 { name: 'West-1231', key: 'west-1231' },
                 { name: 'West-645475', key: 'west-645475', },
-                { name: 'West-98576', key: 'west-98576', selected: true },
-                { name: 'West-45654', key: 'west-45654', },
+                { name: 'West-98576', key: 'west-98576' },
+                { name: 'West-45654', key: 'west-45654', selected: true },
             ];
     };
 
@@ -5770,20 +7571,16 @@ app.post('/api/action/clusters', function (req, res) {
 
 app.post('/api/action/state', function (req, res) {
     addDelay();
-    var data = ['Start', 'Stop'];
+    let data = ['Start', 'Stop'];
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
 
-
-
-
-
 app.post('/api/user/environment/addeditenvironment', function (req, res) {
 
-    var data = {
+    let data = {
         key: 'SAVE_INST',
         variant: 'success',
         message: 'Details saved succesfully, refereshing your experience',
@@ -5796,7 +7593,7 @@ app.post('/api/user/environment/addeditenvironment', function (req, res) {
 
 app.post('/api/action/instancetypechange', function (req, res) {
 
-    var data = {
+    let data = {
         key: 'SAVE_INST',
         variant: 'success',
         message: 'Instance details saved succesfully',
@@ -5810,7 +7607,7 @@ app.post('/api/action/instancetypechange', function (req, res) {
 
 app.post('/api/action/save-env-details', function (req, res) {
 
-    var data = {
+    let data = {
         key: 'SAVE_ENV',
         variant: 'success',
         message: 'Environment details saved succesfully',
@@ -5823,7 +7620,7 @@ app.post('/api/action/save-env-details', function (req, res) {
 
 app.post('/list/resources', function (req, res) {
 
-    var data = ['res-123', 'res-1563', 'res-64546', 'res-6423', 'res-9787', 'res-5534'];
+    let data = ['res-123', 'res-1563', 'res-64546', 'res-6423', 'res-9787', 'res-5534'];
 
     setResponseHeaders(res);
     //res.status(500).send("Internal Server Error");
@@ -5832,7 +7629,7 @@ app.post('/list/resources', function (req, res) {
 
 app.post('/api/resource/summary', function (req, res) {
 
-    var data = [
+    let data = [
         [{ title: 'Account Id', value: '1234' }, { title: 'Last spending', value: '100.30 $' }],
         [{ title: 'AWS Id', value: '543' }, { title: 'Instance location', value: 'US-East' }],
         [{ title: 'Transaction Amount', value: '320.5000' }],
@@ -5845,7 +7642,7 @@ app.post('/api/resource/summary', function (req, res) {
 
 app.post('/api/action/elbmonitoringtype', function (req, res) {
 
-    var data = [
+    let data = [
         { "key": "pool", "name": "Pool", "selected": false },
         { "key": "no-pool", "name": "No Pool", "selected": true },
         { "key": "hybrid", "name": "Hybrid", "selected": false },
@@ -5859,7 +7656,7 @@ app.post('/api/action/elbmonitoringtype', function (req, res) {
 
 app.post('/api/action/envtypes', function (req, res) {
 
-    var data = [
+    let data = [
         { "key": "1", "name": "Instance-1", "selected": false },
         { "key": "2", "name": "Instance-2", "selected": true },
         { "key": "3", "name": "Instance-3", "selected": false },
@@ -5872,7 +7669,7 @@ app.post('/api/action/envtypes', function (req, res) {
 
 app.post('/api/action/availableroles', function (req, res) {
 
-    var data = [
+    let data = [
         { "key": "admin", "name": "Admin", "selected": false },
         { "key": "pwwer-user", "name": "Power User", "selected": true },
         { "key": "view", "name": "Viewer", "selected": false },
@@ -5885,10 +7682,10 @@ app.post('/api/action/availableroles', function (req, res) {
 
 app.post('/api/action/elbinstancelist', function (req, res) {
 
-    var data = [
-        { "key": "i-abc1234567", "name": "I-abc1234567", "selected": true },
-        { "key": "i-1234678998", "name": "I-1234678998", "selected": true },
-        { "key": "i-adbc123456", "name": "I-adbc123456", "selected": false },
+    let data = [
+        { "key": "s-abc1234567", "name": "Ins-abc1234567", "selected": true },
+        { "key": "s-1234678998", "name": "Ins-1234678998", "selected": true },
+        { "key": "s-adbc123456", "name": "Ins-adbc123456", "selected": false },
     ];
 
     setResponseHeaders(res);
@@ -5899,7 +7696,7 @@ app.post('/api/action/elbinstancelist', function (req, res) {
 
 app.post('/api/action/alertItemList', function (req, res) {
 
-    var data = [
+    let data = [
         { "name": "Billing", "selected": true },
         { "name": "Utilization", "selected": true },
         { "name": "Action", "selected": false },
@@ -5916,11 +7713,11 @@ app.post('/api/action/alertItemList', function (req, res) {
 
 app.post('/api/action/accountlist', function (req, res) {
 
-    var data = [
-        { "name": "12323434", "selected": true },
-        { "name": "324432443", "selected": true },
-        { "name": "4324314324", "selected": false },
-        { "name": "647909876544", "selected": false },
+    let data = [
+        { "key": "12323434", "name": "12323434", "selected": true },
+        { "key": "324432443", "name": "324432443", "selected": true },
+        { "key": "4324314324", "name": "4324314324", "selected": false },
+        { "key": "647909876544", "name": "647909876544", "selected": false },
     ];
 
     setResponseHeaders(res);
@@ -5931,7 +7728,7 @@ app.post('/api/action/accountlist', function (req, res) {
 
 app.post('/api/action/elbmetriclist', function (req, res) {
 
-    var data =
+    let data =
         [
             { "name": "CPU utilization", "key": "CPU_UTILIZATION", "defaultValues": { "v1": 80, }, "appearDefault": true },
             { "name": "Memory utilization", "key": "MEMORY_UTILIZATION", "defaultValues": { "v1": 10 } },
@@ -5950,23 +7747,137 @@ app.post('/api/action/elbmetriclist', function (req, res) {
 
 app.post('/api/action/elbmonitoringstatus', function (req, res) {
 
-    var data = { "status": true }
+    let data = { "status": true }
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
 
+app.post('/api/csp/getamountsummarydata', function (req, res) {
 
+    let data = [{
+        "name": "Margin",
+        "value": "1395.37",
+        "secondayAmount": "4000.87",
+        "secondayAmountText": "(all clouds)",
+        "trend": null,
+        "unit": "$"
+    }, {
+        "name": "Bill Total",
+        "value": "1369.27",
+        "secondayAmount": "4000.87",
+        "secondayAmountText": "(all clouds)",
+        "trend": null,
+        "unit": "$"
+    }];
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(200).send(data);
+
+
+});
+
+app.post('/api/csp/getamounttotaldata', function (req, res) {
+
+    let testData = [{
+        "name": "Previous",
+        "type": "previous",
+        "fieldValue": "2213.37",
+        "unit": "$",
+        "mathOperator": "-",
+        "order": 0
+    }, {
+        "name": "Payment",
+        "type": "payment",
+        "fieldValue": "213.37",
+        "unit": "$",
+        "mathOperator": "+",
+        "order": 1
+    }, {
+        "name": "Current charge",
+        "type": "current_charge",
+        "fieldValue": "213.37",
+        "unit": "$",
+        "mathOperator": "=",
+        "order": 2
+    }, {
+        "name": "Total amount due",
+        "type": "total",
+        "fieldValue": "89213.37",
+        "unit": "$",
+        "mathOperator": "",
+        "order": 3
+    }, {
+        "name": "Forecasted bill",
+        "type": "forecasted",
+        "fieldValue": "99213.37",
+        "unit": "$",
+        "mathOperator": "-",
+        "order": 4
+    }];
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(200).send(testData);
+
+
+});
+
+app.post('/api/csp/getcloudtotal', function (req, res) {
+    let data = [{
+        "name": "Total (Azure)",
+        "fieldValue": "193.43",
+        "type": "Azure",
+        "unit": "$"
+    }, {
+        "name": "Bill Total (All Clouds)",
+        "fieldValue": "17,984.94",
+        "type": "total",
+        "unit": "$"
+    }]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
 
 app.post('/api/user/userlist', function (req, res) {
-    var data = [
-        { userId: 1, status: true, email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: '3123143' },
-        { userId: 2, status: true, email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: '535343' },
-        { userId: 3, status: true, email: 'power.admin@global.in', roleName: 'API list', accounts: '12345' },
-        { userId: 4, status: false, email: 'admin.user@yahoo.in', roleName: 'Network Admin', accounts: '6546743' },
-        { userId: 6, status: true, email: 'chain.clouds@global.com', roleName: 'Solo', accounts: '12343243245' },
-        { userId: 7, status: true, email: 'acq.123@gmail.com', roleName: 'View', accounts: '4234324' }
+
+    let data = [];
+
+    if (req.body.drillParams && req.body.drillParams.billingCycleFilter) {
+        data = [
+            { salesAmount: 4321.54, userId: 1, model: 'Season', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 100000) },
+            { salesAmount: 312452.54, userId: 2, model: 'Amount', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34) },
+            { salesAmount: 4565332.54, userId: 7, model: 'Season', desc: "Test#-3", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high, please rescale, Manage resource before exhaust', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 99878767) }
+        ];
+    } else {
+        data = [
+            { salesAmount: 603243240.64, userId: 1, model: 'Season', desc: "Test#-1", progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 10000.4), 'currency': '€' },
+            { salesAmount: 12243.43, userId: 2, model: 'Season', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34), 'currency': '¥' },
+            { salesAmount: 232.54, userId: 3, model: 'Amount', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 20, progressType: 'danger', alert: 'Manage resource before exhaust', fileName: null, mark: false, project: ['prj-2', 'prj-6'], status: true, severity: ['low'], email: 'power.admin@global.in', roleName: 'API list', accounts: '12345', 'currency': '₹' },
+            { salesAmount: 5456.423, userId: 4, model: 'Amount', desc: "Test#-4", progress: 75, progressType: 'info', alert: 'Consumption is high, please rescale', fileName: 'test-image-4.pdf', mark: false, project: ['prj-1', 'prj-4'], status: false, severity: ['critical'], email: 'admin.user@yahoo.in', roleName: 'Network Admin', accounts: Math.floor(Date.now() / 9898.14), 'currency': '£' },
+            { salesAmount: 32432.312, userId: 6, model: 'Season', progress: 10, progressType: 'danger', alert: 'Go for it', fileName: null, mark: false, project: ['prj-7', 'prj-9'], status: true, severity: ['critical'], email: 'chain.clouds@global.com', roleName: 'Solo Man', accounts: '12343243245.44', 'currency': '$' },
+            { salesAmount: 7123.312, userId: 7, model: 'Amount', desc: "Test#-6", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high, please rescale, Manage resource before exhaust', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 998787.33) }
+        ];
+    }
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(200).send(data);
+
+
+});
+
+app.post('/api/catalog/ratelines', function (req, res) {
+
+    let data = [
+        { rateId: 1, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
+        { rateId: 2, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
+        { rateId: 3, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
+        { rateId: 4, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
+        { rateId: 5, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
+        { rateId: 6, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
+        { rateId: 7, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
     ];
 
     setResponseHeaders(res);
@@ -5978,13 +7889,13 @@ app.post('/api/user/userlist', function (req, res) {
 
 app.post('/api/user/alertemaillist', function (req, res) {
 
-    var data = [
-        { email: 'i.am.test.user@gmail.com', billing: true, utilization: true, action: false, kubernetes: true, },
-        { email: 'a2i.user@hotmail.com', billing: false, utilization: true, action: true, kubernetes: true, },
-        { email: 'power.admin@global.in', billing: true, utilization: true, action: true, kubernetes: true, },
-        { email: 'admin.user@yahoo.in', billing: true, utilization: true, action: false, kubernetes: false, },
-        { email: 'chain.clouds@global.com', billing: true, utilization: false, action: true, kubernetes: false, },
-        { email: 'acq.123@gmail.com', billing: false, utilization: false, action: true, kubernetes: false, },
+    let data = [
+        { providerSubscriptionId: 'S-1', customerId: 123, email: 'i.am.test.user@gmail.com', billing: true, utilization: true, action: false, kubernetes: true, },
+        { providerSubscriptionId: 'S-2', customerId: 789, email: 'a2i.user@hotmail.com', billing: false, utilization: true, action: true, kubernetes: true, },
+        { providerSubscriptionId: 'S-3', customerId: 3, email: 'power.admin@global.in', billing: true, utilization: true, action: true, kubernetes: true, },
+        { providerSubscriptionId: 'S-4', customerId: 4, email: 'admin.user@yahoo.in', billing: true, utilization: true, action: false, kubernetes: false, },
+        { providerSubscriptionId: 'S-5', customerId: 5, email: 'chain.clouds@global.com', billing: true, utilization: false, action: true, kubernetes: false, },
+        { providerSubscriptionId: 'S-4', customerId: 456, email: 'acq.123@gmail.com', billing: false, utilization: false, action: true, kubernetes: false, },
     ];
 
     setResponseHeaders(res);
@@ -5995,7 +7906,7 @@ app.post('/api/user/alertemaillist', function (req, res) {
 
 app.post('/api/action/updatealertprefs', function (req, res) {
 
-    var data = {
+    let data = {
         key: 'UPDATE_PREF',
         variant: 'success',
         message: 'Email preferences updated succesfully',
@@ -6008,7 +7919,7 @@ app.post('/api/action/updatealertprefs', function (req, res) {
 
 app.post('/api/action/updateUser', function (req, res) {
 
-    var data = {
+    let data = {
         key: 'UPDATE_USER',
         variant: 'success',
         message: 'User list updated succesfully',
@@ -6021,7 +7932,7 @@ app.post('/api/action/updateUser', function (req, res) {
 
 app.post('/api/group/save', function (req, res) {
 
-    var data = {
+    let data = {
         key: 'UPDATE_GROUP',
         variant: 'success',
         message: 'Group added succesfully',
@@ -6035,7 +7946,7 @@ app.post('/api/group/save', function (req, res) {
 
 app.post('/api/user/deleteuser', function (req, res) {
 
-    var data = {
+    let data = {
         key: 'UPDATE_PREF',
         variant: 'success',
         message: 'Email preferences deleted succesfully',
@@ -6048,27 +7959,13 @@ app.post('/api/user/deleteuser', function (req, res) {
 
 app.post('/api/user/navs', function (req, res) {
 
-    var data = {
-        "defalultLandingLink": "/azurecspdashboard", "navigations":
-            [{
-                "name": "Administration", "link": "/admin", "icon": "InboxIcon", "isSetting": true,
-                "page": "FlamingoPage", "role": "ROOT_ADMIN,ADMIN"
-            }, {
-                "name": "Cost Dashboard",
-                "link": "/costdashboard",
-                "icon": "InboxIcon",
-                "isSetting": false,
-                "page": "FlamingoPage",
-                "linkedeUrlParam": "nodeIndex"
-            }, { "name": "Cost Details", "link": "/costdetails", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Business Service Dashboard", "link": "/businessservicedashboard", "icon": "InboxIcon", "isSetting": false, "page": "FlamingoPage" },
-            {
-                "name": "CSP Dashboard",
-                "link": "/azurecspdashboard", "icon": "InboxIcon", "isSetting": false,
-                "page": "FlamingoPage",
-
-            },
-            { "name": "Recommendation Dashboard", "link": "/recommendationdashboard", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Recommendation Details", "link": "/recommendationdetails", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Action Dashboard", "link": "/actiondashboard", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Action Details", "link": "/actiondetails", "icon": "ReceiptIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Alert Dashboard", "link": "/alertsdashboard", "icon": "AddAlert", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Alerts Details", "link": "/alertsdetails", "icon": "AddAlert", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Utilization Dashboard", "link": "/utilizationdashboard", "icon": "ShowChart", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Utilization Details", "link": "/utilizationdetailsdashboard", "icon": "ShowChart", "isSetting": false, "page": "FlamingoPage", "linkedeUrlParam": "nodeIndex" }, { "name": "Container Dashboard", "link": "/containerdashboard", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Container Details", "link": "/containerdetails", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Application Dashboard", "link": "/application", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { "name": "Application Details", "link": "/applicationdetails", "icon": "StarIcon", "isSetting": false, "page": "FlamingoPage" }, { name: 'ASG Schedule', link: '/asg-schedule', icon: 'StarIcon', isSetting: false, page: 'Schedule' },
-            { name: 'New Group', link: '/newgroup', icon: 'InboxIcon', isSetting: false, page: 'FlamingoPage', linkedeUrlParam: 'nodeIndex' }, { "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
+    let data = req.body.serviceKey ? navs : {
+        "defalultLandingLink": "/services", "navigations":
+            [
+                {
+                    id: 'aquilaServices', name: 'Aquila Services', link: '/services', icon: 'InboxIcon', page: 'ComponentsPage', linkedeUrlParam: 'nodeIndex', isHawkUI: true, className: 'admin-icon',
+                },
+                { id: 'startup', "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
     };
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -6080,7 +7977,7 @@ app.post('/api/user/navs', function (req, res) {
 
 app.post('/api/user/environment/environmentlist', function (req, res) {
 
-    var data = [
+    let data = [
         {
             "resourceId": "res-64546",
             "suggested": "m1.small",
@@ -6102,7 +7999,7 @@ app.post('/api/user/environment/environmentlist', function (req, res) {
             "usageDate": "2018-12-30",
             "costDailyAverage": 371.197,
             "costCurrent": 2822.31,
-            "costMtm": 3935.91,
+            "costMtm": 12323935.91,
             "action": '',
         },
         {
@@ -6126,7 +8023,7 @@ app.post('/api/user/environment/environmentlist', function (req, res) {
 
 app.post('/api/user/environment/environmentstatus', function (req, res) {
 
-    var data = { "status": true };
+    let data = { "status": true };
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -6137,7 +8034,7 @@ app.post('/api/user/environment/environmentstatus', function (req, res) {
 
 app.post('/api/user/environment/typelist', function (req, res) {
 
-    var data = [{ "name": "Amazon AWS", "key": "AWS", "selected": false }, { "name": "KUBERNETES", "key": "KUBERNETES", "selected": true }];
+    let data = [{ "name": "Amazon AWS", "key": "AWS", "selected": false }, { "name": "KUBERNETES", "key": "KUBERNETES", "selected": true }];
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -6146,7 +8043,7 @@ app.post('/api/user/environment/typelist', function (req, res) {
 
 app.post('/api/user/environment/connectionparamlist2', function (req, res) {
 
-    var data = [{ "name": "ARN List", "key": "AWS_ARN", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Bucket Name", "key": "BILLING_BUCKET_NAME", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Bucket Region", "key": "BILLING_BUCKET_REGION", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Report Prefix", "key": "BILLING_REPORT_PREFIX", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Report Name", "key": "BILLING_REPORT_NAME", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }];
+    let data = [{ "name": "ARN List", "key": "AWS_ARN", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Bucket Name", "key": "BILLING_BUCKET_NAME", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Bucket Region", "key": "BILLING_BUCKET_REGION", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Report Prefix", "key": "BILLING_REPORT_PREFIX", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }, { "name": "Billing Report Name", "key": "BILLING_REPORT_NAME", "selected": true, "appearDefault": true, "defaultValues": { "v1": null, "v2": null, "str1": "" } }];
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -6156,7 +8053,7 @@ app.post('/api/user/environment/connectionparamlist2', function (req, res) {
 
 app.post('/api/user/environment/connectionparamlist', function (req, res) {
 
-    var data = [
+    let data = [
         {
             "name": "User Name",
             "key": "KUBERNETES_USER_NAME",
@@ -6286,7 +8183,7 @@ app.post('/api/user/environment/connectionparamlist', function (req, res) {
 
 app.post('/api/user/threshold/thresholdlist', function (req, res) {
 
-    var data = [
+    let data = [
         { email: 'i.am.test.user@gmail.com', billing: true, utilization: true, action: false, kubernetes: true, },
         { email: 'a2i.user@hotmail.com', billing: false, utilization: true, action: true, kubernetes: true, },
         { email: 'power.admin@global.in', billing: true, utilization: true, action: true, kubernetes: true, },
@@ -6303,7 +8200,7 @@ app.post('/api/user/threshold/thresholdlist', function (req, res) {
 
 app.post('/api/action/grouptypes', function (req, res) {
 
-    var data = [
+    let data = [
         { "name": "Tags", "key": "TAGS", "defaultValues": { "v1": 'test' }, "appearDefault": true },
         { "name": "Regions", "key": "REGIONS", "defaultValues": { "v1": '10', } },
         { "name": "Availability Zones", "key": "AVAIL_ZONES", "defaultValues": { "v1": 40, } },
@@ -6322,7 +8219,7 @@ app.post('/api/action/grouptypes', function (req, res) {
 
 app.post('/api/billing/aggregatedcost', function (req, res) {
 
-    var data = { "name": null, "value": 10660.67838084227, "graphData": [{ "date": "2019-01-02", "value": 51.16 }, { "date": "2019-01-03", "value": 51.01 }, { "date": "2019-01-04", "value": 49.46 }, { "date": "2019-01-05", "value": 49.84 }, { "date": "2019-01-06", "value": 49.86 }, { "date": "2019-01-07", "value": 50.23 }, { "date": "2019-01-08", "value": 48.05 }, { "date": "2019-01-09", "value": 48.53 }, { "date": "2019-01-10", "value": 49.87 }, { "date": "2019-01-11", "value": 49.56 }, { "date": "2019-01-12", "value": 49.48 }, { "date": "2019-01-13", "value": 49.51 }, { "date": "2019-01-14", "value": 49.28 }, { "date": "2019-01-15", "value": 50.96 }, { "date": "2019-01-16", "value": 51.52 }, { "date": "2019-01-17", "value": 51.29 }, { "date": "2019-01-18", "value": 51.01 }, { "date": "2019-01-19", "value": 50.98 }, { "date": "2019-01-20", "value": 50.57 }, { "date": "2019-01-21", "value": 50.44 }, { "date": "2019-01-22", "value": 50.86 }, { "date": "2019-01-23", "value": 53.11 }, { "date": "2019-01-24", "value": 53.12 }, { "date": "2019-01-25", "value": 51.69 }, { "date": "2019-01-26", "value": 51.52 }, { "date": "2019-01-27", "value": 51.53 }, { "date": "2019-01-28", "value": 51.39 }, { "date": "2019-01-29", "value": 51.25 }, { "date": "2019-01-30", "value": 52.97 }, { "date": "2019-01-31", "value": 53.11 }, { "date": "2019-02-01", "value": 56.05 }, { "date": "2019-02-02", "value": 53.73 }, { "date": "2019-02-03", "value": 53.73 }, { "date": "2019-02-04", "value": 53.77 }, { "date": "2019-02-05", "value": 55.92 }, { "date": "2019-02-06", "value": 58.23 }, { "date": "2019-02-07", "value": 60.32 }, { "date": "2019-02-08", "value": 60.52 }, { "date": "2019-02-09", "value": 62.22 }, { "date": "2019-02-10", "value": 59.05 }, { "date": "2019-02-11", "value": 60.87 }, { "date": "2019-02-12", "value": 62.62 }, { "date": "2019-02-13", "value": 62.3 }, { "date": "2019-02-14", "value": 66.31 }, { "date": "2019-02-15", "value": 69.31 }, { "date": "2019-02-16", "value": 69.96 }, { "date": "2019-02-17", "value": 68.43 }, { "date": "2019-02-18", "value": 60.46 }, { "date": "2019-02-19", "value": 51.96 }, { "date": "2019-02-20", "value": 51.98 }, { "date": "2019-02-21", "value": 52.19 }, { "date": "2019-02-22", "value": 52.88 }, { "date": "2019-02-23", "value": 54.47 }, { "date": "2019-02-24", "value": 55.18 }, { "date": "2019-02-25", "value": 54.2 }, { "date": "2019-02-26", "value": 58.65 }, { "date": "2019-02-27", "value": 54.91 }, { "date": "2019-02-28", "value": 54.25 }, { "date": "2019-03-01", "value": 51.77 }, { "date": "2019-03-02", "value": 45.2 }, { "date": "2019-03-03", "value": 44.84 }, { "date": "2019-03-04", "value": 46.16 }, { "date": "2019-03-05", "value": 47.34 }, { "date": "2019-03-06", "value": 45.88 }, { "date": "2019-03-07", "value": 46.59 }, { "date": "2019-03-08", "value": 47.0 }, { "date": "2019-03-09", "value": 47.5 }, { "date": "2019-03-10", "value": 46.54 }, { "date": "2019-03-11", "value": 55.41 }, { "date": "2019-03-12", "value": 58.82 }, { "date": "2019-03-13", "value": 53.04 }, { "date": "2019-03-14", "value": 52.6 }, { "date": "2019-03-15", "value": 52.35 }, { "date": "2019-03-16", "value": 50.32 }, { "date": "2019-03-17", "value": 45.87 }, { "date": "2019-03-18", "value": 47.65 }, { "date": "2019-03-19", "value": 47.62 }, { "date": "2019-03-20", "value": 47.59 }, { "date": "2019-03-21", "value": 47.69 }, { "date": "2019-03-22", "value": 47.57 }, { "date": "2019-03-23", "value": 47.78 }, { "date": "2019-03-24", "value": 45.41 }, { "date": "2019-03-25", "value": 48.67 }, { "date": "2019-03-26", "value": 47.86 }, { "date": "2019-03-27", "value": 47.84 }, { "date": "2019-03-28", "value": 48.25 }, { "date": "2019-03-29", "value": 47.63 }, { "date": "2019-03-30", "value": 45.62 }, { "date": "2019-03-31", "value": 44.99 }, { "date": "2019-04-01", "value": 59.58 }, { "date": "2019-04-02", "value": 62.75 }, { "date": "2019-04-03", "value": 68.09 }, { "date": "2019-04-04", "value": 70.1 }, { "date": "2019-04-05", "value": 70.61 }, { "date": "2019-04-06", "value": 68.43 }, { "date": "2019-04-07", "value": 68.21 }, { "date": "2019-04-08", "value": 71.01 }, { "date": "2019-04-09", "value": 71.69 }, { "date": "2019-04-10", "value": 75.67 }, { "date": "2019-04-11", "value": 78.63 }, { "date": "2019-04-12", "value": 81.17 }, { "date": "2019-04-13", "value": 77.71 }, { "date": "2019-04-14", "value": 76.78 }, { "date": "2019-04-15", "value": 78.75 }, { "date": "2019-04-16", "value": 78.66 }, { "date": "2019-04-17", "value": 79.36 }, { "date": "2019-04-18", "value": 79.4 }, { "date": "2019-04-19", "value": 79.37 }, { "date": "2019-04-20", "value": 77.3 }, { "date": "2019-04-21", "value": 76.8 }, { "date": "2019-04-22", "value": 78.17 }, { "date": "2019-04-23", "value": 67.24 }, { "date": "2019-04-24", "value": 53.26 }, { "date": "2019-04-25", "value": 51.37 }, { "date": "2019-04-26", "value": 49.68 }, { "date": "2019-04-27", "value": 47.81 }, { "date": "2019-04-28", "value": 47.77 }, { "date": "2019-04-29", "value": 60.43 }, { "date": "2019-04-30", "value": 59.11 }, { "date": "2019-05-01", "value": 42.14 }, { "date": "2019-05-02", "value": 59.58 }, { "date": "2019-05-03", "value": 63.69 }, { "date": "2019-05-04", "value": 62.14 }, { "date": "2019-05-05", "value": 54.32 }, { "date": "2019-05-06", "value": 55.44 }, { "date": "2019-05-07", "value": 65.71 }, { "date": "2019-05-08", "value": 65.45 }, { "date": "2019-05-09", "value": 77.08 }, { "date": "2019-05-10", "value": 72.44 }, { "date": "2019-05-11", "value": 87.72 }, { "date": "2019-05-12", "value": 88.27 }, { "date": "2019-05-13", "value": 89.34 }, { "date": "2019-05-14", "value": 85.92 }, { "date": "2019-05-15", "value": 86.7 }, { "date": "2019-05-16", "value": 86.65 }, { "date": "2019-05-17", "value": 85.55 }, { "date": "2019-05-18", "value": 84.76 }, { "date": "2019-05-19", "value": 84.35 }, { "date": "2019-05-20", "value": 86.46 }, { "date": "2019-05-21", "value": 86.48 }, { "date": "2019-05-22", "value": 85.98 }, { "date": "2019-05-23", "value": 86.98 }, { "date": "2019-05-24", "value": 85.95 }, { "date": "2019-05-25", "value": 86.66 }, { "date": "2019-05-26", "value": 84.76 }, { "date": "2019-05-27", "value": 89.38 }, { "date": "2019-05-28", "value": 89.92 }, { "date": "2019-05-29", "value": 88.66 }, { "date": "2019-05-30", "value": 88.98 }, { "date": "2019-05-31", "value": 79.08 }, { "date": "2019-06-01", "value": 76.02 }, { "date": "2019-06-02", "value": 70.08 }, { "date": "2019-06-03", "value": 71.26 }, { "date": "2019-06-04", "value": 70.41 }, { "date": "2019-06-05", "value": 70.32 }, { "date": "2019-06-06", "value": 68.87 }, { "date": "2019-06-07", "value": 68.6 }, { "date": "2019-06-08", "value": 64.48 }, { "date": "2019-06-09", "value": 64.17 }, { "date": "2019-06-10", "value": 72.81 }, { "date": "2019-06-11", "value": 76.03 }, { "date": "2019-06-12", "value": 72.28 }, { "date": "2019-06-13", "value": 67.97 }, { "date": "2019-06-14", "value": 70.92 }, { "date": "2019-06-15", "value": 69.57 }, { "date": "2019-06-16", "value": 64.46 }, { "date": "2019-06-17", "value": 67.06 }, { "date": "2019-06-18", "value": 65.72 }, { "date": "2019-06-19", "value": 78.44 }, { "date": "2019-06-20", "value": 80.88 }, { "date": "2019-06-21", "value": 75.38 }, { "date": "2019-06-22", "value": 16.48 }] };
+    let data = { "name": null, "value": 10660.67838084227, "graphData": [{ "date": "2019-01-02", "value": 51.16 }, { "date": "2019-01-03", "value": 51.01 }, { "date": "2019-01-04", "value": 49.46 }, { "date": "2019-01-05", "value": 49.84 }, { "date": "2019-01-06", "value": 49.86 }, { "date": "2019-01-07", "value": 50.23 }, { "date": "2019-01-08", "value": 48.05 }, { "date": "2019-01-09", "value": 48.53 }, { "date": "2019-01-10", "value": 49.87 }, { "date": "2019-01-11", "value": 49.56 }, { "date": "2019-01-12", "value": 49.48 }, { "date": "2019-01-13", "value": 49.51 }, { "date": "2019-01-14", "value": 49.28 }, { "date": "2019-01-15", "value": 50.96 }, { "date": "2019-01-16", "value": 51.52 }, { "date": "2019-01-17", "value": 51.29 }, { "date": "2019-01-18", "value": 51.01 }, { "date": "2019-01-19", "value": 50.98 }, { "date": "2019-01-20", "value": 50.57 }, { "date": "2019-01-21", "value": 50.44 }, { "date": "2019-01-22", "value": 50.86 }, { "date": "2019-01-23", "value": 53.11 }, { "date": "2019-01-24", "value": 53.12 }, { "date": "2019-01-25", "value": 51.69 }, { "date": "2019-01-26", "value": 51.52 }, { "date": "2019-01-27", "value": 51.53 }, { "date": "2019-01-28", "value": 51.39 }, { "date": "2019-01-29", "value": 51.25 }, { "date": "2019-01-30", "value": 52.97 }, { "date": "2019-01-31", "value": 53.11 }, { "date": "2019-02-01", "value": 56.05 }, { "date": "2019-02-02", "value": 53.73 }, { "date": "2019-02-03", "value": 53.73 }, { "date": "2019-02-04", "value": 53.77 }, { "date": "2019-02-05", "value": 55.92 }, { "date": "2019-02-06", "value": 58.23 }, { "date": "2019-02-07", "value": 60.32 }, { "date": "2019-02-08", "value": 60.52 }, { "date": "2019-02-09", "value": 62.22 }, { "date": "2019-02-10", "value": 59.05 }, { "date": "2019-02-11", "value": 60.87 }, { "date": "2019-02-12", "value": 62.62 }, { "date": "2019-02-13", "value": 62.3 }, { "date": "2019-02-14", "value": 66.31 }, { "date": "2019-02-15", "value": 69.31 }, { "date": "2019-02-16", "value": 69.96 }, { "date": "2019-02-17", "value": 68.43 }, { "date": "2019-02-18", "value": 60.46 }, { "date": "2019-02-19", "value": 51.96 }, { "date": "2019-02-20", "value": 51.98 }, { "date": "2019-02-21", "value": 52.19 }, { "date": "2019-02-22", "value": 52.88 }, { "date": "2019-02-23", "value": 54.47 }, { "date": "2019-02-24", "value": 55.18 }, { "date": "2019-02-25", "value": 54.2 }, { "date": "2019-02-26", "value": 58.65 }, { "date": "2019-02-27", "value": 54.91 }, { "date": "2019-02-28", "value": 54.25 }, { "date": "2019-03-01", "value": 51.77 }, { "date": "2019-03-02", "value": 45.2 }, { "date": "2019-03-03", "value": 44.84 }, { "date": "2019-03-04", "value": 46.16 }, { "date": "2019-03-05", "value": 47.34 }, { "date": "2019-03-06", "value": 45.88 }, { "date": "2019-03-07", "value": 46.59 }, { "date": "2019-03-08", "value": 47.0 }, { "date": "2019-03-09", "value": 47.5 }, { "date": "2019-03-10", "value": 46.54 }, { "date": "2019-03-11", "value": 55.41 }, { "date": "2019-03-12", "value": 58.82 }, { "date": "2019-03-13", "value": 53.04 }, { "date": "2019-03-14", "value": 52.6 }, { "date": "2019-03-15", "value": 52.35 }, { "date": "2019-03-16", "value": 50.32 }, { "date": "2019-03-17", "value": 45.87 }, { "date": "2019-03-18", "value": 47.65 }, { "date": "2019-03-19", "value": 47.62 }, { "date": "2019-03-20", "value": 47.59 }, { "date": "2019-03-21", "value": 47.69 }, { "date": "2019-03-22", "value": 47.57 }, { "date": "2019-03-23", "value": 47.78 }, { "date": "2019-03-24", "value": 45.41 }, { "date": "2019-03-25", "value": 48.67 }, { "date": "2019-03-26", "value": 47.86 }, { "date": "2019-03-27", "value": 47.84 }, { "date": "2019-03-28", "value": 48.25 }, { "date": "2019-03-29", "value": 47.63 }, { "date": "2019-03-30", "value": 45.62 }, { "date": "2019-03-31", "value": 44.99 }, { "date": "2019-04-01", "value": 59.58 }, { "date": "2019-04-02", "value": 62.75 }, { "date": "2019-04-03", "value": 68.09 }, { "date": "2019-04-04", "value": 70.1 }, { "date": "2019-04-05", "value": 70.61 }, { "date": "2019-04-06", "value": 68.43 }, { "date": "2019-04-07", "value": 68.21 }, { "date": "2019-04-08", "value": 71.01 }, { "date": "2019-04-09", "value": 71.69 }, { "date": "2019-04-10", "value": 75.67 }, { "date": "2019-04-11", "value": 78.63 }, { "date": "2019-04-12", "value": 81.17 }, { "date": "2019-04-13", "value": 77.71 }, { "date": "2019-04-14", "value": 76.78 }, { "date": "2019-04-15", "value": 78.75 }, { "date": "2019-04-16", "value": 78.66 }, { "date": "2019-04-17", "value": 79.36 }, { "date": "2019-04-18", "value": 79.4 }, { "date": "2019-04-19", "value": 79.37 }, { "date": "2019-04-20", "value": 77.3 }, { "date": "2019-04-21", "value": 76.8 }, { "date": "2019-04-22", "value": 78.17 }, { "date": "2019-04-23", "value": 67.24 }, { "date": "2019-04-24", "value": 53.26 }, { "date": "2019-04-25", "value": 51.37 }, { "date": "2019-04-26", "value": 49.68 }, { "date": "2019-04-27", "value": 47.81 }, { "date": "2019-04-28", "value": 47.77 }, { "date": "2019-04-29", "value": 60.43 }, { "date": "2019-04-30", "value": 59.11 }, { "date": "2019-05-01", "value": 42.14 }, { "date": "2019-05-02", "value": 59.58 }, { "date": "2019-05-03", "value": 63.69 }, { "date": "2019-05-04", "value": 62.14 }, { "date": "2019-05-05", "value": 54.32 }, { "date": "2019-05-06", "value": 55.44 }, { "date": "2019-05-07", "value": 65.71 }, { "date": "2019-05-08", "value": 65.45 }, { "date": "2019-05-09", "value": 77.08 }, { "date": "2019-05-10", "value": 72.44 }, { "date": "2019-05-11", "value": 87.72 }, { "date": "2019-05-12", "value": 88.27 }, { "date": "2019-05-13", "value": 89.34 }, { "date": "2019-05-14", "value": 85.92 }, { "date": "2019-05-15", "value": 86.7 }, { "date": "2019-05-16", "value": 86.65 }, { "date": "2019-05-17", "value": 85.55 }, { "date": "2019-05-18", "value": 84.76 }, { "date": "2019-05-19", "value": 84.35 }, { "date": "2019-05-20", "value": 86.46 }, { "date": "2019-05-21", "value": 86.48 }, { "date": "2019-05-22", "value": 85.98 }, { "date": "2019-05-23", "value": 86.98 }, { "date": "2019-05-24", "value": 85.95 }, { "date": "2019-05-25", "value": 86.66 }, { "date": "2019-05-26", "value": 84.76 }, { "date": "2019-05-27", "value": 89.38 }, { "date": "2019-05-28", "value": 89.92 }, { "date": "2019-05-29", "value": 88.66 }, { "date": "2019-05-30", "value": 88.98 }, { "date": "2019-05-31", "value": 79.08 }, { "date": "2019-06-01", "value": 76.02 }, { "date": "2019-06-02", "value": 70.08 }, { "date": "2019-06-03", "value": 71.26 }, { "date": "2019-06-04", "value": 70.41 }, { "date": "2019-06-05", "value": 70.32 }, { "date": "2019-06-06", "value": 68.87 }, { "date": "2019-06-07", "value": 68.6 }, { "date": "2019-06-08", "value": 64.48 }, { "date": "2019-06-09", "value": 64.17 }, { "date": "2019-06-10", "value": 72.81 }, { "date": "2019-06-11", "value": 76.03 }, { "date": "2019-06-12", "value": 72.28 }, { "date": "2019-06-13", "value": 67.97 }, { "date": "2019-06-14", "value": 70.92 }, { "date": "2019-06-15", "value": 69.57 }, { "date": "2019-06-16", "value": 64.46 }, { "date": "2019-06-17", "value": 67.06 }, { "date": "2019-06-18", "value": 65.72 }, { "date": "2019-06-19", "value": 78.44 }, { "date": "2019-06-20", "value": 80.88 }, { "date": "2019-06-21", "value": 75.38 }, { "date": "2019-06-22", "value": 16.48 }] };
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -6332,7 +8229,7 @@ app.post('/api/billing/aggregatedcost', function (req, res) {
 
 app.post('/api/instances/aggregatehistogrammetrics', function (req, res) {
 
-    var data = [{ "name": "0-10", "CPU": 34, "Memory": 31 }, { "name": "10-20", "CPU": 3, "Memory": 1 }, { "name": "20-30", "CPU": 1, "Memory": 1 }, { "name": "30-40", "CPU": 1, "Memory": 2 }, { "name": "40-50", "CPU": 0, "Memory": 2 }, { "name": "50-60", "CPU": 0, "Memory": 1 }, { "name": "60-70", "CPU": 0, "Memory": 1 }, { "name": "70-80", "CPU": 0, "Memory": 0 }, { "name": "80-90", "CPU": 0, "Memory": 0 }, { "name": "90+", "CPU": 1, "Memory": 1 }];
+    let data = [{ "name": "0-10", "CPU": 34, "Memory": 31 }, { "name": "10-20", "CPU": 3, "Memory": 1 }, { "name": "20-30", "CPU": 1, "Memory": 1 }, { "name": "30-40", "CPU": 1, "Memory": 2 }, { "name": "40-50", "CPU": 0, "Memory": 2 }, { "name": "50-60", "CPU": 0, "Memory": 1 }, { "name": "60-70", "CPU": 0, "Memory": 1 }, { "name": "70-80", "CPU": 0, "Memory": 0 }, { "name": "80-90", "CPU": 0, "Memory": 0 }, { "name": "90+", "CPU": 1, "Memory": 1 }];
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -6342,7 +8239,7 @@ app.post('/api/instances/aggregatehistogrammetrics', function (req, res) {
 
 app.post('/api/registration/checktokenexists', function (req, res) {
 
-    var data = { status: "true" };
+    let data = { status: "true" };
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -6351,7 +8248,7 @@ app.post('/api/registration/checktokenexists', function (req, res) {
 
 app.post('/api/column/update', function (req, res) {
 
-    var data = { status: "true" };
+    let data = { status: "true" };
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -6363,7 +8260,7 @@ app.post('/api/cloud-providers', function (req, res) {
     console.log('auth: ', req.headers.authorization);
 
 
-    var data = {
+    let data = {
         'cloudProviders': [
             { name: 'AWS', key: 'aws', icon: 'amazon' },
             { name: 'GCP', key: 'gcp', icon: 'google' },
@@ -6381,7 +8278,7 @@ app.post('/api/cloud-providers', function (req, res) {
 
 app.post('/api/auth/auth-entity', function (req, res) {
     req.body.email
-    var data = {
+    let data = {
         type: 'LOCAL',
         authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1r9u7oni7kCn08357&response_type=id_token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A9000&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
     };
@@ -6534,20 +8431,196 @@ app.post('/api/csp/customer/ratepacks', function (req, res) {
 });
 
 
-app.post('/api/csp/tenants/fetchtenants', function (req, res) {
+
+
+app.post('/api/auth/environmentlist', function (req, res) {
+
     const data = [
         {
-            "key": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5",
-            'name': 'dd2af4ea-2053-43da-ab8c-b29fc6488fa5'
+            "key": "abc",
+            'name': 'Ten-abc',
         },
         {
-            "key": "rwerrt-2053-43da-ab8c-b29fc6488fa5",
-            'name': 'rwerrt-2053-43da-ab8c-b29fc6488fa5',
+            "key": "xyz",
+            'name': 'Ten-xyz',
             selected: true
         },
         {
-            "key": "fdfsgfd-2053-43da-ab8c-b29fc6488fa5",
-            'name': 'fdfsgfd-2053-43da-ab8c-b29fc6488fa5'
+            "key": "iop",
+            'name': 'Ten-iop',
+        },
+        {
+            "key": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5",
+            'name': "dd2af4ea",
+        }
+    ];
+    responseStatus = 200;
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/auth/authlist', function (req, res) {
+
+    const data = [
+        {
+            "key": "local",
+            'name': 'LOCAL',
+            selected: true
+        },
+        {
+            "key": "okta",
+            'name': 'OKTA',
+        },
+    ];
+    responseStatus = 200;
+    setResponseHeaders(res);
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/user/cloudServiceList', function (req, res) {
+
+    const data = [
+        {
+            "key": "azure",
+            'name': 'Azure',
+            selected: true
+        },
+        {
+            "key": "aws",
+            'name': 'AWS',
+        },
+        {
+            "key": "aws",
+            'name': 'GCP',
+        },
+        {
+            "key": "aws",
+            'name': 'Cloud 1',
+        },
+        {
+            "key": "aws",
+            'name': 'Cloud 2',
+        },
+        {
+            "key": "aws",
+            'name': 'Cloud 3',
+        },
+    ];
+    responseStatus = 200;
+    setResponseHeaders(res);
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/csp/tenants/fetchtenants', function (req, res) {
+
+    //for (let index = 0; index < 999999999; index++) { }
+
+    const data = [
+        {
+            "key": "abc",
+            'name': 'Ten-abc',
+        },
+        {
+            "key": "xyz",
+            'name': 'Ten-xyz',
+            selected: true
+        },
+        {
+            "key": "iop",
+            'name': 'Ten-iop',
+        },
+        {
+            "key": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5",
+            'name': "dd2af4ea",
+        }
+
+    ];
+
+    responseStatus = 200;
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
+
+
+
+app.post('/api/billing-cycles', function (req, res) {
+
+    const data = [
+        {
+            "key": "03-2019",
+            'name': 'Mar-2019'
+        },
+        {
+            "key": "04-2019",
+            'name': 'Apr-2019',
+            selected: true
+        },
+        {
+            "key": "05-2019",
+            'name': 'May-2019'
+        },
+        {
+            "key": "06-2019",
+            'name': 'June-2019'
+        },
+        {
+            "key": "07-2019",
+            'name': 'July-2019'
+        },
+        {
+            "key": "08-2019",
+            'name': 'Aug-2019'
+        },
+    ];
+
+    responseStatus = 200;
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/csp/azurestack/fetchprovidersubscription', function (req, res) {
+
+    // for (let index = 0; index < 999999999; index++) { }
+
+    const data = [
+        {
+            "key": "S-1",
+            'name': "Sub-1",
+        },
+        {
+            "key": "S-2",
+            'name': "Sub-2",
+            selected: true
+        },
+        {
+            "key": "S-3",
+            'name': "Sub-3",
+            selected: true
+        },
+        {
+            "key": "S-4",
+            'name': "Sub-4",
+        },
+        {
+            "key": "S-5",
+            'name': "Sub-5",
+        },
+        {
+            "key": "S-6",
+            'name': "Sub-6",
+            selected: true
+        },
+        {
+            "key": "S-7",
+            'name': "Sub-7",
+            // selected: true
         }
     ];
 
@@ -6561,20 +8634,26 @@ app.post('/api/csp/tenants/fetchtenants', function (req, res) {
 
 app.post('/api/csp/customer/fetchcustomers', function (req, res) {
 
+    // for (let index = 0; index < 999999999; index++) { }
+
     const data = [
         {
-            "key": "b29fc6488fa5-2053-43da-ab8c-b29fc6488fa5",
-            'name': 'b29fc6488fa5-2053-43da-ab8c-b29fc6488fa5'
+            "name": "Cust-123",
+            'key': '123'
         },
         {
-            "key": "ewfd3434-2053-43da-ab8c-b29fc6488fa5",
-            'name': 'ewfd3434-2053-43da-ab8c-b29fc6488fa5',
-            selected: true
+            "name": "Cust-456",
+            'key': '456',
         },
         {
-            "key": "e34grg-2053-43da-ab8c-b29fc6488fa5",
-            'name': 'e34grg-2053-43da-ab8c-b29fc6488fa5'
-        }
+            "name": "Cust-789",
+            'key': '789',
+        },
+        {
+            "name": "Cust-f92ba573",
+            'key': "f92ba573-65dc-4d23-920a-89179cc32668",
+        },
+
     ];
 
     responseStatus = 200;
@@ -6597,6 +8676,299 @@ app.post('/api/csp/customer/ratepacks/type', function (req, res) {
     res.status(responseStatus).send(data);
 });
 
+
+app.post('/api/csp/billops/usertypes', function (req, res) {
+
+    const data = [{ "name": "Existing", "key": "EXISTING", "selected": false }, { "name": "New", "key": "NEW", "selected": true }];
+
+    responseStatus = 200;
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
+app.post('/api/user/threshold/thresholdmetriclist', function (req, res) {
+    const data = [{ 'key': 'high', 'name': 'High' }, { 'key': 'medium', 'name': 'Medium' }, { 'key': 'critical', 'name': 'Critical' }, { 'key': 'low', 'name': 'Low' }];
+    responseStatus = 200;
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/environments', function (req, res) {
+    const data = [
+        {
+            key: 1,
+            headerColor: 'orange',
+            title: 'AWS',
+            status: 'active',
+            type: 'AWS_TYPE',
+            showEdit: true,
+            showDelete: true,
+            disabled: false,
+        },
+        {
+            key: 2,
+            headerColor: '#64B640',
+            title: 'AZURE',
+            status: 'active',
+            type: 'AZURE_TYPE',
+            showEdit: true,
+            showDelete: false,
+            disabled: false,
+        },
+        {
+            key: 3,
+            headerColor: 'blue',
+            title: 'GCP',
+            status: 'active',
+            type: 'GCP_INFRA',
+            showEdit: false,
+            showDelete: false,
+            disabled: true,
+        },
+        {
+            key: 4,
+            headerColor: 'linear-gradient(to right, #D34A46, #5E1CB5)',
+            title: 'Heroku',
+            status: 'inactive',
+            type: 'CUSTOM_TYPE',
+            showEdit: true,
+            showDelete: true,
+            disabled: false,
+        },
+        {
+            key: 5,
+            headerColor: '#0089D6',
+            title: 'Digital Ocean',
+            status: 'active',
+            type: 'HYBRID_TYPES',
+            showEdit: true,
+            showDelete: true,
+            disabled: false,
+        },
+    ]
+    responseStatus = 200;
+    setResponseHeaders(res);
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/services', function (req, res) {
+    const data = [
+        {
+            key: 1,
+            title: 'CSP Billing',
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+        },
+        {
+            key: 2,
+            img: 'azure',
+            title: 'Customer Services',
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+        },
+        {
+            key: 3,
+            title: 'Services-XYZ',
+            img: 'aws',
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+        },
+        {
+            key: 4,
+            title: 'Cloud Services',
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+        },
+        {
+            key: 5,
+            title: 'Test services',
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+        },
+        {
+            key: 6,
+            title: 'Edge Computing',
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+        },
+    ]
+    responseStatus = 200;
+    setResponseHeaders(res);
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/roles', function (req, res) {
+    const data = [
+        {
+            key: 1,
+            headerColor: 'orange',
+            title: 'Admin',
+            status: 'active',
+            type: 'SYSTEM',
+            showEdit: true,
+            showDelete: true,
+            disabled: true,
+        },
+        {
+            key: 2,
+            headerColor: '#64B640',
+            title: 'Owner',
+            status: 'active',
+            type: 'SYSTEM',
+            showEdit: true,
+            showDelete: false,
+            disabled: false,
+        },
+        {
+            key: 3,
+            headerColor: 'blue',
+            title: 'Editor',
+            status: 'active',
+            type: 'CUSTOM',
+            showEdit: false,
+            showDelete: false,
+            disabled: false,
+        },
+        {
+            key: 4,
+            headerColor: 'linear-gradient(to right, #D34A46, #5E1CB5)',
+            title: 'Service Account',
+            status: 'inactive',
+            type: 'CUSTOM_TYPE',
+            showEdit: true,
+            showDelete: true,
+            disabled: false,
+        },
+        {
+            key: 5,
+            headerColor: '#0089D6',
+            title: 'Managed',
+            status: 'active',
+            type: 'HYBRID_TYPES',
+            showEdit: true,
+            showDelete: true,
+            disabled: false,
+        },
+    ]
+    responseStatus = 200;
+    setResponseHeaders(res);
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/group/resourceorderlist', function (req, res) {
+    const data = {
+        "email": 'i.am.test.user@gmail.com',
+        "customerType": 'EXISTING',
+        "customerID": 1234,
+        "orgName": 'ACB Inc.',
+        "industry": ['test-t5.medium'],
+        "website": 'https://test.com',
+        "turnover": 'test-t1.small',
+        "accountType": ['test-t8.medium', 'test-t5.small', 'test-t5.large'],
+        "firstName": 'Captain',
+        "lastName": 'Steve',
+        "designation": 'Developer',
+        "phone": 727600000012,
+        "appID": 'APP-1234',
+        "envState": true,
+        "resMgrEndpoint": '/v1/test',
+        "mobile": '997600000012',
+        "userId": '53',
+        "envName": ['west-1231'],
+    };
+    responseStatus = 200;
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+app.post('/api/csp/customer/overview', async function (req, res) {
+    const data = {
+        drawerToolbar: [{
+            buttonLabel: "Go to bill",
+            type: "goToBill",
+            actionData: { billId: '1' }
+        }], alertData: [{
+            key: 'alert1',
+            headerColor: '#D34A46',
+            title: 'Alerts',
+            type: 'list',
+            showViewMore: true,
+            alertCount: 4,
+            noDataText: 'No alerts!',
+            alertData: [
+                'Only 1 month DR service mapped',
+                'Bill generation due 4/2/2020',
+                'Bill generation due 4/3/2020',
+                'Bill generation due 4/5/2020'
+            ]
+        }, {
+            key: 'alert2',
+            headerColor: '#FF9D00',
+            title: 'Notifications',
+            type: 'list',
+            showViewMore: false,
+            alertCount: 1,
+            noDataText: 'No notifications!',
+            alertData: [
+                'Seasonal rate for Rate Card #1 activated',
+            ]
+        }, {
+            key: 'alert2',
+            headerColor: '#142C93',
+            title: 'Overview',
+            type: 'overview',
+            showViewMore: false,
+            alertCount: 0,
+            noDataText: 'No Overviews!',
+            alertData: [{
+                value: '1/18/2018',
+                label: 'Customer since',
+                type: 'text'
+            }, {
+                value: '$5000.00',
+                label: 'Customer lifetime value',
+                type: 'text'
+            }, {
+                value: [{
+                    label: 'SQL Database',
+                    time: '131.21 hrs',
+                    amount: '$500.00'
+                }, {
+                    label: 'Virtual Machine',
+                    time: '109.41 hrs',
+                    amount: '$100.00'
+                }, {
+                    label: 'Azure Site Recovery',
+                    time: '1 month',
+                    amount: '$100.00'
+                }],
+                label: 'Top items',
+                type: 'table'
+            }, {
+                value: [{
+                    title: 'Next billing cycle: 2020-2-15-20202-3-15',
+                    text: 'Last billing cycle: 2020-1-13 to 2020-2-14'
+                }, {
+                    title: 'Next bill total (est.): $22,105.74',
+                    text: 'Last bill total: $23,176.64'
+                }],
+                label: 'Payments',
+                type: 'list'
+            }]
+        }]
+    };
+
+
+    responseStatus = 200;
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
+
+
+app.post('/api/csp/customer/invoice/download', function (req, res) {
+    setResponseHeaders(res);
+    res.download('./app.yaml');
+});
 
 
 var listener = app.listen(PORT, function () {
