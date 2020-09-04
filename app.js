@@ -9836,6 +9836,43 @@ app.post('/api/page/title', function (req, res) {
     res.status(200).send(data);
 });
 
+app.post('/submitDisputeFilingRequest', function (req, res) {
+
+    var data = {
+        "Status": [
+            {
+                "Code": "W-126000043",
+                "Message": "Please ensure that you are within case filing timeframe."
+            },
+            {
+                "Code": "W-126000029",
+                "Message": "Having submitted this form will formally file the case(s) with Visa and may result in filing and review fees being incurred."
+            }
+        ],
+        "ResponseData": {
+            "VisaCaseNumber": 1051564126,
+            "DisputeFilingInfo": [
+                {
+                    "DisputeFilingItemId": 1214565157,
+                    "DisputeFilingItemType": "Arbitration"
+                }
+            ]
+        }
+    };
+
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+    res.header(
+        'Access-Control-Allow-Methods',
+        'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+    )
+    res.setHeader('Content-Type', 'application/json')
+
+    res.status(200).send(data);
+
+});
+
+
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
 });
