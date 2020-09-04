@@ -12,6 +12,7 @@
             {
                 "id": 2,
                 "isHawkUI": true,
+                "leafTitle": "Tabular Insights",
                 "type": "hawkDatatable",
                 "apiKey": "listUsersAPI",
                 "size": 12,
@@ -19,6 +20,21 @@
                 "filter": false,
                 "subscribedFilterParam": "billingCycleFilter",
                 "noDataText": "No sub-users available",
+                "pagination": false,
+                "expand": {
+                    "expandableRowsOnClick": true,
+                    "expandableRows": true,
+                    "limit": 4,
+                    "componentsAPIKey": "editRowAPI",
+                    "drillParams": [
+                        {
+                            "key": "email"
+                        },
+                        {
+                            "key": "roleName"
+                        }
+                    ]
+                },
                 "metrics": {},
                 "defaultRowPerPage": 10,
                 "columns": [
@@ -94,6 +110,22 @@
                             }
                         ],
                         "componentsAPIKey": "customerOverviewDataAPI"
+                    },
+                    {
+                        "name": "Rate Pack Info",
+                        "key": "action",
+                        "type": "drill",
+                        "display": true,
+                        "drillTo": "catalog/ratepacks",
+                        "drillParams": [
+                            {
+                                "key": "userId"
+                            },
+                            {
+                                "key": "email",
+                                "isPrimary": true
+                            }
+                        ]
                     }
                 ],
                 "toolBarActions": [
@@ -117,6 +149,12 @@
                                 "fileName": "Billing Overview.csv"
                             }
                         ]
+                    },
+                    {
+                        "toolbarTitle": "Consumption import",
+                        "type": "actionAndRefresh",
+                        "actionAPIKey": "saveGroupAPI",
+                        "actionIcon": "LoopIcon"
                     }
                 ]
             }

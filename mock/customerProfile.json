@@ -1,0 +1,725 @@
+[
+  {
+    "leafs": [
+      {
+        "id": 1926,
+        "leafTitle": "Customer Profile",
+        "subTitle": "",
+        "size": 12,
+        "type": "profileLayout",
+        "isHawkUI": true,
+        "apiKey": "customerOverviewDataAPI",
+        "components": [
+          {
+            "type": "orgDetail",
+            "header": "Organization Detail",
+            "id": 1,
+            "dataApiKey": "getCustomerOrgDetails",
+            "actionApiKey": "getCustomerOrgDetails",
+            "subComponents": [
+              {
+                "id": 0,
+                "title": "Industry Vertical",
+                "defSelectKey": "INDUSTRY_VERTICAL",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 1,
+                "title": "Website",
+                "defSelectKey": "website",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 2,
+                "title": "Business turnover",
+                "defSelectKey": "business_turnover",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 3,
+                "title": "Account type",
+                "apiKey": "dummyList",  
+                "defSelectKey": "account_type",
+                "size": 12,
+                "inputType": "string",
+                "type": "select",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 4,
+                "title": "Existing Customer",
+                "defSelectKey": "existing_customer",
+                "size": 12,
+                "apiKey": "dummyList",
+                "inputType": "string",
+                "type": "radio",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 5,
+                "title": "Address",
+                "defSelectKey": "addr_1",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 6,
+                "title": "",
+                "defSelectKey": "addr_2",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 7,
+                "title": "",
+                "defSelectKey": "addr_3",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 8,
+                "title": "E-mail",
+                "defSelectKey": "email",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 9,
+                "title": "Customer SPOC Details",
+                "defSelectKey": "spoc_details",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 2,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              }
+            ]
+          },
+          {
+            "type": "alert",
+            "id": 2,
+            "dataApiKey": "getCustomerAlertData"
+          },
+          {
+            "type": "notification",
+            "id": 3,
+            "dataApiKey": "getCustomerNotification"
+          },
+          {
+            "id": 4,
+            "dataApiKey": "getCustomerContactData",
+            "actionApiKey": "getCustomerOrgDetails",
+            "type": "contact",
+            "header": "Contact Detail",
+
+            "tabs": [
+              {
+                "title": "Business",
+                "defSelectKey": "business",
+                "subComponents": [
+                  {
+                    "id": 0,
+                    "title": "First Name",
+                    "defSelectKey": "firstName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "First Name is required"
+                    }
+                  },
+                  {
+                    "id": 1,
+                    "title": "Last Name",
+                    "defSelectKey": "lastName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Last Name is required"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "title": "Designation",
+                    "defSelectKey": "designation",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Designation is required"
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "title": "Phone Number",
+                    "defSelectKey": "phoneNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Phone number is required"
+                    }
+                  },
+                  {
+                    "id": 4,
+                    "title": "Mobile Number",
+                    "defSelectKey": "mobileNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Mobile number is required"
+                    }
+                  },
+                  {
+                    "id": 5,
+                    "title": "User ID",
+                    "defSelectKey": "userId",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "User ID is required"
+                    }
+                  },
+                  {
+                    "id": 0,
+                    "title": "Email Id",
+                    "defSelectKey": "emailId",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Email is required"
+                    }
+                  }
+                ]
+              },{
+                "title": "Billing",
+                "defSelectKey": "billing",
+                "subComponents": [
+                  {
+                    "id": 0,
+                    "title": "First Name",
+                    "defSelectKey": "firstName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "First Name is required"
+                    }
+                  },
+                  {
+                    "id": 1,
+                    "title": "Last Name",
+                    "defSelectKey": "lastName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Last Name is required"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "title": "Designation",
+                    "defSelectKey": "designation",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Designation is required"
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "title": "Phone Number",
+                    "defSelectKey": "phoneNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Phone number is required"
+                    }
+                  },
+                  {
+                    "id": 4,
+                    "title": "Mobile Number",
+                    "defSelectKey": "mobileNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Mobile number is required"
+                    }
+                  },
+                  {
+                    "id": 5,
+                    "title": "User ID",
+                    "defSelectKey": "userId",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "User ID is required"
+                    }
+                  },
+                  {
+                    "id": 0,
+                    "title": "Email Id",
+                    "defSelectKey": "first_name",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Email is required"
+                    }
+                  }
+                ]
+              },{
+                "title": "Technical",
+                "defSelectKey": "business",
+                "subComponents": [
+                  {
+                    "id": 0,
+                    "title": "First Name",
+                    "defSelectKey": "firstName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "First Name is required"
+                    }
+                  },
+                  {
+                    "id": 1,
+                    "title": "Last Name",
+                    "defSelectKey": "lastName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Last Name is required"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "title": "Designation",
+                    "defSelectKey": "designation",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Designation is required"
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "title": "Phone Number",
+                    "defSelectKey": "phoneNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Phone number is required"
+                    }
+                  },
+                  {
+                    "id": 4,
+                    "title": "Mobile Number",
+                    "defSelectKey": "mobileNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Mobile number is required"
+                    }
+                  },
+                  {
+                    "id": 5,
+                    "title": "User ID",
+                    "defSelectKey": "userId",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "User ID is required"
+                    }
+                  },
+                  {
+                    "id": 0,
+                    "title": "Email Id",
+                    "defSelectKey": "first_name",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Email is required"
+                    }
+                  }
+                ]
+              },{
+                "title": "Registered Address",
+                "defSelectKey": "business",
+                "subComponents": [
+                  {
+                    "id": 0,
+                    "title": "First Name",
+                    "defSelectKey": "firstName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "First Name is required"
+                    }
+                  },
+                  {
+                    "id": 1,
+                    "title": "Last Name",
+                    "defSelectKey": "lastName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Last Name is required"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "title": "Designation",
+                    "defSelectKey": "designation",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Designation is required"
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "title": "Phone Number",
+                    "defSelectKey": "phoneNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Phone number is required"
+                    }
+                  },
+                  {
+                    "id": 4,
+                    "title": "Mobile Number",
+                    "defSelectKey": "mobileNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Mobile number is required"
+                    }
+                  },
+                  {
+                    "id": 5,
+                    "title": "User ID",
+                    "defSelectKey": "userId",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "User ID is required"
+                    }
+                  },
+                  {
+                    "id": 0,
+                    "title": "Email Id",
+                    "defSelectKey": "emailId",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Email is required"
+                    }
+                  }
+                ]
+              },{
+                "title": "Billing Address",
+                "defSelectKey": "business",
+                "subComponents": [
+                  {
+                    "id": 0,
+                    "title": "First Name",
+                    "defSelectKey": "firstName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "First Name is required"
+                    }
+                  },
+                  {
+                    "id": 1,
+                    "title": "Last Name",
+                    "defSelectKey": "lastName",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Last Name is required"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "title": "Designation",
+                    "defSelectKey": "designation",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Designation is required"
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "title": "Phone Number",
+                    "defSelectKey": "phoneNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Phone number is required"
+                    }
+                  },
+                  {
+                    "id": 4,
+                    "title": "Mobile Number",
+                    "defSelectKey": "mobileNumber",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Mobile number is required"
+                    }
+                  },
+                  {
+                    "id": 5,
+                    "title": "User ID",
+                    "defSelectKey": "userId",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "User ID is required"
+                    }
+                  },
+                  {
+                    "id": 0,
+                    "title": "Email Id",
+                    "defSelectKey": "emailId",
+                    "size": 12,
+                    "inputType": "string",
+                    "type": "text",
+                    "isHawkUI": true,
+                    "validation": {
+                      "isRequired": true,
+                      "type": "text",
+                      "message": "Email is required"
+                    }
+                  }
+                ]
+              }
+            ]},
+          {
+            "type": "users",
+            "header": "Users",
+            "id": 5,
+            "dataApiKey": "getUsers"
+          },
+          {
+            "type": "settings",
+            "header" : "Settings",
+            "id": 6,
+            "dataApiKey": "getSettings"
+          }
+        ]
+      }
+    ]
+  }
+]

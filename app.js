@@ -3,11 +3,15 @@ var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080
+
 const users = require('./mock/users.json');
 const cspOverview = require('./mock/cspOverview.json');
 const cspBilling = require('./mock/cspBilling.json');
 const rateLine = require('./mock/rateLine.json');
+const ratePack = require('./mock/ratePack.json');
+const adminSettings = require('./mock/adminSettings.json');
 const navs = require('./mock/navs.json');
+const cspCustomerProfile = require("./mock/customerProfile.json")
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -888,7 +892,7 @@ function EditCustomerScreenData() {
                     "type": "complex-form",
                     "dataAPIKey": "listResourceOrderListAPI",
                     "actionAPIKey": "saveInstanceTypeChangeAPI",
-                    "subscribedDrillParam": "email",
+                    "subscribedDrillParam": ["email"],
                     "components": [
                         {
                             "title": "Existing Relationship Details",
@@ -1096,7 +1100,7 @@ function EditCustomerScreenData() {
                     "id": 2,
                     "leafTitle": "Manage Bill-OPS Users",
                     "type": "datatable",
-                    "subscribedDrillParam": "email",
+                    "subscribedDrillParam": ["email"],
                     "apiKey": "listUsersAPI",
                     "size": 6,
                     "noDataText": "No sub-users available",
@@ -1268,7 +1272,7 @@ function EditCustomerScreenData() {
                     leafTitle: 'List the customers',
                     type: 'datatable',
                     apiKey: 'testMetricAPI',
-                    "subscribedDrillParam": "email",
+                    "subscribedDrillParam": ["email", "userId"],
                     size: 12,
                     noDataText: 'Data for Cost by Service Type is not currently available',
                     columns: [
@@ -4926,6 +4930,7 @@ app.post('/api/instance/schedule', function (req, res) {
                         {
                             "hour": "22:00",
                             "status": Math.random() > 0.40
+
                         },
                         {
                             "hour": "23:00",
@@ -6054,7 +6059,6 @@ app.post('/api/scenario', function (req, res) {
     console.log('scenario: ', req.query.name);
 
     switch (req.query.name) {
-
         /* New pages config from here  */
         case "users":
             data = users;
@@ -6066,6 +6070,9 @@ app.post('/api/scenario', function (req, res) {
         case "cspBilling":
             data = cspBilling;
             break;
+        case "profile":
+            data = cspCustomerProfile;
+            break;
         case "environments":
             data = getEnvironmentsUIData();
             break;
@@ -6075,8 +6082,14 @@ app.post('/api/scenario', function (req, res) {
         case "userRoles":
             data = getRolesUIData();
             break;
+        case "adminSettings":
+            data = adminSettings;
+            break;
         case "rateLine":
             data = rateLine;
+            break;
+        case "ratePack":
+            data = ratePack;
             break;
         /* Old pages config from here  */
 
@@ -6399,8 +6412,15 @@ app.post('/api/scenario/modal', function (req, res) {
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     actionButtonText: 'Add',
-                    modalWidth: 800,
+                    modalWidth: 500,
                     leafs: [
+                        {
+                            id: 10,
+                            type: 'image',
+                            icon: "okta",
+                            width: 80,
+                            position: 'right'
+                        },
                         {
                             id: 1,
                             leafTitle: "User Information",
@@ -6481,7 +6501,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             },
                         },
                         {
-                            "id": 9,
+                            "id": 12,
                             "leafTitle": "Authentication",
                             "type": "group-radio",
                             "defSelectKey": "authType",
@@ -6489,6 +6509,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             size: 9,
                             "apiKey": "listAuthTypeAPI",
                             "metrics": {},
+                            validation: {
+                                isRequired: true,
+                                type: 'checkbox',
+                                // showAlert: true,
+                            }
                         },
                         {
                             id: 10,
@@ -6502,6 +6527,11 @@ app.post('/api/scenario/modal', function (req, res) {
                                 "hideWhen": "okta",
                                 "bindWith": "authType",
                                 "id": 9
+                            },
+                            "validation": {
+                                "isRequired": true,
+                                "message": "Username is required",
+                                type: 'text',
                             }
                         },
                         {
@@ -6519,7 +6549,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             }
                         },
                         {
-                            "id": 12,
+                            "id": 9,
                             "leafTitle": "Cloud Services",
                             "type": "multi-checkbox",
                             "defSelectKey": "instanceId",
@@ -6529,6 +6559,25 @@ app.post('/api/scenario/modal', function (req, res) {
                             pageId: 1,
                             "apiKey": "listCloudServicesAPI",
                             "metrics": {},
+                            validation: {
+                                isRequired: true,
+                                type: 'checkbox',
+                                // showAlert: true,
+                            }
+                        },
+                        {
+                            id: 10,
+                            type: 'image',
+                            icon: "azure",
+                            label: "Azure",
+                            width: 28,
+                            groupId: 'accounts',
+                            pageId: 1,
+                            "bindLeafData": {
+                                "showWhen": "azure",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
                         },
                         {
                             id: 13,
@@ -6544,11 +6593,16 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accounts',
                             apiKey: "providerSubscriptionId",
                             "bindLeafData": {
-                                "hideWhen": "azure",
+                                "showWhen": "azure",
                                 "bindWith": "instanceId",
                                 "id": 9
                             },
                             metrics: {},
+                            validation: {
+                                isRequired: true,
+                                message: "Please select any value for accounts",
+                                type: 'text'
+                            }
                         },
                         {
                             id: 6,
@@ -6564,6 +6618,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accounts',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
+                            "bindLeafData": {
+                                "showWhen": "azure",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
                         },
                         {
                             id: 6,
@@ -6579,6 +6638,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accounts',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
+                            "bindLeafData": {
+                                "showWhen": "azure",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
                         },
                         {
                             id: 6,
@@ -6594,6 +6658,23 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accounts',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
+                            "bindLeafData": {
+                                "showWhen": "azure",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
+                        },
+                        {
+                            id: 10,
+                            type: 'image',
+                            icon: "aws",
+                            pageId: 1,
+                            groupId: 'accAzure',
+                            "bindLeafData": {
+                                "showWhen": "aws",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
                         },
                         {
                             id: 6,
@@ -6609,6 +6690,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accAzure',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
+                            "bindLeafData": {
+                                "showWhen": "aws",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
                         },
                         {
                             id: 6,
@@ -6624,6 +6710,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accAzure',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
+                            "bindLeafData": {
+                                "showWhen": "aws",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
                         },
                         {
                             id: 6,
@@ -6639,6 +6730,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accAzure',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
+                            "bindLeafData": {
+                                "showWhen": "aws",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
                         },
                         {
                             id: 6,
@@ -6659,6 +6755,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             },
                             apiKey: "providerSubscriptionId",
                             metrics: {},
+                            "bindLeafData": {
+                                "showWhen": "aws",
+                                "bindWith": "instanceId",
+                                "id": 9
+                            },
                         },
 
                     ]
@@ -6666,7 +6767,175 @@ app.post('/api/scenario/modal', function (req, res) {
             ];
             break;
 
-        case 'addRateLine':
+        case 'AddEditPackageModal':
+            data = [
+                {
+                    actionAPIKey: 'updateAlertPrefsAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    modalWidth: 700,
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Package Name",
+                            type: "text-input",
+                            defSelectKey: 'packName',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 6,
+                        },
+                        {
+                            id: 2,
+                            defSelectKey: "gropuResourcesList",
+                            type: 'datatable',
+                            noDataText: 'Group Resources can\'t be retrieved',
+                            hideToolBar: true,
+                            apiKey: "testMetricAPI",
+                            size: 12,
+                            selectableRows: 'multiple',
+                            pagination: false,
+                            columns: [
+                                { display: true, name: 'Alert Type', key: 'alertType', isRowSelection: true },
+                                { display: true, name: 'Instance ID', key: 'instanceId', isRowSelection: true },
+                                { display: true, name: 'Current Instance Type', key: 'current' },
+                                { display: true, name: 'Resource Id', key: 'resourceId', isRowSelection: true },
+                                { display: true, name: 'Usage Date', key: 'usageDate', },
+                                { display: true, name: 'variance', key: 'variance', },
+                            ],
+                        },
+                    ]
+                }];
+
+            break;
+        case 'addEditRatePack':
+
+            data = [
+                {
+                    actionAPIKey: 'updateAlertPrefsAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Pack Name",
+                            type: "text-input",
+                            defSelectKey: 'packName',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 3,
+                            type: "tabs",
+                            size: 12,
+                            defSelectKey: 'packCombo',
+                            groupId: 'accounts',
+                            tabLeafs: [
+                                {
+                                    id: 0,
+                                    leafTitle: "Price List",
+                                    type: "text-input",
+                                    defSelectKey: 'priceList',
+                                    inputType: 'string',
+                                    labelSize: 3,
+                                    size: 9,
+                                },
+                                {
+                                    id: 1,
+                                    leafTitle: "Category",
+                                    type: "select",
+                                    defSelectKey: "category",
+                                    labelSize: 3,
+                                    size: 9,
+                                    apiKey: "providerSubscriptionId",
+                                    metrics: {},
+                                },
+                                {
+                                    id: 2,
+                                    leafTitle: "Unit",
+                                    type: "text-input",
+                                    defSelectKey: 'unit',
+                                    inputType: 'number',
+                                    labelSize: 3,
+                                    size: 9,
+                                    "bindLeafData": {
+                                        "hideWhen": "S-2",
+                                        "bindWith": "category",
+                                        "id": 1
+                                    }
+                                },
+                                {
+                                    id: 3,
+                                    leafTitle: "Environment State",
+                                    leafSubTitle: "Active",
+                                    type: "toggle",
+                                    defSelectKey: "envState",
+                                    labelSize: 5,
+                                    size: 7,
+                                    "bindLeafData": {
+                                        "hideWhen": "S-2",
+                                        "bindWith": "category",
+                                        "id": 1
+                                    }
+                                },
+                                {
+                                    id: 4,
+                                    leafTitle: 'Name',
+                                    type: 'text-input',
+                                    inputType: 'string',
+                                    defSelectKey: 'name',
+                                    labelSize: 4,
+                                    size: 8,
+                                },
+                                {
+                                    id: 5,
+                                    leafTitle: 'Category',
+                                    type: 'text-input',
+                                    inputType: 'string',
+                                    defSelectKey: 'cat',
+                                    labelSize: 4,
+                                    size: 8,
+                                },
+                                {
+                                    id: 6,
+                                    leafTitle: 'Sub-Category',
+                                    type: 'text-input',
+                                    inputType: 'string',
+                                    defSelectKey: 'sCat',
+                                    labelSize: 4,
+                                    size: 8,
+                                },
+                                {
+                                    id: 7,
+                                    leafTitle: "Pricing Model",
+                                    type: "select",
+                                    isHawkUI: true,
+                                    defSelectKey: "pModel",
+                                    labelSize: 4,
+                                    size: 4,
+                                    apiKey: "providerSubscriptionId",
+                                },
+                                {
+                                    id: 8,
+                                    leafTitle: 'Unit',
+                                    type: 'text-input',
+                                    inputType: 'number',
+                                    labelSize: 1,
+                                    size: 3,
+                                    defSelectKey: 'unit',
+                                },
+                                {
+                                    id: 9,
+                                    leafTitle: 'Amount',
+                                    type: 'text-input',
+                                    inputType: 'number',
+                                    defSelectKey: 'amt',
+                                    labelSize: 4,
+                                    size: 4,
+                                },
+                            ],
+                        }]
+                }]
+            break;
+        case 'editRateLineAPI':
             data = [
                 {
                     actionAPIKey: 'updateAlertPrefsAPI',
@@ -6754,11 +7023,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             labelSize: 4,
                             size: 4,
                         },
+
                     ]
                 }
             ]
             break;
-
         case 'AddEnv':
             data = [
                 {
@@ -6797,9 +7066,6 @@ app.post('/api/scenario/modal', function (req, res) {
                             "apiKey": "listClusterAPI",
                             "defSelectKey": "envName",
                             "metrics": {
-                                "types": [
-                                    "*"
-                                ]
                             },
                         },
                     ]
@@ -6826,7 +7092,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             "id": 2,
                             "leafTitle": "Environment Name",
                             "type": 'text-input',
-                            inputType: 'string',
+                            inputType: 'text-area',
                             labelSize: 5,
                             "size": 7,
                             isHawkUI: true,
@@ -6846,6 +7112,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             isHawkUI: true,
                             "apiKey": "providerSubscriptionId",
                             "defSelectKey": "envType",
+                            validation: {
+                                isRequired: true,
+                                message: "At-least one item should be selected",
+                                type: 'text'
+                            }
                         },
                         {
                             id: 4,
@@ -6897,6 +7168,11 @@ app.post('/api/scenario/modal', function (req, res) {
                                 "hideWhen": ["S-2", "S-3"],
                                 "bindWith": "envType",
                                 "id": 3
+                            },
+                            validation: {
+                                isRequired: true,
+                                message: "Access key is required",
+                                type: 'text'
                             }
                         },
                         {
@@ -7261,6 +7537,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     dataAPIKey: 'listResourceOrderListAPI',
                     actionButtonText: 'Add',
+                    modalWidth: 900,
                     leafs: [
                         {
                             "id": 1,
@@ -7272,6 +7549,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'g1',
                             isHawkUI: true,
                             "defSelectKey": "priceListName",
+                            validation: {
+                                isRequired: true,
+                                type: 'text',
+                                message: 'Price List Name is required'
+                            }
                         },
                         {
                             id: 2,
@@ -7281,40 +7563,47 @@ app.post('/api/scenario/modal', function (req, res) {
                             size: 8,
                             groupId: 'g1',
                             isHawkUI: true,
+                            "bindingGroup": 'b1',
                             "apiKey": "providerSubscriptionId",
                             "defSelectKey": "tagName",
                         },
                         {
-                            "id": 3,
-                            "leafTitle": "Name",
-                            inputType: 'text',
-                            labelSize: 4,
-                            size: 8,
-                            groupId: 'g1',
-                            isHawkUI: true,
-                            "defSelectKey": "name",
-                        },
-                        {
                             "id": 4,
                             "leafTitle": "Category",
-                            "type": 'text-input',
-                            inputType: 'text',
+                            type: 'select',
                             labelSize: 4,
                             size: 8,
                             groupId: 'g1',
+                            "bindingGroup": 'b1',
                             isHawkUI: true,
+                            apiKey: 'listAWSInstanceTypeAPI',
                             "defSelectKey": "category",
+                            "bindLeafData": {
+                                "bindWith": "tagName",
+                                "id": 2
+                            },
+                            validation: {
+                                isRequired: true,
+                                type: 'select',
+                                message: 'Please select any category'
+                            }
                         },
                         {
                             "id": 5,
                             "leafTitle": "SubCategory",
-                            "type": 'text-input',
-                            inputType: 'text',
+                            type: 'select',
+                            isHawkUI: true,
                             labelSize: 4,
                             size: 8,
+                            readOnly: true,
                             groupId: 'g1',
-                            isHawkUI: true,
+                            "bindingGroup": 'b1',
+                            apiKey: 'listRegionAPI',
                             "defSelectKey": "subCategory",
+                            "bindLeafData": {
+                                "bindWith": "category",
+                                "id": 4
+                            },
                         },
                         {
                             "id": 6,
@@ -7326,6 +7615,10 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'g1',
                             isHawkUI: true,
                             "defSelectKey": "settleDate",
+                            validation: {
+                                isRequired: true,
+                                type: 'date'
+                            }
                         },
                         {
                             "id": 7,
@@ -7337,6 +7630,10 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'g1',
                             isHawkUI: true,
                             "defSelectKey": "billCycle",
+                            validation: {
+                                isRequired: true,
+                                type: 'date-range'
+                            }
                         },
                         {
                             id: 8,
@@ -7357,6 +7654,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             isHawkUI: true,
                             defSelectKey: "unit",
                             labelSize: 1,
+                            suffix: 'Hr',
                             size: 3,
                             groupId: 'g1',
                         },
@@ -7380,6 +7678,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             labelSize: 4,
                             size: 8,
                             isHawkUI: true,
+                            prefix: '₹',
                             groupId: 'g1',
                             defSelectKey: "adjustment",
                             "bindLeafData": {
@@ -7402,6 +7701,59 @@ app.post('/api/scenario/modal', function (req, res) {
                             isHawkUI: true,
                             groupId: 'g1',
                             defSelectKey: "newAmt",
+                        },
+                        {
+                            "id": 13,
+                            "size": 12,
+                            "type": "multi-inputs",
+                            "defSelectKey": "slabs",
+                            groupId: 'g1',
+                            "inputList": [
+                                {
+                                    leafTitle: "Slab",
+                                    indexing: true,
+                                    type: "text-input",
+                                    defSelectKey: "slab",
+                                    inputType: 'string',
+                                    labelSize: 1,
+                                    size: 2,
+                                },
+                                {
+                                    leafTitle: "Rate",
+                                    type: "text-input",
+                                    inputType: 'number',
+                                    prefix: '$',
+                                    defSelectKey: "rate",
+                                    labelSize: 1,
+                                    size: 2,
+                                },
+                                {
+                                    id: 11,
+                                    type: 'price-input',
+                                    inputType: 'currency',
+                                    size: 3,
+                                    isHawkUI: true,
+                                    prefix: '₹',
+                                    defSelectKey: "adjustment",
+                                    "bindLeafData": {
+                                        "bindWith": "rate",
+                                        "id": 3
+                                    },
+                                    "bindTargetLeafData": {
+                                        "bindWith": "total",
+                                        "id": 3
+                                    }
+                                },
+                                {
+                                    leafTitle: "",
+                                    type: "text-input",
+                                    inputType: 'number',
+                                    // prefix: '$',
+                                    defSelectKey: "total",
+                                    labelSize: 0,
+                                    size: 2,
+                                },
+                            ]
                         },
                     ]
                 }
@@ -7461,6 +7813,252 @@ app.post('/api/scenario/filters', function (req, res) {
     res.status(200).send(data);
 });
 
+app.post('/api/resource/detail', function (req, res) {
+    addDelay();
+    let data = [
+        { name: 'name', key: 'key', unit: 'GB' }
+    ];
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Internal Server Error" });
+    res.status(200).send(data);
+});
+
+app.post('/api/scenario/editRow', function (req, res) {
+    addDelay();
+    let data = [
+        {
+            title: 'RATE PACK #1',
+            actionAPIKey: 'addEditEnvironmentAPI',
+            dataAPIKey: 'listResourceOrderListAPI',
+            "leafs": [
+                {
+                    "id": 12,
+                    "isHawkUI": true,
+                    "type": "rowDatatable",
+                    "apiKey": "listCatalogRateLinesAPI",
+                    "size": 12,
+                    "hideToolBar": true,
+                    "filter": false,
+                    "noDataText": "No rates available",
+                    "metrics": {},
+                    "defaultRowPerPage": 10,
+                    leafTitle: 'Rate pack details',
+                    width: '40%',
+                    "columns": [
+                        {
+                            "name": "Id",
+                            "key": "rateId",
+                            "display": false
+                        },
+                        {
+                            "name": "Price List",
+                            "key": "priceList",
+                            "display": true,
+                            "filter": true,
+                            type: 'pill',
+                            pillType: 'secondary',
+                            "filterType": "textField"
+                        },
+                        {
+                            "name": "Name",
+                            "key": "name",
+                            "display": true,
+                            "filter": true,
+                            "filterType": "textField"
+                        },
+                        {
+                            "name": "Primary",
+                            "key": "primary",
+                            "display": true,
+                            "filter": true,
+                            "type": "toggle"
+                        },
+                        {
+                            "name": "Category",
+                            "key": "category",
+                            "type": "multiselect",
+                            "display": true,
+                            "filter": false
+                        },
+                        {
+                            "name": "SubCategory",
+                            "key": "subcategory",
+                            "type": "multiselect",
+                            "display": true,
+                            "filter": false
+                        },
+                        {
+                            "name": "Tag",
+                            "key": "tag",
+                            "type": "multiselect",
+                            "display": true,
+                            "filter": false
+                        },
+                        {
+                            "name": "Region",
+                            "key": "region",
+                            "type": "multiselect",
+                            "display": true,
+                            "filter": false
+                        },
+                        {
+                            "name": "Pricing Modal",
+                            "key": "pricingmodal",
+                            "type": "multiselect",
+                            "display": true,
+                            "filter": false
+                        },
+                        {
+                            "name": "Rate",
+                            "key": "rate",
+                            "type": "multiselect",
+                            "display": true,
+                            "filter": false
+                        },
+                        {
+                            "name": "Currency",
+                            "key": "currency",
+                            "display": false
+                        },
+                        {
+                            "name": "Unit",
+                            "key": "unit",
+                            "type": "multiselect",
+                            "display": true,
+                            "filter": false
+                        },
+                    ]
+                },
+                {
+                    "id": 3,
+                    "type": "keyValue",
+                    leafTitle: 'Pricing',
+                    width: '15%',
+                    data: [
+                        {
+                            key: 'listcost',
+                            title: 'List Cost',
+                            value: '$10'
+                        },
+                        {
+                            key: 'pricemode',
+                            title: 'Price Mode',
+                            value: 'On demand'
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "type": "keyValue",
+                    leafTitle: 'Resource',
+                    width: '15%',
+                    data: [
+                        {
+                            title: 'Ram',
+                            value: '8'
+                        },
+                        {
+                            title: 'vCPU',
+                            value: '4'
+                        },
+                        {
+                            title: 'Disk size(GB)',
+                            value: '500'
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "type": "summary",
+                    "leafTitle": "Pricing",
+                    "size": 12,
+                    "width": "20%",
+                    "apiKey": "resourcePricingAttributesAPI"
+                },
+                {
+                    "id": 5,
+                    "type": "form",
+                    leafTitle: 'Comments',
+                    width: '30%',
+                    formLeafs: [
+                        {
+                            id: 4,
+                            type: "text-input",
+                            defSelectKey: 'details',
+                            inputType: 'text-area',
+                            size: 12,
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "User Role",
+                            type: "select",
+                            defSelectKey: "projects",
+                            labelSize: 12,
+                            size: 12,
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            "id": 19,
+                            "leafTitle": "Cloud Services",
+                            "type": "multi-checkbox",
+                            "defSelectKey": "instanceId",
+                            "helperText": "Please select Add-on services",
+                            labelSize: 12,
+                            size: 12,
+                            pageId: 1,
+                            "apiKey": "listCloudServicesAPI",
+                            "metrics": {},
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "User ID",
+                            type: "text-input",
+                            defSelectKey: 'userId',
+                            inputType: 'string',
+                            labelSize: 12,
+                            size: 12,
+                            "bindLeafData": {
+                                "hideWhen": "S-2",
+                                "bindWith": "projects",
+                                "id": 2
+                            },
+                        },
+                        {
+                            id: 4,
+                            leafTitle: "First Name",
+                            type: "text-input",
+                            defSelectKey: 'firstName',
+                            inputType: 'string',
+                            labelSize: 12,
+                            size: 12,
+                            "bindLeafData": {
+                                "hideWhen": "S-2",
+                                "bindWith": "projects",
+                                "id": 2
+                            },
+                        },
+                        {
+                            "id": 13,
+                            "leafTitle": "Authentication",
+                            "type": "group-radio",
+                            "defSelectKey": "authType",
+                            labelSize: 12,
+                            size: 12,
+                            "apiKey": "listAuthTypeAPI",
+                            "metrics": {},
+                        },
+                    ]
+                }
+            ]
+        }
+    ];
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Internal Server Error" });
+    res.status(200).send(data);
+});
+
 app.post('/api/instance/singular', function (req, res) {
 
     addDelay();
@@ -7493,7 +8091,7 @@ app.post('/api/instance/singular', function (req, res) {
 app.post('/api/chargeback/rateline/instancetype', function (req, res) {
     addDelay();
 
-    let types = req.body.types ? req.body.types[0] : 'test';
+    let types = req.body.types ? req.body.types[0].value : 'test';
 
     let data = [
         { name: `${types}-t1.small`, key: `${types}-t1.small` },
@@ -7528,10 +8126,10 @@ app.post('/api/action/regionlist', function (req, res) {
 app.post('/api/action/clusters', function (req, res) {
     addDelay();
     let data = [];
-    let types = req.body.types ? req.body.types[0] : 'test';
+    let types = req.body.types ? req.body.types[0].value : 'test';
 
     switch (types) {
-        case 'regionSel####us-east':
+        case 'us-east':
             data = [
                 { name: 'East-1231', key: 'east-1231' },
                 { name: 'East-645475', key: 'east-645475', },
@@ -7539,7 +8137,7 @@ app.post('/api/action/clusters', function (req, res) {
                 { name: 'East-45654', key: 'east-45654', },
             ];
             break;
-        case 'regionSel####us-north':
+        case 'us-north':
             data = [
                 { name: 'North-1231', key: 'north-1231' },
                 { name: 'North-645475', key: 'north-645475', },
@@ -7547,7 +8145,7 @@ app.post('/api/action/clusters', function (req, res) {
                 { name: 'North-45654', key: 'north-45654', },
             ];
             break;
-        case 'regionSel####us-west':
+        case 'us-west':
             data = [
                 { name: 'West-1231', key: 'west-1231' },
                 { name: 'West-645475', key: 'west-645475', },
@@ -7558,9 +8156,9 @@ app.post('/api/action/clusters', function (req, res) {
         default:
             data = [
                 { name: 'West-1231', key: 'west-1231' },
-                { name: 'West-645475', key: 'west-645475', },
+                { name: 'West-645475', key: 'west-645475' },
                 { name: 'West-98576', key: 'west-98576' },
-                { name: 'West-45654', key: 'west-45654', selected: true },
+                { name: 'West-45654', key: 'west-45654' },
             ];
     };
 
@@ -7755,22 +8353,55 @@ app.post('/api/action/elbmonitoringstatus', function (req, res) {
 });
 
 app.post('/api/csp/getamountsummarydata', function (req, res) {
-
     let data = [{
         "name": "Margin",
         "value": "1395.37",
-        "secondayAmount": "4000.87",
+        "secondaryAmount": "4000.87",
         "secondayAmountText": "(all clouds)",
         "trend": null,
         "unit": "$"
     }, {
         "name": "Bill Total",
         "value": "1369.27",
-        "secondayAmount": "4000.87",
+        "secondaryAmount": "4000.87",
         "secondayAmountText": "(all clouds)",
         "trend": null,
         "unit": "$"
-    }];
+    }
+    ];
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(200).send(data);
+
+
+});
+app.post('/api/analytic/summarydata', function (req, res) {
+    let data = [{
+        "name": "Previous Billing Cycle Total",
+        "value": "1395.37",
+        "trend": null,
+        "color": null,
+        "secondaryAmount": null,
+        "secondayAmountText": null,
+        "unit": "$",
+    }, {
+        "name": "Current Billing Cycle",
+        "value": "1369.27",
+        "trend": "up",
+        "color": "green",
+        "unit": "$",
+        "percentage": 24,
+    },
+    {
+        "name": "Total Bil",
+        "value": "1369.27",
+        "trend": "down",
+        "color": "red",
+        "unit": "$",
+        "percentage": 24,
+    }
+    ];
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
@@ -7845,7 +8476,7 @@ app.post('/api/user/userlist', function (req, res) {
 
     let data = [];
 
-    if (req.body.drillParams && req.body.drillParams.billingCycleFilter) {
+    if (req.body.drillParams && (req.body.drillParams.billingCycleFilter || req.body.drillParams.customerId)) {
         data = [
             { salesAmount: 4321.54, userId: 1, model: 'Season', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 100000) },
             { salesAmount: 312452.54, userId: 2, model: 'Amount', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34) },
@@ -7853,12 +8484,12 @@ app.post('/api/user/userlist', function (req, res) {
         ];
     } else {
         data = [
-            { salesAmount: 603243240.64, userId: 1, model: 'Season', desc: "Test#-1", progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 10000.4), 'currency': '€' },
-            { salesAmount: 12243.43, userId: 2, model: 'Season', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34), 'currency': '¥' },
-            { salesAmount: 232.54, userId: 3, model: 'Amount', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 20, progressType: 'danger', alert: 'Manage resource before exhaust', fileName: null, mark: false, project: ['prj-2', 'prj-6'], status: true, severity: ['low'], email: 'power.admin@global.in', roleName: 'API list', accounts: '12345', 'currency': '₹' },
-            { salesAmount: 5456.423, userId: 4, model: 'Amount', desc: "Test#-4", progress: 75, progressType: 'info', alert: 'Consumption is high, please rescale', fileName: 'test-image-4.pdf', mark: false, project: ['prj-1', 'prj-4'], status: false, severity: ['critical'], email: 'admin.user@yahoo.in', roleName: 'Network Admin', accounts: Math.floor(Date.now() / 9898.14), 'currency': '£' },
-            { salesAmount: 32432.312, userId: 6, model: 'Season', progress: 10, progressType: 'danger', alert: 'Go for it', fileName: null, mark: false, project: ['prj-7', 'prj-9'], status: true, severity: ['critical'], email: 'chain.clouds@global.com', roleName: 'Solo Man', accounts: '12343243245.44', 'currency': '$' },
-            { salesAmount: 7123.312, userId: 7, model: 'Amount', desc: "Test#-6", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high, please rescale, Manage resource before exhaust', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 998787.33) }
+            { editAPIKey: 'addEditRatePack', salesAmount: 603243240.64, userId: 1, model: 'Season', desc: "Test#-1", progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 10000.4), 'currency': '€' },
+            { editAPIKey: 'addEditRatePack', salesAmount: 12243.43, userId: 2, model: 'Season', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34), 'currency': '¥' },
+            { editAPIKey: 'addUserComponentAPI', salesAmount: 232.54, userId: 3, model: 'Amount', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 20, progressType: 'danger', alert: 'Manage resource before exhaust', fileName: null, mark: false, project: ['prj-2', 'prj-6'], status: true, severity: ['low'], email: 'power.admin@global.in', roleName: 'API list', accounts: '12345', 'currency': '₹' },
+            { editAPIKey: 'addUserComponentAPI', salesAmount: 5456.423, userId: 4, model: 'Amount', desc: "Test#-4", progress: 75, progressType: 'info', alert: 'Consumption is high, please rescale', fileName: 'test-image-4.pdf', mark: false, project: ['prj-1', 'prj-4'], status: false, severity: ['critical'], email: 'admin.user@yahoo.in', roleName: 'Network Admin', accounts: Math.floor(Date.now() / 9898.14), 'currency': '£' },
+            { editAPIKey: 'editEnvComponentAPI', salesAmount: 32432.312, userId: 6, model: 'Season', progress: 10, progressType: 'danger', alert: 'Go for it', fileName: null, mark: false, project: ['prj-7', 'prj-9'], status: true, severity: ['critical'], email: 'chain.clouds@global.com', roleName: 'Solo Man', accounts: '12343243245.44', 'currency': '$' },
+            { editAPIKey: 'editEnvComponentAPI', salesAmount: 7123.312, userId: 7, model: 'Amount', desc: "Test#-6", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high.', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 998787.33) }
         ];
     }
     setResponseHeaders(res);
@@ -7871,13 +8502,13 @@ app.post('/api/user/userlist', function (req, res) {
 app.post('/api/catalog/ratelines', function (req, res) {
 
     let data = [
-        { rateId: 1, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
-        { rateId: 2, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
-        { rateId: 3, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
-        { rateId: 4, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
-        { rateId: 5, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
-        { rateId: 6, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
-        { rateId: 7, priceList: 'Rate Line #1', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '$0.118', unit: 'Hr' },
+        { rateId: 1, priceList: 'Rate Line #1', name: 'Disk Operations-1', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', test: '1223', ratea: '133', rate5: '2434443', unit: 'Hr', currency: 'INR' },
+        { rateId: 2, priceList: 'Rate Line #23', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
+        { rateId: 3, priceList: 'Rate Line #54', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
+        { rateId: 4, priceList: 'Rate Line #15', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
+        { rateId: 5, priceList: 'Rate Line #33', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR', primary: true },
+        { rateId: 6, priceList: 'Rate Line #51', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
+        { rateId: 7, priceList: 'Rate Line #61', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
     ];
 
     setResponseHeaders(res);
@@ -7963,7 +8594,7 @@ app.post('/api/user/navs', function (req, res) {
         "defalultLandingLink": "/services", "navigations":
             [
                 {
-                    id: 'aquilaServices', name: 'Aquila Services', link: '/services', icon: 'InboxIcon', page: 'ComponentsPage', linkedeUrlParam: 'nodeIndex', isHawkUI: true, className: 'admin-icon',
+                    id: 'aquilaServices', name: 'Aquila Services', link: '/services', icon: 'aquilaService', page: 'ComponentsPage', linkedeUrlParam: 'nodeIndex', isHawkUI: true, className: 'admin-icon',
                 },
                 { id: 'startup', "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
     };
@@ -8279,8 +8910,8 @@ app.post('/api/cloud-providers', function (req, res) {
 app.post('/api/auth/auth-entity', function (req, res) {
     req.body.email
     let data = {
-        type: 'LOCAL',
-        authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1r9u7oni7kCn08357&response_type=id_token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A9000&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
+        type: 'KEYCLOCK',
+        authUrl: `http://localhost:8081/auth/realms/master/protocol/openid-connect/auth?response_type=code&client_id=test&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi/auth/keycloak-exchange-token&state=022d48a0-1394-42c6-93f8-c575a1e09fbe&login=true&scope=openid`,
     };
 
     setResponseHeaders(res);
@@ -8291,7 +8922,7 @@ app.post('/api/auth/auth-entity', function (req, res) {
 app.post('/api/auth/exchange-token', function (req, res) {
     const data =
     {
-        'authToken': req.body.sourceToken,
+        'authToken': 'eye.Refresh.OiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgT2t0YSIsImlhdCI6MTUxNjIzOTAyMn0.o7Xd3bWYtjTFUVBLSOVWLSWS03rOxd8zXJJrQtYPDqA',
         'tokenExpiration': Math.floor(Date.now() / 1000) + 60,
         'refreshToken': 'this-is-local-refresh-token',
         'userId': '999',
@@ -8430,7 +9061,180 @@ app.post('/api/csp/customer/ratepacks', function (req, res) {
     res.status(responseStatus).send(data);
 });
 
+app.post('/api/csp/customer/orgdetail', function (req, res) {
+    const data = {
+        "INDUSTRY_VERTICAL": "lorem ipusm",
+        "website": "lorem ipusm",
+        "business_turnover": "lorem ipusm",
+        "account_type": "lorem ipusm",
+        "existing_customer": "No",
+        "addr_1": "Address line 1",
+        "addr_2": "Address line 2",
+        "addr_3": "City, State, Zip",
+        "email": "email@test.com",
+        "spoc_details": "lorem ipusm"
+    }
 
+    setResponseHeaders(res);
+    res.status(200).send(data);
+
+});
+
+app.post('/api/csp/customer/alert', function (req, res) {
+    const data = {
+        key: 'alert1',
+        headerColor: '#D34A46',
+        title: 'Alerts',
+        type: 'list',
+        showViewMore: true,
+        alertCount: 4,
+        noDataText: 'No alerts!',
+        alertData: [
+            'Only 1 month DR service mapped',
+            'Bill generation due 4/2/2020',
+            'Bill generation due 4/3/2020',
+            'Bill generation due 4/5/2020'
+        ]
+    }
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
+
+app.post('/api/csp/customer/notification', function (req, res) {
+    const data = {
+        key: 'alert2',
+        headerColor: '#FF9D00',
+        title: 'Notifications',
+        type: 'list',
+        showViewMore: true,
+        alertCount: 1,
+        noDataText: 'No notifications!',
+        alertData: [
+            'Seasonal rate for Rate Card #1 activated',
+        ]
+    }
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
+
+app.post("/api/csp/customer/users", function (req, res) {
+    const data = [{
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }, {
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }, {
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }, {
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }, {
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }, {
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }, {
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }, {
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }, {
+        "firstName": "Anna",
+        "lastName": "Reddington",
+        "fullName": "Anna Reddington",
+        "company": "companyname",
+        "position": "VP of Cloud Operations"
+    }];
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+
+})
+
+app.post("/api/csp/customer/settings", function (req, res) {
+    const data = {
+        "links": [
+            {
+                "title": "Configuration",
+                "link": "/csp/overview"
+            },
+            {
+                "title": "Alerts",
+                "link": "/csp/overview"
+            },
+            {
+                "title": "Messages",
+                "link": "/csp/overview"
+            }],
+        "groups": [
+            {
+                "title": "GroupA",
+                "link": "/csp/overview"
+            },
+            {
+                "title": "East Region group",
+                "link": "/csp/overview"
+            }
+        ]
+    };
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
+
+app.post("/api/csp/customer/contact", function (req, res) {
+    const data = {
+        "business": {
+            "firstName": "First Name",
+            "lastName": "lorem ipsum",
+            "designation": "lorem ipsum",
+            "phoneNumber": "lorem ipsum",
+            "mobileNumber": "lorem ipsum",
+            "userId": "lorem ipsum",
+            "emailId": "lorem ipsum"
+        }, "billing": {
+            "firstName": "lorem ipsum",
+            "lastName": "lorem ipsum",
+            "designation": "lorem ipsum",
+            "phoneNumber": "lorem ipsum",
+            "mobileNumber": "lorem ipsum",
+            "userId": "lorem ipsum",
+            "emailId": "lorem ipsum"
+        }
+    }
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
 
 
 app.post('/api/auth/environmentlist', function (req, res) {
@@ -8466,7 +9270,7 @@ app.post('/api/auth/authlist', function (req, res) {
         {
             "key": "local",
             'name': 'LOCAL',
-            selected: true
+            // selected: true
         },
         {
             "key": "okta",
@@ -8484,26 +9288,26 @@ app.post('/api/user/cloudServiceList', function (req, res) {
         {
             "key": "azure",
             'name': 'Azure',
-            selected: true
+            // selected: true
         },
         {
             "key": "aws",
             'name': 'AWS',
         },
         {
-            "key": "aws",
+            "key": "gcp",
             'name': 'GCP',
         },
         {
-            "key": "aws",
+            "key": "cld1",
             'name': 'Cloud 1',
         },
         {
-            "key": "aws",
+            "key": "cld2",
             'name': 'Cloud 2',
         },
         {
-            "key": "aws",
+            "key": "cld3",
             'name': 'Cloud 3',
         },
     ];
@@ -8593,16 +9397,16 @@ app.post('/api/csp/azurestack/fetchprovidersubscription', function (req, res) {
         {
             "key": "S-1",
             'name': "Sub-1",
+            selected: true
         },
         {
             "key": "S-2",
             'name': "Sub-2",
-            selected: true
         },
         {
             "key": "S-3",
             'name': "Sub-3",
-            selected: true
+            // selected: true
         },
         {
             "key": "S-4",
@@ -8615,7 +9419,7 @@ app.post('/api/csp/azurestack/fetchprovidersubscription', function (req, res) {
         {
             "key": "S-6",
             'name': "Sub-6",
-            selected: true
+            // selected: true
         },
         {
             "key": "S-7",
@@ -8712,8 +9516,8 @@ app.post('/api/environments', function (req, res) {
         {
             key: 2,
             headerColor: '#64B640',
-            title: 'AZURE',
-            status: 'active',
+            title: 'AZURESDSDASD sadasdasdsadsadasd',
+            status: 'inactive',
             type: 'AZURE_TYPE',
             showEdit: true,
             showDelete: false,
@@ -8733,7 +9537,7 @@ app.post('/api/environments', function (req, res) {
             key: 4,
             headerColor: 'linear-gradient(to right, #D34A46, #5E1CB5)',
             title: 'Heroku',
-            status: 'inactive',
+            // status: 'active',
             type: 'CUSTOM_TYPE',
             showEdit: true,
             showDelete: true,
@@ -8873,6 +9677,48 @@ app.post('/api/group/resourceorderlist', function (req, res) {
         "mobile": '997600000012',
         "userId": '53',
         "envName": ['west-1231'],
+        "packCombo": [
+            {
+                "priceList": 'APP-1234',
+                "envState": true,
+                "resMgrEndpoint": '/v1/test',
+                "unit": 1,
+                "category": ['west-1231'],
+            },
+            {
+                "priceList": 'APP-4567',
+                "envState": false,
+                "resMgrEndpoint": '/v2/test',
+                "unit": 2,
+                "category": ['west-1231'],
+            }, {
+                "priceList": 'APP-9999',
+                "envState": true,
+                "unit": 3,
+                "resMgrEndpoint": '/v3/test',
+                "category": ['west-1231'],
+            }
+        ],
+        "slabs": [
+            {
+                "slab": "test-01",
+                "rate": "10",
+                adjustment: "0",
+                total: '0'
+            },
+            {
+                "slab": "test-02",
+                "rate": "20",
+                adjustment: "0",
+                total: '0'
+            },
+            {
+                "slab": "test-03",
+                "rate": "30",
+                adjustment: "0",
+                total: '0'
+            }
+        ]
     };
     responseStatus = 200;
     setResponseHeaders(res);
@@ -8882,11 +9728,14 @@ app.post('/api/group/resourceorderlist', function (req, res) {
 
 app.post('/api/csp/customer/overview', async function (req, res) {
     const data = {
-        drawerToolbar: [{
-            buttonLabel: "Go to bill",
-            type: "goToBill",
-            actionData: { billId: '1' }
-        }], alertData: [{
+        drawerToolbar: [
+            {
+                label: "Go to bill",
+                type: "button",
+                drillTo: "admin/settings",
+            }
+        ]
+        , alertData: [{
             key: 'alert1',
             headerColor: '#D34A46',
             title: 'Alerts',
@@ -8894,7 +9743,7 @@ app.post('/api/csp/customer/overview', async function (req, res) {
             showViewMore: true,
             alertCount: 4,
             noDataText: 'No alerts!',
-            alertData: [
+            alertDataList: [
                 'Only 1 month DR service mapped',
                 'Bill generation due 4/2/2020',
                 'Bill generation due 4/3/2020',
@@ -8908,7 +9757,7 @@ app.post('/api/csp/customer/overview', async function (req, res) {
             showViewMore: false,
             alertCount: 1,
             noDataText: 'No notifications!',
-            alertData: [
+            alertDataList: [
                 'Seasonal rate for Rate Card #1 activated',
             ]
         }, {
@@ -8920,11 +9769,11 @@ app.post('/api/csp/customer/overview', async function (req, res) {
             alertCount: 0,
             noDataText: 'No Overviews!',
             alertData: [{
-                value: '1/18/2018',
+                fieldValue: '1/18/2018',
                 label: 'Customer since',
                 type: 'text'
             }, {
-                value: '$5000.00',
+                fieldValue: '$5000.00',
                 label: 'Customer lifetime value',
                 type: 'text'
             }, {
@@ -8944,7 +9793,7 @@ app.post('/api/csp/customer/overview', async function (req, res) {
                 label: 'Top items',
                 type: 'table'
             }, {
-                value: [{
+                valueList: [{
                     title: 'Next billing cycle: 2020-2-15-20202-3-15',
                     text: 'Last billing cycle: 2020-1-13 to 2020-2-14'
                 }, {
@@ -8964,12 +9813,28 @@ app.post('/api/csp/customer/overview', async function (req, res) {
     res.status(responseStatus).send(data);
 });
 
+app.post("/api/dummy/list", function (req, res) {
+    const data = [{ "key": "yes", "name": "yes" }, { "key": "no", "name": "no" }];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
+
 
 app.post('/api/csp/customer/invoice/download', function (req, res) {
     setResponseHeaders(res);
-    res.download('./app.yaml');
+    res.download('./README.md');
 });
 
+
+app.post('/api/page/title', function (req, res) {
+
+    const title = req.body.drillParams && req.body.drillParams.email ? `Details for: ${req.body.drillParams.email}` : 'Dynamic Name From API';
+    const data = {
+        name: title
+    }
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
 
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);

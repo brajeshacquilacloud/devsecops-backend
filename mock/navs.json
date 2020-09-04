@@ -1,6 +1,16 @@
 {
-    "defalultLandingLink": "/csp/billing",
+    "defalultLandingLink": "/csp/overview",
     "navigations": [
+        {
+            "id": "aquilaServices",
+            "name": "Aquila Services",
+            "link": "/services",
+            "icon": "aquilaService",
+            "page": "ComponentsPage",
+            "linkedeUrlParam": "nodeIndex",
+            "isHawkUI": true,
+            "className": "admin-icon"
+        },
         {
             "id": "csp_billing",
             "name": "CSP Billing",
@@ -15,7 +25,64 @@
                     "name": "Overview",
                     "page": "ComponentsPage",
                     "link": "/csp/overview",
-                    "isHawkUI": true
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "key": "filter",
+                            "type": "filter",
+                            "filters": [
+                                {
+                                    "key": "id",
+                                    "sortOrder": 0,
+                                    "display": true,
+                                    "name": "Environment",
+                                    "apiKey": "providerSubscriptionId"
+                                },
+                                {
+                                    "key": "customerId",
+                                    "sortOrder": 2,
+                                    "display": true,
+                                    "apiKey": "listEnvTypeAPI",
+                                    "name": "Customer",
+                                    "bindParam": {
+                                        "bindWith": "id"
+                                    }
+                                },
+                                {
+                                    "key": "billingCycleId",
+                                    "name": "Billing Cycle",
+                                    "sortOrder": 1,
+                                    "display": true,
+                                    "apiKey": "tenantId",
+                                    "bindParam": {
+                                        "bindWith": "customerId"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "pageFooters": [
+                        {
+                            "key": "reviewAction",
+                            "type": "comboButton",
+                            "options": [
+                                {
+                                    "key": "sendReview",
+                                    "lable": "Send For Review"
+                                },
+                                {
+                                    "key": "saveDraft",
+                                    "lable": "Save Draft"
+                                },
+                                {
+                                    "key": "reqHold",
+                                    "lable": "Request Hold"
+                                }
+                            ],
+                            "actionAPIKey": "saveGroupAPI",
+                            "actionButtonText": "Save"
+                        }
+                    ]
                 },
                 {
                     "id": "cspBilling",
@@ -28,7 +95,7 @@
                         {
                             "key": "billingCycleFilter",
                             "title": "Billing Cycle",
-                            "type": "filter",
+                            "type": "dateFilter",
                             "dateFormat": "MM/DD/YYYY"
                         },
                         {
@@ -100,7 +167,7 @@
                                             "lable": "Delete",
                                             "type": "delete",
                                             "actionIcon": "delete",
-                                            "actionAPIKey": "updateAlertPrefsAPI"
+                                            "actionAPIKey": "deleteUserAPI"
                                         }
                                     ]
                                 },
@@ -128,11 +195,53 @@
                     ]
                 },
                 {
-                    "id": "Roles",
+                    "id": "ratePack",
                     "name": "Rate Packs",
+                    "metaData": {
+                        "pageTitleAPI": "getPageTitleAPI",
+                        "subscribedDrillParam": [
+                            "email",
+                            "userId"
+                        ]
+                    },
                     "page": "ComponentsPage",
                     "link": "/catalog/ratepacks",
-                    "isHawkUI": true
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "key": "pageSearch",
+                            "title": "Search",
+                            "type": "search"
+                        },
+                        {
+                            "key": "action",
+                            "title": "Action",
+                            "type": "action",
+                            "bindParam": {
+                                "bindWith": "mainDatatable"
+                            },
+                            "complexOptions": [
+                                {
+                                    "groupName": "Item",
+                                    "groupElements": [
+                                        {
+                                            "lable": "Add",
+                                            "type": "modal",
+                                            "modalTitle": "Add Rate Pack",
+                                            "componentsAPIKey": "addEditRatePack",
+                                            "actionIcon": "add"
+                                        },
+                                        {
+                                            "lable": "Delete",
+                                            "type": "delete",
+                                            "actionIcon": "delete",
+                                            "actionAPIKey": "deleteUserAPI"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "id": "Environments",
@@ -151,12 +260,22 @@
             ]
         },
         {
-            "id": "cust_Set",
-            "name": "Customer Settings",
-            "icon": "customer-setting-icon",
-            "page": "ComponentsPage",
-            "link": "/customer",
-            "isHawkUI": true
+          "id": "cust_Set",
+          "name": "Customer Settings",
+          "icon": "customer-setting-icon",
+          "page": "ComponentsPage",
+          "link": "/customer",
+          "isHawkUI": true,
+          "subNavs": [
+            {
+              "id": "profile",
+              "name": "Profile",
+              "link": "/customer/profile",
+              "icon": "InboxIcon",
+              "page": "ComponentsPage",
+              "isHawkUI": true
+            }
+          ]
         },
         {
             "id": "admin",
@@ -215,7 +334,7 @@
                     ]
                 },
                 {
-                    "id": "settings",
+                    "id": "adminSettings",
                     "name": "Settings",
                     "page": "ComponentsPage",
                     "link": "/admin/settings",
@@ -242,16 +361,6 @@
                     "className": "admin-icon"
                 }
             ]
-        },
-        {
-            "id": "aquilaServices",
-            "name": "Aquila Services",
-            "link": "/services",
-            "icon": "InboxIcon",
-            "page": "ComponentsPage",
-            "linkedeUrlParam": "nodeIndex",
-            "isHawkUI": true,
-            "className": "admin-icon"
         },
         {
             "id": "startup",

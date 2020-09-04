@@ -61,6 +61,24 @@
                         "filterType": "multiselect"
                     },
                     {
+                        "name": "Edit",
+                        "key": "action",
+                        "sort": false,
+                        "type": "edit",
+                        "display": true,
+                        "drillTo": "modal",
+                        "modalTitle": "Edit user",
+                        "drillParams": [
+                            {
+                                "key": "userId"
+                            },
+                            {
+                                "key": "email"
+                            }
+                        ],
+                        "componentsAPIKey": "addUserComponentAPI"
+                    },
+                    {
                         "name": "Delete",
                         "key": "action",
                         "sort": false,
@@ -75,24 +93,6 @@
                                 "key": "email"
                             }
                         ]
-                    },
-                    {
-                        "name": "Edit",
-                        "key": "action",
-                        "sort": false,
-                        "type": "drill-down",
-                        "display": true,
-                        "drillTo": "modal",
-                        "modalTitle": "Edit user",
-                        "drillParams": [
-                            {
-                                "key": "userId"
-                            },
-                            {
-                                "key": "email"
-                            }
-                        ],
-                        "componentsAPIKey": "addUserComponentAPI"
                     },
                     {
                         "name": "Options",

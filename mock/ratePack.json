@@ -8,15 +8,19 @@
                 "apiKey": "listCatalogRateLinesAPI",
                 "size": 12,
                 "hideToolBar": true,
+                "defSelectKey": "mainDatatable",
+                "selectableRows": "multiple",
                 "filter": false,
                 "noDataText": "No rates available",
                 "metrics": {},
                 "defaultRowPerPage": 10,
+                "subscribedDrillParam": ["email","userId"],
                 "columns": [
                     {
                         "name": "Id",
                         "key": "rateId",
-                        "display": false
+                        "display": false,
+                        "isRowSelection": true
                     },
                     {
                         "name": "Price List",
@@ -75,32 +79,6 @@
                         "filter": false
                     },
                     {
-                        "name": "Currency",
-                        "key": "currency",
-                        "display": false
-                    },
-                    {
-                        "name": "Rate4",
-                        "key": "ratea",
-                        "type": "amount",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
-                        "name": "Rate5",
-                        "key": "rate5",
-                        "type": "amount",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
-                        "name": "Test",
-                        "key": "test",
-                        "type": "amount",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
                         "name": "Unit",
                         "key": "unit",
                         "type": "multiselect",
@@ -114,13 +92,28 @@
                         "type": "edit",
                         "display": true,
                         "drillTo": "modal",
-                        "modalTitle": "Edit Rate Line",
+                        "modalTitle": "Edit Rate Pack",
                         "drillParams": [
                             {
                                 "key": "rateId"
                             }
                         ],
-                        "componentsAPIKey": "editRateLineAPI"
+                        "componentsAPIKey": "addEditRatePack"
+                    },
+                    {
+                        "name": "Rate Pack Info",
+                        "key": "action",
+                        "type": "drill",
+                        "display": true,
+                        "drillTo": "catalog/ratepacks",
+                        "drillParams": [
+                            {
+                                "key": "rateId"
+                            },
+                            {
+                                "key": "priceList"
+                            }
+                        ]
                     }
                 ]
             }

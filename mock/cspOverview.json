@@ -4,7 +4,7 @@
             {
                 "id": 1,
                 "type": "hawkAmountSummary",
-                "apiKey": "getAmountSummaryData",
+                "apiKey": "getAnalyticSummaryData",
                 "noDataText": "No Summary Data available",
                 "metrics": {},
                 "size": 12
@@ -16,6 +16,11 @@
                 "defSelectKey": "mainDatatable",
                 "apiKey": "listUsersAPI",
                 "size": 12,
+                "subscribedDrillParam": [
+                    "billingCycleId",
+                    "customerId",
+                    "id"
+                ],
                 "hideToolBar": true,
                 "filter": false,
                 "noDataText": "No sub-users available",
@@ -97,6 +102,72 @@
                             }
                         ],
                         "componentsAPIKey": "customerOverviewDataAPI"
+                    },
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            },
+                            {
+                                "name": "Manage",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Manage Package",
+                                "drillParams": [
+                                    {
+                                        "key": "userId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ],
+                                "componentsAPIKey": "addEditPackageComponentAPI"
+                            }
+                        ]
+                    }
+                ],
+                "toolBarActions": [
+                    {
+                        "toolbarTitle": "Consumption import",
+                        "type": "actionAndRefresh",
+                        "actionAPIKey": "saveGroupAPI",
+                        "actionIcon": "LoopIcon"
                     }
                 ]
             }

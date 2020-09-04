@@ -1,0 +1,93 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "mode": "simple",
+                "apiKey": "listUsersAPI",
+                "size": 12,
+                "hideToolBar": true,
+                "defSelectKey": "mainDatatable",
+                "filter": false,
+                "noDataText": "No rates available",
+                "pagination": false,
+                "metrics": {},
+                "subscribedDrillParam": [
+                    "email",
+                    "userId"
+                ],
+                "columns": [
+                    {
+                        "name": "Email",
+                        "key": "email",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Role",
+                        "key": "roleName",
+                        "display": true,
+                        "filter": true,
+                        "type": "dualLabel",
+                        "secKey": "alert",
+                        "filterType": "multiselect"
+                    },
+                    {
+                        "name": "Status",
+                        "key": "status",
+                        "type": "status",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Enable/Disable",
+                        "key": "mark",
+                        "type": "toggle",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Projects",
+                        "key": "project",
+                        "type": "select",
+                        "apiKey": "listThresholdMetricListAPI",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Edit",
+                        "key": "action",
+                        "secKey": "editAPIKey",
+                        "sort": false,
+                        "type": "edit",
+                        "display": true,
+                        "drillTo": "modal",
+                        "modalTitle": "Edit",
+                        "drillParams": [
+                            {
+                                "key": "email"
+                            }
+                        ]
+                    }
+                ],
+                "toolBarActions": [
+                    {
+                        "toolbarTitle": "Save",
+                        "toolbarTooltip": "In order to reflect the changes please click on save after editing table data.",
+                        "type": "save",
+                        "actionAPIKey": "saveInstanceTypeChangeAPI",
+                        "actionIcon": "Save",
+                        "drillParams": [
+                            {
+                                "key": "email"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
