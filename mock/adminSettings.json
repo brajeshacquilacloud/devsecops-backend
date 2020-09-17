@@ -87,6 +87,64 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": 777,
+                "leafTitle": "Demographic View",
+                "type": "line",
+                "apiKey": "linearMetricsAPI",
+                "isPro": true,
+                "size": 6,
+                "drillDown": {
+                    "drillTo": "detail"
+                },
+                "metrics": "SOLID_STATE"
+            },
+            {
+                "id": 19999,
+                "leafTitle": "EC2 Spending",
+                "type": "summaryGraph",
+                "apiKey": "awsYearlySpendingAPI",
+                "size": 6,
+                "drillDown": {
+                    "drillTo": "costdashboard",
+                    "defSelectTabIndex": {
+                        "nodeIndex": 2,
+                        "subNodeIndex": 1,
+                        "tabIndex": 1
+                    }
+                },
+                "metrics": {
+                    "deploy": "Mounted",
+                    "build": "Released"
+                },
+                "noDataText": "Summary data is not currently available"
+            },
+            {
+                "id": 4,
+                "leafTitle": "Spending By Distribution",
+                "type": "pie",
+                "isPro": true,
+                "legendPosition": "top",
+                "isHalfCircle": true,
+                "apiKey": "distributionServiceAPI",
+                "size": 6,
+                "metrics": "EWES_STATE"
+            },
+            {
+                "id": 5,
+                "leafTitle": "Top 10 Services by Memory",
+                "type": "bar",
+                "isPro": true,
+                "apiKey": "accomodationsyFlemingoAPI",
+                "size": 6,
+                "metrics": {
+                    "deploy": "Not deployed",
+                    "build": "Failed"
+                },
+                "drillDown": {
+                    "drillTo": "detail"
+                }
             }
         ]
     }

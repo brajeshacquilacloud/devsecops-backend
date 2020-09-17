@@ -39,23 +39,13 @@
                                     "apiKey": "providerSubscriptionId"
                                 },
                                 {
-                                    "key": "customerId",
+                                    "key": "email",
                                     "sortOrder": 2,
                                     "display": true,
-                                    "apiKey": "listEnvTypeAPI",
-                                    "name": "Customer",
+                                    "apiKey": "listEmailAPI",
+                                    "name": "Email",
                                     "bindParam": {
                                         "bindWith": "id"
-                                    }
-                                },
-                                {
-                                    "key": "billingCycleId",
-                                    "name": "Billing Cycle",
-                                    "sortOrder": 1,
-                                    "display": true,
-                                    "apiKey": "tenantId",
-                                    "bindParam": {
-                                        "bindWith": "customerId"
                                     }
                                 }
                             ]
@@ -244,38 +234,39 @@
                     ]
                 },
                 {
-                    "id": "Environments",
-                    "name": "Services",
+                    "id": "managePack",
+                    "name": "Manage Packs",
                     "page": "ComponentsPage",
-                    "link": "/catalog/services",
+                    "link": "/catalog/manage-pack",
                     "isHawkUI": true
                 },
                 {
-                    "id": "adjustment",
-                    "name": "Adjustments",
+                    "id": "hiddenPage",
+                    "name": "Hidden Page",
                     "page": "ComponentsPage",
-                    "link": "/catalog/adjustment",
+                    "display": false,
+                    "link": "/catalog/manage",
                     "isHawkUI": true
                 }
             ]
         },
         {
-          "id": "cust_Set",
-          "name": "Customer Settings",
-          "icon": "customer-setting-icon",
-          "page": "ComponentsPage",
-          "link": "/customer",
-          "isHawkUI": true,
-          "subNavs": [
-            {
-              "id": "profile",
-              "name": "Profile",
-              "link": "/customer/profile",
-              "icon": "InboxIcon",
-              "page": "ComponentsPage",
-              "isHawkUI": true
-            }
-          ]
+            "id": "cust_Set",
+            "name": "Customer Settings",
+            "icon": "customer-setting-icon",
+            "page": "ComponentsPage",
+            "link": "/customer",
+            "isHawkUI": true,
+            "subNavs": [
+                {
+                    "id": "profile",
+                    "name": "Profile",
+                    "link": "/customer/profile",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "isHawkUI": true
+                }
+            ]
         },
         {
             "id": "admin",

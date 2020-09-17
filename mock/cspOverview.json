@@ -10,6 +10,23 @@
                 "size": 12
             },
             {
+                "id": 4,
+                "type": "hawkAnalyticBillStatus",
+                "title": "Billing Status",
+                "apiKey": "getAnalyticBillStatus",
+                "noDataText": "No Bill Data available",
+                "metrics": {},
+                "size": 6
+            },
+            {
+                "id": 8,
+                "type": "hawkTabLineChart",
+                "apiKey": "getAnalayticGraphData",
+                "noDataText": "No Data available",
+                "metrics": {},
+                "size": 12
+            },
+            {
                 "id": 2,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
@@ -104,6 +121,23 @@
                         "componentsAPIKey": "customerOverviewDataAPI"
                     },
                     {
+                        "name": "Download",
+                        "type": "download",
+                        "key": "action",
+                        "fileNameKey": "fileName",
+                        "actionIcon": "PDF",
+                        "display": true,
+                        "apiKey": "downloadBillOpsPOAPI",
+                        "requestParams": [
+                            {
+                                "key": "userId"
+                            },
+                            {
+                                "key": "email"
+                            }
+                        ]
+                    },
+                    {
                         "name": "Options",
                         "key": "rowAction",
                         "display": true,
@@ -170,6 +204,22 @@
                         "actionIcon": "LoopIcon"
                     }
                 ]
+            },
+            {
+                "id": 3,
+                "type": "hawkAmountSummary",
+                "apiKey": "getAnalyticSummaryData",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
+            },
+            {
+                "id": 6,
+                "type": "billingProgress",
+                "apiKey": "getBillingProgress",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
             }
         ]
     }

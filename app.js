@@ -3,13 +3,16 @@ var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080
-
 const users = require('./mock/users.json');
 const cspOverview = require('./mock/cspOverview.json');
 const cspBilling = require('./mock/cspBilling.json');
 const rateLine = require('./mock/rateLine.json');
 const ratePack = require('./mock/ratePack.json');
+const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
+const billProgress = require('./mock/billProgress.json');
+const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
+
 const navs = require('./mock/navs.json');
 const cspCustomerProfile = require("./mock/customerProfile.json")
 
@@ -3377,6 +3380,221 @@ function getAddEditAzureStackRatePackCardModal() {
         }];
 }
 
+function getEditCloudAccountsData() {
+    return [
+        {
+            actionAPIKey: 'addEditEnvironmentAPI',
+            leafs: [
+                {
+                    "id": 9,
+                    "leafTitle": "Cloud Services",
+                    "type": "multi-checkbox",
+                    "defSelectKey": "instanceId",
+                    "helperText": "Please select Add-on services",
+                    labelSize: 12,
+                    size: 12,
+
+                    "apiKey": "listCloudServicesAPI",
+                    "metrics": {},
+                    validation: {
+                        isRequired: true,
+                        type: 'checkbox',
+                        // showAlert: true,
+                    }
+                },
+                {
+                    id: 10,
+                    type: 'image',
+                    icon: "azure",
+                    label: "Azure",
+                    width: 28,
+                    groupId: 'accounts',
+
+                    "bindLeafData": {
+                        "showWhen": "azure",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                }, {
+                    id: 13,
+                    leafTitle: "Accounts",
+                    "isHawkUI": true,
+                    type: "select",
+                    mode: "multiple",
+                    defSelectKey: "acct",
+                    helperText: "Please Select Project",
+                    labelSize: 4,
+                    size: 8,
+
+                    groupId: 'accounts',
+                    apiKey: "providerSubscriptionId",
+                    "bindLeafData": {
+                        "showWhen": "azure",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                    metrics: {},
+                    validation: {
+                        isRequired: true,
+                        message: "Please select any value for accounts",
+                        type: 'text'
+                    }
+                },
+                {
+                    id: 6,
+                    leafTitle: "Stack Accounts",
+                    "isHawkUI": true,
+                    type: "select",
+                    mode: "multiple",
+                    defSelectKey: "stkAcc",
+                    helperText: "Please Select Project",
+                    labelSize: 4,
+                    size: 8,
+
+                    groupId: 'accounts',
+                    apiKey: "providerSubscriptionId",
+                    metrics: {},
+                    "bindLeafData": {
+                        "showWhen": "azure",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                },
+                {
+                    id: 6,
+                    leafTitle: "CSP Customers",
+                    "isHawkUI": true,
+                    type: "select",
+                    mode: "multiple",
+                    defSelectKey: "cspCst",
+                    helperText: "Please Select Project",
+                    labelSize: 4,
+                    size: 8,
+
+                    groupId: 'accounts',
+                    apiKey: "providerSubscriptionId",
+                    metrics: {},
+                    "bindLeafData": {
+                        "showWhen": "azure",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                },
+                {
+                    id: 6,
+                    leafTitle: "Stack Subscriptions",
+                    "isHawkUI": true,
+                    type: "select",
+                    mode: "multiple",
+                    defSelectKey: "stkSb",
+                    helperText: "Please Select Project",
+                    labelSize: 4,
+                    size: 8,
+
+                    groupId: 'accounts',
+                    apiKey: "providerSubscriptionId",
+                    metrics: {},
+                    "bindLeafData": {
+                        "showWhen": "azure",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                },
+                {
+                    id: 10,
+                    type: 'image',
+                    icon: "aws",
+
+                    groupId: 'accAzure',
+                    "bindLeafData": {
+                        "showWhen": "aws",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                },
+                {
+                    id: 6,
+                    leafTitle: "Accounts",
+                    "isHawkUI": true,
+                    type: "select",
+                    mode: "multiple",
+                    defSelectKey: "acct1",
+                    helperText: "Please Select Project",
+                    labelSize: 4,
+                    size: 8,
+
+                    groupId: 'accAzure',
+                    apiKey: "providerSubscriptionId",
+                    metrics: {},
+                    "bindLeafData": {
+                        "showWhen": "aws",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                },
+                {
+                    id: 6,
+                    leafTitle: "Stack Accounts",
+                    "isHawkUI": true,
+                    type: "select",
+                    mode: "multiple",
+                    defSelectKey: "stkacc1",
+                    helperText: "Please Select Project",
+                    labelSize: 4,
+                    size: 8,
+
+                    groupId: 'accAzure',
+                    apiKey: "providerSubscriptionId",
+                    metrics: {},
+                    "bindLeafData": {
+                        "showWhen": "aws",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                },
+                {
+                    id: 6,
+                    leafTitle: "CSP Customers",
+                    "isHawkUI": true,
+                    type: "select",
+                    mode: "multiple",
+                    defSelectKey: "cspcst1",
+                    helperText: "Please Select Project",
+                    labelSize: 4,
+                    size: 8,
+
+                    groupId: 'accAzure',
+                    apiKey: "providerSubscriptionId",
+                    metrics: {},
+                    "bindLeafData": {
+                        "showWhen": "aws",
+                        "bindWith": "instanceId",
+                        "id": 9
+                    },
+                },
+                {
+                    id: 6,
+                    leafTitle: "Stack Subscriptions",
+                    "isHawkUI": true,
+                    type: "select",
+                    mode: "multiple",
+                    defSelectKey: "stksub1",
+                    helperText: "Please Select Project",
+                    labelSize: 4,
+                    size: 8,
+
+                    groupId: 'accAzure',
+                    "bindLeafData": {
+                        "hideWhen": "azure",
+                        "bindWith": "authType",
+                        "id": 9
+                    }
+                }
+            ]
+        }
+    ]
+}
+
 
 function envSelectionComponentData() {
     return [
@@ -6091,6 +6309,9 @@ app.post('/api/scenario', function (req, res) {
         case "ratePack":
             data = ratePack;
             break;
+        case "managePack":
+            data = managePack;
+            break;
         /* Old pages config from here  */
 
         case "CostDetailsDashboard":
@@ -6411,6 +6632,7 @@ app.post('/api/scenario/modal', function (req, res) {
             data = [
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
                     actionButtonText: 'Add',
                     modalWidth: 500,
                     leafs: [
@@ -6823,6 +7045,16 @@ app.post('/api/scenario/modal', function (req, res) {
                             size: 9,
                         },
                         {
+                            id: 209,
+                            leafTitle: "Environment",
+                            type: "select",
+                            defSelectKey: "env",
+                            labelSize: 3,
+                            size: 9,
+                            apiKey: "envTypeListAPI",
+                            metrics: {},
+                        },
+                        {
                             id: 3,
                             type: "tabs",
                             size: 12,
@@ -6849,17 +7081,33 @@ app.post('/api/scenario/modal', function (req, res) {
                                     metrics: {},
                                 },
                                 {
-                                    id: 2,
-                                    leafTitle: "Unit",
-                                    type: "text-input",
-                                    defSelectKey: 'unit',
-                                    inputType: 'number',
+                                    id: 322,
+                                    leafTitle: "Sub-Category",
+                                    type: "select",
+                                    defSelectKey: "subCategory",
                                     labelSize: 3,
                                     size: 9,
+                                    apiKey: "providerSubscriptionId",
+                                    metrics: {},
+                                    workFlowDefSelectKeys: ["env"],
                                     "bindLeafData": {
-                                        "hideWhen": "S-2",
                                         "bindWith": "category",
                                         "id": 1
+                                    }
+                                },
+                                {
+                                    id: 2,
+                                    leafTitle: "Unit",
+                                    type: "select",
+                                    defSelectKey: 'unit',
+                                    labelSize: 3,
+                                    size: 9,
+                                    apiKey: "providerSubscriptionId",
+                                    metrics: {},
+                                    workFlowDefSelectKeys: ["env", "category"],
+                                    "bindLeafData": {
+                                        "bindWith": "subCategory",
+                                        "id": 322,
                                     }
                                 },
                                 {
@@ -6884,24 +7132,12 @@ app.post('/api/scenario/modal', function (req, res) {
                                     defSelectKey: 'name',
                                     labelSize: 4,
                                     size: 8,
-                                },
-                                {
-                                    id: 5,
-                                    leafTitle: 'Category',
-                                    type: 'text-input',
-                                    inputType: 'string',
-                                    defSelectKey: 'cat',
-                                    labelSize: 4,
-                                    size: 8,
-                                },
-                                {
-                                    id: 6,
-                                    leafTitle: 'Sub-Category',
-                                    type: 'text-input',
-                                    inputType: 'string',
-                                    defSelectKey: 'sCat',
-                                    labelSize: 4,
-                                    size: 8,
+                                    "bindLeafData": {
+                                        "hideWhen": "KUBERNETES",
+                                        "bindWith": "env",
+                                        "id": 2,
+                                        "isExternal": true,
+                                    }
                                 },
                                 {
                                     id: 7,
@@ -6935,6 +7171,63 @@ app.post('/api/scenario/modal', function (req, res) {
                         }]
                 }]
             break;
+        case 'manageRatePack':
+            data = [
+                {
+                    actionAPIKey: 'updateAlertPrefsAPI',
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Environment",
+                            type: "select",
+                            isHawkUI: true,
+                            defSelectKey: "env",
+                            labelSize: 6,
+                            size: 6,
+                            apiKey: "envTypeListAPI",
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "Cluster",
+                            type: "select",
+                            isHawkUI: true,
+                            defSelectKey: "cluster",
+                            labelSize: 6,
+                            size: 6,
+                            apiKey: "providerSubscriptionId",
+                            "bindLeafData": {
+                                "bindWith": "env",
+                                "id": 1
+                            }
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "Pod",
+                            type: "select",
+                            isHawkUI: true,
+                            defSelectKey: "pod",
+                            labelSize: 6,
+                            size: 6,
+                            apiKey: "listAlertItemsAPI",
+                            "bindLeafData": {
+                                "bindWith": "cluster",
+                                "id": 2
+                            }
+                        },
+                        {
+                            id: 4,
+                            leafTitle: 'Amount',
+                            type: 'text-input',
+                            inputType: 'number',
+                            defSelectKey: 'amt',
+                            labelSize: 6,
+                            size: 6,
+                        },
+                    ]
+                }
+            ];
+            break;
+
         case 'editRateLineAPI':
             data = [
                 {
@@ -7075,152 +7368,581 @@ app.post('/api/scenario/modal', function (req, res) {
         case 'EditEnv':
             data = [
                 {
-                    actionAPIKey: 'addEditEnvironmentAPI',
-                    dataAPIKey: 'listResourceOrderListAPI',
-                    actionButtonText: 'Confirm',
-                    leafs: [
+                    "actionAPIKey": "addEditEnvironmentAPI",
+                    "dataAPIKey": "envConnParamListAPI",
+                    "actionButtonText": "Confirm",
+                    "modalWidth": 800,
+                    "leafs": [
                         {
-                            id: 1,
-                            leafTitle: "Environment State",
-                            leafSubTitle: "Active",
-                            type: "toggle",
-                            defSelectKey: "envState",
-                            labelSize: 5,
-                            size: 7,
+                            "id": 1,
+                            "leafTitle": "Environment State",
+                            "leafSubTitle": "Active",
+                            "type": "toggle",
+                            "defSelectKey": "envState",
+                            "labelSize": 5,
+                            "size": 7
                         },
                         {
                             "id": 2,
                             "leafTitle": "Environment Name",
-                            "type": 'text-input',
-                            inputType: 'text-area',
-                            labelSize: 5,
+                            "type": "text-input",
+                            "inputType": "string",
+                            "labelSize": 5,
                             "size": 7,
-                            isHawkUI: true,
+                            "isHawkUI": true,
                             "defSelectKey": "envName",
                             "metrics": {
                                 "types": [
                                     "*"
                                 ]
-                            },
+                            }
                         },
                         {
-                            id: 3,
-                            leafTitle: "Environment Type",
-                            "type": 'select',
-                            labelSize: 5,
+                            "id": 3,
+                            "leafTitle": "Environment Type",
+                            "type": "select",
+                            "labelSize": 5,
                             "size": 7,
-                            isHawkUI: true,
-                            "apiKey": "providerSubscriptionId",
-                            "defSelectKey": "envType",
-                            validation: {
-                                isRequired: true,
-                                message: "At-least one item should be selected",
-                                type: 'text'
-                            }
+                            "isHawkUI": true,
+                            "apiKey": "envTypeListAPI",
+                            "defSelectKey": "envType"
                         },
                         {
-                            id: 4,
-                            leafTitle: "S-2 Tenant ID",
-                            type: "text-input",
-                            inputType: 'string',
-                            isHawkUI: true,
-                            defSelectKey: "envTypeS2",
-                            labelSize: 5,
-                            size: 7,
-                            metrics: {},
-                            groupId: 'subItems',
+                            "id": 4,
+                            "leafTitle": "ARN List",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "AWS_ARN",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
                             "bindLeafData": {
-                                "showWhen": "S-2",
+                                "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
                             }
                         },
                         {
-                            id: 100,
-                            leafTitle: "S-3 Tenant ID",
-                            type: "text-input",
-                            inputType: 'string',
-                            isHawkUI: true,
-                            defSelectKey: "envTypeS3",
-                            labelSize: 5,
-                            size: 7,
-                            metrics: {},
-                            groupId: 'subItems',
+                            "id": 5,
+                            "leafTitle": "Payee Account Id",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "AWS_ACCOUNT_ID",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
                             "bindLeafData": {
-                                "showWhen": ["S-2", "S-3"],
-                                "bindWith": "envType",
-                                "id": 3
-                            }
-                        },
-
-                        {
-                            id: 5,
-                            leafTitle: "Application Access Key",
-                            type: "text-input",
-                            inputType: 'string',
-                            isHawkUI: true,
-                            defSelectKey: "appAccessKey",
-                            labelSize: 5,
-                            size: 7,
-                            metrics: {},
-                            groupId: 'subItems',
-                            "bindLeafData": {
-                                "hideWhen": ["S-2", "S-3"],
-                                "bindWith": "envType",
-                                "id": 3
-                            },
-                            validation: {
-                                isRequired: true,
-                                message: "Access key is required",
-                                type: 'text'
-                            }
-                        },
-                        {
-                            id: 6,
-                            leafTitle: "Application ID",
-                            type: "text-input",
-                            inputType: 'string',
-                            isHawkUI: true,
-                            defSelectKey: "appID",
-                            labelSize: 5,
-                            size: 7,
-                            metrics: {},
-                            groupId: 'subItems',
-                        },
-                        {
-                            id: 7,
-                            leafTitle: "Subscription ID",
-                            type: "text-input",
-                            inputType: 'string',
-                            isHawkUI: true,
-                            defSelectKey: "subID",
-                            labelSize: 5,
-                            size: 7,
-                            metrics: {},
-                            groupId: 'subItems',
-                            "bindLeafData": {
-                                "hideWhen": "S-2",
+                                "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
                             }
                         },
                         {
-                            id: 8,
-                            leafTitle: "Resource Manager Endpoint",
-                            type: "text-input",
-                            inputType: 'string',
-                            isHawkUI: true,
-                            defSelectKey: "resMgrEndpoint",
-                            labelSize: 5,
-                            size: 7,
-                            metrics: {},
-                            groupId: 'subItems',
+                            "id": 6,
+                            "leafTitle": "Billing Bucket Name",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "BILLING_BUCKET_NAME",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
                             "bindLeafData": {
-                                "hideWhen": "S-2",
+                                "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
                             }
                         },
+                        {
+                            "id": 7,
+                            "leafTitle": "Billing Bucket Region",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "BILLING_BUCKET_REGION",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "AWS",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 8,
+                            "leafTitle": "Billing Report Prefix",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "BILLING_REPORT_PREFIX",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "AWS",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "leafTitle": "Billing Report Name",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "BILLING_REPORT_NAME",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "AWS",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 10,
+                            "leafTitle": "Tenant ID",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "TENANT_ID",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": [
+                                    "AZURE",
+                                    "AZURE_STACK"
+                                ],
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 11,
+                            "leafTitle": "Application Access Key",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "APPLICATION_ACCESS_KEY",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": [
+                                    "AZURE",
+                                    "AZURE_STACK"
+                                ],
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 12,
+                            "leafTitle": "Application ID",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "APPLICATION_ID",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": [
+                                    "AZURE",
+                                    "AZURE_STACK"
+                                ],
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 13,
+                            "leafTitle": "Subscription ID",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "PROVIDER_SUBSCRIPTION_ID",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "AZURE_STACK",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 14,
+                            "leafTitle": "Resource Manager Endpoint",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "ARM_ENDPOINT",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "AZURE_STACK",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 15,
+                            "leafTitle": "Offer Durable ID",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "OFFER_DURABLE_ID",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "AZURE",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 16,
+                            "leafTitle": "Type",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_ACCOUNT_TYPE",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 17,
+                            "leafTitle": "Project Id",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_PROJECT_ID",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 18,
+                            "leafTitle": "Private Key Id",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_PRIVATE_KEY_ID",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 19,
+                            "leafTitle": "Private Key",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_PRIVATE_KEY",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 20,
+                            "leafTitle": "Client Email",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_CLIENT_EMAIL",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 21,
+                            "leafTitle": "Client Id",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_CLIENT_ID",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 22,
+                            "leafTitle": "Client Cert Url",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_CLIENT_X509_CERT_URL",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 23,
+                            "leafTitle": "Dataset Name",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_DATASET_NAME",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 24,
+                            "leafTitle": "GCP Table Name",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "GCP_TABLE_NAME",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "GCP",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 25,
+                            "leafTitle": "User Name",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_USER_NAME",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 26,
+                            "leafTitle": "Password",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_PASSWORD",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 27,
+                            "leafTitle": "URL",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_URL",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 28,
+                            "leafTitle": "Host",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_SERVICE_HOST",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 29,
+                            "leafTitle": "Port",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_SERVICE_PORT",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 30,
+                            "leafTitle": "CA Cert",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_SERVICE_CA_CRT",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 31,
+                            "leafTitle": "Token",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_SERVICE_TOKEN",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 32,
+                            "leafTitle": "Verify SSL",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_SERVICE_VERIFYSSL",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 33,
+                            "leafTitle": "Client Key",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_CLIENT_KEY",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        },
+                        {
+                            "id": 34,
+                            "leafTitle": "Client Key Certificate",
+                            "type": "text-input",
+                            "inputType": "string",
+                            "isHawkUI": true,
+                            "defSelectKey": "KUBERNETES_CLIENT_CERT",
+                            "labelSize": 5,
+                            "size": 7,
+                            "metrics": {},
+                            "groupId": "subItems",
+                            "bindLeafData": {
+                                "showWhen": "KUBERNETES",
+                                "bindWith": "envType",
+                                "id": 3
+                            }
+                        }
                     ]
                 }
             ]
@@ -7538,6 +8260,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     dataAPIKey: 'listResourceOrderListAPI',
                     actionButtonText: 'Add',
                     modalWidth: 900,
+                    currencyDefSelectKey: 'globalCur',
                     leafs: [
                         {
                             "id": 1,
@@ -7554,6 +8277,18 @@ app.post('/api/scenario/modal', function (req, res) {
                                 type: 'text',
                                 message: 'Price List Name is required'
                             }
+                        },
+                        {
+                            "id": 1006,
+                            "leafTitle": "Cost Type",
+                            "type": "select",
+                            groupId: 'g1',
+                            labelSize: 4,
+                            size: 8,
+                            "defSelectKey": "costType",
+                            "size": 6,
+                            "apiKey": "listAWSInstanceTypeAPI",
+                            "metrics": {}
                         },
                         {
                             id: 2,
@@ -7578,6 +8313,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             isHawkUI: true,
                             apiKey: 'listAWSInstanceTypeAPI',
                             "defSelectKey": "category",
+                            workFlowDefSelectKeys: ["costType"],
                             "bindLeafData": {
                                 "bindWith": "tagName",
                                 "id": 2
@@ -7659,13 +8395,24 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'g1',
                         },
                         {
+                            id: 118,
+                            leafTitle: "Currency",
+                            type: "select",
+                            apiKey: 'listCurrencyAPI',
+                            isHawkUI: true,
+                            defSelectKey: "globalCur",
+                            labelSize: 4,
+                            size: 2,
+                            groupId: 'g1',
+                        },
+                        {
                             id: 10,
                             leafTitle: "Current Amount",
                             "type": 'text-input',
-                            inputType: 'number',
+                            inputType: 'currency',
                             prefix: '$',
-                            labelSize: 4,
-                            size: 8,
+                            labelSize: 2,
+                            size: 4,
                             isHawkUI: true,
                             groupId: 'g1',
                             defSelectKey: "currAmt",
@@ -7694,7 +8441,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             id: 12,
                             leafTitle: "New Amount",
                             "type": 'text-input',
-                            inputType: 'number',
+                            inputType: 'currency',
                             prefix: '$',
                             labelSize: 4,
                             size: 8,
@@ -7722,7 +8469,6 @@ app.post('/api/scenario/modal', function (req, res) {
                                     leafTitle: "Rate",
                                     type: "text-input",
                                     inputType: 'number',
-                                    prefix: '$',
                                     defSelectKey: "rate",
                                     labelSize: 1,
                                     size: 2,
@@ -7747,7 +8493,7 @@ app.post('/api/scenario/modal', function (req, res) {
                                 {
                                     leafTitle: "",
                                     type: "text-input",
-                                    inputType: 'number',
+                                    inputType: 'currency',
                                     // prefix: '$',
                                     defSelectKey: "total",
                                     labelSize: 0,
@@ -7773,7 +8519,9 @@ app.post('/api/scenario/modal', function (req, res) {
         case "AddEditAzureStackRatePackCardModal":
             data = getAddEditAzureStackRatePackCardModal();
             break;
-
+        case "editCloudAccounts":
+            data = getEditCloudAccountsData();
+            break;
         default:
             data = drillDownData();
             break;
@@ -7911,7 +8659,7 @@ app.post('/api/scenario/editRow', function (req, res) {
                         {
                             "name": "Rate",
                             "key": "rate",
-                            "type": "multiselect",
+                            "type": "amount",
                             "display": true,
                             "filter": false
                         },
@@ -7967,14 +8715,14 @@ app.post('/api/scenario/editRow', function (req, res) {
                         }
                     ]
                 },
-                {
-                    "id": 9,
-                    "type": "summary",
-                    "leafTitle": "Pricing",
-                    "size": 12,
-                    "width": "20%",
-                    "apiKey": "resourcePricingAttributesAPI"
-                },
+                // {
+                //     "id": 9,
+                //     "type": "summary",
+                //     "leafTitle": "Pricing",
+                //     "size": 12,
+                //     "width": "20%",
+                //     "apiKey": "resourcePricingAttributesAPI"
+                // },
                 {
                     "id": 5,
                     "type": "form",
@@ -8085,6 +8833,26 @@ app.post('/api/instance/singular', function (req, res) {
     }
     setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error testing in progress" });
+    res.status(200).send(data);
+});
+
+
+
+app.post('/api/chargeback/global/currency', function (req, res) {
+    addDelay();
+
+    let types = req.body.types ? req.body.types[0].value : 'test';
+
+    let data = [
+        { name: `USD`, key: `$` },
+        { name: `INR`, key: `₹`, selected: true },
+        { name: `YEN`, key: `¥` },
+        { name: `EUR`, key: `€` },
+        { name: `GBP`, key: `£` },
+    ];
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
 
@@ -8278,6 +9046,19 @@ app.post('/api/action/availableroles', function (req, res) {
     res.status(200).send(data);
 });
 
+app.post('/api/action/cloudlist', function (req, res) {
+
+    let data = [
+        { "key": "aws", "name": "Ins-abc1234567", "selected": true },
+        { "key": "azure", "name": "Ins-1234678998", "selected": true }
+    ];
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(200).send(data);
+});
+
+
 app.post('/api/action/elbinstancelist', function (req, res) {
 
     let data = [
@@ -8355,15 +9136,15 @@ app.post('/api/action/elbmonitoringstatus', function (req, res) {
 app.post('/api/csp/getamountsummarydata', function (req, res) {
     let data = [{
         "name": "Margin",
-        "value": "1395.37",
-        "secondaryAmount": "4000.87",
+        "value": 1395.37,
+        "secondaryAmount": 4000.87,
         "secondayAmountText": "(all clouds)",
         "trend": null,
         "unit": "$"
     }, {
         "name": "Bill Total",
-        "value": "1369.27",
-        "secondaryAmount": "4000.87",
+        "value": 1369.27,
+        "secondaryAmount": 4000.87,
         "secondayAmountText": "(all clouds)",
         "trend": null,
         "unit": "$"
@@ -8372,14 +9153,20 @@ app.post('/api/csp/getamountsummarydata', function (req, res) {
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
-    res.status(200).send(data);
-
-
+    res.status(200).send(data)
 });
+
+app.post("/api/analytic/billProgress", function (req, res) {
+    let data = billProgress;
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
+
 app.post('/api/analytic/summarydata', function (req, res) {
     let data = [{
         "name": "Previous Billing Cycle Total",
-        "value": "1395.37",
+        "value": 7975678.37,
         "trend": null,
         "color": null,
         "secondaryAmount": null,
@@ -8387,7 +9174,7 @@ app.post('/api/analytic/summarydata', function (req, res) {
         "unit": "$",
     }, {
         "name": "Current Billing Cycle",
-        "value": "1369.27",
+        "value": 1369.27,
         "trend": "up",
         "color": "green",
         "unit": "$",
@@ -8503,17 +9290,17 @@ app.post('/api/catalog/ratelines', function (req, res) {
 
     let data = [
         { rateId: 1, priceList: 'Rate Line #1', name: 'Disk Operations-1', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', test: '1223', ratea: '133', rate5: '2434443', unit: 'Hr', currency: 'INR' },
-        { rateId: 2, priceList: 'Rate Line #23', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
-        { rateId: 3, priceList: 'Rate Line #54', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
-        { rateId: 4, priceList: 'Rate Line #15', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
-        { rateId: 5, priceList: 'Rate Line #33', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR', primary: true },
-        { rateId: 6, priceList: 'Rate Line #51', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
-        { rateId: 7, priceList: 'Rate Line #61', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', unit: 'Hr', currency: 'INR' },
+        { rateId: 2, priceList: 'Rate Line #23', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '121424', unit: 'Hr', currency: 'INR' },
+        { rateId: 3, priceList: 'Rate Line #54', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '3443', unit: 'Hr', currency: 'INR' },
+        { rateId: 4, priceList: 'Rate Line #15', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.4556', unit: 'Hr', currency: 'INR' },
+        { rateId: 5, priceList: 'Rate Line #33', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '56455', unit: 'Hr', currency: 'INR', primary: true },
+        { rateId: 6, priceList: 'Rate Line #51', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '32', unit: 'Hr', currency: 'INR' },
+        { rateId: 7, priceList: 'Rate Line #61', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '4566755777', unit: 'Hr', currency: 'INR' },
     ];
 
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
-    res.status(200).send(data);
+    res.status(200).send(rateLinesFakeData);
 
 
 });
@@ -8908,10 +9695,12 @@ app.post('/api/cloud-providers', function (req, res) {
 
 
 app.post('/api/auth/auth-entity', function (req, res) {
-    req.body.email
+
+    // For KeyCloak use: http://localhost:8081/auth/realms/master/protocol/openid-connect/auth?response_type=code&client_id=test&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi/auth/keycloak-exchange-token&state=022d48a0-1394-42c6-93f8-c575a1e09fbe&login=true&scope=openid
+
     let data = {
-        type: 'KEYCLOCK',
-        authUrl: `http://localhost:8081/auth/realms/master/protocol/openid-connect/auth?response_type=code&client_id=test&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi/auth/keycloak-exchange-token&state=022d48a0-1394-42c6-93f8-c575a1e09fbe&login=true&scope=openid`,
+        type: 'LOCAL',
+        authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1r9u7oni7kCn08357&response_type=id_token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A9000&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
     };
 
     setResponseHeaders(res);
@@ -9212,30 +10001,79 @@ app.post("/api/csp/customer/settings", function (req, res) {
 })
 
 app.post("/api/csp/customer/contact", function (req, res) {
-    const data = {
-        "business": {
-            "firstName": "First Name",
-            "lastName": "lorem ipsum",
-            "designation": "lorem ipsum",
-            "phoneNumber": "lorem ipsum",
-            "mobileNumber": "lorem ipsum",
-            "userId": "lorem ipsum",
-            "emailId": "lorem ipsum"
-        }, "billing": {
-            "firstName": "lorem ipsum",
-            "lastName": "lorem ipsum",
-            "designation": "lorem ipsum",
-            "phoneNumber": "lorem ipsum",
-            "mobileNumber": "lorem ipsum",
-            "userId": "lorem ipsum",
-            "emailId": "lorem ipsum"
-        }
-    }
+    data = [
+        { userID: "blah@user", id: 1, firstName: "name", emailId: "hell@test.com", lastName: 'Lagos', designation: 'stage-1' },
+        { userID: "blah@user", id: 2, firstName: "name", emailId: "hell@test.com", lastName: 'Anambra', designation: 'stage-4' },
+        { userID: "blah@user", id: 3, firstName: "name", emailId: "hell@test.com", lastName: 'Abuja', designation: 'stage-2' },
+        { userID: "blah@user", id: 4, firstName: "name", emailId: "hell@test.com", lastName: 'Jos', designation: 'stage-3' },
+        { userID: "blah@user", id: 5, firstName: "name", emailId: "hell@test.com", lastName: 'Lagos', designation: 'stage-4' },
+        { userID: "blah@user", id: 6, firstName: "name", emailId: "hell@test.com", lastName: 'PortHarcourt', designation: 'stage-1' }
+    ];
 
     setResponseHeaders(res);
     res.status(200).send(data);
 })
 
+app.post("/api/csp/customer/cloudaccounts", function (req, res) {
+    const data = [
+        {
+            "key": "Azure",
+            "icon": "azure",
+            "label": "Azure",
+            "values": [
+                {
+                    "name": "Microsoft Azure",
+                    "value": 10
+                },
+                {
+                    "name": "Microsoft Azure Stack",
+                    "value": 10
+                }
+            ]
+        },
+        {
+            "key": "AWS",
+            "icon": "aws",
+            "values": [
+                {
+                    "name": "Accounts",
+                    "value": 10
+                }
+            ]
+        }, {
+            "key": "Azure",
+            "icon": "azure",
+            "label": "Azure",
+            "values": [
+                {
+                    "name": "Microsoft Azure",
+                    "value": 10
+                },
+                {
+                    "name": "Microsoft Azure Stack",
+                    "value": 10
+                }
+            ]
+        }, {
+            "key": "Azure",
+            "icon": "azure",
+            "label": "Azure",
+            "values": [
+                {
+                    "name": "Microsoft Azure",
+                    "value": 10
+                },
+                {
+                    "name": "Microsoft Azure Stack",
+                    "value": 10
+                }
+            ]
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+
+})
 
 app.post('/api/auth/environmentlist', function (req, res) {
 
@@ -9662,6 +10500,7 @@ app.post('/api/group/resourceorderlist', function (req, res) {
         "email": 'i.am.test.user@gmail.com',
         "customerType": 'EXISTING',
         "customerID": 1234,
+        "projects": "S-2",
         "orgName": 'ACB Inc.',
         "industry": ['test-t5.medium'],
         "website": 'https://test.com',
@@ -9677,6 +10516,7 @@ app.post('/api/group/resourceorderlist', function (req, res) {
         "mobile": '997600000012',
         "userId": '53',
         "envName": ['west-1231'],
+        "packName": "test-pack-name",
         "packCombo": [
             {
                 "priceList": 'APP-1234',
@@ -9731,6 +10571,13 @@ app.post('/api/csp/customer/overview', async function (req, res) {
         drawerToolbar: [
             {
                 label: "Go to bill",
+                type: "button",
+                drillTo: "csp/overview",
+                // Replace below line for other context validation
+                // drillTo: "admin/settings",
+            },
+            {
+                label: "Setup",
                 type: "button",
                 drillTo: "admin/settings",
             }
@@ -9836,42 +10683,176 @@ app.post('/api/page/title', function (req, res) {
     res.status(200).send(data);
 });
 
-app.post('/submitDisputeFilingRequest', function (req, res) {
 
-    var data = {
-        "Status": [
-            {
-                "Code": "W-126000043",
-                "Message": "Please ensure that you are within case filing timeframe."
-            },
-            {
-                "Code": "W-126000029",
-                "Message": "Having submitted this form will formally file the case(s) with Visa and may result in filing and review fees being incurred."
-            }
-        ],
-        "ResponseData": {
-            "VisaCaseNumber": 1051564126,
-            "DisputeFilingInfo": [
+app.post('/api/email/emaillist', function (req, res) {
+
+    const data = [
+        { "name": "i.am.test.user@gmail.com", "key": "i.am.test.user@gmail.com", "selected": false },
+        { "name": "a2i.user@hotmail.com", "key": "a2i.user@hotmail.com", "selected": false },
+        { "name": "power.admin@global.in", "key": "power.admin@global.in", "selected": false },
+        { "name": "admin.user@yahoo.in", "key": "admin.user@yahoo.in", "selected": false },
+        { "name": "chain.clouds@global.com", "key": "chain.clouds@global.com", "selected": true },
+    ];
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
+
+
+app.post('/api/csp/analytic/billstatus', function (req, res) {
+    const data = [
+        { "name": "Draft", "value": 290, "unit": "" },
+        { "name": "Customer Review", "value": 120, "unit": "" },
+        { "name": "Draft", "value": 180, "unit": "" },
+        { "name": "Customer Review", "value": 200, "unit": "" },
+        { "name": "Draft", "value": 300, "unit": "" }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
+app.post("/api/csp/analytic/graph", function (req, res) {
+    const data = [
+        {
+            "name": "Current Monthly Bill",
+            "value": 150000000,
+            "unit": "INR",
+            "trend": 24,
+            "trendType": "up",
+            "trendUnit": "%",
+            "timeSeries": [
                 {
-                    "DisputeFilingItemId": 1214565157,
-                    "DisputeFilingItemType": "Arbitration"
+                    "date": "2020-03-14",
+                    "Bill Amount": 0
+                },
+                {
+                    "date": "2020-04-14",
+                    "Bill Amount": 49557.95
+                },
+                {
+                    "date": "2020-04-28",
+                    "Bill Amount": 51057.95
+                },
+                {
+                    "date": "2020-05-14",
+                    "Bill Amount": 335575.43
+                },
+                {
+                    "date": "2020-05-28",
+                    "Bill Amount": 337075.43
+                },
+                {
+                    "date": "2020-06-14",
+                    "Bill Amount": 823467.95
+                },
+                {
+                    "date": "2020-07-14",
+                    "Bill Amount": 954633.12
+                },
+                {
+                    "date": "2020-08-14",
+                    "Bill Amount": 969742.84
+                }
+            ]
+        },
+        {
+            "name": "Customers",
+            "value": 52,
+            "unit": "",
+            "trend": "",
+            "trendType": "down",
+            "trendUnit": "%",
+            "timeSeries": [
+                {
+                    "date": "2020-03-14",
+                    "Customers": 42
+                },
+                {
+                    "date": "2020-04-14",
+                    "Customers": 43
+                },
+                {
+                    "date": "2020-04-28",
+                    "Customers": 50
+                },
+                {
+                    "date": "2020-05-14",
+                    "Customers": 51
+                },
+                {
+                    "date": "2020-05-28",
+                    "Customers": 54
+                },
+                {
+                    "date": "2020-06-14",
+                    "Customers": 60
+                },
+                {
+                    "date": "2020-07-14",
+                    "Customers": 65
+                },
+                {
+                    "date": "2020-08-14",
+                    "Customers": 66
+                }
+            ]
+        },
+        {
+            "name": "Current Monthly Bill",
+            "value": 150000000,
+            "secValue": 150000000,
+            "unit": "INR",
+            "trend": 24,
+            "trendType": "down",
+            "trendUnit": "%",
+            "timeSeries": [
+                {
+                    "date": "2020-03-14",
+                    "Amount Consumed": 0,
+                    "PO Left": 4020413
+                },
+                {
+                    "date": "2020-04-14",
+                    "Amount Consumed": 49557.95,
+                    "PO Left": 3970855.04
+                },
+                {
+                    "date": "2020-04-28",
+                    "Amount Consumed": 51057.95,
+                    "PO Left": 3969355.04
+                },
+                {
+                    "date": "2020-05-14",
+                    "Amount Consumed": 335575.43,
+                    "PO Left": 3684837.56
+                },
+                {
+                    "date": "2020-05-28",
+                    "Amount Consumed": 337075.43,
+                    "PO Left": 3683337.56
+                },
+                {
+                    "date": "2020-06-14",
+                    "Amount Consumed": 823467.95,
+                    "PO Left": 3196945.04
+                },
+                {
+                    "date": "2020-07-14",
+                    "Amount Consumed": 954633.12,
+                    "PO Left": 3065779.87
+                },
+                {
+                    "date": "2020-08-14",
+                    "Amount Consumed": 969742.84,
+                    "PO Left": 3050670.15
                 }
             ]
         }
-    };
-
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With')
-    res.header(
-        'Access-Control-Allow-Methods',
-        'GET, POST, PATCH, PUT, DELETE, OPTIONS'
-    )
-    res.setHeader('Content-Type', 'application/json')
-
+    ]
+    setResponseHeaders(res);
     res.status(200).send(data);
-
-});
-
+})
 
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
