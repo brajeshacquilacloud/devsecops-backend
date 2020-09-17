@@ -54,10 +54,10 @@
                             "drillTo": "catalog/ratepacks",
                             "drillParams": [
                                 {
-                                    "key": "rateId"
+                                    "key": "userId"
                                 },
                                 {
-                                    "key": "priceList"
+                                    "key": "email"
                                 }
                             ]
                         }
