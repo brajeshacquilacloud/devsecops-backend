@@ -16,6 +16,7 @@
   "scripts": {
     "deploy": "git push heroku",
     "start": "node app.js",
+    "start:mock": "node app.js",
     "system-test": "repo-tools test app",
     "test": "npm run system-test",
     "e2e-test": "repo-tools test deploy"
