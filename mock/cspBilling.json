@@ -50,7 +50,7 @@
                             "componentsAPIKey": "customerOverviewDataAPI"
                         },
                         {
-                            "type": "hover",
+                            "type": "hover-open",
                             "drillTo": "catalog/ratepacks",
                             "drillParams": [
                                 {
