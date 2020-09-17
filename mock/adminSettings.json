@@ -1,0 +1,151 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "mode": "simple",
+                "apiKey": "listUsersAPI",
+                "size": 12,
+                "hideToolBar": true,
+                "defSelectKey": "mainDatatable",
+                "filter": false,
+                "noDataText": "No rates available",
+                "pagination": false,
+                "metrics": {},
+                "subscribedDrillParam": [
+                    "email",
+                    "userId"
+                ],
+                "columns": [
+                    {
+                        "name": "Email",
+                        "key": "email",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Role",
+                        "key": "roleName",
+                        "display": true,
+                        "filter": true,
+                        "type": "dualLabel",
+                        "secKey": "alert",
+                        "filterType": "multiselect"
+                    },
+                    {
+                        "name": "Status",
+                        "key": "status",
+                        "type": "status",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Enable/Disable",
+                        "key": "mark",
+                        "type": "toggle",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Projects",
+                        "key": "project",
+                        "type": "select",
+                        "apiKey": "listThresholdMetricListAPI",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Edit",
+                        "key": "action",
+                        "secKey": "editAPIKey",
+                        "sort": false,
+                        "type": "edit",
+                        "display": true,
+                        "drillTo": "modal",
+                        "modalTitle": "Edit",
+                        "drillParams": [
+                            {
+                                "key": "email"
+                            }
+                        ]
+                    }
+                ],
+                "toolBarActions": [
+                    {
+                        "toolbarTitle": "Save",
+                        "toolbarTooltip": "In order to reflect the changes please click on save after editing table data.",
+                        "type": "save",
+                        "actionAPIKey": "saveInstanceTypeChangeAPI",
+                        "actionIcon": "Save",
+                        "drillParams": [
+                            {
+                                "key": "email"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 777,
+                "leafTitle": "Demographic View",
+                "type": "line",
+                "apiKey": "linearMetricsAPI",
+                "isPro": true,
+                "size": 6,
+                "drillDown": {
+                    "drillTo": "detail"
+                },
+                "metrics": "SOLID_STATE"
+            },
+            {
+                "id": 19999,
+                "leafTitle": "EC2 Spending",
+                "type": "summaryGraph",
+                "apiKey": "awsYearlySpendingAPI",
+                "size": 6,
+                "drillDown": {
+                    "drillTo": "costdashboard",
+                    "defSelectTabIndex": {
+                        "nodeIndex": 2,
+                        "subNodeIndex": 1,
+                        "tabIndex": 1
+                    }
+                },
+                "metrics": {
+                    "deploy": "Mounted",
+                    "build": "Released"
+                },
+                "noDataText": "Summary data is not currently available"
+            },
+            {
+                "id": 4,
+                "leafTitle": "Spending By Distribution",
+                "type": "pie",
+                "isPro": true,
+                "legendPosition": "top",
+                "isHalfCircle": true,
+                "apiKey": "distributionServiceAPI",
+                "size": 6,
+                "metrics": "EWES_STATE"
+            },
+            {
+                "id": 5,
+                "leafTitle": "Top 10 Services by Memory",
+                "type": "bar",
+                "isPro": true,
+                "apiKey": "accomodationsyFlemingoAPI",
+                "size": 6,
+                "metrics": {
+                    "deploy": "Not deployed",
+                    "build": "Failed"
+                },
+                "drillDown": {
+                    "drillTo": "detail"
+                }
+            }
+        ]
+    }
+]

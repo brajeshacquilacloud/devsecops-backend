@@ -1,0 +1,230 @@
+[
+  {
+    "leafs": [
+      {
+        "id": 1926,
+        "leafTitle": "Customer Profile",
+        "subTitle": "",
+        "size": 12,
+        "type": "profileLayout",
+        "isHawkUI": true,
+        "apiKey": "customerOverviewDataAPI",
+        "components": [
+          {
+            "type": "orgDetail",
+            "header": "Organization Detail",
+            "id": 1,
+            "dataApiKey": "getCustomerOrgDetails",
+            "actionApiKey": "getCustomerOrgDetails",
+            "subComponents": [
+              {
+                "id": 0,
+                "title": "Industry Vertical",
+                "defSelectKey": "INDUSTRY_VERTICAL",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 1,
+                "title": "Website",
+                "defSelectKey": "website",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 2,
+                "title": "Business turnover",
+                "defSelectKey": "business_turnover",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 3,
+                "title": "Account type",
+                "apiKey": "dummyList",  
+                "defSelectKey": "account_type",
+                "size": 12,
+                "inputType": "string",
+                "type": "select",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 4,
+                "title": "Existing Customer",
+                "defSelectKey": "existing_customer",
+                "size": 12,
+                "apiKey": "dummyList",
+                "inputType": "string",
+                "type": "radio",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 5,
+                "title": "Address",
+                "defSelectKey": "addr_1",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 6,
+                "title": "",
+                "defSelectKey": "addr_2",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 7,
+                "title": "",
+                "defSelectKey": "addr_3",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 8,
+                "title": "E-mail",
+                "defSelectKey": "email",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 1,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              },
+              {
+                "id": 9,
+                "title": "Customer SPOC Details",
+                "defSelectKey": "spoc_details",
+                "size": 12,
+                "inputType": "string",
+                "type": "text",
+                "isHawkUI": true,
+                "onScreen": 2,
+                "validation": {
+                  "isRequired": true,
+                  "type": "text",
+                  "message": "Industry Vertical is the required field"
+                }
+              }
+            ]
+          },
+          {
+            "type": "alert",
+            "id": 2,
+            "dataApiKey": "getCustomerAlertData"
+          },
+          {
+            "type": "notification",
+            "id": 3,
+            "dataApiKey": "getCustomerNotification"
+          },
+          {
+            "id": 4,
+            "dataApiKey": "getCustomerContactData",
+            "isHawkUI": true,
+            "type": "hawkDataTable",
+            "header": "Contact Detail",
+            "hideToolBar": true,
+            "noDataText": "No Contact Detail Available",
+            "size": 12,
+            "filter": false,
+            "metrics": {},
+            "selectableRows": "single",
+            "defaultRowPerPage": 10,
+            "columns": [
+                        { "name": "First Name", "key": "firstName", "display": true },
+                        { "name": "Last Name", "key": "lastName", "display": true },
+                        { "name": "User Id", "key": "userID", "display": true },
+                        { "name": "Email Id", "key": "emailId", "display": true },
+                        { "name": "Designation", "key": "designation", "display": true }
+                      ]
+          },
+          {
+            "type": "users",
+            "header": "Users",
+            "id": 5,
+            "maxList": 6,
+            "dataApiKey": "getUsers"
+          },
+          {
+            "type": "cloudAccounts",
+            "modalTitle": "Cloud Accounts",
+            "modalApiKey": "addEditCloudAccounts",
+            "header": "Cloud Accounts",
+            "id": 7,
+            "dataApiKey": "getCloudAccounts"  
+          },
+          {
+            "type": "settings",
+            "header" : "Settings",
+            "id": 6,
+            "dataApiKey": "getSettings"
+          }
+        ]
+      }
+    ]
+  }
+]
