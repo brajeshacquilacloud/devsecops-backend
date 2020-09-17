@@ -16,7 +16,7 @@
   "scripts": {
     "deploy": "git push heroku",
     "start": "node app.js",
-    "start:mock": "node app.js",
+    "start:mock": "nodemon app.js",
     "system-test": "repo-tools test app",
     "test": "npm run system-test",
     "e2e-test": "repo-tools test deploy"
@@ -24,7 +24,8 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "^3.0.0"
