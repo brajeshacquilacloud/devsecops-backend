@@ -22,7 +22,6 @@
                 "noDataText": "No sub-users available",
                 "pagination": false,
                 "expand": {
-                    "expandableRowsOnClick": true,
                     "expandableRows": true,
                     "limit": 4,
                     "componentsAPIKey": "editRowAPI",
@@ -32,6 +31,35 @@
                         },
                         {
                             "key": "roleName"
+                        }
+                    ]
+                },
+                "rowOps": {
+                    "operations": [
+                        {
+                            "type": "overview",
+                            "drillParams": [
+                                {
+                                    "key": "userId"
+                                },
+                                {
+                                    "key": "email",
+                                    "isPrimary": true
+                                }
+                            ],
+                            "componentsAPIKey": "customerOverviewDataAPI"
+                        },
+                        {
+                            "type": "hover",
+                            "drillTo": "catalog/ratepacks",
+                            "drillParams": [
+                                {
+                                    "key": "rateId"
+                                },
+                                {
+                                    "key": "priceList"
+                                }
+                            ]
                         }
                     ]
                 },
