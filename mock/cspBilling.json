@@ -123,23 +123,6 @@
                         "display": true
                     },
                     {
-                        "name": "Overview",
-                        "key": "action",
-                        "type": "drill-down",
-                        "display": true,
-                        "drillTo": "overview",
-                        "drillParams": [
-                            {
-                                "key": "userId"
-                            },
-                            {
-                                "key": "email",
-                                "isPrimary": true
-                            }
-                        ],
-                        "componentsAPIKey": "customerOverviewDataAPI"
-                    },
-                    {
                         "name": "Rate Pack Info",
                         "key": "action",
                         "type": "drill",
