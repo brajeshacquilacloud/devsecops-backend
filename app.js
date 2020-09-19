@@ -10402,34 +10402,34 @@ app.post('/api/services', function (req, res) {
         {
             key: 1,
             title: 'CSP Billing',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
             key: 2,
             img: 'azure',
             title: 'Customer Services',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
             key: 3,
             title: 'Services-XYZ',
             img: 'aws',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
             key: 4,
             title: 'Cloud Services',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
             key: 5,
             title: 'Test services',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
             key: 6,
             title: 'Edge Computing',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
     ]
     responseStatus = 200;
