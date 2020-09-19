@@ -7,7 +7,7 @@
                 "type": "hawkDatatable",
                 "apiKey": "listCatalogRateLinesAPI",
                 "size": 12,
-                "hideToolBar": true,
+                "hideToolBar": false,
                 "defSelectKey": "mainDatatable",
                 "selectableRows": "multiple",
                 "filter": false,
