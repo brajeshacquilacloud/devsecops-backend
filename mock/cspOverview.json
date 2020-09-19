@@ -217,6 +217,7 @@
                 "id": 6,
                 "title": "Top Customers by Billing",
                 "modalTitle": "Customers by Billing",
+                "viewMoreLabel": "View More Customers",
                 "type": "billingProgress",
                 "apiKey": "getBillingProgress",
                 "noDataText": "No Summary Data available",
