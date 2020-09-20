@@ -218,6 +218,7 @@
                 "title": "Top Customers by Billing",
                 "modalTitle": "Customers by Billing",
                 "viewMoreLabel": "View More Customers",
+                "listCount": 5,
                 "type": "billingProgress",
                 "apiKey": "getBillingProgress",
                 "noDataText": "No Summary Data available",
