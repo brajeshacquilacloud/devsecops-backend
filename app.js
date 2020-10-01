@@ -2387,7 +2387,7 @@ function getServicesUIData() {
             {
                 id: 1,
                 type: 'card',
-                apiKey: 'billopsServicesAPI',
+                apiKey: 'servicesListAPI',
                 size: 12,
             },
         ]
