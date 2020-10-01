@@ -49,6 +49,12 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "key": "help",
+                            "type": "help",
+                            "url": "http://google.com",
+                            "target": "new"
                         }
                     ],
                     "pageFooters": [

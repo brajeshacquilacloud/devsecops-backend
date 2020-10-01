@@ -2387,7 +2387,7 @@ function getServicesUIData() {
             {
                 id: 1,
                 type: 'card',
-                apiKey: 'servicesListAPI',
+                apiKey: 'billopsServicesAPI',
                 size: 12,
             },
         ]
@@ -5994,6 +5994,14 @@ app.post('/api/scenario/modal', function (req, res) {
                     dataAPIKey: 'listResourceOrderListAPI',
                     actionButtonText: 'Add',
                     modalWidth: 500,
+                    modalActions: [
+                        {
+                            id: 'help',
+                            type: 'help',
+                            url: "http://google.com",
+                            target: "new",
+                        }
+                    ],
                     leafs: [
                         {
                             id: 10,
@@ -9229,7 +9237,7 @@ app.post('/api/csp/customer/orgdetail', function (req, res) {
 });
 
 app.post('/api/csp/customer/alert', function (req, res) {
-    const data = {
+    const data = [{
         key: 'alert1',
         headerColor: '#D34A46',
         title: 'Alerts',
@@ -9242,15 +9250,21 @@ app.post('/api/csp/customer/alert', function (req, res) {
             'Bill generation due 4/2/2020',
             'Bill generation due 4/3/2020',
             'Bill generation due 4/5/2020'
-        ]
-    }
+        ],
+        alertDataList: [
+            'Only 1 month DR service mapped',
+            'Bill generation due 4/2/2020',
+            'Bill generation due 4/3/2020',
+            'Bill generation due 4/5/2020'
+        ],
+    }];
 
     setResponseHeaders(res);
     res.status(200).send(data);
 })
 
 app.post('/api/csp/customer/notification', function (req, res) {
-    const data = {
+    const data = [{
         key: 'alert2',
         headerColor: '#FF9D00',
         title: 'Notifications',
@@ -9260,8 +9274,9 @@ app.post('/api/csp/customer/notification', function (req, res) {
         noDataText: 'No notifications!',
         alertData: [
             'Seasonal rate for Rate Card #1 activated',
-        ]
-    }
+        ],
+        alertDataList: [],
+    }];
     setResponseHeaders(res);
     res.status(200).send(data);
 })
