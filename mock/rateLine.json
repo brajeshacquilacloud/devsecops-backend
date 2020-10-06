@@ -5,13 +5,14 @@
                 "id": 2,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
-                "apiKey": "listCatalogRateLinesAPI",
+                "apiKey": "listCatalogRateLinesPageinatedAPI",
                 "size": 12,
                 "hideToolBar": true,
                 "filter": false,
                 "noDataText": "No rates available",
                 "metrics": {},
-                "defaultRowPerPage": 10,
+                "isServerSide": true,
+                "defaultRowPerPage": 25,
                 "columns": [
                     {
                         "name": "Id",
