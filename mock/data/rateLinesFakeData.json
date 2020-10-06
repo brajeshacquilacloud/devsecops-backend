@@ -1,4 +1,5 @@
-[{
+[
+  {
     "rateId": 1,
     "priceList": "wmatuszynski0",
     "name": "Zathin",
@@ -11,7 +12,8 @@
     "ratea": 6819,
     "currency": "USD",
     "unit": "#5c6"
-  }, {
+  },
+  {
     "rateId": 2,
     "priceList": "raspital1",
     "name": "Andalax",
@@ -24,7 +26,8 @@
     "ratea": 810,
     "currency": "USD",
     "unit": "#f4b"
-  }, {
+  },
+  {
     "rateId": 3,
     "priceList": "amulloch2",
     "name": "Bitchip",
@@ -37,7 +40,8 @@
     "ratea": 4958,
     "currency": "USD",
     "unit": "#3ff"
-  }, {
+  },
+  {
     "rateId": 4,
     "priceList": "chousaman3",
     "name": "Sonsing",
@@ -50,7 +54,8 @@
     "ratea": 3870,
     "currency": "USD",
     "unit": "#d85"
-  }, {
+  },
+  {
     "rateId": 5,
     "priceList": "acregeen4",
     "name": "Konklux",
@@ -63,7 +68,8 @@
     "ratea": 2125,
     "currency": "USD",
     "unit": "#08a"
-  }, {
+  },
+  {
     "rateId": 6,
     "priceList": "egleaves5",
     "name": "Home Ing",
@@ -76,7 +82,8 @@
     "ratea": 7060,
     "currency": "USD",
     "unit": "#314"
-  }, {
+  },
+  {
     "rateId": 7,
     "priceList": "blansley6",
     "name": "Viva",
@@ -89,7 +96,8 @@
     "ratea": 2481,
     "currency": "USD",
     "unit": "#bf7"
-  }, {
+  },
+  {
     "rateId": 8,
     "priceList": "gduddan7",
     "name": "Aerified",
@@ -102,7 +110,8 @@
     "ratea": 8717,
     "currency": "USD",
     "unit": "#c7d"
-  }, {
+  },
+  {
     "rateId": 9,
     "priceList": "eilchenko8",
     "name": "Trippledex",
@@ -115,7 +124,8 @@
     "ratea": 1524,
     "currency": "USD",
     "unit": "#8dd"
-  }, {
+  },
+  {
     "rateId": 10,
     "priceList": "rronci9",
     "name": "Cookley",
@@ -128,7 +138,8 @@
     "ratea": 8711,
     "currency": "USD",
     "unit": "#ef2"
-  }, {
+  },
+  {
     "rateId": 11,
     "priceList": "smerigueta",
     "name": "Bitchip",
@@ -141,7 +152,8 @@
     "ratea": 7867,
     "currency": "USD",
     "unit": "#43f"
-  }, {
+  },
+  {
     "rateId": 12,
     "priceList": "mnormingtonb",
     "name": "Prodder",
@@ -154,7 +166,8 @@
     "ratea": 3456,
     "currency": "USD",
     "unit": "#c76"
-  }, {
+  },
+  {
     "rateId": 13,
     "priceList": "ecorec",
     "name": "Bitwolf",
@@ -167,7 +180,8 @@
     "ratea": 9130,
     "currency": "USD",
     "unit": "#ecd"
-  }, {
+  },
+  {
     "rateId": 14,
     "priceList": "gtettd",
     "name": "Zoolab",
@@ -180,7 +194,8 @@
     "ratea": 4484,
     "currency": "USD",
     "unit": "#87e"
-  }, {
+  },
+  {
     "rateId": 15,
     "priceList": "jmaccarde",
     "name": "Span",
@@ -193,7 +208,8 @@
     "ratea": 399,
     "currency": "USD",
     "unit": "#6a7"
-  }, {
+  },
+  {
     "rateId": 16,
     "priceList": "lbretlandf",
     "name": "Y-Solowarm",
@@ -206,7 +222,8 @@
     "ratea": 5756,
     "currency": "USD",
     "unit": "#66f"
-  }, {
+  },
+  {
     "rateId": 17,
     "priceList": "ngrewg",
     "name": "Zontrax",
@@ -219,7 +236,8 @@
     "ratea": 2387,
     "currency": "USD",
     "unit": "#ac4"
-  }, {
+  },
+  {
     "rateId": 18,
     "priceList": "cwoloschinskih",
     "name": "Zathin",
@@ -232,7 +250,8 @@
     "ratea": 2408,
     "currency": "USD",
     "unit": "#ddc"
-  }, {
+  },
+  {
     "rateId": 19,
     "priceList": "labbatti",
     "name": "Holdlamis",
@@ -245,7 +264,8 @@
     "ratea": 2655,
     "currency": "USD",
     "unit": "#bc8"
-  }, {
+  },
+  {
     "rateId": 20,
     "priceList": "ldemannj",
     "name": "Tin",
@@ -258,7 +278,8 @@
     "ratea": 7044,
     "currency": "USD",
     "unit": "#ac4"
-  }, {
+  },
+  {
     "rateId": 21,
     "priceList": "oeastupk",
     "name": "Job",
@@ -271,7 +292,8 @@
     "ratea": 7745,
     "currency": "USD",
     "unit": "#995"
-  }, {
+  },
+  {
     "rateId": 22,
     "priceList": "amogglel",
     "name": "Tresom",
@@ -284,7 +306,8 @@
     "ratea": 3399,
     "currency": "USD",
     "unit": "#c67"
-  }, {
+  },
+  {
     "rateId": 23,
     "priceList": "ugritsaevm",
     "name": "Job",
@@ -297,7 +320,8 @@
     "ratea": 9795,
     "currency": "USD",
     "unit": "#d44"
-  }, {
+  },
+  {
     "rateId": 24,
     "priceList": "fdampiern",
     "name": "Ronstring",
@@ -310,7 +334,8 @@
     "ratea": 9766,
     "currency": "USD",
     "unit": "#d6b"
-  }, {
+  },
+  {
     "rateId": 25,
     "priceList": "dmuscrofto",
     "name": "Stim",
@@ -323,7 +348,8 @@
     "ratea": 6823,
     "currency": "USD",
     "unit": "#d7a"
-  }, {
+  },
+  {
     "rateId": 26,
     "priceList": "hangricp",
     "name": "Zontrax",
@@ -336,7 +362,8 @@
     "ratea": 9702,
     "currency": "USD",
     "unit": "#931"
-  }, {
+  },
+  {
     "rateId": 27,
     "priceList": "wjohlq",
     "name": "Lotstring",
@@ -349,7 +376,8 @@
     "ratea": 5920,
     "currency": "USD",
     "unit": "#745"
-  }, {
+  },
+  {
     "rateId": 28,
     "priceList": "wholtr",
     "name": "Andalax",
@@ -362,7 +390,8 @@
     "ratea": 3833,
     "currency": "USD",
     "unit": "#d29"
-  }, {
+  },
+  {
     "rateId": 29,
     "priceList": "mpethricks",
     "name": "Andalax",
@@ -375,7 +404,8 @@
     "ratea": 4759,
     "currency": "USD",
     "unit": "#d27"
-  }, {
+  },
+  {
     "rateId": 30,
     "priceList": "bdryburght",
     "name": "Cardify",
@@ -388,7 +418,8 @@
     "ratea": 5764,
     "currency": "USD",
     "unit": "#7df"
-  }, {
+  },
+  {
     "rateId": 31,
     "priceList": "battenbrowu",
     "name": "Asoka",
@@ -401,7 +432,8 @@
     "ratea": 7407,
     "currency": "USD",
     "unit": "#3ed"
-  }, {
+  },
+  {
     "rateId": 32,
     "priceList": "kbachev",
     "name": "Fixflex",
@@ -414,7 +446,8 @@
     "ratea": 2999,
     "currency": "USD",
     "unit": "#27f"
-  }, {
+  },
+  {
     "rateId": 33,
     "priceList": "pbartolettiw",
     "name": "Ventosanzap",
@@ -427,7 +460,8 @@
     "ratea": 3575,
     "currency": "USD",
     "unit": "#e40"
-  }, {
+  },
+  {
     "rateId": 34,
     "priceList": "lbarocx",
     "name": "Prodder",
@@ -440,7 +474,8 @@
     "ratea": 8506,
     "currency": "USD",
     "unit": "#75f"
-  }, {
+  },
+  {
     "rateId": 35,
     "priceList": "nswarbriggy",
     "name": "Tres-Zap",
@@ -453,7 +488,8 @@
     "ratea": 4077,
     "currency": "USD",
     "unit": "#28a"
-  }, {
+  },
+  {
     "rateId": 36,
     "priceList": "dbrakerz",
     "name": "Stim",
@@ -466,7 +502,8 @@
     "ratea": 440,
     "currency": "USD",
     "unit": "#8da"
-  }, {
+  },
+  {
     "rateId": 37,
     "priceList": "hhughson10",
     "name": "Sonsing",
@@ -479,7 +516,8 @@
     "ratea": 6908,
     "currency": "USD",
     "unit": "#855"
-  }, {
+  },
+  {
     "rateId": 38,
     "priceList": "banear11",
     "name": "Alphazap",
@@ -492,7 +530,8 @@
     "ratea": 8701,
     "currency": "USD",
     "unit": "#6fe"
-  }, {
+  },
+  {
     "rateId": 39,
     "priceList": "lsmy12",
     "name": "Aerified",
@@ -505,7 +544,8 @@
     "ratea": 5543,
     "currency": "USD",
     "unit": "#0dc"
-  }, {
+  },
+  {
     "rateId": 40,
     "priceList": "mcolston13",
     "name": "Trippledex",
@@ -518,7 +558,8 @@
     "ratea": 5139,
     "currency": "USD",
     "unit": "#37b"
-  }, {
+  },
+  {
     "rateId": 41,
     "priceList": "ocake14",
     "name": "Sonsing",
@@ -531,7 +572,8 @@
     "ratea": 9554,
     "currency": "USD",
     "unit": "#33a"
-  }, {
+  },
+  {
     "rateId": 42,
     "priceList": "bwhisby15",
     "name": "Rank",
@@ -544,7 +586,8 @@
     "ratea": 6210,
     "currency": "USD",
     "unit": "#979"
-  }, {
+  },
+  {
     "rateId": 43,
     "priceList": "gelce16",
     "name": "Opela",
@@ -557,7 +600,8 @@
     "ratea": 6561,
     "currency": "USD",
     "unit": "#686"
-  }, {
+  },
+  {
     "rateId": 44,
     "priceList": "etimmes17",
     "name": "Flowdesk",
@@ -570,7 +614,8 @@
     "ratea": 4895,
     "currency": "USD",
     "unit": "#c0d"
-  }, {
+  },
+  {
     "rateId": 45,
     "priceList": "bdebiasio18",
     "name": "Viva",
@@ -583,7 +628,8 @@
     "ratea": 6159,
     "currency": "USD",
     "unit": "#804"
-  }, {
+  },
+  {
     "rateId": 46,
     "priceList": "ahalbord19",
     "name": "Fixflex",
@@ -596,7 +642,8 @@
     "ratea": 2477,
     "currency": "USD",
     "unit": "#344"
-  }, {
+  },
+  {
     "rateId": 47,
     "priceList": "abrave1a",
     "name": "Biodex",
@@ -609,7 +656,8 @@
     "ratea": 9775,
     "currency": "USD",
     "unit": "#2bb"
-  }, {
+  },
+  {
     "rateId": 48,
     "priceList": "emullins1b",
     "name": "Home Ing",
@@ -622,7 +670,8 @@
     "ratea": 7107,
     "currency": "USD",
     "unit": "#817"
-  }, {
+  },
+  {
     "rateId": 49,
     "priceList": "kdelany1c",
     "name": "Solarbreeze",
@@ -635,7 +684,8 @@
     "ratea": 2759,
     "currency": "USD",
     "unit": "#bcb"
-  }, {
+  },
+  {
     "rateId": 50,
     "priceList": "cswadlen1d",
     "name": "Greenlam",
@@ -648,7 +698,8 @@
     "ratea": 6608,
     "currency": "USD",
     "unit": "#47c"
-  }, {
+  },
+  {
     "rateId": 51,
     "priceList": "ihicks1e",
     "name": "Bamity",
@@ -661,7 +712,8 @@
     "ratea": 6133,
     "currency": "USD",
     "unit": "#ccf"
-  }, {
+  },
+  {
     "rateId": 52,
     "priceList": "golenchenko1f",
     "name": "Tampflex",
@@ -674,7 +726,8 @@
     "ratea": 9727,
     "currency": "USD",
     "unit": "#c17"
-  }, {
+  },
+  {
     "rateId": 53,
     "priceList": "aguiton1g",
     "name": "Tempsoft",
@@ -687,7 +740,8 @@
     "ratea": 4869,
     "currency": "USD",
     "unit": "#96a"
-  }, {
+  },
+  {
     "rateId": 54,
     "priceList": "ksidebotham1h",
     "name": "Alphazap",
@@ -700,7 +754,8 @@
     "ratea": 6411,
     "currency": "USD",
     "unit": "#96c"
-  }, {
+  },
+  {
     "rateId": 55,
     "priceList": "aposton1i",
     "name": "Fintone",
@@ -713,7 +768,8 @@
     "ratea": 9691,
     "currency": "USD",
     "unit": "#20e"
-  }, {
+  },
+  {
     "rateId": 56,
     "priceList": "ctrahair1j",
     "name": "Trippledex",
@@ -726,7 +782,8 @@
     "ratea": 3236,
     "currency": "USD",
     "unit": "#aa4"
-  }, {
+  },
+  {
     "rateId": 57,
     "priceList": "ebradtke1k",
     "name": "Lotstring",
@@ -739,7 +796,8 @@
     "ratea": 9302,
     "currency": "USD",
     "unit": "#130"
-  }, {
+  },
+  {
     "rateId": 58,
     "priceList": "madicot1l",
     "name": "Konklux",
@@ -752,7 +810,8 @@
     "ratea": 1976,
     "currency": "USD",
     "unit": "#944"
-  }, {
+  },
+  {
     "rateId": 59,
     "priceList": "csmellie1m",
     "name": "Regrant",
@@ -765,7 +824,8 @@
     "ratea": 6180,
     "currency": "USD",
     "unit": "#53e"
-  }, {
+  },
+  {
     "rateId": 60,
     "priceList": "estucke1n",
     "name": "Pannier",
@@ -778,7 +838,8 @@
     "ratea": 1456,
     "currency": "USD",
     "unit": "#fe2"
-  }, {
+  },
+  {
     "rateId": 61,
     "priceList": "mboylan1o",
     "name": "Subin",
@@ -791,7 +852,8 @@
     "ratea": 2380,
     "currency": "USD",
     "unit": "#d50"
-  }, {
+  },
+  {
     "rateId": 62,
     "priceList": "rmiall1p",
     "name": "Tin",
@@ -804,7 +866,8 @@
     "ratea": 8973,
     "currency": "USD",
     "unit": "#615"
-  }, {
+  },
+  {
     "rateId": 63,
     "priceList": "cteeney1q",
     "name": "Redhold",
@@ -817,7 +880,8 @@
     "ratea": 7872,
     "currency": "USD",
     "unit": "#cc7"
-  }, {
+  },
+  {
     "rateId": 64,
     "priceList": "myarranton1r",
     "name": "Job",
@@ -830,7 +894,8 @@
     "ratea": 9769,
     "currency": "USD",
     "unit": "#9c0"
-  }, {
+  },
+  {
     "rateId": 65,
     "priceList": "mkarle1s",
     "name": "Tin",
@@ -843,7 +908,8 @@
     "ratea": 2929,
     "currency": "USD",
     "unit": "#455"
-  }, {
+  },
+  {
     "rateId": 66,
     "priceList": "arissom1t",
     "name": "Hatity",
@@ -856,7 +922,8 @@
     "ratea": 2082,
     "currency": "USD",
     "unit": "#f58"
-  }, {
+  },
+  {
     "rateId": 67,
     "priceList": "shurndall1u",
     "name": "Zathin",
@@ -869,7 +936,8 @@
     "ratea": 4114,
     "currency": "USD",
     "unit": "#7be"
-  }, {
+  },
+  {
     "rateId": 68,
     "priceList": "odeeves1v",
     "name": "Biodex",
@@ -882,7 +950,8 @@
     "ratea": 6846,
     "currency": "USD",
     "unit": "#269"
-  }, {
+  },
+  {
     "rateId": 69,
     "priceList": "bmachin1w",
     "name": "Latlux",
@@ -895,7 +964,8 @@
     "ratea": 3352,
     "currency": "USD",
     "unit": "#111"
-  }, {
+  },
+  {
     "rateId": 70,
     "priceList": "skezor1x",
     "name": "Holdlamis",
@@ -908,7 +978,8 @@
     "ratea": 5943,
     "currency": "USD",
     "unit": "#42f"
-  }, {
+  },
+  {
     "rateId": 71,
     "priceList": "gbourtoumieux1y",
     "name": "Cardguard",
@@ -921,7 +992,8 @@
     "ratea": 4750,
     "currency": "USD",
     "unit": "#c5a"
-  }, {
+  },
+  {
     "rateId": 72,
     "priceList": "lcolbourn1z",
     "name": "Fintone",
@@ -934,7 +1006,8 @@
     "ratea": 1229,
     "currency": "USD",
     "unit": "#d1e"
-  }, {
+  },
+  {
     "rateId": 73,
     "priceList": "mtimbridge20",
     "name": "Vagram",
@@ -947,7 +1020,8 @@
     "ratea": 960,
     "currency": "USD",
     "unit": "#403"
-  }, {
+  },
+  {
     "rateId": 74,
     "priceList": "bmaple21",
     "name": "Greenlam",
@@ -960,7 +1034,8 @@
     "ratea": 2642,
     "currency": "USD",
     "unit": "#60a"
-  }, {
+  },
+  {
     "rateId": 75,
     "priceList": "camoore22",
     "name": "Treeflex",
@@ -973,7 +1048,8 @@
     "ratea": 5195,
     "currency": "USD",
     "unit": "#43e"
-  }, {
+  },
+  {
     "rateId": 76,
     "priceList": "mlocard23",
     "name": "Bamity",
@@ -986,7 +1062,8 @@
     "ratea": 189,
     "currency": "USD",
     "unit": "#622"
-  }, {
+  },
+  {
     "rateId": 77,
     "priceList": "nmechem24",
     "name": "Opela",
@@ -999,7 +1076,8 @@
     "ratea": 3567,
     "currency": "USD",
     "unit": "#629"
-  }, {
+  },
+  {
     "rateId": 78,
     "priceList": "grossi25",
     "name": "Redhold",
@@ -1012,7 +1090,8 @@
     "ratea": 1072,
     "currency": "USD",
     "unit": "#c24"
-  }, {
+  },
+  {
     "rateId": 79,
     "priceList": "dkrook26",
     "name": "Solarbreeze",
@@ -1025,7 +1104,8 @@
     "ratea": 2961,
     "currency": "USD",
     "unit": "#501"
-  }, {
+  },
+  {
     "rateId": 80,
     "priceList": "ivasyunichev27",
     "name": "Regrant",
@@ -1038,7 +1118,8 @@
     "ratea": 7973,
     "currency": "USD",
     "unit": "#385"
-  }, {
+  },
+  {
     "rateId": 81,
     "priceList": "clorkins28",
     "name": "Tresom",
@@ -1051,7 +1132,8 @@
     "ratea": 3194,
     "currency": "USD",
     "unit": "#c5d"
-  }, {
+  },
+  {
     "rateId": 82,
     "priceList": "swiddall29",
     "name": "Sonair",
@@ -1064,7 +1146,8 @@
     "ratea": 7248,
     "currency": "USD",
     "unit": "#628"
-  }, {
+  },
+  {
     "rateId": 83,
     "priceList": "cmathiot2a",
     "name": "Fix San",
@@ -1077,7 +1160,8 @@
     "ratea": 3881,
     "currency": "USD",
     "unit": "#8db"
-  }, {
+  },
+  {
     "rateId": 84,
     "priceList": "tclotworthy2b",
     "name": "Mat Lam Tam",
@@ -1090,7 +1174,8 @@
     "ratea": 4102,
     "currency": "USD",
     "unit": "#9fd"
-  }, {
+  },
+  {
     "rateId": 85,
     "priceList": "dduffin2c",
     "name": "Transcof",
@@ -1103,7 +1188,8 @@
     "ratea": 5249,
     "currency": "USD",
     "unit": "#854"
-  }, {
+  },
+  {
     "rateId": 86,
     "priceList": "emowat2d",
     "name": "Y-Solowarm",
@@ -1116,7 +1202,8 @@
     "ratea": 9670,
     "currency": "USD",
     "unit": "#c4e"
-  }, {
+  },
+  {
     "rateId": 87,
     "priceList": "dnewby2e",
     "name": "Daltfresh",
@@ -1129,7 +1216,8 @@
     "ratea": 6099,
     "currency": "USD",
     "unit": "#e02"
-  }, {
+  },
+  {
     "rateId": 88,
     "priceList": "spowling2f",
     "name": "Zathin",
@@ -1142,7 +1230,8 @@
     "ratea": 9722,
     "currency": "USD",
     "unit": "#804"
-  }, {
+  },
+  {
     "rateId": 89,
     "priceList": "coffener2g",
     "name": "Redhold",
@@ -1155,7 +1244,8 @@
     "ratea": 447,
     "currency": "USD",
     "unit": "#b55"
-  }, {
+  },
+  {
     "rateId": 90,
     "priceList": "wyockney2h",
     "name": "Cardguard",
@@ -1168,7 +1258,8 @@
     "ratea": 2171,
     "currency": "USD",
     "unit": "#119"
-  }, {
+  },
+  {
     "rateId": 91,
     "priceList": "ppee2i",
     "name": "Solarbreeze",
@@ -1181,7 +1272,8 @@
     "ratea": 9249,
     "currency": "USD",
     "unit": "#c54"
-  }, {
+  },
+  {
     "rateId": 92,
     "priceList": "aeles2j",
     "name": "Voyatouch",
@@ -1194,7 +1286,8 @@
     "ratea": 5617,
     "currency": "USD",
     "unit": "#3b5"
-  }, {
+  },
+  {
     "rateId": 93,
     "priceList": "dmaris2k",
     "name": "Flowdesk",
@@ -1207,7 +1300,8 @@
     "ratea": 5287,
     "currency": "USD",
     "unit": "#162"
-  }, {
+  },
+  {
     "rateId": 94,
     "priceList": "tpeidro2l",
     "name": "Opela",
@@ -1220,7 +1314,8 @@
     "ratea": 9248,
     "currency": "USD",
     "unit": "#2f6"
-  }, {
+  },
+  {
     "rateId": 95,
     "priceList": "mclint2m",
     "name": "Tampflex",
@@ -1233,7 +1328,8 @@
     "ratea": 7951,
     "currency": "USD",
     "unit": "#681"
-  }, {
+  },
+  {
     "rateId": 96,
     "priceList": "aupson2n",
     "name": "Cookley",
@@ -1246,7 +1342,8 @@
     "ratea": 3091,
     "currency": "USD",
     "unit": "#37f"
-  }, {
+  },
+  {
     "rateId": 97,
     "priceList": "lgoodliffe2o",
     "name": "Andalax",
@@ -1259,7 +1356,8 @@
     "ratea": 3035,
     "currency": "USD",
     "unit": "#c8e"
-  }, {
+  },
+  {
     "rateId": 98,
     "priceList": "nfritchly2p",
     "name": "Quo Lux",
@@ -1272,7 +1370,8 @@
     "ratea": 2526,
     "currency": "USD",
     "unit": "#df4"
-  }, {
+  },
+  {
     "rateId": 99,
     "priceList": "kmonaghan2q",
     "name": "Voyatouch",
@@ -1285,7 +1384,8 @@
     "ratea": 9316,
     "currency": "USD",
     "unit": "#5e6"
-  }, {
+  },
+  {
     "rateId": 100,
     "priceList": "jyoung2r",
     "name": "Andalax",
@@ -1298,4 +1398,5 @@
     "ratea": 6703,
     "currency": "USD",
     "unit": "#cbe"
-  }]
+  }
+]

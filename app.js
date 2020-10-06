@@ -12,6 +12,7 @@ const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
+const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
 
 const navs = require('./mock/navs.json');
 const cspCustomerProfile = require("./mock/customerProfile.json")
@@ -8654,22 +8655,14 @@ app.post('/api/user/userlist', function (req, res) {
 });
 
 app.post('/api/catalog/ratelines', function (req, res) {
-
-    let data = [
-        { rateId: 1, priceList: 'Rate Line #1', name: 'Disk Operations-1', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.118', test: '1223', ratea: '133', rate5: '2434443', unit: 'Hr', currency: 'INR' },
-        { rateId: 2, priceList: 'Rate Line #23', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '121424', unit: 'Hr', currency: 'INR' },
-        { rateId: 3, priceList: 'Rate Line #54', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '3443', unit: 'Hr', currency: 'INR' },
-        { rateId: 4, priceList: 'Rate Line #15', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '0.4556', unit: 'Hr', currency: 'INR' },
-        { rateId: 5, priceList: 'Rate Line #33', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '56455', unit: 'Hr', currency: 'INR', primary: true },
-        { rateId: 6, priceList: 'Rate Line #51', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '32', unit: 'Hr', currency: 'INR' },
-        { rateId: 7, priceList: 'Rate Line #61', name: 'Disk Operations', category: 'Virtual Machine', subcategory: 'Standard SSD Managed Disks', tag: 'Tag 1', region: 'eastUS', pricingmodal: 'Amount', rate: '4566755777', unit: 'Hr', currency: 'INR' },
-    ];
-
     setResponseHeaders(res);
-    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(rateLinesFakeData);
+});
 
 
+app.post('/api/catalog//paginated/ratelines', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(rateLinesFakeDataPaginated);
 });
 
 app.post('/api/user/alertemaillist', function (req, res) {
