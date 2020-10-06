@@ -918,11 +918,11 @@ function EditCustomerScreenData() {
                                     "defSelectKey": "customerID",
                                     "size": 12,
                                     "helperText": "Please select Customer ID",
-                                    "bindLeafData": {
+                                    "bindLeafData": [{
                                         "hideWhen": "NEW",
                                         "bindWith": "customerType",
                                         "id": 1
-                                    },
+                                    }],
                                     "targetLeafData": {
                                         "tagetWith": "customerType",
                                         "id": 1
@@ -2486,7 +2486,7 @@ function getGroupUIData() {
                                 "*"
                             ]
                         },
-                        "bindLeafData": { "bindWith": "region", "id": 1, },
+                        "bindLeafData": [{ "bindWith": "region", "id": 1, }],
                         validation: {
                             isRequired: true,
                             message: 'At-least one tenant should be selected',
@@ -2506,7 +2506,7 @@ function getGroupUIData() {
                                 "*"
                             ]
                         },
-                        "bindLeafData": { "bindWith": "cluster", "id": 2, },
+                        "bindLeafData": [{ "bindWith": "cluster", "id": 2, }],
                         validation: {
                             isRequired: true,
                             message: 'At-least one tenant should be selected',
@@ -2742,7 +2742,7 @@ function getAddEditAzureStackRatePackCardModal() {
                         {
                             "id": "d2", "title": "Unit", "type": "select", "size": 2,
                             "apiKey": "listAzureStackUnitAPI", "selectDefaultValue": true, "defSelectKey": "unit",
-                            "helperText": "", "metrics": {}, "bindLeafData": { "bindWith": "meterId", "id": "d1" }
+                            "helperText": "", "metrics": {}, "bindLeafData": [{ "bindWith": "meterId", "id": "d1" }]
                         },
                         { "id": "v1", "type": "input", "size": 1, "subType": "switch", "label": "Primary" },
                         { "id": "v3", "type": "input", "size": 2, "subType": "number", "label": "Rate" },
@@ -2781,11 +2781,11 @@ function getEditCloudAccountsData() {
                     width: 28,
                     groupId: 'accounts',
 
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "azure",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    },]
                 }, {
                     id: 13,
                     leafTitle: "Accounts",
@@ -2799,11 +2799,11 @@ function getEditCloudAccountsData() {
 
                     groupId: 'accounts',
                     apiKey: "providerSubscriptionId",
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "azure",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    }],
                     metrics: {},
                     validation: {
                         isRequired: true,
@@ -2825,11 +2825,11 @@ function getEditCloudAccountsData() {
                     groupId: 'accounts',
                     apiKey: "providerSubscriptionId",
                     metrics: {},
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "azure",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    }],
                 },
                 {
                     id: 6,
@@ -2845,11 +2845,11 @@ function getEditCloudAccountsData() {
                     groupId: 'accounts',
                     apiKey: "providerSubscriptionId",
                     metrics: {},
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "azure",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    }],
                 },
                 {
                     id: 6,
@@ -2865,11 +2865,11 @@ function getEditCloudAccountsData() {
                     groupId: 'accounts',
                     apiKey: "providerSubscriptionId",
                     metrics: {},
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "azure",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    }],
                 },
                 {
                     id: 10,
@@ -2877,11 +2877,11 @@ function getEditCloudAccountsData() {
                     icon: "aws",
 
                     groupId: 'accAzure',
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "aws",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    }],
                 },
                 {
                     id: 6,
@@ -2897,11 +2897,11 @@ function getEditCloudAccountsData() {
                     groupId: 'accAzure',
                     apiKey: "providerSubscriptionId",
                     metrics: {},
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "aws",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    }],
                 },
                 {
                     id: 6,
@@ -2917,11 +2917,11 @@ function getEditCloudAccountsData() {
                     groupId: 'accAzure',
                     apiKey: "providerSubscriptionId",
                     metrics: {},
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "aws",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    }],
                 },
                 {
                     id: 6,
@@ -2937,11 +2937,11 @@ function getEditCloudAccountsData() {
                     groupId: 'accAzure',
                     apiKey: "providerSubscriptionId",
                     metrics: {},
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "showWhen": "aws",
                         "bindWith": "instanceId",
                         "id": 9
-                    },
+                    }],
                 },
                 {
                     id: 6,
@@ -2955,11 +2955,11 @@ function getEditCloudAccountsData() {
                     size: 8,
 
                     groupId: 'accAzure',
-                    "bindLeafData": {
+                    "bindLeafData": [{
                         "hideWhen": "azure",
                         "bindWith": "authType",
                         "id": 9
-                    }
+                    }]
                 }
             ]
         }
@@ -5867,7 +5867,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 12,
                             "apiKey": "listElbInstanceAPI",
                             "metrics": {},
-                            "bindLeafData": { "hideWhen": "pool", "bindWith": "elbMonitoringType", "id": 1, },
+                            "bindLeafData": [{ "hideWhen": "pool", "bindWith": "elbMonitoringType", "id": 1, }],
                         },
                         {
                             "id": 3,
@@ -5878,7 +5878,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             "defSelectKey": "selectedImage",
                             "helperText": "Choose Image Id",
                             "metrics": {},
-                            "bindLeafData": { "hideWhen": "no-pool", "bindWith": "elbMonitoringType", "id": 1, },
+                            "bindLeafData": [{ "hideWhen": "no-pool", "bindWith": "elbMonitoringType", "id": 1 }],
                         },
                         {
                             "id": 32,
@@ -5902,7 +5902,7 @@ app.post('/api/scenario/modal', function (req, res) {
                                     "*"
                                 ]
                             },
-                            "bindLeafData": { "bindWith": "regionSel", "id": 32, },
+                            "bindLeafData": [{ "bindWith": "regionSel", "id": 32, }],
                         },
                         {
                             "id": 2232,
@@ -5917,7 +5917,7 @@ app.post('/api/scenario/modal', function (req, res) {
                                     "*"
                                 ]
                             },
-                            "bindLeafData": { "bindWith": "clusterSel", "id": 477, },
+                            "bindLeafData": [{ "bindWith": "clusterSel", "id": 477, }],
                         },
                         {
                             "id": 4,
@@ -6113,11 +6113,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             inputType: 'string',
                             labelSize: 3,
                             size: 9,
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "hideWhen": "okta",
                                 "bindWith": "authType",
                                 "id": 9
-                            },
+                            }],
                             "validation": {
                                 "isRequired": true,
                                 "message": "Username is required",
@@ -6129,14 +6129,37 @@ app.post('/api/scenario/modal', function (req, res) {
                             leafTitle: "Password",
                             type: "text-input",
                             defSelectKey: 'password',
-                            inputType: 'string',
+                            inputType: 'password',
                             labelSize: 3,
                             size: 9,
-                            "bindLeafData": {
+                            "bindLeafData": [{
+                                "hideWhen": "okta",
+                                "bindWith": "authType",
+                                "id": 9
+                            }]
+                        },
+                        {
+                            id: 11,
+                            leafTitle: "Confirm Password",
+                            type: "text-input",
+                            defSelectKey: 'confPassword',
+                            inputType: 'password',
+                            labelSize: 3,
+                            size: 9,
+                            "validation": {
+                                "message": "It should match with Password",
+                                type: 'conf-password',
+                            },
+                            "bindLeafData": [{
+                                "bindWith": "password",
+                                "isPrimary": true,
+                            },
+                            {
                                 "hideWhen": "okta",
                                 "bindWith": "authType",
                                 "id": 9
                             }
+                            ]
                         },
                         {
                             "id": 9,
@@ -6163,11 +6186,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             width: 28,
                             groupId: 'accounts',
                             pageId: 1,
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "azure",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
                         {
                             id: 13,
@@ -6182,11 +6205,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             pageId: 1,
                             groupId: 'accounts',
                             apiKey: "providerSubscriptionId",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "azure",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                             metrics: {},
                             validation: {
                                 isRequired: true,
@@ -6208,11 +6231,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accounts',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "azure",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
                         {
                             id: 6,
@@ -6228,11 +6251,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accounts',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "azure",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
                         {
                             id: 6,
@@ -6248,11 +6271,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accounts',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "azure",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
                         {
                             id: 10,
@@ -6260,11 +6283,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             icon: "aws",
                             pageId: 1,
                             groupId: 'accAzure',
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "aws",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
                         {
                             id: 6,
@@ -6280,11 +6303,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accAzure',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "aws",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
                         {
                             id: 6,
@@ -6300,11 +6323,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accAzure',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "aws",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
                         {
                             id: 6,
@@ -6320,11 +6343,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             groupId: 'accAzure',
                             apiKey: "providerSubscriptionId",
                             metrics: {},
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "aws",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
                         {
                             id: 6,
@@ -6338,18 +6361,13 @@ app.post('/api/scenario/modal', function (req, res) {
                             size: 8,
                             pageId: 1,
                             groupId: 'accAzure',
-                            "bindLeafData": {
-                                "hideWhen": "azure",
-                                "bindWith": "authType",
-                                "id": 9
-                            },
                             apiKey: "providerSubscriptionId",
                             metrics: {},
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "aws",
                                 "bindWith": "instanceId",
                                 "id": 9
-                            },
+                            }],
                         },
 
                     ]
@@ -6458,10 +6476,10 @@ app.post('/api/scenario/modal', function (req, res) {
                                     apiKey: "providerSubscriptionId",
                                     metrics: {},
                                     workFlowDefSelectKeys: ["env"],
-                                    "bindLeafData": {
+                                    "bindLeafData": [{
                                         "bindWith": "category",
                                         "id": 1
-                                    }
+                                    }]
                                 },
                                 {
                                     id: 2,
@@ -6473,10 +6491,10 @@ app.post('/api/scenario/modal', function (req, res) {
                                     apiKey: "providerSubscriptionId",
                                     metrics: {},
                                     workFlowDefSelectKeys: ["env", "category"],
-                                    "bindLeafData": {
+                                    "bindLeafData": [{
                                         "bindWith": "subCategory",
                                         "id": 322,
-                                    }
+                                    }]
                                 },
                                 {
                                     id: 3,
@@ -6486,11 +6504,11 @@ app.post('/api/scenario/modal', function (req, res) {
                                     defSelectKey: "envState",
                                     labelSize: 5,
                                     size: 7,
-                                    "bindLeafData": {
+                                    "bindLeafData": [{
                                         "hideWhen": "S-2",
                                         "bindWith": "category",
                                         "id": 1
-                                    }
+                                    }]
                                 },
                                 {
                                     id: 4,
@@ -6500,12 +6518,12 @@ app.post('/api/scenario/modal', function (req, res) {
                                     defSelectKey: 'name',
                                     labelSize: 4,
                                     size: 8,
-                                    "bindLeafData": {
+                                    "bindLeafData": [{
                                         "hideWhen": "KUBERNETES",
                                         "bindWith": "env",
                                         "id": 2,
                                         "isExternal": true,
-                                    }
+                                    }]
                                 },
                                 {
                                     id: 7,
@@ -6563,10 +6581,6 @@ app.post('/api/scenario/modal', function (req, res) {
                             labelSize: 6,
                             size: 6,
                             apiKey: "providerSubscriptionId",
-                            "bindLeafData": {
-                                "bindWith": "env",
-                                "id": 1
-                            }
                         },
                         {
                             id: 3,
@@ -6577,10 +6591,18 @@ app.post('/api/scenario/modal', function (req, res) {
                             labelSize: 6,
                             size: 6,
                             apiKey: "listAlertItemsAPI",
-                            "bindLeafData": {
-                                "bindWith": "cluster",
-                                "id": 2
-                            }
+                            "bindLeafData": [
+                                {
+                                    "bindWith": "env",
+                                    "id": 1,
+                                    "showWhen": 'AWS'
+                                },
+                                {
+                                    "bindWith": "cluster",
+                                    "id": 2,
+                                    "hideWhen": 'S-3'
+                                }
+                            ]
                         },
                         {
                             id: 4,
@@ -6786,11 +6808,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 5,
@@ -6803,11 +6825,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 6,
@@ -6820,11 +6842,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 7,
@@ -6837,11 +6859,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 8,
@@ -6854,11 +6876,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 9,
@@ -6871,11 +6893,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AWS",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 10,
@@ -6888,14 +6910,14 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": [
                                     "AZURE",
                                     "AZURE_STACK"
                                 ],
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 11,
@@ -6908,14 +6930,14 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": [
                                     "AZURE",
                                     "AZURE_STACK"
                                 ],
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 12,
@@ -6928,14 +6950,14 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": [
                                     "AZURE",
                                     "AZURE_STACK"
                                 ],
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 13,
@@ -6948,11 +6970,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AZURE_STACK",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 14,
@@ -6965,11 +6987,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AZURE_STACK",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 15,
@@ -6982,11 +7004,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "AZURE",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 16,
@@ -6999,11 +7021,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 17,
@@ -7016,11 +7038,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 18,
@@ -7033,11 +7055,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 19,
@@ -7050,11 +7072,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 20,
@@ -7067,11 +7089,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 21,
@@ -7084,11 +7106,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 22,
@@ -7101,11 +7123,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 23,
@@ -7118,11 +7140,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 24,
@@ -7135,11 +7157,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "GCP",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 25,
@@ -7152,11 +7174,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 26,
@@ -7169,11 +7191,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 27,
@@ -7186,11 +7208,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 28,
@@ -7203,11 +7225,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 29,
@@ -7220,11 +7242,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 30,
@@ -7237,11 +7259,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 31,
@@ -7254,11 +7276,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 32,
@@ -7271,11 +7293,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 33,
@@ -7288,11 +7310,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         },
                         {
                             "id": 34,
@@ -7305,11 +7327,11 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 7,
                             "metrics": {},
                             "groupId": "subItems",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "showWhen": "KUBERNETES",
                                 "bindWith": "envType",
                                 "id": 3
-                            }
+                            }]
                         }
                     ]
                 }
@@ -7344,12 +7366,12 @@ app.post('/api/scenario/modal', function (req, res) {
                             "size": 12,
                             "type": "nested-multi-dropdown-field-with-input",
                             "apiKey": "cloudConnectionsAPI",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "hideWhen": "false",
                                 "bindWith": "packLevelRate",
                                 "id": 22,
                                 "bindtoComponentId": "v1",
-                            },
+                            }],
                             "defSelectKey": "cloudConnections",
                             'componentList': [
                                 {
@@ -7379,7 +7401,6 @@ app.post('/api/scenario/modal', function (req, res) {
                                             "*"
                                         ]
                                     },
-                                    "bindLeafData": { "id": 'd1', },
                                 },
                                 {
                                     "id": 'd3',
@@ -7394,7 +7415,6 @@ app.post('/api/scenario/modal', function (req, res) {
                                             "*"
                                         ]
                                     },
-                                    "bindLeafData": { "id": 'd2', },
                                 },
                                 {
                                     "id": "v1",
@@ -7459,11 +7479,11 @@ app.post('/api/scenario/modal', function (req, res) {
                                     "label": ""
                                 }
                             ],
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "hideWhen": "KUBERNETES",
                                 "bindWith": "type",
                                 "id": 10
-                            }
+                            }]
                         },
                         {
                             "id": 12,
@@ -7484,11 +7504,11 @@ app.post('/api/scenario/modal', function (req, res) {
                                     "label": ""
                                 }
                             ],
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "hideWhen": "Amazon AWS",
                                 "bindWith": "type",
                                 "id": 10
-                            }
+                            }]
                         }
                     ]
                 }
@@ -7547,10 +7567,10 @@ app.post('/api/scenario/modal', function (req, res) {
                             "mode": "multiple",
                             "apiKey": "listAWSInstanceTypeAPI",
                             "helperText": "Please select appropriate resource",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "bindWith": "category",
                                 "id": "1001"
-                            },
+                            }],
                             "metrics": {}
                         },
                         {
@@ -7682,10 +7702,10 @@ app.post('/api/scenario/modal', function (req, res) {
                             apiKey: 'listAWSInstanceTypeAPI',
                             "defSelectKey": "category",
                             workFlowDefSelectKeys: ["costType"],
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "bindWith": "tagName",
                                 "id": 2
-                            },
+                            }],
                             validation: {
                                 isRequired: true,
                                 type: 'select',
@@ -7704,10 +7724,10 @@ app.post('/api/scenario/modal', function (req, res) {
                             "bindingGroup": 'b1',
                             apiKey: 'listRegionAPI',
                             "defSelectKey": "subCategory",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "bindWith": "category",
                                 "id": 4
-                            },
+                            }],
                         },
                         {
                             "id": 6,
@@ -7796,10 +7816,10 @@ app.post('/api/scenario/modal', function (req, res) {
                             prefix: '₹',
                             groupId: 'g1',
                             defSelectKey: "adjustment",
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "bindWith": "currAmt",
                                 "id": 3
-                            },
+                            }],
                             "bindTargetLeafData": {
                                 "bindWith": "newAmt",
                                 "id": 3
@@ -7849,10 +7869,10 @@ app.post('/api/scenario/modal', function (req, res) {
                                     isHawkUI: true,
                                     prefix: '₹',
                                     defSelectKey: "adjustment",
-                                    "bindLeafData": {
+                                    "bindLeafData": [{
                                         "bindWith": "rate",
                                         "id": 3
-                                    },
+                                    }],
                                     "bindTargetLeafData": {
                                         "bindWith": "total",
                                         "id": 3
@@ -8134,11 +8154,11 @@ app.post('/api/scenario/editRow', function (req, res) {
                             inputType: 'string',
                             labelSize: 12,
                             size: 12,
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "hideWhen": "S-2",
                                 "bindWith": "projects",
                                 "id": 2
-                            },
+                            }],
                         },
                         {
                             id: 4,
@@ -8148,11 +8168,11 @@ app.post('/api/scenario/editRow', function (req, res) {
                             inputType: 'string',
                             labelSize: 12,
                             size: 12,
-                            "bindLeafData": {
+                            "bindLeafData": [{
                                 "hideWhen": "S-2",
                                 "bindWith": "projects",
                                 "id": 2
-                            },
+                            }],
                         },
                         {
                             "id": 13,
