@@ -6595,12 +6595,12 @@ app.post('/api/scenario/modal', function (req, res) {
                                 {
                                     "bindWith": "env",
                                     "id": 1,
-                                    "showWhen": 'AWS'
+                                    "showWhen": ['KUBERNETES']
                                 },
                                 {
                                     "bindWith": "cluster",
                                     "id": 2,
-                                    "hideWhen": 'S-3'
+                                    "showWhen": ['S-2']
                                 }
                             ]
                         },
@@ -6612,7 +6612,73 @@ app.post('/api/scenario/modal', function (req, res) {
                             defSelectKey: 'amt',
                             labelSize: 6,
                             size: 6,
+                            "bindLeafData": [
+                                {
+                                    "bindWith": "cluster",
+                                    "id": 2,
+                                    "showWhen": ['S-2', 'S-1', 'S-4']
+                                }
+                            ]
                         },
+                        {
+                            "id": 13,
+                            "size": 12,
+                            "type": "multi-inputs",
+                            "defSelectKey": "slabs",
+                            groupId: 'g1',
+                            "bindLeafData": [
+                                {
+                                    "showWhen": ['S-2', 'S-1', 'S-4'],
+                                    "bindWith": "cluster",
+                                    "id": 2,
+                                    "isPrimary": true
+                                }
+                            ],
+                            "inputList": [
+                                {
+                                    leafTitle: "Slab",
+                                    indexing: true,
+                                    type: "text-input",
+                                    defSelectKey: "slab",
+                                    inputType: 'string',
+                                    labelSize: 1,
+                                    size: 2,
+                                },
+                                {
+                                    leafTitle: "Rate",
+                                    type: "text-input",
+                                    inputType: 'number',
+                                    defSelectKey: "rate",
+                                    labelSize: 1,
+                                    size: 2,
+                                },
+                                {
+                                    id: 11,
+                                    type: 'price-input',
+                                    inputType: 'currency',
+                                    size: 3,
+                                    isHawkUI: true,
+                                    prefix: '₹',
+                                    defSelectKey: "adjustment",
+                                    "bindLeafData": [{
+                                        "bindWith": "rate",
+                                        "id": 3
+                                    }],
+                                    "bindTargetLeafData": {
+                                        "bindWith": "total",
+                                        "id": 3
+                                    }
+                                },
+                                {
+                                    leafTitle: "",
+                                    type: "text-input",
+                                    inputType: 'currency',
+                                    defSelectKey: "total",
+                                    labelSize: 0,
+                                    size: 2,
+                                },
+                            ]
+                        }
                     ]
                 }
             ];
