@@ -5168,7 +5168,7 @@ app.post('/api/registration/completeregistration', function (req, res) {
 });
 
 app.post('/api/registration/checkemailexists', function (req, res) {
-    let data = "true";
+    let data = "false";
     setResponseHeaders(res);
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
@@ -8746,7 +8746,7 @@ app.post('/api/catalog/ratelines', function (req, res) {
 });
 
 
-app.post('/api/catalog//paginated/ratelines', function (req, res) {
+app.post('/api/catalog/paginated/ratelines', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(rateLinesFakeDataPaginated);
 });
