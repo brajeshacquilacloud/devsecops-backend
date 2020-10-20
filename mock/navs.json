@@ -152,6 +152,7 @@
                             "complexOptions": [
                                 {
                                     "groupName": "Edit Bill",
+                                    "displayOnSlideOutOnly": true,
                                     "groupElements": [
                                         {
                                             "lable": "Apply",
