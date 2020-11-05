@@ -2586,128 +2586,6 @@ function manageGroup() {
     ];
 }
 
-function getCspData() {
-    return [{
-        "nodeTitle": "CSP Dashboard",
-        "pageConfigData": {
-            "title": {
-                "text": "Overview",
-            },
-            "toolBarActions": [],
-        },
-        "leafs": [
-            {
-                "id": 1,
-                "type": "hawkAmountTotal",
-                "apiKey": "getamounttotaldata",
-                "noDataText": "No Summary Data available",
-                "metrics": {},
-                "size": 12,
-            },
-            {
-                "id": 2,
-                "leafTitle": "Manage Users",
-                "type": "hawkDatatable",
-                "apiKey": "listUsersAPI",
-                "size": 12,
-                "noDataText": "No sub-users available",
-                "metrics": {},
-                "hideToolBar": true,
-                "defaultRowPerPage": 10,
-                "toolBarActions": [
-                    {
-                        "toolbarTitle": "Add User",
-                        "modalTitle": "Add User",
-                        "componentsAPIKey": "addUserComponentAPI",
-                        "actionIcon": "AddBox",
-                        "drillParams": [
-                            {
-                                "key": "email"
-                            }
-                        ]
-                    }
-                ],
-                "columns": [
-                    {
-                        "name": "Id",
-                        "key": "userId",
-                        "display": false,
-                    },
-                    {
-                        "name": "Email",
-                        "key": "email",
-                        "display": true,
-                        "filter": true,
-                        "filterType": 'textField',
-                    },
-                    {
-                        "name": "Role",
-                        "key": "roleName",
-                        "display": true,
-                        "filter": true,
-                        "filterType": 'multiselect',
-                    },
-                    {
-                        "name": "Status",
-                        "key": "status",
-                        "type": "status",
-                        "display": true,
-                        "filter": false,
-                    },
-                    {
-                        "name": "Account",
-                        "key": "accounts",
-                        "display": true,
-                        "filter": true,
-                        "filterType": 'multiselect',
-                    },
-                    {
-                        name: 'Options',
-                        key: 'rowAction',
-                        display: true,
-                        filter: false,
-                        type: 'rowAction',
-                        rowActions: [
-                            {
-                                "name": "Delete",
-                                "key": "action",
-                                "type": "delete",
-                                "display": true,
-                                "apiKey": "deleteUserAPI",
-                                "requestParams": [
-                                    {
-                                        "key": "userId"
-                                    },
-                                    {
-                                        "key": "email"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Edit",
-                                "key": "action",
-                                "type": "edit",
-                                "display": true,
-                                "drillTo": "modal",
-                                "modalTitle": "Edit user",
-                                "drillParams": [
-                                    {
-                                        "key": "userId"
-                                    },
-                                    {
-                                        "key": "email"
-                                    }
-                                ],
-                                "componentsAPIKey": "addUserComponentAPI"
-                            }
-                        ]
-                    }
-                ]
-            },
-        ]
-    }];
-}
-
 function getAddEditAzureStackRatePackCardModal() {
     return [
         {
@@ -2966,7 +2844,6 @@ function getEditCloudAccountsData() {
     ]
 }
 
-
 function envSelectionComponentData() {
     return [
         {
@@ -3040,15 +2917,6 @@ function autoGroup() {
         }
     ];
 }
-
-
-//Simple request time logger in middleWare
-app.use('/', function (req, res, next) {
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    next();
-});
-
 app.options("*", function (req, res) {
     res.header("Access-Control-Allow-Origin", req.get("Origin") || "*");
     res.header("Access-Control-Allow-Headers", "authorization,content-type");
@@ -3863,14 +3731,12 @@ app.post('/api/perspective', function (req, res) {
         }
     ];
 
-
     setResponseHeaders(res);
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 
 });
 
-//indivisual end points
 app.post('/api/summary', function (req, res) {
 
     //Add some delay on purpose.
