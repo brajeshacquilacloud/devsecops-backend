@@ -157,8 +157,20 @@
                             },
                             "complexOptions": [
                                 {
-                                    "groupName": "Edit Bill",
+                                    "groupName": "Edit Bill SO",
                                     "displayOnSlideOutOnly": true,
+                                    "groupElements": [
+                                        {
+                                            "lable": "Apply",
+                                            "actionIcon": "apply",
+                                            "type": "save",
+                                            "actionAPIKey": "saveGroupAPI"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "groupName": "Edit Bill Main",
+                                    "displayOnMainOnly": true,
                                     "groupElements": [
                                         {
                                             "lable": "Apply",
