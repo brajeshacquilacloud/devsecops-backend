@@ -101,6 +101,7 @@
                         "name": "Alert",
                         "key": "alert",
                         "type": "alert",
+                        "icon": "policy-alert",
                         "display": true
                     },
                     {
