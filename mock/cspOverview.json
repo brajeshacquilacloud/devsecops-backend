@@ -3,6 +3,7 @@
         "leafs": [
             {
                 "id": 1,
+                "title": "Instance Details",
                 "type": "hawkAmountSummary",
                 "apiKey": "getAnalyticSummaryData",
                 "noDataText": "No Summary Data available",
@@ -82,6 +83,23 @@
                         "type": "status",
                         "display": true,
                         "filter": false
+                    },
+                    {
+                        "name": "Recommendations",
+                        "key": "progressType",
+                        "type": "drill-down",
+                        "drillTo": "overlay",
+                        "display": true,
+                        "overlayDrawerLink": "/catalog",
+                        "drillParams": [
+                            {
+                                "key": "userId"
+                            },
+                            {
+                                "key": "email",
+                                "isPrimary": true
+                            }
+                        ]
                     },
                     {
                         "name": "Progress",
