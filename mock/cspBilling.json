@@ -12,52 +12,33 @@
             {
                 "id": 2,
                 "isHawkUI": true,
-                "leafTitle": "Tabular Insights",
+                "leafTitle": "Cloud Services",
                 "type": "hawkDatatable",
-                "apiKey": "listUsersAPI",
+                "apiKey": "getCloudServiceData",
                 "size": 12,
                 "hideToolBar": true,
                 "filter": false,
-                "subscribedFilterParam": "billingCycleFilter",
-                "noDataText": "No sub-users available",
-                "pagination": false,
-                "expand": {
-                    "expandableRows": true,
-                    "limit": 4,
-                    "componentsAPIKey": "editRowAPI",
-                    "drillParams": [
-                        {
-                            "key": "email"
-                        },
-                        {
-                            "key": "roleName"
-                        }
-                    ]
+                "noDataText": "No Data available",
+                "pagination": true,
+                "grouping": {
+                    "columnIndexes": [
+                        0,
+                        1,
+                        2
+                    ],
+                    "rowHeaderVisible": false
                 },
                 "rowOps": {
                     "operations": [
-                        {
-                            "type": "overview",
-                            "drillParams": [
-                                {
-                                    "key": "userId"
-                                },
-                                {
-                                    "key": "email",
-                                    "isPrimary": true
-                                }
-                            ],
-                            "componentsAPIKey": "customerOverviewDataAPI"
-                        },
                         {
                             "type": "hover-open",
                             "drillTo": "catalog/ratepacks",
                             "drillParams": [
                                 {
-                                    "key": "userId"
+                                    "key": "serviceName"
                                 },
                                 {
-                                    "key": "email"
+                                    "key": "region"
                                 }
                             ]
                         }
@@ -67,84 +48,47 @@
                 "defaultRowPerPage": 10,
                 "columns": [
                     {
-                        "name": "Id",
-                        "key": "userId",
+                        "name": "Name",
+                        "key": "serviceName",
+                        "display": true,
+                        "type": "grouping-prim"
+                    },
+                    {
+                        "name": "Region",
+                        "key": "region",
                         "display": false
                     },
                     {
-                        "name": "Email",
-                        "key": "email",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
+                        "name": "Sub-Category",
+                        "key": "subCat",
+                        "display": false
                     },
                     {
-                        "name": "Role",
-                        "key": "roleName",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "multiselect"
-                    },
-                    {
-                        "name": "Status",
-                        "key": "status",
-                        "type": "status",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
-                        "name": "Pricing Model",
-                        "key": "model",
-                        "type": "info",
-                        "secKey": "desc",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "multiselect"
-                    },
-                    {
-                        "name": "Progress",
-                        "key": "progress",
-                        "secKey": "progressType",
-                        "type": "progress"
-                    },
-                    {
-                        "name": "Amount",
-                        "key": "accounts",
-                        "type": "amount",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "multiselect"
-                    },
-                    {
-                        "name": "Alert",
-                        "key": "alert",
-                        "type": "alert",
-                        "secKey": "progressType",
+                        "name": "Quantity",
+                        "key": "qty",
                         "display": true
                     },
                     {
-                        "name": "Rate Pack Info",
-                        "key": "action",
-                        "type": "drill",
-                        "display": true,
-                        "drillTo": "catalog/ratepacks",
-                        "drillParams": [
-                            {
-                                "key": "userId"
-                            },
-                            {
-                                "key": "email",
-                                "isPrimary": true
-                            }
-                        ]
+                        "name": "Provider Rate",
+                        "key": "pRate",
+                        "display": true
+                    },
+                    {
+                        "name": "Provider Cost",
+                        "key": "pCost",
+                        "display": true
+                    },
+                    {
+                        "name": "Final Rate",
+                        "key": "fRate",
+                        "display": true
+                    },
+                    {
+                        "name": "Final Cost",
+                        "key": "fCost"
                     }
                 ],
                 "toolBarActions": [
-                    {
-                        "type": "label",
-                        "toolbarTitle": "Bills from:",
-                        "dateFormat": "ddd MMMM Do YYYY"
-                    },
                     {
                         "toolbarTitle": "Download",
                         "type": "download",
