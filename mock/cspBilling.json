@@ -51,7 +51,7 @@
                         "name": "Name",
                         "key": "serviceName",
                         "display": true,
-                        "type": "grouping-prim"
+                        "type": "prim-group"
                     },
                     {
                         "name": "Region",
@@ -85,7 +85,8 @@
                     },
                     {
                         "name": "Final Cost",
-                        "key": "fCost"
+                        "key": "fCost",
+                        "display": true
                     }
                 ],
                 "toolBarActions": [
