@@ -3,11 +3,13 @@
         "key": "Azure",
         "data": {
             "serviceName": "Azure",
-            "qty": 1.0,
-            "pRate": 42,
-            "pCost": 0.88,
-            "fRate": 29,
-            "fCost": 75
+            "qty": 1232,
+            "pRate": 422332.67,
+            "pCost": 4343.88,
+            "fRate": 29343433,
+            "fCost": 7434435,
+            "currency": "INR"
+
         },
         "childs": [
             {
@@ -19,7 +21,8 @@
                     "pRate": 5467,
                     "pCost": 0.45,
                     "fRate": 343,
-                    "fCost": 11
+                    "fCost": 11,
+                    "currency": "USD"
                 },
                 "childs": [
                     {
@@ -29,7 +32,8 @@
                             "pRate": 75,
                             "pCost": 1.1,
                             "fRate": 3,
-                            "fCost": 84
+                            "fCost": 84,
+                            "currency": "INR"
                         },
                         "childs": [
                             {
