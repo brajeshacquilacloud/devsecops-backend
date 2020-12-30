@@ -66,27 +66,32 @@
                     {
                         "name": "Quantity",
                         "key": "qty",
-                        "display": true
+                        "display": true,
+                        "type": "number"
                     },
                     {
                         "name": "Provider Rate",
                         "key": "pRate",
-                        "display": true
+                        "display": true,
+                        "type": "amount"
                     },
                     {
                         "name": "Provider Cost",
                         "key": "pCost",
-                        "display": true
+                        "display": true,
+                        "type": "amount"
                     },
                     {
                         "name": "Final Rate",
                         "key": "fRate",
-                        "display": true
+                        "display": true,
+                        "type": "amount"
                     },
                     {
                         "name": "Final Cost",
                         "key": "fCost",
-                        "display": true
+                        "display": true,
+                        "type": "amount"
                     }
                 ],
                 "toolBarActions": [

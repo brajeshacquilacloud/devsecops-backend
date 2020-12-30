@@ -42,7 +42,8 @@
                                     "pRate": 45,
                                     "pCost": 67.1,
                                     "fRate": 300,
-                                    "fCost": 8004
+                                    "fCost": 8004,
+                                    "currency": "USD"
                                 }
                             }
                         ]
@@ -62,7 +63,7 @@
             {
                 "key": "South",
                 "data": {
-                    "qty": 3.0,
+                    "qty": 3008756,
                     "pRate": 23,
                     "pCost": 3.88,
                     "fRate": 49,
@@ -72,7 +73,7 @@
                     {
                         "key": "domain-1",
                         "data": {
-                            "qty": 1.99,
+                            "qty": 14,
                             "pRate": 75,
                             "pCost": 5.1,
                             "fRate": 66,
@@ -85,11 +86,26 @@
                                     "serviceName": "Azure",
                                     "region": "South",
                                     "subCat": "domain-1",
-                                    "qty": 7.7,
+                                    "qty": 73008756,
                                     "pRate": 77,
                                     "pCost": 77.1,
                                     "fRate": 770,
-                                    "fCost": 7004
+                                    "fCost": 7004,
+                                    "currency": "USD"
+                                }
+                            },
+                            {
+                                "isLeaf": true,
+                                "data": {
+                                    "serviceName": "Azure",
+                                    "region": "South",
+                                    "subCat": "domain-1",
+                                    "qty": -5,
+                                    "pRate": 66,
+                                    "pCost": 888.1,
+                                    "fRate": 8656,
+                                    "fCost": 6574.43,
+                                    "currency": "EUR"
                                 }
                             }
                         ]
