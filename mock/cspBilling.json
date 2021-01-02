@@ -39,6 +39,9 @@
                                 },
                                 {
                                     "key": "region"
+                                },
+                                {
+                                    "key": "fRate"
                                 }
                             ]
                         }
@@ -51,7 +54,8 @@
                         "name": "Name",
                         "key": "serviceName",
                         "display": true,
-                        "type": "prim-group"
+                        "type": "prim-group",
+                        "width": 30
                     },
                     {
                         "name": "Region",

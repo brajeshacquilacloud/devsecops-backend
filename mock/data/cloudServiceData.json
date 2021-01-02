@@ -9,7 +9,6 @@
             "fRate": 29343433,
             "fCost": 7434435,
             "currency": "INR"
-
         },
         "childs": [
             {
@@ -77,6 +76,9 @@
                     {
                         "key": "domain-1",
                         "data": {
+                            "serviceName": "Azure",
+                            "region": "South",
+                            "subCat": "domain-1",
                             "qty": 14,
                             "pRate": 75,
                             "pCost": 5.1,
