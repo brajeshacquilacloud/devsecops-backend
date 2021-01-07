@@ -32,6 +32,7 @@
                     "operations": [
                         {
                             "type": "hover-open",
+                            "secKey": "displayOpen",
                             "drillTo": "catalog/ratepacks",
                             "drillParams": [
                                 {

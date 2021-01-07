@@ -21,12 +21,16 @@
                     "pCost": 0.45,
                     "fRate": 343,
                     "fCost": 11,
-                    "currency": "USD"
+                    "currency": "USD",
+                    "displayOpen": false
                 },
                 "childs": [
                     {
                         "key": "domain-1",
                         "data": {
+                            "serviceName": "Azure",
+                            "region": "North",
+                            "subCat": "domain-1",
                             "qty": 1.0,
                             "pRate": 75,
                             "pCost": 1.1,
@@ -66,6 +70,8 @@
             {
                 "key": "South",
                 "data": {
+                    "serviceName": "Azure",
+                    "region": "South",
                     "qty": 3008756,
                     "pRate": 23,
                     "pCost": 3.88,
@@ -97,7 +103,8 @@
                                     "pCost": 77.1,
                                     "fRate": 770,
                                     "fCost": 7004,
-                                    "currency": "USD"
+                                    "currency": "USD",
+                                    "displayOpen": false
                                 }
                             },
                             {
@@ -111,7 +118,8 @@
                                     "pCost": 888.1,
                                     "fRate": 8656,
                                     "fCost": 6574.43,
-                                    "currency": "EUR"
+                                    "currency": "EUR",
+                                    "displayOpen": true
                                 }
                             }
                         ]
