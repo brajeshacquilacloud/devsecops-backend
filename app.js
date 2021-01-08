@@ -13,6 +13,7 @@ const adminSettings = require('./mock/adminSettings.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
+const cloudServiceFakeData = require('./mock/data/cloudServiceData.json');
 
 const navs = require('./mock/navs.json');
 const cspCustomerProfile = require("./mock/customerProfile.json")
@@ -5891,6 +5892,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             leafTitle: "User Role",
                             type: "select",
                             defSelectKey: "projects",
+                            mode: "multiple",
                             labelSize: 3,
                             size: 9,
                             apiKey: "providerSubscriptionId",
@@ -8484,30 +8486,45 @@ app.post("/api/analytic/billProgress", function (req, res) {
 })
 
 app.post('/api/analytic/summarydata', function (req, res) {
-    let data = [{
-        "name": "Previous Billing Cycle Total",
-        "value": 7975678.37,
-        "trend": null,
-        "color": null,
-        "secondaryAmount": null,
-        "secondayAmountText": null,
-        "unit": "$",
-    }, {
-        "name": "Current Billing Cycle",
-        "value": 1369.27,
-        "trend": "up",
-        "color": "green",
-        "unit": "$",
-        "percentage": 24,
-    },
-    {
-        "name": "Total Bil",
-        "value": "1369.27",
-        "trend": "down",
-        "color": "red",
-        "unit": "$",
-        "percentage": 24,
-    }
+    let data = [
+        {
+            "type": "info",
+            "list": [
+                {
+                    "name": "Instance Name",
+                    "value": 'Clone CSP Test'
+                },
+                {
+                    "name": "Instance ID",
+                    "value": 'i-10003000'
+                },
+                {
+                    "name": "Instance Type",
+                    "value": 'm5a.2xlarge'
+                }
+            ],
+        },
+        {
+            "name": "Sum Total",
+            "value": 43243.37,
+            "unit": "$",
+        },
+        {
+            "name": "Current Billing Cycle",
+            "value": 1369.27,
+            "trend": "up",
+            "color": "green",
+            "unit": "$",
+            "percentage": 24,
+        },
+        {
+            "name": "Total Bil",
+            "value": "1369.27",
+            "trend": "down",
+            "color": "red",
+            "unit": "$",
+            "percentage": 24,
+        }
     ];
 
     setResponseHeaders(res);
@@ -10004,6 +10021,14 @@ app.post('/api/page/title', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(data);
 });
+
+
+app.post('/api/cloud-service-data', function (req, res) {
+
+    setResponseHeaders(res);
+    res.status(200).send(cloudServiceFakeData);
+});
+
 
 
 app.post('/api/email/emaillist', function (req, res) {
