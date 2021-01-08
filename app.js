@@ -13,6 +13,7 @@ const adminSettings = require('./mock/adminSettings.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
+const cloudServiceFakeData = require('./mock/data/cloudServiceData.json');
 
 const navs = require('./mock/navs.json');
 const cspCustomerProfile = require("./mock/customerProfile.json")
@@ -5891,6 +5892,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             leafTitle: "User Role",
                             type: "select",
                             defSelectKey: "projects",
+                            mode: "multiple",
                             labelSize: 3,
                             size: 9,
                             apiKey: "providerSubscriptionId",
@@ -10019,6 +10021,14 @@ app.post('/api/page/title', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(data);
 });
+
+
+app.post('/api/cloud-service-data', function (req, res) {
+
+    setResponseHeaders(res);
+    res.status(200).send(cloudServiceFakeData);
+});
+
 
 
 app.post('/api/email/emaillist', function (req, res) {

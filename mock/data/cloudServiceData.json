@@ -1,0 +1,141 @@
+[
+    {
+        "key": "Azure",
+        "data": {
+            "serviceName": "Azure",
+            "qty": 1232,
+            "pRate": 422332.67,
+            "pCost": 4343.88,
+            "fRate": 29343433,
+            "fCost": 7434435,
+            "currency": "INR"
+        },
+        "childs": [
+            {
+                "key": "North",
+                "data": {
+                    "serviceName": "Azure",
+                    "region": "North",
+                    "qty": 176.0,
+                    "pRate": 5467,
+                    "pCost": 0.45,
+                    "fRate": 343,
+                    "fCost": 11,
+                    "currency": "USD",
+                    "displayOpen": false
+                },
+                "childs": [
+                    {
+                        "key": "domain-1",
+                        "data": {
+                            "serviceName": "Azure",
+                            "region": "North",
+                            "subCat": "domain-1",
+                            "qty": 1.0,
+                            "pRate": 75,
+                            "pCost": 1.1,
+                            "fRate": 3,
+                            "fCost": 84,
+                            "currency": "INR"
+                        },
+                        "childs": [
+                            {
+                                "isLeaf": true,
+                                "data": {
+                                    "serviceName": "Azure",
+                                    "region": "North",
+                                    "subCat": "domain-1",
+                                    "qty": 5.4,
+                                    "pRate": 45,
+                                    "pCost": 67.1,
+                                    "fRate": 300,
+                                    "fCost": 8004,
+                                    "currency": "USD"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "key": "domain-2",
+                        "data": {
+                            "qty": 1.0,
+                            "pRate": 9,
+                            "pCost": 0.94,
+                            "fRate": 28,
+                            "fCost": 89
+                        }
+                    }
+                ]
+            },
+            {
+                "key": "South",
+                "data": {
+                    "serviceName": "Azure",
+                    "region": "South",
+                    "qty": 3008756,
+                    "pRate": 23,
+                    "pCost": 3.88,
+                    "fRate": 49,
+                    "fCost": 65
+                },
+                "childs": [
+                    {
+                        "key": "domain-1",
+                        "data": {
+                            "serviceName": "Azure",
+                            "region": "South",
+                            "subCat": "domain-1",
+                            "qty": 14,
+                            "pRate": 75,
+                            "pCost": 5.1,
+                            "fRate": 66,
+                            "fCost": 88
+                        },
+                        "childs": [
+                            {
+                                "isLeaf": true,
+                                "data": {
+                                    "serviceName": "Azure",
+                                    "region": "South",
+                                    "subCat": "domain-1",
+                                    "qty": 73008756,
+                                    "pRate": 77,
+                                    "pCost": 77.1,
+                                    "fRate": 770,
+                                    "fCost": 7004,
+                                    "currency": "USD",
+                                    "displayOpen": false
+                                }
+                            },
+                            {
+                                "isLeaf": true,
+                                "data": {
+                                    "serviceName": "Azure",
+                                    "region": "South",
+                                    "subCat": "domain-1",
+                                    "qty": -5,
+                                    "pRate": 66,
+                                    "pCost": 888.1,
+                                    "fRate": 8656,
+                                    "fCost": 6574.43,
+                                    "currency": "EUR",
+                                    "displayOpen": true
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "key": "AWS",
+        "data": {
+            "qty": 5.0,
+            "pRate": 77,
+            "pCost": 9.88,
+            "fRate": 33,
+            "fCost": 777
+        }
+    }
+]
