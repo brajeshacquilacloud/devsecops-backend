@@ -10,6 +10,7 @@ const rateLine = require('./mock/rateLine.json');
 const ratePack = require('./mock/ratePack.json');
 const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
+const govOverview = require('./mock/govOverview.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
@@ -883,7 +884,6 @@ function getFlamingoData() {
         }
     ];
 }
-
 
 function EditCustomerScreenData() {
     return [
@@ -2918,6 +2918,7 @@ function autoGroup() {
         }
     ];
 }
+
 app.options("*", function (req, res) {
     res.header("Access-Control-Allow-Origin", req.get("Origin") || "*");
     res.header("Access-Control-Allow-Headers", "authorization,content-type");
@@ -3825,6 +3826,8 @@ app.post('/api/metrics', function (req, res) {
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
+
+
 
 app.post('/api/metricdistributionbyutil', function (req, res) {
     //Add some delay on purpose.
@@ -5549,6 +5552,9 @@ app.post('/api/scenario', function (req, res) {
             break;
         case "managePack":
             data = managePack;
+            break;
+        case "govOverview":
+            data = govOverview;
             break;
         /* Old pages config from here  */
 
@@ -10054,6 +10060,23 @@ app.post('/api/csp/analytic/billstatus', function (req, res) {
         { "name": "Draft", "value": 180, "unit": "" },
         { "name": "Customer Review", "value": 200, "unit": "" },
         { "name": "Draft", "value": 300, "unit": "" }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
+
+
+app.post('/api/governance/sankey-data', function (req, res) {
+    const data = [
+        { "fromKey": "d-1", "toKey": "sd-1", "from": "Domain-1", "to": "Sub Domain-1", "amount": 900, "value": 10 },
+        { "fromKey": "d-2", "toKey": "sd-1", "from": "Domain-2", "to": "Sub Domain-1", "amount": 3900, "value": 8 },
+        { "fromKey": "d-2", "toKey": "sd-2", "from": "Domain-2", "to": "Sub Domain-2", "amount": 400, "value": 4 },
+        { "fromKey": "d-3", "toKey": "sd-2", "from": "Domain-3", "to": "Sub Domain-2", "amount": 600, "value": 3 },
+        { "fromKey": "sd-1", "toKey": "c-1", "from": "Sub Domain-1", "to": "Company-1", "amount": 800, "value": 5 },
+        { "fromKey": "sd-1", "toKey": "c-1", "from": "Sub Domain-1", "to": "Company-2", "amount": 800, "value": 2 },
+        { "fromKey": "sd-1", "toKey": "c-1", "from": "Sub Domain-1", "to": "Company-3", "amount": 900, "value": 3 },
+        { "fromKey": "sd-2", "toKey": "c-1", "from": "Sub Domain-2", "to": "Company-3", "amount": 300, "value": 6 }
     ];
     setResponseHeaders(res);
     res.status(200).send(data);
