@@ -1,0 +1,37 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "type": "hawkAmountSummary",
+                "apiKey": "getAmountSummaryData",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
+            },
+            {
+                "id": 2,
+                "size": 12,
+                "filters": [
+                    {
+                        "key": "costOver",
+                        "name": "Show Cost Over",
+                        "apiKey": "providerSubscriptionId"
+                    }
+                ],
+                "title": "Domain Consumptions",
+                "type": "sankey",
+                "apiKey": "getSankeyChartData",
+                "noDataText": "Domain Data available"
+            },
+            {
+                "id": 3,
+                "type": "hawkTabLineChart",
+                "apiKey": "getAnalayticGraphData",
+                "noDataText": "No Data available",
+                "metrics": {},
+                "size": 12
+            }
+        ]
+    }
+]

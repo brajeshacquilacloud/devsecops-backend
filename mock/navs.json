@@ -295,6 +295,42 @@
             ]
         },
         {
+            "id": "stellerScreen",
+            "name": "Steller Screens",
+            "icon": "customer-setting-icon",
+            "page": "ComponentsPage",
+            "link": "/gov",
+            "isHawkUI": true,
+            "subNavs": [
+                {
+                    "id": "govOverview",
+                    "name": "Governance overview",
+                    "link": "/gov/overview",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "toolbarTitle": "Download",
+                            "type": "download",
+                            "downloadOptions": [
+                                {
+                                    "lable": "Download PDF",
+                                    "apiKey": "cspBillSentInvoiceDownloadAPI",
+                                    "fileName": "Billing Overview.pdf"
+                                },
+                                {
+                                    "lable": "Download CSV",
+                                    "apiKey": "cspCustomerReviewInvoiceDownloadAPI",
+                                    "fileName": "Billing Overview.csv"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "id": "cust_Set",
             "name": "Customer Settings",
             "icon": "customer-setting-icon",
