@@ -11,6 +11,7 @@ const ratePack = require('./mock/ratePack.json');
 const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
+const finDomain = require('./mock/finDomain.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
@@ -5555,6 +5556,9 @@ app.post('/api/scenario', function (req, res) {
             break;
         case "govOverview":
             data = govOverview;
+            break;
+        case "finDomain":
+            data = finDomain;
             break;
         /* Old pages config from here  */
 

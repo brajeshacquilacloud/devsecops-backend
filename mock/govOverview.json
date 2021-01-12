@@ -12,17 +12,22 @@
             {
                 "id": 2,
                 "size": 12,
+                "title": "Domain Consumptions",
+                "type": "sankey",
+                "apiKey": "getSankeyChartData",
+                "noDataText": "Domain Data available",
+                "tooltipHeader": "Consumption",
+                "drillDown": {
+                    "drillTo": "governance/finance-domain",
+                    "drillParamKey": "hierarchy_id"
+                },
                 "filters": [
                     {
                         "key": "costOver",
                         "name": "Show Cost Over",
                         "apiKey": "providerSubscriptionId"
                     }
-                ],
-                "title": "Domain Consumptions",
-                "type": "sankey",
-                "apiKey": "getSankeyChartData",
-                "noDataText": "Domain Data available"
+                ]
             },
             {
                 "id": 3,

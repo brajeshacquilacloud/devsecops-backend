@@ -1,0 +1,100 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "type": "hawkAmountSummary",
+                "apiKey": "getAmountSummaryData",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
+            },
+            {
+                "id": 2,
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "apiKey": "listCatalogRateLinesAPI",
+                "size": 12,
+                "hideToolBar": false,
+                "defSelectKey": "mainDatatable",
+                "selectableRows": "multiple",
+                "filter": false,
+                "noDataText": "No rates available",
+                "metrics": {},
+                "defaultRowPerPage": 10,
+                "subscribedDrillParam": ["email","userId"],
+                "columns": [
+                    {
+                        "name": "Id",
+                        "key": "rateId",
+                        "display": false,
+                        "isRowSelection": true
+                    },
+                    {
+                        "name": "Price List",
+                        "key": "priceList",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Name",
+                        "key": "name",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Category",
+                        "key": "category",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "SubCategory",
+                        "key": "subcategory",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Tag",
+                        "key": "tag",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Region",
+                        "key": "region",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Pricing Modal",
+                        "key": "pricingmodal",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Rate",
+                        "key": "rate",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Unit",
+                        "key": "unit",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    }
+                ]
+            }
+        ]
+    }
+]
