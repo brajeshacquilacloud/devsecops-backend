@@ -10078,9 +10078,9 @@ app.post('/api/governance/sankey-data', function (req, res) {
         { "fromKey": "d-2", "toKey": "sd-2", "from": "Domain-2", "to": "Sub Domain-2", "amount": 400, "value": 4 },
         { "fromKey": "d-3", "toKey": "sd-2", "from": "Domain-3", "to": "Sub Domain-2", "amount": 600, "value": 3 },
         { "fromKey": "sd-1", "toKey": "c-1", "from": "Sub Domain-1", "to": "Company-1", "amount": 800, "value": 5 },
-        { "fromKey": "sd-1", "toKey": "c-1", "from": "Sub Domain-1", "to": "Company-2", "amount": 800, "value": 2 },
-        { "fromKey": "sd-1", "toKey": "c-1", "from": "Sub Domain-1", "to": "Company-3", "amount": 900, "value": 3 },
-        { "fromKey": "sd-2", "toKey": "c-1", "from": "Sub Domain-2", "to": "Company-3", "amount": 300, "value": 6 }
+        { "fromKey": "sd-1", "toKey": "c-2", "from": "Sub Domain-1", "to": "Company-2", "amount": 800, "value": 2 },
+        { "fromKey": "sd-1", "toKey": "c-3", "from": "Sub Domain-1", "to": "Company-3", "amount": 900, "value": 3 },
+        { "fromKey": "sd-2", "toKey": "c-3", "from": "Sub Domain-2", "to": "Company-3", "amount": 300, "value": 6 }
     ];
     setResponseHeaders(res);
     res.status(200).send(data);

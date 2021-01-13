@@ -7,7 +7,10 @@
                 "apiKey": "getAmountSummaryData",
                 "noDataText": "No Summary Data available",
                 "metrics": {},
-                "size": 12
+                "size": 12,
+                "subscribedDrillParam": [
+                    "hierarchy_id"
+                ]
             },
             {
                 "id": 2,
@@ -22,7 +25,9 @@
                 "noDataText": "No rates available",
                 "metrics": {},
                 "defaultRowPerPage": 10,
-                "subscribedDrillParam": ["email","userId"],
+                "subscribedDrillParam": [
+                    "hierarchy_id"
+                ],
                 "columns": [
                     {
                         "name": "Id",
