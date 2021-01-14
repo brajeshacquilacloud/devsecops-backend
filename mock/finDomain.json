@@ -7,48 +7,27 @@
                 "apiKey": "getAmountSummaryData",
                 "noDataText": "No Summary Data available",
                 "metrics": {},
-                "size": 12
-            },
-            {
-                "id": 2,
                 "size": 12,
-                "title": "Domain Consumptions",
-                "type": "sankey",
-                "apiKey": "getSankeyChartData",
-                "noDataText": "Domain Data available",
-                "tooltipHeader": "Consumption",
-                "drillDown": {
-                    "drillTo": "governance/finance-domain",
-                    "drillParamKey": "hierarchy_id"
-                },
-                "filters": [
-                    {
-                        "key": "costOver",
-                        "name": "Show Cost Over",
-                        "apiKey": "providerSubscriptionId"
-                    }
+                "subscribedDrillParam": [
+                    "hierarchy_id"
                 ]
             },
             {
-                "id": 3,
-                "type": "hawkTabLineChart",
-                "apiKey": "getAnalayticGraphData",
-                "noDataText": "No Data available",
-                "metrics": {},
-                "size": 12
-            },
-            {
-                "id": 4,
+                "id": 2,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
                 "apiKey": "listCatalogRateLinesAPI",
                 "size": 12,
                 "hideToolBar": false,
                 "defSelectKey": "mainDatatable",
+                "selectableRows": "multiple",
                 "filter": false,
                 "noDataText": "No rates available",
                 "metrics": {},
                 "defaultRowPerPage": 10,
+                "subscribedDrillParam": [
+                    "hierarchy_id"
+                ],
                 "columns": [
                     {
                         "name": "Id",
@@ -78,23 +57,46 @@
                         "filter": false
                     },
                     {
-                        "name": "Rate",
-                        "key": "rate",
+                        "name": "SubCategory",
+                        "key": "subcategory",
+                        "type": "multiselect",
                         "display": true,
                         "filter": false
                     },
                     {
-                        "name": "Amount",
-                        "key": "ratea",
-                        "type": "amount",
+                        "name": "Tag",
+                        "key": "tag",
+                        "type": "multiselect",
                         "display": true,
-                        "filter": false,
-                        "drillTo": "governance/finance-domain",
-                        "drillParams": [
-                            {
-                                "key": "rateId"
-                            }
-                        ]
+                        "filter": false
+                    },
+                    {
+                        "name": "Region",
+                        "key": "region",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Pricing Modal",
+                        "key": "pricingmodal",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Rate",
+                        "key": "rate",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
+                    },
+                    {
+                        "name": "Unit",
+                        "key": "unit",
+                        "type": "multiselect",
+                        "display": true,
+                        "filter": false
                     }
                 ]
             }

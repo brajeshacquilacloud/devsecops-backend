@@ -1,5 +1,5 @@
 {
-    "defalultLandingLink": "/csp/overview",
+    "defalultLandingLink": "/governance/overview",
     "navigations": [
         {
             "id": "aquilaServices",
@@ -296,16 +296,16 @@
         },
         {
             "id": "stellerScreen",
-            "name": "Steller Screens",
+            "name": "Governance",
             "icon": "customer-setting-icon",
             "page": "ComponentsPage",
-            "link": "/gov",
+            "link": "/governance",
             "isHawkUI": true,
             "subNavs": [
                 {
                     "id": "govOverview",
-                    "name": "Governance overview",
-                    "link": "/gov/overview",
+                    "name": "Overview",
+                    "link": "/governance/overview",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "isHawkUI": true,
@@ -327,6 +327,14 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "finDomain",
+                    "name": "Financial Domain ",
+                    "link": "/governance/finance-domain",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "isHawkUI": true
                 }
             ]
         },
