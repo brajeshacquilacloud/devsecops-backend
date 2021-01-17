@@ -6253,6 +6253,29 @@ app.post('/api/scenario/modal', function (req, res) {
             ];
             break;
 
+        case 'AddDimentionModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    actionButtonText: 'Add',
+                    modalWidth: 500,
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Dimentions",
+                            type: "select",
+                            defSelectKey: "dimentions",
+                            mode: "multiple",
+                            labelSize: 3,
+                            size: 9,
+                            apiKey: "costFlowsApi",
+                            metrics: {},
+                        },
+                    ]
+                }
+            ]
+            break;
+
         case 'AddEditPackageModal':
             data = [
                 {
@@ -9533,8 +9556,54 @@ app.post('/api/csp/tenants/fetchtenants', function (req, res) {
 });
 
 
+app.post('/api/explorer/cost-flow', function (req, res) {
+
+    const data = [
+        {
+            "key": "cp",
+            'name': 'Cloud Providers',
+            selected: false
+        },
+        {
+            "key": "resType",
+            'name': 'Resource Type',
+            selected: true
+        },
+        {
+            "key": "regions",
+            'name': 'Regions',
+            selected: false
+
+        },
+        {
+            "key": "OS",
+            'name': "Operating Systems",
+            selected: false
+        }
+        ,
+        {
+            "key": "k8",
+            'name': "Kubernetes",
+            selected: true
+        }
+    ];
+
+    responseStatus = 200;
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
 
 
+app.post('/api/explorer/remove/cost-flow', function (req, res) {
+
+    const data = {}
+    responseStatus = 200;
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
+    res.status(responseStatus).send(data);
+});
 
 app.post('/api/billing-cycles', function (req, res) {
 
