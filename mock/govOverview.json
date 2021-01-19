@@ -17,6 +17,20 @@
                 "apiKey": "getSankeyChartData",
                 "noDataText": "Domain Data available",
                 "tooltipHeader": "Consumption",
+                "toolBar": {
+                    "apiKey": "costFlowsApi",
+                    "deleteApiKey": "deleteCostFlowsApi",
+                    "metrics": {
+                        "type": "chip"
+                    },
+                    "actionApiKey": "SaveDimention",
+                    "modalOps": {
+                        "toolbarTitle": "Add Dimention",
+                        "modalTitle": "Add Dimention",
+                        "type": "modal",
+                        "componentsAPIKey": "addDimentionAPI"
+                    }
+                },
                 "drillDown": {
                     "drillTo": "governance/finance-domain",
                     "drillParamKey": "hierarchy_id"
