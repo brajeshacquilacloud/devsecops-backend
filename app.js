@@ -10141,15 +10141,17 @@ app.post('/api/csp/analytic/billstatus', function (req, res) {
 
 
 app.post('/api/governance/sankey-data', function (req, res) {
+
+    const filterValue = req.body.filters && req.body.filters.identifier ? req.body.filters.identifier[req.body.filters.identifier.toString().length-1] : 9;
     const data = [
         { "fromKey": "d-1", "toKey": "sd-1", "from": "Domain-1", "to": "Sub Domain-1", "amount": 900, "value": 10 },
         { "fromKey": "d-2", "toKey": "sd-1", "from": "Domain-2", "to": "Sub Domain-1", "amount": 3900, "value": 8 },
         { "fromKey": "d-2", "toKey": "sd-2", "from": "Domain-2", "to": "Sub Domain-2", "amount": 400, "value": 4 },
         { "fromKey": "d-3", "toKey": "sd-2", "from": "Domain-3", "to": "Sub Domain-2", "amount": 600, "value": 3 },
         { "fromKey": "sd-1", "toKey": "c-1", "from": "Sub Domain-1", "to": "Company-1", "amount": 800, "value": 5 },
-        { "fromKey": "sd-1", "toKey": "c-2", "from": "Sub Domain-1", "to": "Company-2", "amount": 800, "value": 2 },
+        { "fromKey": "sd-1", "toKey": "c-2", "from": "Sub Domain-1", "to": "Company-2", "amount": 800, "value": 4 },
         { "fromKey": "sd-1", "toKey": "c-3", "from": "Sub Domain-1", "to": "Company-3", "amount": 900, "value": 3 },
-        { "fromKey": "sd-2", "toKey": "c-3", "from": "Sub Domain-2", "to": "Company-3", "amount": 300, "value": 6 }
+        { "fromKey": "sd-2", "toKey": "c-3", "from": "Sub Domain-2", "to": "Company-3", "amount": 300, "value": filterValue }
     ];
     setResponseHeaders(res);
     res.status(200).send(data);
