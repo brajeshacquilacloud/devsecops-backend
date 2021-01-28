@@ -12,6 +12,7 @@ const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
 const finDomain = require('./mock/finDomain.json');
+const newFinDomain = require('./mock/newFinDomain.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
@@ -19,6 +20,8 @@ const cloudServiceFakeData = require('./mock/data/cloudServiceData.json');
 
 const navs = require('./mock/navs.json');
 const cspCustomerProfile = require("./mock/customerProfile.json")
+const infoGraph = require("./mock/data/infoGraph.json")
+
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -5560,6 +5563,10 @@ app.post('/api/scenario', function (req, res) {
         case "finDomain":
             data = finDomain;
             break;
+        case "newFinDomain":
+            data = newFinDomain;
+            break;
+
         /* Old pages config from here  */
 
         case "CostDetailsDashboard":
@@ -9383,6 +9390,14 @@ app.post("/api/csp/customer/contact", function (req, res) {
     res.status(200).send(data);
 })
 
+
+app.post("/api/info-graph", function (req, res) {
+    data = infoGraph;
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
+
+
 app.post("/api/csp/customer/cloudaccounts", function (req, res) {
     const data = [
         {
@@ -10142,7 +10157,7 @@ app.post('/api/csp/analytic/billstatus', function (req, res) {
 
 app.post('/api/governance/sankey-data', function (req, res) {
 
-    const filterValue = req.body.filters && req.body.filters.identifier ? req.body.filters.identifier[req.body.filters.identifier.toString().length-1] : 9;
+    const filterValue = req.body.filters && req.body.filters.identifier ? req.body.filters.identifier[req.body.filters.identifier.toString().length - 1] : 9;
     const data = [
         { "fromKey": "d-1", "toKey": "sd-1", "from": "Domain-1", "to": "Sub Domain-1", "amount": 900, "value": 10 },
         { "fromKey": "d-2", "toKey": "sd-1", "from": "Domain-2", "to": "Sub Domain-1", "amount": 3900, "value": 8 },

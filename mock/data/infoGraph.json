@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "name": "Budget Time Limitation",
+            "value": "2020-1-1   to  2020-12-12"
+        }
+    ],
+    "graphData": {
+        "title": "Budget Capacity",
+        "data": [
+            {
+                "legendTitle": "Other Domain",
+                "displayValue": "$0000.00 (25%)",
+                "value": 25
+            },
+            {
+                "legendTitle": "Current Domain",
+                "displayValue": "$0000.00 (20%)",
+                "value": 20
+            },
+            {
+                "legendTitle": "Capacity",
+                "displayValue": "$3000.00 (20%)",
+                "value": 20
+            }
+        ]
+    }
+}
