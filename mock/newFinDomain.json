@@ -1,0 +1,72 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "subTitle": "Sub-title to displayed for Edit customer screen",
+                "size": 6,
+                "type": "complex-form",
+                "isHeadLess": true,
+                "dataAPIKey": "listResourceOrderListAPI",
+                "actionAPIKey": "saveInstanceTypeChangeAPI",
+                "subscribedDrillParam": [
+                    "email"
+                ],
+                "components": [
+                    {
+                        "title": "Existing Relationship Details",
+                        "subComponents": [
+                            {
+                                "id": 91,
+                                "title": "Domain Name",
+                                "type": "text-input",
+                                "defSelectKey": "domainName",
+                                "inputType": "string",
+                                "labelSize": 3,
+                                "size": 9,
+                                "validation": {
+                                    "isRequired": true,
+                                    "message": "Domain name is the required field"
+                                }
+                            },
+                            {
+                                "id": 92,
+                                "title": "Environment",
+                                "type": "select",
+                                "defSelectKey": "env",
+                                "labelSize": 3,
+                                "size": 9,
+                                "apiKey": "envTypeListAPI"
+                            },
+                            {
+                                "id": 1,
+                                "title": "Customer Type",
+                                "type": "group-radio",
+                                "defSelectKey": "customerType",
+                                "size": 12,
+                                "apiKey": "billOpsUserTypeListAPI",
+                                "helperText": "Please select Customer Type"
+                            },
+                            {
+                                "id": 323,
+                                "title": "Environment-2",
+                                "type": "select",
+                                "defSelectKey": "env2",
+                                "labelSize": 3,
+                                "size": 9,
+                                "apiKey": "envTypeListAPI"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "type": "info-graph",
+                "apiKey": "infoGraphAPI",
+                "size": 6,
+                "noDataText": "No sub-users available"
+            }
+        ]
+    }
+]

@@ -335,6 +335,14 @@
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "isHawkUI": true
+                },
+                {
+                    "id": "newFinDomain",
+                    "name": "Add New Financial Domain",
+                    "link": "/governance/new-finance-domain",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "isHawkUI": true
                 }
             ]
         },
