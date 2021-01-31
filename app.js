@@ -16,6 +16,7 @@ const newFinDomain = require('./mock/newFinDomain.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
+const treeDataFake = require('./mock/data/treeData.json');
 const cloudServiceFakeData = require('./mock/data/cloudServiceData.json');
 
 const navs = require('./mock/navs.json');
@@ -10313,6 +10314,13 @@ app.post("/api/csp/analytic/graph", function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(data);
 })
+
+
+
+app.post('/api/tree-data', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(treeDataFake);
+});
 
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);

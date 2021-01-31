@@ -66,6 +66,43 @@
                 "apiKey": "infoGraphAPI",
                 "size": 6,
                 "noDataText": "No sub-users available"
+            },
+            {
+                "id": 3,
+                "leafTitle": "Preview",
+                "type": "tree-select",
+                "apiKey": "treeDataAPI",
+                "size": 12,
+                "noDataText": "No sub-users available",
+                "toolBarActions": [
+                    {
+                        "key": "add",
+                        "title": "Add",
+                        "type": "modal",
+                        "modalTitle": "Add",
+                        "componentsAPIKey": "addUserComponentAPI"
+                    },
+                    {
+                        "key": "action",
+                        "title": "Action",
+                        "type": "action",
+                        "bindParam": {
+                            "bindWith": "mainDatatable"
+                        },
+                        "complexOptions": [
+                            {
+                                "groupElements": [
+                                    {
+                                        "lable": "Delete",
+                                        "type": "delete",
+                                        "actionIcon": "delete",
+                                        "actionAPIKey": "deleteUserAPI"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
