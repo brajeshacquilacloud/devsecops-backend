@@ -69,7 +69,9 @@
             },
             {
                 "id": 3,
+                "defSelectKey": "clusterSelection",
                 "leafTitle": "Preview",
+                "columnTitle": "Cluster Name",
                 "type": "tree-select",
                 "apiKey": "treeDataAPI",
                 "size": 12,
