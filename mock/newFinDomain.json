@@ -6,6 +6,7 @@
                 "subTitle": "Sub-title to displayed for Edit customer screen",
                 "size": 6,
                 "type": "complex-form",
+                "defSelectKey": "formNewDomain",
                 "isHeadLess": true,
                 "dataAPIKey": "listResourceOrderListAPI",
                 "actionAPIKey": "saveInstanceTypeChangeAPI",

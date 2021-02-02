@@ -2,14 +2,17 @@
   {
     "label": "VP Accounting",
     "key": "VPAccounting",
+    "type": "cluster",
     "children": [
       {
         "label": "iWay",
         "key": "iWay",
+        "type": "service",
         "children": [
           {
             "label": "Universidad de Especialidades del Espíritu Santo",
-            "key": "Universidad"
+            "key": "Universidad",
+            "type": "pod"
           },
           {
             "label": "Marmara University",
