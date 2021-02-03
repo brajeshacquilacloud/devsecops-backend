@@ -61,7 +61,8 @@
                         "key": "subcategory",
                         "type": "multiselect",
                         "display": true,
-                        "filter": false
+                        "filter": false,
+                        "highlight": true
                     },
                     {
                         "name": "Tag",
@@ -89,7 +90,9 @@
                         "key": "rate",
                         "type": "multiselect",
                         "display": true,
-                        "filter": false
+                        "filter": false,
+                        "highlight": true
+
                     },
                     {
                         "name": "Unit",
