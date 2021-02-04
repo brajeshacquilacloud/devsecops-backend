@@ -6,6 +6,7 @@
                 "subTitle": "Sub-title to displayed for Edit customer screen",
                 "size": 6,
                 "type": "complex-form",
+                "defSelectKey": "formNewDomain",
                 "isHeadLess": true,
                 "dataAPIKey": "listResourceOrderListAPI",
                 "actionAPIKey": "saveInstanceTypeChangeAPI",
@@ -66,6 +67,45 @@
                 "apiKey": "infoGraphAPI",
                 "size": 6,
                 "noDataText": "No sub-users available"
+            },
+            {
+                "id": 3,
+                "defSelectKey": "clusterSelection",
+                "leafTitle": "Preview",
+                "columnTitle": "Cluster Name",
+                "type": "tree-select",
+                "apiKey": "treeDataAPI",
+                "size": 12,
+                "noDataText": "No sub-users available",
+                "toolBarActions": [
+                    {
+                        "key": "add",
+                        "title": "Add",
+                        "type": "modal",
+                        "modalTitle": "Add",
+                        "componentsAPIKey": "addUserComponentAPI"
+                    },
+                    {
+                        "key": "action",
+                        "title": "Action",
+                        "type": "action",
+                        "bindParam": {
+                            "bindWith": "mainDatatable"
+                        },
+                        "complexOptions": [
+                            {
+                                "groupElements": [
+                                    {
+                                        "lable": "Delete",
+                                        "type": "delete",
+                                        "actionIcon": "delete",
+                                        "actionAPIKey": "deleteUserAPI"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }

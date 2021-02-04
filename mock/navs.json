@@ -342,7 +342,20 @@
                     "link": "/governance/new-finance-domain",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
-                    "isHawkUI": true
+                    "isHawkUI": true,
+                    "pageFooters": [
+                        {
+                            "key": "saveAction",
+                            "type": "saveAction",
+                            "actionAPIKey": "saveGroupAPI",
+                            "actionButtonText": "Save",
+                            "confirmText": "Are you sure you want to Add New Financial Domain ?",
+                            "bindedComponents": [
+                                "formNewDomain",
+                                "clusterSelection"
+                            ]
+                        }
+                    ]
                 }
             ]
         },

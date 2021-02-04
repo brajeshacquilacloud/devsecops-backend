@@ -1,0 +1,75 @@
+[
+  {
+    "label": "VP Accounting",
+    "key": "VPAccounting",
+    "type": "cluster",
+    "children": [
+      {
+        "label": "iWay",
+        "key": "iWay",
+        "type": "service",
+        "children": [
+          {
+            "label": "Universidad de Especialidades del Espíritu Santo",
+            "key": "Universidad",
+            "type": "pod"
+          },
+          {
+            "label": "Marmara University",
+            "key": "Marmara",
+            "children": [
+              {
+                "label": "Latvian University of Agriculture",
+                "key": "Latvian"
+              },
+              {
+                "label": "Dublin Institute of Technology",
+                "key": "Dublin"
+              }
+            ]
+          },
+          {
+            "label": "Baghdad College of Pharmacy",
+            "key": "Baghdad"
+          }
+        ]
+      },
+      {
+        "label": "KDB",
+        "key": "kdb",
+        "children": [
+          {
+            "label": "Latvian University of Agriculture",
+            "key": "Latvian"
+          },
+          {
+            "label": "Dublin Institute of Technology",
+            "key": "Dublin"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "XML Programming",
+    "key": "XML",
+    "children": [
+      {
+        "label": "Victoria University",
+        "key": "Victoria"
+      },
+      {
+        "label": "Andrews University",
+        "key": "Andrews"
+      },
+      {
+        "label": "Centre Universitaire d'Oum El Bouaghi",
+        "key": "Centre"
+      },
+      {
+        "label": "Dilla University",
+        "key": "Dilla"
+      }
+    ]
+  }
+]
