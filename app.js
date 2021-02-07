@@ -6283,6 +6283,28 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ]
             break;
+        case 'autoCreateDomainAPI':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    actionButtonText: 'Add',
+                    modalWidth: 500,
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Environment",
+                            type: "select",
+                            defSelectKey: "environment",
+                            mode: "multiple",
+                            labelSize: 3,
+                            size: 9,
+                            apiKey: "costFlowsApi",
+                            metrics: {},
+                        },
+                    ]
+                }
+            ]
+            break;
 
         case 'AddEditPackageModal':
             data = [
@@ -9594,7 +9616,7 @@ app.post('/api/explorer/cost-flow', function (req, res) {
         {
             "key": "OS",
             'name': "Operating Systems",
-            selected: false
+            selected: true
         }
         ,
         {
@@ -9943,6 +9965,7 @@ app.post('/api/group/resourceorderlist', function (req, res) {
         "firstName": 'Captain',
         "lastName": 'Steve',
         "designation": 'Developer',
+        // "domainName": 'test-domain',
         "phone": 727600000012,
         "appID": 'APP-1234',
         "envState": true,

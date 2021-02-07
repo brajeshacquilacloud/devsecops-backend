@@ -79,31 +79,23 @@
                 "noDataText": "No sub-users available",
                 "toolBarActions": [
                     {
+                        "key": "pageSearch",
+                        "title": "Search",
+                        "type": "search"
+                    },
+                    {
+                        "key": "delete",
+                        "type": "delete",
+                        "title": "Delete",
+                        "actionAPIKey": "deleteUserAPI"
+                    },
+                    {
                         "key": "add",
                         "title": "Add",
                         "type": "modal",
+                        "color": "success",
                         "modalTitle": "Add",
                         "componentsAPIKey": "addUserComponentAPI"
-                    },
-                    {
-                        "key": "action",
-                        "title": "Action",
-                        "type": "action",
-                        "bindParam": {
-                            "bindWith": "mainDatatable"
-                        },
-                        "complexOptions": [
-                            {
-                                "groupElements": [
-                                    {
-                                        "lable": "Delete",
-                                        "type": "delete",
-                                        "actionIcon": "delete",
-                                        "actionAPIKey": "deleteUserAPI"
-                                    }
-                                ]
-                            }
-                        ]
                     }
                 ]
             }
