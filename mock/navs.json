@@ -334,7 +334,21 @@
                     "link": "/governance/finance-domain",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
-                    "isHawkUI": true
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "title": "Add Domain",
+                            "type": "drill",
+                            "color": "success",
+                            "drillTo": "governance/new-finance-domain"
+                        },
+                        {
+                            "type": "modal",
+                            "modalTitle": "Auto Create",
+                            "componentsAPIKey": "autoCreateDomainAPI",
+                            "title": "Auto Create"
+                        }
+                    ]
                 },
                 {
                     "id": "newFinDomain",
