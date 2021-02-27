@@ -8056,7 +8056,7 @@ app.post('/api/scenario/editRow', function (req, res) {
                         {
                             "name": "Unit",
                             "key": "unit",
-                            "type": "multiselect",
+                            "type": "drill",
                             "display": true,
                             "filter": false
                         },
@@ -8671,12 +8671,12 @@ app.post('/api/user/userlist', function (req, res) {
         ];
     } else {
         data = [
-            { editAPIKey: 'addEditRatePack', salesAmount: 603243240.64, userId: 1, model: 'Season', desc: "Test#-1", progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 10000.4), 'currency': '€' },
-            { editAPIKey: 'addEditRatePack', salesAmount: 12243.43, userId: 2, model: 'Season', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34), 'currency': '¥' },
-            { editAPIKey: 'addUserComponentAPI', salesAmount: null, userId: 3, model: 'Amount', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 20, progressType: 'danger', alert: 'Manage resource before exhaust', fileName: null, mark: false, project: ['prj-2', 'prj-6'], status: true, severity: ['low'], email: 'power.admin@global.in', roleName: 'API list', accounts: '12345', 'currency': '₹' },
-            { editAPIKey: 'addUserComponentAPI', salesAmount: null, userId: 4, model: 'Amount', desc: "Test#-4", progress: 75, progressType: 'info', alert: 'Consumption is high, please rescale', fileName: 'test-image-4.pdf', mark: false, project: ['prj-1', 'prj-4'], status: false, severity: ['critical'], email: 'admin.user@yahoo.in', roleName: 'Network Admin', accounts: Math.floor(Date.now() / 9898.14), 'currency': '£' },
-            { editAPIKey: 'editEnvComponentAPI', salesAmount: 32432.312, userId: 6, model: 'Season', progress: 10, progressType: 'danger', alert: 'Go for it', fileName: null, mark: false, project: ['prj-7', 'prj-9'], status: true, severity: ['critical'], email: 'chain.clouds@global.com', roleName: 'Solo Man', accounts: '12343243245.44', 'currency': '$' },
-            { editAPIKey: 'editEnvComponentAPI', salesAmount: 7123.312, userId: 7, model: 'Amount', desc: "Test#-6", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high.', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 998787.33) }
+            { editAPIKey: 'addEditRatePack',viewChart: '', salesAmount: 603243240.64, userId: 1, model: 'Season', desc: "Test#-1", progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 10000.4), 'currency': '€' },
+            { editAPIKey: 'addEditRatePack', viewChart: '', salesAmount: 12243.43, userId: 2, model: 'Season', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34), 'currency': '¥' },
+            { editAPIKey: 'addUserComponentAPI',viewChart: '',  salesAmount: null, userId: 3, model: 'Amount', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 20, progressType: 'danger', alert: 'Manage resource before exhaust', fileName: null, mark: false, project: ['prj-2', 'prj-6'], status: true, severity: ['low'], email: 'power.admin@global.in', roleName: 'API list', accounts: '12345', 'currency': '₹' },
+            { editAPIKey: 'addUserComponentAPI', viewChart: '', salesAmount: null, userId: 4, model: 'Amount', desc: "Test#-4", progress: 75, progressType: 'info', alert: 'Consumption is high, please rescale', fileName: 'test-image-4.pdf', mark: false, project: ['prj-1', 'prj-4'], status: false, severity: ['critical'], email: 'admin.user@yahoo.in', roleName: 'Network Admin', accounts: Math.floor(Date.now() / 9898.14), 'currency': '£' },
+            { editAPIKey: 'editEnvComponentAPI',viewChart: '',  salesAmount: 32432.312, userId: 6, model: 'Season', progress: 10, progressType: 'danger', alert: 'Go for it', fileName: null, mark: false, project: ['prj-7', 'prj-9'], status: true, severity: ['critical'], email: 'chain.clouds@global.com', roleName: 'Solo Man', accounts: '12343243245.44', 'currency': '$' },
+            { editAPIKey: 'editEnvComponentAPI', viewChart: '', salesAmount: 7123.312, userId: 7, model: 'Amount', desc: "Test#-6", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high.', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 998787.33) }
         ];
     }
     setResponseHeaders(res);
@@ -10192,6 +10192,116 @@ app.post('/api/governance/sankey-data', function (req, res) {
         { "fromKey": "sd-1", "toKey": "c-3", "from": "Sub Domain-1", "to": "Company-3", "amount": 900, "value": 3 },
         { "fromKey": "sd-2", "toKey": "c-3", "from": "Sub Domain-2", "to": "Company-3", "amount": 300, "value": filterValue }
     ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+
+});
+
+app.post('/api/pi-graph-data', function (req, res) {
+    const data = [
+        {
+          name: 'Microsoft Azure',
+          unit: '$',
+          value: 2009819,
+        },
+        {
+          name: 'Amazon AWS',
+          unit: '$',
+          value: 4744583.2,
+        },
+        {
+          name: 'Microsoft Azure1',
+          unit: '$',
+          value: 2009819,
+        },
+        {
+          name: 'Amazon AWS1',
+          unit: '$',
+          value: 4745483.2,
+        },
+        {
+          name: 'Microsoft Azure2',
+          unit: '$',
+          value: 2409819,
+        },
+      ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
+app.post('/api/stackedBarChart', function (req, res) {
+    const data = [{
+        country: 'Lithuania',
+        research: 501.9,
+        marketing: 250,
+        sales: 199,
+      }, {
+        country: 'Czech Republic',
+        research: 301.9,
+        marketing: 222,
+        sales: 251,
+      }, {
+        country: 'Ireland',
+        research: 201.1,
+        marketing: 170,
+        sales: 199,
+      }, {
+        country: 'Germany',
+        research: 165.8,
+        marketing: 122,
+        sales: 90,
+      }, {
+        country: 'Australia',
+        research: 139.9,
+        marketing: 99,
+        sales: 252,
+      }, {
+        country: 'Austria',
+        research: 128.3,
+        marketing: 85,
+        sales: 84,
+      }, {
+        country: 'UK',
+        research: 99,
+        marketing: 93,
+        sales: 142,
+      }, {
+        country: 'Belgium',
+        research: 60,
+        marketing: 50,
+        sales: 55,
+      }, {
+        country: 'The Netherlands',
+        research: 50,
+        marketing: 42,
+        sales: 25,
+      },
+      {
+        country: 'The Netherlands',
+        research: 50,
+        marketing: 42,
+        sales: 25,
+      }];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
+app.post('/api/extended-summary', function (req, res) {
+    const data = [
+        {
+            percentage: '12',
+            progressTitle: 'Budget',
+            amtTitle: 'Current Consumptions',
+            amount: '$150,000.00',
+          },
+          {
+            percentage: '82',
+            progressTitle: 'Budget',
+            amtTitle: 'Forecast Consumptions',
+            amount: '$150,000.00',
+          },
+      ];
+
     setResponseHeaders(res);
     res.status(200).send(data);
 });
