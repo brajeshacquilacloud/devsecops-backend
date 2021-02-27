@@ -52,9 +52,19 @@
                     {
                         "name": "Category",
                         "key": "category",
-                        "type": "multiselect",
                         "display": true,
-                        "filter": false
+                        "type": "drill-down",
+                        "drillTo": "overlay",
+                        "overlayDrawerLink": "/catalog",
+                        "drillParams": [
+                            {
+                                "key": "category"
+                            },
+                            {
+                                "key": "rateId",
+                                "isPrimary": true
+                            }
+                        ]
                     },
                     {
                         "name": "SubCategory",

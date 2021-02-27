@@ -88,8 +88,8 @@
                         "name": "Recommendations",
                         "key": "progressType",
                         "type": "drill-down",
-                        "drillTo": "overlay",
                         "display": true,
+                        "drillTo": "overlay",
                         "overlayDrawerLink": "/catalog",
                         "drillParams": [
                             {

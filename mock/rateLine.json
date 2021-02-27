@@ -1,144 +1,39 @@
 [
     {
-        "leafs": [        
-            {
-                "leafTitle": "Cost Refactor",
-                "type": "tab",
-                "size": 12,
-                "tabs": [
-                    {
-                        "id": 2,
-                        "isHawkUI": true,
-                        "leafTitle": "Tabular",
-                        "type": "hawkDatatable",
-                        "apiKey": "listCatalogRateLinesAPI",
-                        "size": 12,
-                        "hideToolBar": false,
-                        "defSelectKey": "mainDatatable",
-                        "selectableRows": "multiple",
-                        "filter": false,
-                        "noDataText": "No rates available",
-                        "metrics": {},
-                        "defaultRowPerPage": 10,
-                        "subscribedDrillParam": [
-                            "email",
-                            "userId"
-                        ],
-                        "columns": [
-                            {
-                                "name": "Id",
-                                "key": "rateId",
-                                "display": false,
-                                "isRowSelection": true
-                            },
-                            {
-                                "name": "Price List",
-                                "key": "priceList",
-                                "display": true,
-                                "filter": true,
-                                "filterType": "textField"
-                            },
-                            {
-                                "name": "Name",
-                                "key": "name",
-                                "display": true,
-                                "filter": true,
-                                "filterType": "textField"
-                            },
-                            {
-                                "name": "Category",
-                                "key": "category",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "SubCategory",
-                                "key": "subcategory",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Tag",
-                                "key": "tag",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Region",
-                                "key": "region",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Pricing Modal",
-                                "key": "pricingmodal",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Rate",
-                                "key": "rate",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Unit",
-                                "key": "unit",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Edit",
-                                "key": "action",
-                                "sort": false,
-                                "type": "edit",
-                                "display": true,
-                                "drillTo": "modal",
-                                "modalTitle": "Edit Rate",
-                                "drillParams": [
-                                    {
-                                        "key": "rateId"
-                                    }
-                                ],
-                                "componentsAPIKey": "manageRatePack"
-                            }
-                        ]
-                    },
-                    {
-                        "id": 8,
-                        "leafTitle": "Graph",
-                        "type": "hawkTabLineChart",
-                        "apiKey": "getAnalayticGraphData",
-                        "noDataText": "No Data available",
-                        "metrics": {},
-                        "size": 12
-                    }
-                ]
-            },
+        "leafs": [
             {
                 "id": 1,
+                "title": "Instance Details",
+                "type": "hawkAmountSummary",
+                "apiKey": "getAnalyticSummaryData",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
+            },
+            {
+                "id": 2,
                 "isHawkUI": true,
+                "leafTitle": "Tabular",
                 "type": "hawkDatatable",
-                "apiKey": "listCatalogRateLinesPageinatedAPI",
+                "apiKey": "listCatalogRateLinesAPI",
                 "size": 12,
-                "hideToolBar": true,
+                "hideToolBar": false,
+                "defSelectKey": "mainDatatable",
+                "selectableRows": "multiple",
                 "filter": false,
                 "noDataText": "No rates available",
                 "metrics": {},
-                "isServerSide": true,
-                "defaultRowPerPage": 25,
+                "defaultRowPerPage": 10,
+                "subscribedDrillParam": [
+                    "email",
+                    "userId"
+                ],
                 "columns": [
                     {
                         "name": "Id",
                         "key": "rateId",
-                        "display": false
+                        "display": false,
+                        "isRowSelection": true
                     },
                     {
                         "name": "Price List",
@@ -197,32 +92,6 @@
                         "filter": false
                     },
                     {
-                        "name": "Currency",
-                        "key": "currency",
-                        "display": false
-                    },
-                    {
-                        "name": "Rate4",
-                        "key": "ratea",
-                        "type": "amount",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
-                        "name": "Rate5",
-                        "key": "rate5",
-                        "type": "amount",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
-                        "name": "Test",
-                        "key": "test",
-                        "type": "amount",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
                         "name": "Unit",
                         "key": "unit",
                         "type": "multiselect",
@@ -236,16 +105,13 @@
                         "type": "edit",
                         "display": true,
                         "drillTo": "modal",
-                        "modalTitle": "Edit Rate Line",
+                        "modalTitle": "Edit Rate",
                         "drillParams": [
                             {
                                 "key": "rateId"
-                            },
-                            {
-                                "key": "priceList"
                             }
                         ],
-                        "componentsAPIKey": "editRateLineAPI"
+                        "componentsAPIKey": "manageRatePack"
                     }
                 ]
             }
