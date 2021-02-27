@@ -13,6 +13,7 @@ const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
 const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
+const addFinAccountsModal = require('./mock/addFinAccountsModal.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
@@ -7906,6 +7907,9 @@ app.post('/api/scenario/modal', function (req, res) {
             break;
         case "editCloudAccounts":
             data = getEditCloudAccountsData();
+            break;
+        case "addFinAccountsAPI":
+            data = addFinAccountsModal;
             break;
         default:
             data = drillDownData();
