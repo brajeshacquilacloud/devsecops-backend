@@ -120,9 +120,9 @@
                         "name": "Chart",
                         "key": "viewChart",
                         "display": true,
-                        "filter": true,
                         "type": "view-chart",
-                        "isRowSelection": true
+                        "isRowSelection": true,
+                        "componentsAPIKey": "stackedBarChart"
                     },
                     {
                         "name": "Sales Amount",

@@ -8058,6 +8058,11 @@ app.post('/api/scenario/editRow', function (req, res) {
                             "key": "unit",
                             "type": "drill",
                             "display": true,
+                            "drillTo": "governance/finance-domain",
+                            "drillParams": [{
+                                "key": "rateId" 
+                            }],
+                            "drillKey": "unit",
                             "filter": false
                         },
                     ]
