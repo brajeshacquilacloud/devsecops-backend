@@ -1,0 +1,63 @@
+[
+    {
+        "actionAPIKey": "addEditEnvironmentAPI",
+        "leafs": [
+            {
+                "id": 6,
+                "defSelectKey": "gropuResourcesList",
+                "leafTitle": "Tags",
+                "hideToolBar": true,
+                "type": "hawkDatatable",
+                "noDataText": "Group Resources can\\'t be retrieved",
+                "apiKey": "testMetricAPI",
+                "size": 12,
+                "selectableRows": "multiple",
+                "columns": [
+                    {
+                        "display": true,
+                        "name": "Alert Type",
+                        "key": "alertType",
+                        "isRowSelection": true
+                    },
+                    {
+                        "display": true,
+                        "name": "Instance ID",
+                        "key": "instanceId",
+                        "isRowSelection": true
+                    },
+                    {
+                        "display": true,
+                        "name": "Current Instance Type",
+                        "key": "current"
+                    },
+                    {
+                        "display": true,
+                        "name": "Suggested Instance Type",
+                        "key": "suggested"
+                    },
+                    {
+                        "display": true,
+                        "name": "Resource Id",
+                        "key": "resourceId",
+                        "isRowSelection": true
+                    },
+                    {
+                        "display": true,
+                        "name": "Usage Date",
+                        "key": "usageDate"
+                    },
+                    {
+                        "display": true,
+                        "name": "Current Cost",
+                        "key": "costMtm"
+                    },
+                    {
+                        "display": true,
+                        "name": "variance",
+                        "key": "variance"
+                    }
+                ]
+            }
+        ]
+    }
+]

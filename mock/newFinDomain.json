@@ -69,13 +69,13 @@
                 "noDataText": "No sub-users available"
             },
             {
-                "id": 4,
+                "id": 3,
                 "leafTitle": "Manage Resources",
                 "type": "tab",
                 "size": 12,
                 "tabs": [
                     {
-                        "id": 3,
+                        "id": 4,
                         "defSelectKey": "clusterSelection",
                         "leafTitle": "Preview",
                         "columnTitle": "Cluster Name",
@@ -103,11 +103,11 @@
                                 "color": "success",
                                 "modalTitle": "Add Accounts",
                                 "componentsAPIKey": "addFinAccountsAPI"
-                            }
+                            }                            
                         ]
                     },
                     {
-                        "id": 12,
+                        "id": 5,
                         "isHawkUI": true,
                         "leafTitle": "Clusters",
                         "type": "hawkDatatable",
@@ -197,7 +197,6 @@
                                 "display": true,
                                 "filter": false,
                                 "highlight": true
-        
                             },
                             {
                                 "name": "Unit",
@@ -205,6 +204,70 @@
                                 "type": "multiselect",
                                 "display": true,
                                 "filter": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 6,
+                        "defSelectKey": "gropuResourcesList",
+                        "leafTitle": "Tags",
+                        "type": "hawkDatatable",
+                        "noDataText": "Group Resources can\\'t be retrieved",
+                        "size": 12,
+                        "selectableRows": "multiple",
+                        "columns": [
+                            {
+                                "display": true,
+                                "name": "Alert Type",
+                                "key": "alertType",
+                                "isRowSelection": true
+                            },
+                            {
+                                "display": true,
+                                "name": "Instance ID",
+                                "key": "instanceId",
+                                "isRowSelection": true
+                            },
+                            {
+                                "display": true,
+                                "name": "Current Instance Type",
+                                "key": "current"
+                            },
+                            {
+                                "display": true,
+                                "name": "Suggested Instance Type",
+                                "key": "suggested"
+                            },
+                            {
+                                "display": true,
+                                "name": "Resource Id",
+                                "key": "resourceId",
+                                "isRowSelection": true
+                            },
+                            {
+                                "display": true,
+                                "name": "Usage Date",
+                                "key": "usageDate"
+                            },
+                            {
+                                "display": true,
+                                "name": "Current Cost",
+                                "key": "costMtm"
+                            },
+                            {
+                                "display": true,
+                                "name": "variance",
+                                "key": "variance"
+                            }
+                        ],
+                        "toolBarActions": [
+                            {
+                                "title": "Add Tags",
+                                "type": "modal",
+                                "mode": "inline",
+                                "modalTitle": "Add Tags",
+                                "componentsAPIKey": "addTagsAPI",
+                                "actionIcon": "AddBox"
                             }
                         ]
                     }
