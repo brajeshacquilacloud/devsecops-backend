@@ -70,7 +70,7 @@
             },
             {
                 "id": 4,
-                "leafTitle": "",
+                "leafTitle": "Manage Resources",
                 "type": "tab",
                 "size": 12,
                 "tabs": [
@@ -91,6 +91,7 @@
                             {
                                 "key": "delete",
                                 "type": "delete",
+                                "mode": "inline",
                                 "title": "Delete",
                                 "actionAPIKey": "deleteUserAPI"
                             },
