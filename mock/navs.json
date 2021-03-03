@@ -366,7 +366,8 @@
                             "confirmText": "Are you sure you want to Add New Financial Domain ?",
                             "bindedComponents": [
                                 "formNewDomain",
-                                "clusterSelection"
+                                "clusterSelection",
+                                "tags"
                             ]
                         }
                     ]

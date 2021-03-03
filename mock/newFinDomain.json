@@ -209,7 +209,7 @@
                     },
                     {
                         "id": 6,
-                        "defSelectKey": "gropuResourcesList",
+                        "defSelectKey": "tags",
                         "leafTitle": "Tags",
                         "type": "hawkDatatable",
                         "noDataText": "Group Resources can\\'t be retrieved",
