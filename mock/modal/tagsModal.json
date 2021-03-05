@@ -1,0 +1,25 @@
+[
+    {
+        "actionAPIKey": "addEditEnvironmentAPI",
+        "leafs": [
+            {
+                "id": 3,
+                "defSelectKey": "tags",
+                "leafTitle": "Avaliable Tags",
+                "columnTitle": "Tags",
+                "type": "tree-select",
+                "apiKey": "treeDataAPI",
+                "size": 12,
+                "noDataText": "Select Tags.",
+                "actionButtonText":"Add",
+                "toolBarActions": [
+                    {
+                        "key": "pageSearch",
+                        "title": "Search",
+                        "type": "search"
+                    }
+                ]
+            }
+        ]
+    }
+]

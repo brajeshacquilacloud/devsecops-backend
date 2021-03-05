@@ -335,6 +335,12 @@
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "isHawkUI": true,
+
+                    "hierarchySelector": {
+                        "apiKey": "cspBillSentInvoiceDownloadAPI",
+                        "keyToUpdate": "hierarchy_id"
+                    },
+                    
                     "pageActions": [
                         {
                             "title": "Add Domain",

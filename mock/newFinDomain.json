@@ -76,9 +76,10 @@
                 "tabs": [
                     {
                         "id": 4,
-                        "defSelectKey": "clusterSelection",
+                        "defSelectKey": "accounts",
+                        "tabTitle": "Accounts",
                         "leafTitle": "Preview",
-                        "columnTitle": "Cluster Name",
+                        "columnTitle": "Accounts",
                         "type": "tree-select",
                         "size": 12,
                         "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
@@ -92,8 +93,7 @@
                                 "key": "delete",
                                 "type": "delete",
                                 "mode": "inline",
-                                "title": "Delete",
-                                "actionAPIKey": "deleteUserAPI"
+                                "title": "Delete"
                             },
                             {
                                 "key": "add",
@@ -103,171 +103,134 @@
                                 "color": "success",
                                 "modalTitle": "Add Accounts",
                                 "componentsAPIKey": "addFinAccountsAPI"
-                            }                            
+                            }
                         ]
                     },
                     {
                         "id": 5,
-                        "isHawkUI": true,
-                        "leafTitle": "Clusters",
-                        "type": "hawkDatatable",
-                        "apiKey": "listCatalogRateLinesAPI",
+                        "defSelectKey": "containerServices",
+                        "tabTitle": "Container Services",
+                        "leafTitle": "Preview",
+                        "columnTitle": "Containers",
+                        "type": "tree-select",
                         "size": 12,
-                        "hideToolBar": false,
-                        "defSelectKey": "mainDatatable",
-                        "selectableRows": "multiple",
-                        "filter": false,
-                        "noDataText": "No rates available",
-                        "metrics": {},
-                        "defaultRowPerPage": 10,
-                        "subscribedDrillParam": [
-                            "hierarchy_id"
-                        ],
-                        "columns": [
+                        "noDataText": "Select A Containers to see avaliable Containers.",
+                        "toolBarActions": [
                             {
-                                "name": "Id",
-                                "key": "rateId",
-                                "display": false,
-                                "isRowSelection": true
+                                "key": "pageSearch",
+                                "title": "Search",
+                                "type": "search"
                             },
                             {
-                                "name": "Price List",
-                                "key": "priceList",
-                                "display": true,
-                                "filter": true,
-                                "filterType": "textField"
+                                "key": "delete",
+                                "type": "delete",
+                                "mode": "inline",
+                                "title": "Delete"
                             },
                             {
-                                "name": "Name",
-                                "key": "name",
-                                "display": true,
-                                "filter": true,
-                                "filterType": "textField"
-                            },
-                            {
-                                "name": "Category",
-                                "key": "category",
-                                "display": true,
-                                "type": "drill-down",
-                                "drillTo": "overlay",
-                                "overlayDrawerLink": "/catalog",
-                                "drillParams": [
-                                    {
-                                        "key": "category"
-                                    },
-                                    {
-                                        "key": "rateId",
-                                        "isPrimary": true
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "SubCategory",
-                                "key": "subcategory",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false,
-                                "highlight": true
-                            },
-                            {
-                                "name": "Tag",
-                                "key": "tag",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Region",
-                                "key": "region",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Pricing Modal",
-                                "key": "pricingmodal",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
-                            },
-                            {
-                                "name": "Rate",
-                                "key": "rate",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false,
-                                "highlight": true
-                            },
-                            {
-                                "name": "Unit",
-                                "key": "unit",
-                                "type": "multiselect",
-                                "display": true,
-                                "filter": false
+                                "key": "add",
+                                "title": "Add",
+                                "type": "modal",
+                                "mode": "inline",
+                                "color": "success",
+                                "modalTitle": "Add Container",
+                                "componentsAPIKey": "addContainerAPI"
                             }
                         ]
                     },
                     {
                         "id": 6,
-                        "defSelectKey": "tags",
-                        "leafTitle": "Tags",
-                        "type": "hawkDatatable",
-                        "noDataText": "Group Resources can\\'t be retrieved",
+                        "defSelectKey": "cNativeServices",
+                        "tabTitle": "Cloud Native Services",
+                        "leafTitle": "Preview",
+                        "columnTitle": "Services",
+                        "type": "tree-select",
                         "size": 12,
-                        "selectableRows": "multiple",
-                        "columns": [
-                            {
-                                "display": true,
-                                "name": "Alert Type",
-                                "key": "alertType",
-                                "isRowSelection": true
-                            },
-                            {
-                                "display": true,
-                                "name": "Instance ID",
-                                "key": "instanceId",
-                                "isRowSelection": true
-                            },
-                            {
-                                "display": true,
-                                "name": "Current Instance Type",
-                                "key": "current"
-                            },
-                            {
-                                "display": true,
-                                "name": "Suggested Instance Type",
-                                "key": "suggested"
-                            },
-                            {
-                                "display": true,
-                                "name": "Resource Id",
-                                "key": "resourceId",
-                                "isRowSelection": true
-                            },
-                            {
-                                "display": true,
-                                "name": "Usage Date",
-                                "key": "usageDate"
-                            },
-                            {
-                                "display": true,
-                                "name": "Current Cost",
-                                "key": "costMtm"
-                            },
-                            {
-                                "display": true,
-                                "name": "variance",
-                                "key": "variance"
-                            }
-                        ],
+                        "noDataText": "Select A Services to see avaliable Services.",
                         "toolBarActions": [
                             {
-                                "title": "Add Tags",
+                                "key": "pageSearch",
+                                "title": "Search",
+                                "type": "search"
+                            },
+                            {
+                                "key": "delete",
+                                "type": "delete",
+                                "mode": "inline",
+                                "title": "Delete"
+                            },
+                            {
+                                "key": "add",
+                                "title": "Add",
                                 "type": "modal",
                                 "mode": "inline",
+                                "color": "success",
+                                "modalTitle": "Add Services",
+                                "componentsAPIKey": "cloudNativeAPI"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 7,
+                        "defSelectKey": "resources",
+                        "tabTitle": "Resources",
+                        "leafTitle": "Preview",
+                        "columnTitle": "Resources",
+                        "type": "tree-select",
+                        "size": 12,
+                        "noDataText": "Select A Resource to see avaliable Resources.",
+                        "toolBarActions": [
+                            {
+                                "key": "pageSearch",
+                                "title": "Search",
+                                "type": "search"
+                            },
+                            {
+                                "key": "delete",
+                                "type": "delete",
+                                "mode": "inline",
+                                "title": "Delete"
+                            },
+                            {
+                                "key": "add",
+                                "title": "Add",
+                                "type": "modal",
+                                "mode": "inline",
+                                "color": "success",
+                                "modalTitle": "Add Resources",
+                                "componentsAPIKey": "resourcesAPI"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 7,
+                        "defSelectKey": "tags",
+                        "tabTitle": "Tags",
+                        "leafTitle": "Preview",
+                        "columnTitle": "Tags",
+                        "type": "tree-select",
+                        "size": 12,
+                        "noDataText": "Select A tag to see avaliable Tags.",
+                        "toolBarActions": [
+                            {
+                                "key": "pageSearch",
+                                "title": "Search",
+                                "type": "search"
+                            },
+                            {
+                                "key": "delete",
+                                "type": "delete",
+                                "mode": "inline",
+                                "title": "Delete"
+                            },
+                            {
+                                "key": "add",
+                                "title": "Add",
+                                "type": "modal",
+                                "mode": "inline",
+                                "color": "success",
                                 "modalTitle": "Add Tags",
-                                "componentsAPIKey": "addTagsAPI",
-                                "actionIcon": "AddBox"
+                                "componentsAPIKey": "tagsAPI"
                             }
                         ]
                     }

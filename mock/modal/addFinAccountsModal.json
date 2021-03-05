@@ -1,0 +1,25 @@
+[
+    {
+        "actionAPIKey": "addEditEnvironmentAPI",
+        "leafs": [
+            {
+                "id": 3,
+                "defSelectKey": "accounts",
+                "leafTitle": "Avaliable Accounts",
+                "columnTitle": "Cluster Name",
+                "type": "tree-select",
+                "apiKey": "treeDataAPI",
+                "size": 12,
+                "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
+                "actionButtonText":"Add",
+                "toolBarActions": [
+                    {
+                        "key": "pageSearch",
+                        "title": "Search",
+                        "type": "search"
+                    }
+                ]
+            }
+        ]
+    }
+]

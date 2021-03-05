@@ -4,13 +4,13 @@
         "leafs": [
             {
                 "id": 3,
-                "defSelectKey": "clusterSelection",
-                "leafTitle": "Avaliable Accounts",
-                "columnTitle": "Cluster Name",
+                "defSelectKey": "containerServices",
+                "leafTitle": "Avaliable Containers",
+                "columnTitle": "Containers",
                 "type": "tree-select",
                 "apiKey": "treeDataAPI",
                 "size": 12,
-                "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
+                "noDataText": "Select Containers.",
                 "actionButtonText":"Add",
                 "toolBarActions": [
                     {

@@ -13,7 +13,13 @@ const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
 const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
-const addFinAccountsModal = require('./mock/addFinAccountsModal.json');
+
+const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
+const addContainerModal = require('./mock/modal/addContainerModal.json');
+const cloudNativeModal = require('./mock/modal/cloudNativeModal.json');
+const resourcesModal = require('./mock/modal/resourcesModal.json');
+const tagsModal = require('./mock/modal/tagsModal.json');
+
 const addTagsModal = require('./mock/addTagsModal.json');
 const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
@@ -7912,6 +7918,18 @@ app.post('/api/scenario/modal', function (req, res) {
         case "addFinAccountsAPI":
             data = addFinAccountsModal;
             break;
+        case "addContainerAPI":
+            data = addContainerModal;
+            break;
+        case "cloudNativeAPI":
+            data = cloudNativeModal;
+            break;
+        case "resourcesAPI":
+            data = resourcesModal;
+            break;
+        case "tagsAPI":
+            data = tagsModal;
+            break;
         case "addTagsAPI":
             data = addTagsModal;
             break;
@@ -8753,14 +8771,13 @@ app.post('/api/group/save', function (req, res) {
     let data = {
         key: 'UPDATE_GROUP',
         variant: 'success',
-        message: 'Group added succesfully',
+        message: 'Financial Domain added succesfully',
+        drillTo: 'governance/finance-domain',
     };
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
-
 
 app.post('/api/user/deleteuser', function (req, res) {
 

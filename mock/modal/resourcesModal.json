@@ -1,0 +1,25 @@
+[
+    {
+        "actionAPIKey": "addEditEnvironmentAPI",
+        "leafs": [
+            {
+                "id": 3,
+                "defSelectKey": "resources",
+                "leafTitle": "Resources",
+                "columnTitle": "Resources",
+                "type": "tree-select",
+                "apiKey": "treeDataAPI",
+                "size": 12,
+                "noDataText": "Select Resources.",
+                "actionButtonText":"Add",
+                "toolBarActions": [
+                    {
+                        "key": "pageSearch",
+                        "title": "Search",
+                        "type": "search"
+                    }
+                ]
+            }
+        ]
+    }
+]
