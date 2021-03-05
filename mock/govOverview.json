@@ -61,6 +61,7 @@
                 "defSelectKey": "mainDatatable",
                 "filter": false,
                 "noDataText": "No rates available",
+                "noDataAddIcon": true,
                 "metrics": {},
                 "defaultRowPerPage": 10,
                 "columns": [

@@ -11,6 +11,14 @@
                 "size": 12
             },
             {
+                "id": 1,
+                "type": "extended-summary",
+                "apiKey": "extendedSummary",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
+            },
+            {
                 "id": 4,
                 "type": "hawkAnalyticBillStatus",
                 "title": "Billing Status",
@@ -28,6 +36,33 @@
                 "size": 12
             },
             {
+                "id": 81,
+                "type": "piGraph",
+                "title": "Savings By Categories",
+                "apiKey": "getPiGraphData",
+                "noDataText": "No Data available",
+                "metrics": {},
+                "size": 4,
+                "drillUrls":{
+                    "Microsoft Azure": "abc.com",
+                    "Amazon AWS": "abcd.com",
+                    "Microsoft Azure1": "abcde.com",
+                    "Amazon AWS1": "abcdef.com",
+                    "Microsoft Azure2": "abcdefg.com"
+                }
+            },
+            {
+                "id": 82,
+                "type": "stackedBarChart",
+                "title": "Savings By Categories",
+                "apiKey": "stackedBarChart",
+                "noDataText": "No Data available",
+                "metrics": {},
+                "size": 8,
+                "linkText": "Go to Domain Optimizer",
+                "drillLink": "/csp/billing"
+            },
+            {
                 "id": 2,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
@@ -39,6 +74,18 @@
                     "customerId",
                     "id"
                 ],
+                "expand": {
+                    "componentsAPIKey": "editRowAPI",
+                    "expandableRows": true,
+                    "drillParams": [
+                        {
+                            "key": "userId"
+                        },
+                        {
+                            "key": "email"
+                        }
+                    ]
+                },
                 "hideToolBar": true,
                 "filter": false,
                 "noDataText": "No sub-users available",
@@ -68,6 +115,17 @@
                         "filter": true,
                         "filterType": "multiselect",
                         "isRowSelection": true
+                    },
+                    {
+                        "name": "Chart",
+                        "key": "viewChart",
+                        "display": true,
+                        "type": "view-chart",
+                        "isRowSelection": true,
+                        "componentsAPIKey": "viewChartAPI",
+                        "drillParams": [{
+                            "key": "userId"
+                        }]
                     },
                     {
                         "name": "Sales Amount",
