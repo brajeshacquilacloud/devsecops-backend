@@ -8197,6 +8197,32 @@ app.post('/api/scenario/editRow', function (req, res) {
     res.status(200).send(data);
 });
 
+app.post('/api/scenario/viewChart', function (req, res) {
+    addDelay();
+    let data = [
+        {
+            "leafs": [
+                {
+                    "id": 82,
+                    "type": "stackedBarChart",
+                    "title": "Savings By Categories",
+                    "apiKey": "stackedBarChart",
+                    "noDataText": "No Data available",
+                    "metrics": {},
+                    "size": 12,
+                    "linkText": "Go to Domain Optimizer",
+                    // "drillLink": "/csp/billing",
+                    withCard: false
+                },
+            ]
+        }
+    ];
+
+    setResponseHeaders(res);
+    //res.status(500).send({ error: "Internal Server Error" });
+    res.status(200).send(data);
+});
+
 app.post('/api/instance/singular', function (req, res) {
 
     addDelay();

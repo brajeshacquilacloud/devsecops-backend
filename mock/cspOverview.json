@@ -122,7 +122,10 @@
                         "display": true,
                         "type": "view-chart",
                         "isRowSelection": true,
-                        "componentsAPIKey": "stackedBarChart"
+                        "componentsAPIKey": "viewChartAPI",
+                        "drillParams": [{
+                            "key": "userId"
+                        }]
                     },
                     {
                         "name": "Sales Amount",
