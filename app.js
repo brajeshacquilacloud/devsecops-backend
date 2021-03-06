@@ -10362,6 +10362,46 @@ app.post('/api/extended-summary', function (req, res) {
     res.status(200).send(data);
 });
 
+app.post('/api/hierarchy', function (req, res) {
+    const { hierarchyKey } = req.body.drillParams;
+    let label = '';
+    const labelMap = {
+        gov_overview: "Overview",
+        gov_financial: "Financial Domain",
+        gov_new_financial: "Add New Financial Domain",
+    }
+
+    const data = [
+        {
+            key: `${hierarchyKey}`,
+            label: `${labelMap[hierarchyKey]}`,
+            children: [
+                {
+                  "key": "domain1",
+                  "label": "Domain 1",
+                  "children": [
+                    {
+                      "key": "domain5",
+                      "label": "Domain 5"
+                    },
+                    {
+                      "key": "domain6",
+                      "label": "Domain 6"
+                    }
+                  ]
+                },
+                {
+                  "key": "domain2",
+                  "label": "Domain 2"
+                }
+              ]
+        }
+    ];
+    
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
 app.post("/api/csp/analytic/graph", function (req, res) {
     const data = [
         {
