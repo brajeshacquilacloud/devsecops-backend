@@ -7,10 +7,7 @@
                 "apiKey": "getAmountSummaryData",
                 "noDataText": "No Summary Data available",
                 "metrics": {},
-                "size": 12,
-                "subscribedDrillParam": [
-                    "hierarchy_id"
-                ]
+                "size": 12
             },
             {
                 "id": 2,

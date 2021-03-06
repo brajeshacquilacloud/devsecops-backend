@@ -83,6 +83,7 @@
                         "type": "tree-select",
                         "size": 12,
                         "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
+                        "noDataAddIcon": true,
                         "toolBarActions": [
                             {
                                 "key": "pageSearch",
