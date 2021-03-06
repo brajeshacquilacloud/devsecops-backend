@@ -309,6 +309,11 @@
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "isHawkUI": true,
+                    "hierarchyNavigation": {
+                        "apiKey": "hierarchyNavAPI",
+                        "id": "gov_overview",
+                        "parentHierarchy": ["Governance"]
+                    },
                     "pageActions": [
                         {
                             "toolbarTitle": "Download",
@@ -335,6 +340,11 @@
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "isHawkUI": true,
+                    "hierarchyNavigation": {
+                        "apiKey": "hierarchyNavAPI",
+                        "id": "gov_financial",
+                        "parentHierarchy": ["Governance"]
+                    },
                     "pageActions": [
                         {
                             "title": "Add Domain",
@@ -357,6 +367,11 @@
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "isHawkUI": true,
+                    "hierarchyNavigation": {
+                        "apiKey": "hierarchyNavAPI",
+                        "id": "gov_new_financial",
+                        "parentHierarchy": ["Governance"]
+                    },
                     "pageFooters": [
                         {
                             "key": "saveAction",
