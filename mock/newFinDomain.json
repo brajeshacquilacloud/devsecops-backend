@@ -115,6 +115,7 @@
                         "columnTitle": "Containers",
                         "type": "tree-select",
                         "size": 12,
+                        "noDataAddIcon": true,
                         "noDataText": "Select A Containers to see avaliable Containers.",
                         "toolBarActions": [
                             {
@@ -147,6 +148,7 @@
                         "columnTitle": "Services",
                         "type": "tree-select",
                         "size": 12,
+                        "noDataAddIcon": true,
                         "noDataText": "Select A Services to see avaliable Services.",
                         "toolBarActions": [
                             {
@@ -179,6 +181,7 @@
                         "columnTitle": "Resources",
                         "type": "tree-select",
                         "size": 12,
+                        "noDataAddIcon": true,
                         "noDataText": "Select A Resource to see avaliable Resources.",
                         "toolBarActions": [
                             {
@@ -204,13 +207,14 @@
                         ]
                     },
                     {
-                        "id": 7,
+                        "id": 8,
                         "defSelectKey": "tags",
                         "tabTitle": "Tags",
                         "leafTitle": "Preview",
                         "columnTitle": "Tags",
                         "type": "tree-select",
                         "size": 12,
+                        "noDataAddIcon": true,
                         "noDataText": "Select A tag to see avaliable Tags.",
                         "toolBarActions": [
                             {

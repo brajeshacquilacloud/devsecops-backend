@@ -312,7 +312,9 @@
                     "hierarchyNavigation": {
                         "apiKey": "hierarchyNavAPI",
                         "id": "gov_overview",
-                        "parentHierarchy": ["Governance"]
+                        "parentHierarchy": [
+                            "Governance"
+                        ]
                     },
                     "pageActions": [
                         {
@@ -343,7 +345,9 @@
                     "hierarchyNavigation": {
                         "apiKey": "hierarchyNavAPI",
                         "id": "gov_financial",
-                        "parentHierarchy": ["Governance"]
+                        "parentHierarchy": [
+                            "Governance"
+                        ]
                     },
                     "pageActions": [
                         {
@@ -370,7 +374,9 @@
                     "hierarchyNavigation": {
                         "apiKey": "hierarchyNavAPI",
                         "id": "gov_new_financial",
-                        "parentHierarchy": ["Governance"]
+                        "parentHierarchy": [
+                            "Governance"
+                        ]
                     },
                     "pageFooters": [
                         {
@@ -381,7 +387,10 @@
                             "confirmText": "Are you sure you want to Add New Financial Domain ?",
                             "bindedComponents": [
                                 "formNewDomain",
-                                "clusterSelection",
+                                "accounts",
+                                "containerServices",
+                                "cNativeServices",
+                                "resources",
                                 "tags"
                             ]
                         }
