@@ -81,9 +81,11 @@
                         "leafTitle": "Preview",
                         "columnTitle": "Accounts",
                         "type": "tree-select",
+                        "mode": "inline",
                         "size": 12,
                         "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
                         "noDataAddIcon": true,
+                        "apiKey": "treeDataAPI",
                         "toolBarActions": [
                             {
                                 "key": "pageSearch",
