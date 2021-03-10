@@ -10292,18 +10292,21 @@ app.post('/api/stackedBarChart', function (req, res) {
           "series": [
             {
               "key": "Domain1",
+              "name": "Domain1",
               "value": 4500,
-              "currency": "USD"
+              "unit": "USD"
             },
             {
               "key": "Domain2",
+              "name": "Domain2",
               "value": 2000,
-              "currency": "USD"
+              "unit": "USD"
             },
             {
               "key": "Domain3",
+              "name": "Domain3",
               "value": 1000,
-              "currency": "USD"
+              "unit": "USD"
             }
           ]
         },
@@ -10312,18 +10315,21 @@ app.post('/api/stackedBarChart', function (req, res) {
           "series": [
             {
               "key": "Domain1",
-              "value": 6000,
-              "currency": "USD"
+              "name": "Domain1",
+              "value": 4500,
+              "unit": "USD"
             },
             {
               "key": "Domain2",
-              "value": 1000,
-              "currency": "USD"
+              "name": "Domain2",
+              "value": 2000,
+              "unit": "USD"
             },
             {
               "key": "Domain3",
-              "value": 2000,
-              "currency": "USD"
+              "name": "Domain3",
+              "value": 1000,
+              "unit": "USD"
             }
           ]
         },
@@ -10332,18 +10338,21 @@ app.post('/api/stackedBarChart', function (req, res) {
           "series": [
             {
               "key": "Domain1",
-              "value": 2500,
-              "currency": "USD"
+              "name": "Domain1",
+              "value": 4500,
+              "unit": "USD"
             },
             {
               "key": "Domain2",
-              "value": 6000,
-              "currency": "USD"
+              "name": "Domain2",
+              "value": 2000,
+              "unit": "USD"
             },
             {
               "key": "Domain3",
+              "name": "Domain3",
               "value": 1000,
-              "currency": "USD"
+              "unit": "USD"
             }
           ]
         },
@@ -10352,18 +10361,21 @@ app.post('/api/stackedBarChart', function (req, res) {
           "series": [
             {
               "key": "Domain1",
-              "value": 5000,
-              "currency": "USD"
+              "name": "Domain1",
+              "value": 4500,
+              "unit": "USD"
             },
             {
               "key": "Domain2",
-              "value": 4000,
-              "currency": "USD"
+              "name": "Domain2",
+              "value": 2000,
+              "unit": "USD"
             },
             {
               "key": "Domain3",
+              "name": "Domain3",
               "value": 1000,
-              "currency": "USD"
+              "unit": "USD"
             }
           ]
         }
