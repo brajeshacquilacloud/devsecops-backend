@@ -311,9 +311,9 @@
                     "isHawkUI": true,
                     "hierarchyNavigation": {
                         "apiKey": "hierarchyNavAPI",
-                        "id": "gov_overview",
+                        "id": "groupId",
                         "parentHierarchy": [
-                            "Governance"
+                            "Governance", "Overview"
                         ]
                     },
                     "pageActions": [
@@ -344,9 +344,9 @@
                     "isHawkUI": true,
                     "hierarchyNavigation": {
                         "apiKey": "hierarchyNavAPI",
-                        "id": "gov_financial",
+                        "id": "groupId",
                         "parentHierarchy": [
-                            "Governance"
+                            "Governance", "Financial Domain"
                         ]
                     },
                     "pageActions": [
@@ -373,9 +373,9 @@
                     "isHawkUI": true,
                     "hierarchyNavigation": {
                         "apiKey": "hierarchyNavAPI",
-                        "id": "gov_new_financial",
+                        "id": "groupId",
                         "parentHierarchy": [
-                            "Governance"
+                            "Governance", "Add New Financial Domain"
                         ]
                     },
                     "pageFooters": [

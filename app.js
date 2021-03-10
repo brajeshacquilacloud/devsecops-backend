@@ -10363,38 +10363,5953 @@ app.post('/api/extended-summary', function (req, res) {
 });
 
 app.post('/api/hierarchy', function (req, res) {
-    const { hierarchyKey } = req.body.drillParams;
-    let label = '';
-    const labelMap = {
-        gov_overview: "Overview",
-        gov_financial: "Financial Domain",
-        gov_new_financial: "Add New Financial Domain",
-    }
-
     const data = [
         {
-            key: `${hierarchyKey}`,
-            label: `${labelMap[hierarchyKey]}`,
-            children: [
-                {
-                  "key": "domain1",
-                  "label": "Domain 1",
-                  "children": [
+            "groupId": 321,
+            "key": 321,
+            "groupName": "Company",
+            "label": "Company",
+            "groupType": "COMPANY_DOMAIN",
+            "group": {
+                "groupId": 321,
+                "ownerId": 125882,
+                "groupName": "Company",
+                "groupType": "COMPANY_DOMAIN",
+                "createdDate": "2021-03-03T04:34:53.452+00:00",
+                "updatedDate": "2021-03-03T04:34:53.454+00:00",
+                "comment": null,
+                "status": true,
+                "members": [],
+                "props": [
                     {
-                      "key": "domain5",
-                      "label": "Domain 5"
+                        "propType": "CREATE_BUDGET",
+                        "value": "false"
                     },
                     {
-                      "key": "domain6",
-                      "label": "Domain 6"
+                        "propType": "RESET_PERIOD",
+                        "value": "MONTHLY"
+                    },
+                    {
+                        "propType": "START_DATE",
+                        "value": "2020-09-01"
+                    },
+                    {
+                        "propType": "END_DATE",
+                        "value": "2121-03-01"
                     }
-                  ]
+                ],
+                "parentGroupId": -1
+            },
+            "children": [
+                {
+                    "groupId": 323,
+                    "key": 323,
+                    "groupName": "AQ_AWS",
+                    "label": "AQ_AWS",
+                    "groupType": "FINANCE_DOMAIN",
+                    "group": {
+                        "groupId": 323,
+                        "ownerId": 125882,
+                        "groupName": "AQ_AWS",
+                        "groupType": "FINANCE_DOMAIN",
+                        "createdDate": "2021-03-03T04:39:02.936+00:00",
+                        "updatedDate": "2021-03-03T04:39:02.936+00:00",
+                        "comment": null,
+                        "status": true,
+                        "members": [
+                            {
+                                "memberType": "ENVIRONMENT",
+                                "memberId": 353193
+                            }
+                        ],
+                        "props": [
+                            {
+                                "propType": "RESET_PERIOD",
+                                "value": "MONTHLY"
+                            },
+                            {
+                                "propType": "END_DATE",
+                                "value": "2121-03-01"
+                            },
+                            {
+                                "propType": "START_DATE",
+                                "value": "2020-09-01"
+                            }
+                        ],
+                        "parentGroupId": 321
+                    },
+                    "children": [
+                        {
+                            "groupId": 324,
+                            "key": 324,
+                            "groupName": "Aquila Clouds Engineering",
+                            "label": "Aquila Clouds Engineering",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 324,
+                                "ownerId": 125882,
+                                "groupName": "Aquila Clouds Engineering",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.945+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.945+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "244971728197"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "BUDGET",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "true"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 323
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 325,
+                            "key": 325,
+                            "groupName": "Aquila Clouds Marketing",
+                            "label": "Aquila Clouds Marketing",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 325,
+                                "ownerId": 125882,
+                                "groupName": "Aquila Clouds Marketing",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.953+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.953+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "571436563504"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "BUDGET",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "true"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 323
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 326,
+                            "key": 326,
+                            "groupName": "Aquila Clouds SAAS Operations",
+                            "label": "Aquila Clouds SAAS Operations",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 326,
+                                "ownerId": 125882,
+                                "groupName": "Aquila Clouds SAAS Operations",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.958+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.959+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "813367342454"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "true"
+                                    },
+                                    {
+                                        "propType": "BUDGET",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 323
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 327,
+                            "key": 327,
+                            "groupName": "Aquila Clouds Sales",
+                            "label": "Aquila Clouds Sales",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 327,
+                                "ownerId": 125882,
+                                "groupName": "Aquila Clouds Sales",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.964+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.964+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "910030579688"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "true"
+                                    },
+                                    {
+                                        "propType": "BUDGET",
+                                        "value": "500"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 323
+                            },
+                            "children": []
+                        }
+                    ]
                 },
                 {
-                  "key": "domain2",
-                  "label": "Domain 2"
+                    "groupId": 328,
+                    "key": 328,
+                    "groupName": "Sifycsv",
+                    "label": "Sifycsv",
+                    "groupType": "FINANCE_DOMAIN",
+                    "group": {
+                        "groupId": 328,
+                        "ownerId": 125882,
+                        "groupName": "Sifycsv",
+                        "groupType": "FINANCE_DOMAIN",
+                        "createdDate": "2021-03-03T04:39:02.972+00:00",
+                        "updatedDate": "2021-03-03T04:39:02.972+00:00",
+                        "comment": null,
+                        "status": true,
+                        "members": [
+                            {
+                                "memberType": "ENVIRONMENT",
+                                "memberId": 133780
+                            }
+                        ],
+                        "props": [
+                            {
+                                "propType": "START_DATE",
+                                "value": "2020-09-01"
+                            },
+                            {
+                                "propType": "RESET_PERIOD",
+                                "value": "MONTHLY"
+                            },
+                            {
+                                "propType": "CREATE_BUDGET",
+                                "value": "false"
+                            },
+                            {
+                                "propType": "END_DATE",
+                                "value": "2121-03-01"
+                            }
+                        ],
+                        "parentGroupId": 321
+                    },
+                    "children": [
+                        {
+                            "groupId": 329,
+                            "key": 329,
+                            "groupName": "Axis Bank POC",
+                            "label": "Axis Bank POC",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 329,
+                                "ownerId": 125882,
+                                "groupName": "Axis Bank POC",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.978+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.978+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "00f7a6c8-9ba0-4712-a388-48fda85656be"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 330,
+                            "key": 330,
+                            "groupName": "Tea Board India",
+                            "label": "Tea Board India",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 330,
+                                "ownerId": 125882,
+                                "groupName": "Tea Board India",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.983+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.983+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "019b0b1e-b1ff-411a-a4cf-792c35367d02"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 331,
+                            "key": 331,
+                            "groupName": "Max Healthcare Institute Ltd",
+                            "label": "Max Healthcare Institute Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 331,
+                                "ownerId": 125882,
+                                "groupName": "Max Healthcare Institute Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.989+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.989+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "0336464a-c425-408c-a568-15c3416a24b8"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 332,
+                            "key": 332,
+                            "groupName": "Indico Motors",
+                            "label": "Indico Motors",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 332,
+                                "ownerId": 125882,
+                                "groupName": "Indico Motors",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.993+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.993+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "0386c8d8-21d7-4ed1-856c-fa66b5eada44"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 333,
+                            "key": 333,
+                            "groupName": "ISGEC Heavy Engineering Limited",
+                            "label": "ISGEC Heavy Engineering Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 333,
+                                "ownerId": 125882,
+                                "groupName": "ISGEC Heavy Engineering Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:02.998+00:00",
+                                "updatedDate": "2021-03-03T04:39:02.998+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "0632aefb-7e51-4308-a170-4eb69380b706"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 334,
+                            "key": 334,
+                            "groupName": "HarshRoongta.com",
+                            "label": "HarshRoongta.com",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 334,
+                                "ownerId": 125882,
+                                "groupName": "HarshRoongta.com",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.003+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.003+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "06abe061-90f9-4146-a042-44526d16cf6f"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 335,
+                            "key": 335,
+                            "groupName": "ACE Insurance Brokers Pvt. Ltd.",
+                            "label": "ACE Insurance Brokers Pvt. Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 335,
+                                "ownerId": 125882,
+                                "groupName": "ACE Insurance Brokers Pvt. Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.009+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.009+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "07f61e88-7627-4f50-804f-584df66140cb"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 336,
+                            "key": 336,
+                            "groupName": "Advent Global Solutions Ltd.",
+                            "label": "Advent Global Solutions Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 336,
+                                "ownerId": 125882,
+                                "groupName": "Advent Global Solutions Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.013+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.013+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "0951bc8d-d7bc-40d0-9668-9119a55ad78c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 337,
+                            "key": 337,
+                            "groupName": "RxGiftCardLLC",
+                            "label": "RxGiftCardLLC",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 337,
+                                "ownerId": 125882,
+                                "groupName": "RxGiftCardLLC",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.018+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.018+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "0b38fdd7-edf1-4be2-aeaa-683a45a346b5"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 338,
+                            "key": 338,
+                            "groupName": "Seforge",
+                            "label": "Seforge",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 338,
+                                "ownerId": 125882,
+                                "groupName": "Seforge",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.023+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.023+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "134a6de9-1e6b-46f1-baad-76d5a56d3b78"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 339,
+                            "key": 339,
+                            "groupName": "JMT AUTO LTD",
+                            "label": "JMT AUTO LTD",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 339,
+                                "ownerId": 125882,
+                                "groupName": "JMT AUTO LTD",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.028+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.028+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "1775da10-eb53-4c45-9248-7ccb96c2b22b"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 340,
+                            "key": 340,
+                            "groupName": "end customer vodafone and company accenture",
+                            "label": "end customer vodafone and company accenture",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 340,
+                                "ownerId": 125882,
+                                "groupName": "end customer vodafone and company accenture",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.032+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.033+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "17e2083b-4e9e-463e-982f-b996db836fd6"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 341,
+                            "key": 341,
+                            "groupName": "POCRA",
+                            "label": "POCRA",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 341,
+                                "ownerId": 125882,
+                                "groupName": "POCRA",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.038+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.038+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "1efd4c96-eef4-4a2e-b472-0ed43d94044b"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 342,
+                            "key": 342,
+                            "groupName": "Abzooba",
+                            "label": "Abzooba",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 342,
+                                "ownerId": 125882,
+                                "groupName": "Abzooba",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.043+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.043+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "2122b136-7c5b-45fe-8fdb-a52cf429669a"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 343,
+                            "key": 343,
+                            "groupName": "ERGO lnsurance Group",
+                            "label": "ERGO lnsurance Group",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 343,
+                                "ownerId": 125882,
+                                "groupName": "ERGO lnsurance Group",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.049+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.049+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "22007e08-46b1-4e9b-9ec0-c2e068c837e1"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 344,
+                            "key": 344,
+                            "groupName": "Assam Society Comprehensive Financial mgmt Systems",
+                            "label": "Assam Society Comprehensive Financial mgmt Systems",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 344,
+                                "ownerId": 125882,
+                                "groupName": "Assam Society Comprehensive Financial mgmt Systems",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.054+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.054+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "23b0031c-d939-4b8c-a324-aed33f373be1"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 345,
+                            "key": 345,
+                            "groupName": "Sify Technoligies",
+                            "label": "Sify Technoligies",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 345,
+                                "ownerId": 125882,
+                                "groupName": "Sify Technoligies",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.060+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.060+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "24e7cbdf-8155-4ed4-8ea5-429028588e6c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 346,
+                            "key": 346,
+                            "groupName": "Sify Azure Stack",
+                            "label": "Sify Azure Stack",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 346,
+                                "ownerId": 125882,
+                                "groupName": "Sify Azure Stack",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.065+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.065+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "25063949-18c1-4f6d-87f3-6551f8a3d717"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 347,
+                            "key": 347,
+                            "groupName": "SkewTech",
+                            "label": "SkewTech",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 347,
+                                "ownerId": 125882,
+                                "groupName": "SkewTech",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.070+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.070+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "257b7355-45e2-40eb-801c-f6caa709862f"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 348,
+                            "key": 348,
+                            "groupName": "Manappuram Home Finance",
+                            "label": "Manappuram Home Finance",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 348,
+                                "ownerId": 125882,
+                                "groupName": "Manappuram Home Finance",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.075+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.075+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "283cdac6-41ba-45eb-b2f8-8f3c4cfe9fee"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 349,
+                            "key": 349,
+                            "groupName": "AVNI Power and Infra Projects",
+                            "label": "AVNI Power and Infra Projects",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 349,
+                                "ownerId": 125882,
+                                "groupName": "AVNI Power and Infra Projects",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.081+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.081+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "2a0d1b74-2a00-4309-8e02-134721a0a6ab"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 350,
+                            "key": 350,
+                            "groupName": "NAYAGARH DISTRICT CENTRAL COOPERATIVE BANK",
+                            "label": "NAYAGARH DISTRICT CENTRAL COOPERATIVE BANK",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 350,
+                                "ownerId": 125882,
+                                "groupName": "NAYAGARH DISTRICT CENTRAL COOPERATIVE BANK",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.088+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.088+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "2a324bcb-8f7b-4a40-b2a4-e135fa0b9b85"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 351,
+                            "key": 351,
+                            "groupName": "Bangalore Baptist Hospital",
+                            "label": "Bangalore Baptist Hospital",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 351,
+                                "ownerId": 125882,
+                                "groupName": "Bangalore Baptist Hospital",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.094+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.094+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "2b385a20-90f8-44b9-a5fa-d5db68c336c8"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 352,
+                            "key": 352,
+                            "groupName": "bridgemart",
+                            "label": "bridgemart",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 352,
+                                "ownerId": 125882,
+                                "groupName": "bridgemart",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.100+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.100+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "2c3b794d-04ca-4dd0-961c-1e98d5d6c0e1"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 353,
+                            "key": 353,
+                            "groupName": "Sify AIS2 Azure",
+                            "label": "Sify AIS2 Azure",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 353,
+                                "ownerId": 125882,
+                                "groupName": "Sify AIS2 Azure",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.107+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.107+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "30798b3a-e358-4f4f-9414-529ce291627b"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 354,
+                            "key": 354,
+                            "groupName": "Damini Buliders",
+                            "label": "Damini Buliders",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 354,
+                                "ownerId": 125882,
+                                "groupName": "Damini Buliders",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.113+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.113+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "33b533e3-0ace-4c8f-885c-6797d001bd22"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 355,
+                            "key": 355,
+                            "groupName": "DOAGOM (ATMA)",
+                            "label": "DOAGOM (ATMA)",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 355,
+                                "ownerId": 125882,
+                                "groupName": "DOAGOM (ATMA)",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.119+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.119+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 356,
+                            "key": 356,
+                            "groupName": "General Insurance Corporation of India",
+                            "label": "General Insurance Corporation of India",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 356,
+                                "ownerId": 125882,
+                                "groupName": "General Insurance Corporation of India",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.125+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.125+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "369031ca-23a3-4a29-b24e-e172bb9a1d43"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 357,
+                            "key": 357,
+                            "groupName": "Goodluck India Ltd.",
+                            "label": "Goodluck India Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 357,
+                                "ownerId": 125882,
+                                "groupName": "Goodluck India Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.130+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.131+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "38546c84-01f9-4064-a9d9-1ae298781310"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 358,
+                            "key": 358,
+                            "groupName": "IE online media services Pvt Ltd",
+                            "label": "IE online media services Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 358,
+                                "ownerId": 125882,
+                                "groupName": "IE online media services Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.137+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.137+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "38740ac5-0847-4331-a5b8-c688bf081be3"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 359,
+                            "key": 359,
+                            "groupName": "Bergwerff Organic India Pvt Ltd.",
+                            "label": "Bergwerff Organic India Pvt Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 359,
+                                "ownerId": 125882,
+                                "groupName": "Bergwerff Organic India Pvt Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.143+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.143+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "40e20a8c-6fcb-46be-b7a3-89ba648e36f7"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 360,
+                            "key": 360,
+                            "groupName": "Goltens India Pvt Ltd",
+                            "label": "Goltens India Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 360,
+                                "ownerId": 125882,
+                                "groupName": "Goltens India Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.149+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.149+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "423d44a8-0004-4c25-8ae8-f69f14afbad8"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 361,
+                            "key": 361,
+                            "groupName": "Maesukart",
+                            "label": "Maesukart",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 361,
+                                "ownerId": 125882,
+                                "groupName": "Maesukart",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.264+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.264+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "4471eab1-7263-446c-b5a9-1b19920c9d8c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 362,
+                            "key": 362,
+                            "groupName": "The Nagaland State Co-operative Bank Ltd",
+                            "label": "The Nagaland State Co-operative Bank Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 362,
+                                "ownerId": 125882,
+                                "groupName": "The Nagaland State Co-operative Bank Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.270+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.270+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "4472bfa6-1d12-43f5-bdc0-3f3f46e7bec9"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 363,
+                            "key": 363,
+                            "groupName": "Sify Infra CA UIM",
+                            "label": "Sify Infra CA UIM",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 363,
+                                "ownerId": 125882,
+                                "groupName": "Sify Infra CA UIM",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.276+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.276+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "45614688-77d0-4d5d-8c50-c5b72a6d75f0"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 364,
+                            "key": 364,
+                            "groupName": "gmmco ltd",
+                            "label": "gmmco ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 364,
+                                "ownerId": 125882,
+                                "groupName": "gmmco ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.282+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.282+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "457051ff-d001-4f04-9afa-892af205a547"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 365,
+                            "key": 365,
+                            "groupName": "Credible Insurance Solutions Pvt Ltd",
+                            "label": "Credible Insurance Solutions Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 365,
+                                "ownerId": 125882,
+                                "groupName": "Credible Insurance Solutions Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.288+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.288+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "46e46ff3-cd92-45b2-9181-54ad3455c9ac"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 366,
+                            "key": 366,
+                            "groupName": "Suhana Academy Pvt Ltd",
+                            "label": "Suhana Academy Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 366,
+                                "ownerId": 125882,
+                                "groupName": "Suhana Academy Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.293+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.294+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "483d3e99-2364-46cb-9a12-5f749731b9aa"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 367,
+                            "key": 367,
+                            "groupName": "Eco-Connect Ventures Pvt. Ltd.",
+                            "label": "Eco-Connect Ventures Pvt. Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 367,
+                                "ownerId": 125882,
+                                "groupName": "Eco-Connect Ventures Pvt. Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.299+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.299+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "4d2ce7eb-ba08-4615-824d-260ad8e13548"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 368,
+                            "key": 368,
+                            "groupName": "Tech Mind Consulting",
+                            "label": "Tech Mind Consulting",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 368,
+                                "ownerId": 125882,
+                                "groupName": "Tech Mind Consulting",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.305+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.305+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "4ea599ec-2ac5-4603-b396-d2a15f1d163f"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 369,
+                            "key": 369,
+                            "groupName": "Saint-Gobain Grindwell Norton Ltd",
+                            "label": "Saint-Gobain Grindwell Norton Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 369,
+                                "ownerId": 125882,
+                                "groupName": "Saint-Gobain Grindwell Norton Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.311+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.311+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "558ae9be-dfa4-4ebf-873c-14006ee51778"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 370,
+                            "key": 370,
+                            "groupName": "WhtiteWorks Pvt Ltd",
+                            "label": "WhtiteWorks Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 370,
+                                "ownerId": 125882,
+                                "groupName": "WhtiteWorks Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.317+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.317+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "5622729c-196a-4d32-b29e-e08d0426071c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 371,
+                            "key": 371,
+                            "groupName": "Ace Insurance Brokers Pvt. Ltd.",
+                            "label": "Ace Insurance Brokers Pvt. Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 371,
+                                "ownerId": 125882,
+                                "groupName": "Ace Insurance Brokers Pvt. Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.325+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.325+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "5989bf2d-ca74-493d-8a5a-e74004dc99da"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 372,
+                            "key": 372,
+                            "groupName": "Servion",
+                            "label": "Servion",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 372,
+                                "ownerId": 125882,
+                                "groupName": "Servion",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.332+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.332+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "5c29c730-088c-48d9-8544-59eab9ee187c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 373,
+                            "key": 373,
+                            "groupName": "Remiel",
+                            "label": "Remiel",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 373,
+                                "ownerId": 125882,
+                                "groupName": "Remiel",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.339+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.339+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "5d756b51-f7fc-4b5f-a565-26a46cbd9f4c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 374,
+                            "key": 374,
+                            "groupName": "Lal & Sons Imp Exp Pvt Ltd",
+                            "label": "Lal & Sons Imp Exp Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 374,
+                                "ownerId": 125882,
+                                "groupName": "Lal & Sons Imp Exp Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.344+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.344+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "5f59877c-8a78-4039-bf7a-4eb29843d72a"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 375,
+                            "key": 375,
+                            "groupName": "Ace Insurance Brokers Pvt. Ltd.",
+                            "label": "Ace Insurance Brokers Pvt. Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 375,
+                                "ownerId": 125882,
+                                "groupName": "Ace Insurance Brokers Pvt. Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.350+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.350+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "607a2407-b726-4dd0-be9d-fbf0ccc20029"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 376,
+                            "key": 376,
+                            "groupName": "Manappuram POC",
+                            "label": "Manappuram POC",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 376,
+                                "ownerId": 125882,
+                                "groupName": "Manappuram POC",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.356+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.356+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "66b8896d-3047-4c2e-b306-8c6f4ada8e76"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 377,
+                            "key": 377,
+                            "groupName": "Sarthi",
+                            "label": "Sarthi",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 377,
+                                "ownerId": 125882,
+                                "groupName": "Sarthi",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.362+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.362+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "6edf9b5a-aee9-4596-a0da-af3415efcdae"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 378,
+                            "key": 378,
+                            "groupName": "Calyx Spaces LLP",
+                            "label": "Calyx Spaces LLP",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 378,
+                                "ownerId": 125882,
+                                "groupName": "Calyx Spaces LLP",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.368+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.368+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "6f2aecdd-87bf-4682-b47d-6d01f9718cf5"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 379,
+                            "key": 379,
+                            "groupName": "Tamilnadu Engineering Admission 2019",
+                            "label": "Tamilnadu Engineering Admission 2019",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 379,
+                                "ownerId": 125882,
+                                "groupName": "Tamilnadu Engineering Admission 2019",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.376+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.376+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "70b12fbf-bacf-483c-9fc6-243a15d73ebc"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 380,
+                            "key": 380,
+                            "groupName": "MMRDA",
+                            "label": "MMRDA",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 380,
+                                "ownerId": 125882,
+                                "groupName": "MMRDA",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.383+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.383+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "72d2b3f5-c9b9-4885-a145-a22627826982"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 381,
+                            "key": 381,
+                            "groupName": "Saija Finance Pvt. Ltd.",
+                            "label": "Saija Finance Pvt. Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 381,
+                                "ownerId": 125882,
+                                "groupName": "Saija Finance Pvt. Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.389+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.389+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "74bf47f5-a3d6-42df-8b8d-d0ad96a8782f"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 382,
+                            "key": 382,
+                            "groupName": "Food and Drug Administration",
+                            "label": "Food and Drug Administration",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 382,
+                                "ownerId": 125882,
+                                "groupName": "Food and Drug Administration",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.396+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.396+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "75b4e3e5-adbf-4005-84c1-d01d5498ad85"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 383,
+                            "key": 383,
+                            "groupName": "Andy Technologies Ltd",
+                            "label": "Andy Technologies Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 383,
+                                "ownerId": 125882,
+                                "groupName": "Andy Technologies Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.403+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.403+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "7d4630d0-e8c6-45bc-bea0-0cec9f9676a3"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 384,
+                            "key": 384,
+                            "groupName": "Credo Brands Marketing Pvt Ltd",
+                            "label": "Credo Brands Marketing Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 384,
+                                "ownerId": 125882,
+                                "groupName": "Credo Brands Marketing Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.410+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.410+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "7d560675-c354-4129-b6eb-86d35b5e7336"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 385,
+                            "key": 385,
+                            "groupName": "APY Pvt Ltd",
+                            "label": "APY Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 385,
+                                "ownerId": 125882,
+                                "groupName": "APY Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.418+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.418+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "7e0091c6-f733-49e5-9277-d2d494d401e1"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 386,
+                            "key": 386,
+                            "groupName": "Morya agro",
+                            "label": "Morya agro",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 386,
+                                "ownerId": 125882,
+                                "groupName": "Morya agro",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.425+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.425+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "7f2cb812-9b95-4fe3-9d89-64a51adfd9b2"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 387,
+                            "key": 387,
+                            "groupName": "Sify NIA",
+                            "label": "Sify NIA",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 387,
+                                "ownerId": 125882,
+                                "groupName": "Sify NIA",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.432+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.432+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "81a80984-ba00-4465-b4af-b6fde45a327e"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 388,
+                            "key": 388,
+                            "groupName": "HCL Avitas Pvt Ltd",
+                            "label": "HCL Avitas Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 388,
+                                "ownerId": 125882,
+                                "groupName": "HCL Avitas Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.441+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.441+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "8298adcc-f85e-4fb0-ac55-a17191ce06eb"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 389,
+                            "key": 389,
+                            "groupName": "Century Metal Recycling Private Limited ",
+                            "label": "Century Metal Recycling Private Limited ",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 389,
+                                "ownerId": 125882,
+                                "groupName": "Century Metal Recycling Private Limited ",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.448+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.448+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "843c2311-4f1a-4b01-91af-3b3554b0cd68"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 390,
+                            "key": 390,
+                            "groupName": "Abdos Lamitubes Private Limited",
+                            "label": "Abdos Lamitubes Private Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 390,
+                                "ownerId": 125882,
+                                "groupName": "Abdos Lamitubes Private Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.455+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.455+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "8bb87ac6-0fc6-4ed0-b080-d28833a09ebb"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 391,
+                            "key": 391,
+                            "groupName": "KSN Exports Pvt Ltd",
+                            "label": "KSN Exports Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 391,
+                                "ownerId": 125882,
+                                "groupName": "KSN Exports Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.463+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.463+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "8eb0b349-1fbb-4e6a-8476-a99224a9fa7d"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 392,
+                            "key": 392,
+                            "groupName": "SifyTeamIS",
+                            "label": "SifyTeamIS",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 392,
+                                "ownerId": 125882,
+                                "groupName": "SifyTeamIS",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.471+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.471+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "90891cf0-33fb-46c1-a057-e400851c54ce"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 393,
+                            "key": 393,
+                            "groupName": "Amino Motors Ltd",
+                            "label": "Amino Motors Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 393,
+                                "ownerId": 125882,
+                                "groupName": "Amino Motors Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.478+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.478+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "92916e2e-7df7-418b-beef-bb52fcb97873"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 394,
+                            "key": 394,
+                            "groupName": "Simran Iron works ltd",
+                            "label": "Simran Iron works ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 394,
+                                "ownerId": 125882,
+                                "groupName": "Simran Iron works ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.486+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.486+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "9540e749-ac35-4297-80f9-1799193a05a7"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 395,
+                            "key": 395,
+                            "groupName": "Magnitude HR services",
+                            "label": "Magnitude HR services",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 395,
+                                "ownerId": 125882,
+                                "groupName": "Magnitude HR services",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.494+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.494+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "954890fa-40ca-46f9-aafc-56b07c558063"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 396,
+                            "key": 396,
+                            "groupName": "Amol Publishers",
+                            "label": "Amol Publishers",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 396,
+                                "ownerId": 125882,
+                                "groupName": "Amol Publishers",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.501+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.501+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "965ff136-4011-4c51-94b0-0b400c0aa1fa"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 397,
+                            "key": 397,
+                            "groupName": "United India Insurance Co. Ltd",
+                            "label": "United India Insurance Co. Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 397,
+                                "ownerId": 125882,
+                                "groupName": "United India Insurance Co. Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.509+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.509+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "99786491-d8bc-4175-8bc4-e9285b029b41"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 398,
+                            "key": 398,
+                            "groupName": "BELAGAVI SMART CITY LIMITED",
+                            "label": "BELAGAVI SMART CITY LIMITED",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 398,
+                                "ownerId": 125882,
+                                "groupName": "BELAGAVI SMART CITY LIMITED",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.516+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.516+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "9a668fdf-22d1-4ab1-9437-af54e448c249"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 399,
+                            "key": 399,
+                            "groupName": "Vishal Megamart",
+                            "label": "Vishal Megamart",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 399,
+                                "ownerId": 125882,
+                                "groupName": "Vishal Megamart",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.525+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.525+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "9afff424-8480-46bb-85b2-ae981fdb1cff"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 400,
+                            "key": 400,
+                            "groupName": "HOWE ROBINSON SHIPPING INDIA PVT LTD.",
+                            "label": "HOWE ROBINSON SHIPPING INDIA PVT LTD.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 400,
+                                "ownerId": 125882,
+                                "groupName": "HOWE ROBINSON SHIPPING INDIA PVT LTD.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.533+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.533+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "9b9acabb-8f5b-463b-a847-306920927d30"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 401,
+                            "key": 401,
+                            "groupName": "National Institute of Urban Affairs",
+                            "label": "National Institute of Urban Affairs",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 401,
+                                "ownerId": 125882,
+                                "groupName": "National Institute of Urban Affairs",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.544+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.544+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "9ca839a5-ed21-4b40-9d89-14a4cc175c36"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 402,
+                            "key": 402,
+                            "groupName": "Imperial Auto Industries Ltd",
+                            "label": "Imperial Auto Industries Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 402,
+                                "ownerId": 125882,
+                                "groupName": "Imperial Auto Industries Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.552+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.552+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "9e023eb5-5c87-4663-8587-d8376a23afdc"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 403,
+                            "key": 403,
+                            "groupName": "Creative arts limited",
+                            "label": "Creative arts limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 403,
+                                "ownerId": 125882,
+                                "groupName": "Creative arts limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.560+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.560+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "9f46ff5e-6983-4f6a-88c6-9c768c0cd522"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 404,
+                            "key": 404,
+                            "groupName": "OnProcess Technology India Pvt Ltd",
+                            "label": "OnProcess Technology India Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 404,
+                                "ownerId": 125882,
+                                "groupName": "OnProcess Technology India Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.567+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.567+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "9fb7f5de-057b-4b00-b650-143febd38178"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 405,
+                            "key": 405,
+                            "groupName": "RARE VECTORS PRIVATE LIMITED",
+                            "label": "RARE VECTORS PRIVATE LIMITED",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 405,
+                                "ownerId": 125882,
+                                "groupName": "RARE VECTORS PRIVATE LIMITED",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.575+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.575+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "a43694cf-1a05-4b1f-8ec5-af13a919dd7a"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 406,
+                            "key": 406,
+                            "groupName": "VITAL STRATEGIES",
+                            "label": "VITAL STRATEGIES",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 406,
+                                "ownerId": 125882,
+                                "groupName": "VITAL STRATEGIES",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.584+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.584+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "a4f43865-5e0e-4ac7-a4c4-7157275ba3cc"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 407,
+                            "key": 407,
+                            "groupName": "Kashila Jwellers",
+                            "label": "Kashila Jwellers",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 407,
+                                "ownerId": 125882,
+                                "groupName": "Kashila Jwellers",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.592+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.592+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "a6c5d63e-a825-45fa-a925-a8fb24dc1a7b"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 408,
+                            "key": 408,
+                            "groupName": "Orissa Bengal carrier ltd",
+                            "label": "Orissa Bengal carrier ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 408,
+                                "ownerId": 125882,
+                                "groupName": "Orissa Bengal carrier ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.599+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.599+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "a7177875-1501-4f50-8aca-eb118bb40e2c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 409,
+                            "key": 409,
+                            "groupName": "Avantha Ergo Life Insurance Co. Ltd.",
+                            "label": "Avantha Ergo Life Insurance Co. Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 409,
+                                "ownerId": 125882,
+                                "groupName": "Avantha Ergo Life Insurance Co. Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.608+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.608+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "a9e50389-ccb2-493a-95d7-ff5873472e57"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 410,
+                            "key": 410,
+                            "groupName": "RK Foodland Pvt Ltd",
+                            "label": "RK Foodland Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 410,
+                                "ownerId": 125882,
+                                "groupName": "RK Foodland Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.616+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.616+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "aa12f77d-e743-4319-b0cb-96aa84dd4a77"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 411,
+                            "key": 411,
+                            "groupName": "Arshiya Limited",
+                            "label": "Arshiya Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 411,
+                                "ownerId": 125882,
+                                "groupName": "Arshiya Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.624+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.624+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "ab1abbf5-e5ad-4a23-b2d8-fb4366fe156e"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 412,
+                            "key": 412,
+                            "groupName": "Indian Institute of Astrophysics",
+                            "label": "Indian Institute of Astrophysics",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 412,
+                                "ownerId": 125882,
+                                "groupName": "Indian Institute of Astrophysics",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.633+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.633+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "aefe51b0-2009-4c72-987d-03988faf99d6"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 413,
+                            "key": 413,
+                            "groupName": "Cenveo Publisher Services",
+                            "label": "Cenveo Publisher Services",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 413,
+                                "ownerId": 125882,
+                                "groupName": "Cenveo Publisher Services",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.643+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.643+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "af65f700-9490-4a0a-a1dd-bee776fea12f"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 414,
+                            "key": 414,
+                            "groupName": "PSTCL",
+                            "label": "PSTCL",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 414,
+                                "ownerId": 125882,
+                                "groupName": "PSTCL",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.651+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.651+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "b302d9ba-6422-46a5-8f41-392468099554"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 415,
+                            "key": 415,
+                            "groupName": "MHADA",
+                            "label": "MHADA",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 415,
+                                "ownerId": 125882,
+                                "groupName": "MHADA",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.659+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.659+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "b4ab3198-fa3f-456e-8baf-6e0d1faf102d"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 416,
+                            "key": 416,
+                            "groupName": "College Board India",
+                            "label": "College Board India",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 416,
+                                "ownerId": 125882,
+                                "groupName": "College Board India",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.667+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.667+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "c0dc53f7-4964-4792-bac8-7c7b2c24f3af"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 417,
+                            "key": 417,
+                            "groupName": "Remielsoftech solutions Pvt Ltd. ",
+                            "label": "Remielsoftech solutions Pvt Ltd. ",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 417,
+                                "ownerId": 125882,
+                                "groupName": "Remielsoftech solutions Pvt Ltd. ",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.677+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.677+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "c26def81-d34a-4e9d-8787-f125ac666362"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 418,
+                            "key": 418,
+                            "groupName": "TechMojo Solutions Pvt Ltd",
+                            "label": "TechMojo Solutions Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 418,
+                                "ownerId": 125882,
+                                "groupName": "TechMojo Solutions Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.685+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.685+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "c35acddf-7ad0-4b40-abff-9294945dfd0f"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 419,
+                            "key": 419,
+                            "groupName": "Loyalty Solutions & Research Pvt. Ltd.",
+                            "label": "Loyalty Solutions & Research Pvt. Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 419,
+                                "ownerId": 125882,
+                                "groupName": "Loyalty Solutions & Research Pvt. Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.694+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.694+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "c4fb4eff-8df7-4929-bda0-1209e16fc6c7"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 420,
+                            "key": 420,
+                            "groupName": "Ntranga IT Services Pvt Ltd",
+                            "label": "Ntranga IT Services Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 420,
+                                "ownerId": 125882,
+                                "groupName": "Ntranga IT Services Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.703+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.703+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "c533f168-6c5d-43bd-8472-72bcb153e51e"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 421,
+                            "key": 421,
+                            "groupName": "QUINTE FINANCIAL Technologies Private Limited",
+                            "label": "QUINTE FINANCIAL Technologies Private Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 421,
+                                "ownerId": 125882,
+                                "groupName": "QUINTE FINANCIAL Technologies Private Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.713+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.713+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "c6936ed4-4583-46b1-acac-2f7e97f7cf51"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 422,
+                            "key": 422,
+                            "groupName": "Relecloud753979903",
+                            "label": "Relecloud753979903",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 422,
+                                "ownerId": 125882,
+                                "groupName": "Relecloud753979903",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.723+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.723+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "c6a543ac-67df-4a79-bc99-250919fd7aa3"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 423,
+                            "key": 423,
+                            "groupName": "GALDERMA INDIA Pvt. Ltd.",
+                            "label": "GALDERMA INDIA Pvt. Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 423,
+                                "ownerId": 125882,
+                                "groupName": "GALDERMA INDIA Pvt. Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.732+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.733+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "cc5dc73e-c139-45e1-b522-9e1ba622da4b"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 424,
+                            "key": 424,
+                            "groupName": "Relecloud1042032563",
+                            "label": "Relecloud1042032563",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 424,
+                                "ownerId": 125882,
+                                "groupName": "Relecloud1042032563",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.742+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.742+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "ce3d96a4-65ce-45fb-b275-7312091b6df3"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 425,
+                            "key": 425,
+                            "groupName": "SBI",
+                            "label": "SBI",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 425,
+                                "ownerId": 125882,
+                                "groupName": "SBI",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.751+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.751+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "d2ee1fb3-2763-4d58-8048-dbf4ee5ecaec"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 426,
+                            "key": 426,
+                            "groupName": "Baazar Retail Ltd.",
+                            "label": "Baazar Retail Ltd.",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 426,
+                                "ownerId": 125882,
+                                "groupName": "Baazar Retail Ltd.",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.760+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.760+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "d42e2961-bb47-4d71-bcc2-535fb99917ca"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 427,
+                            "key": 427,
+                            "groupName": "BCT Consulting Pvt. Ltd",
+                            "label": "BCT Consulting Pvt. Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 427,
+                                "ownerId": 125882,
+                                "groupName": "BCT Consulting Pvt. Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.769+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.769+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "d6b4b447-7721-47a6-a67d-c41e7624bc14"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 428,
+                            "key": 428,
+                            "groupName": "Sify Technologies Limited",
+                            "label": "Sify Technologies Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 428,
+                                "ownerId": 125882,
+                                "groupName": "Sify Technologies Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.778+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.778+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "d790955c-7903-4754-842b-32503d9b6edb"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 429,
+                            "key": 429,
+                            "groupName": "TSS Consultancy Pvt Ltd",
+                            "label": "TSS Consultancy Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 429,
+                                "ownerId": 125882,
+                                "groupName": "TSS Consultancy Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.788+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.788+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "d7e82a60-dc4e-403e-ad9b-e2cbe3b2eb6b"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 430,
+                            "key": 430,
+                            "groupName": "Mumbai Metro Rail Corporation Limited",
+                            "label": "Mumbai Metro Rail Corporation Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 430,
+                                "ownerId": 125882,
+                                "groupName": "Mumbai Metro Rail Corporation Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.798+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.798+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "d83091df-739d-45b5-8f20-39770ee9663e"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 431,
+                            "key": 431,
+                            "groupName": "Sify Azure Infra",
+                            "label": "Sify Azure Infra",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 431,
+                                "ownerId": 125882,
+                                "groupName": "Sify Azure Infra",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.808+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.808+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "da94acd0-84fc-4237-8bfc-34d117947a3c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 432,
+                            "key": 432,
+                            "groupName": "Intellect Design Arena Limited",
+                            "label": "Intellect Design Arena Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 432,
+                                "ownerId": 125882,
+                                "groupName": "Intellect Design Arena Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.817+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.817+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "e3ea4141-2678-4a2c-8af0-996c385d004e"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 433,
+                            "key": 433,
+                            "groupName": "Drive India Enterprise Solution Limited",
+                            "label": "Drive India Enterprise Solution Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 433,
+                                "ownerId": 125882,
+                                "groupName": "Drive India Enterprise Solution Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.827+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.827+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "e432ced6-399e-44e3-9eba-bda61e434e8e"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 434,
+                            "key": 434,
+                            "groupName": "DISHTV INDIA LIMITED",
+                            "label": "DISHTV INDIA LIMITED",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 434,
+                                "ownerId": 125882,
+                                "groupName": "DISHTV INDIA LIMITED",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.837+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.837+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "e4cf85ff-dcad-4932-a8ba-41d3bd562346"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 435,
+                            "key": 435,
+                            "groupName": "Water Supply and Sanitation Department",
+                            "label": "Water Supply and Sanitation Department",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 435,
+                                "ownerId": 125882,
+                                "groupName": "Water Supply and Sanitation Department",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.848+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.848+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "e9c1746d-384f-4146-b21c-be7bc9fe6047"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 436,
+                            "key": 436,
+                            "groupName": "Max Healthcare Institute Limited",
+                            "label": "Max Healthcare Institute Limited",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 436,
+                                "ownerId": 125882,
+                                "groupName": "Max Healthcare Institute Limited",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.858+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.858+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "f300e92e-dea9-410f-bce4-a77ec2b1ab0a"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 437,
+                            "key": 437,
+                            "groupName": "Export Import Bank of India",
+                            "label": "Export Import Bank of India",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 437,
+                                "ownerId": 125882,
+                                "groupName": "Export Import Bank of India",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.868+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.868+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "f6f3ce86-f4ba-40be-97d4-cb769a298738"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 438,
+                            "key": 438,
+                            "groupName": "SifyBLRAzureStack",
+                            "label": "SifyBLRAzureStack",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 438,
+                                "ownerId": 125882,
+                                "groupName": "SifyBLRAzureStack",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.878+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.878+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "f741ba45-5916-44ea-93f1-936f94303831"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 439,
+                            "key": 439,
+                            "groupName": "DIT Maharashtra",
+                            "label": "DIT Maharashtra",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 439,
+                                "ownerId": 125882,
+                                "groupName": "DIT Maharashtra",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.888+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.888+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "f8ac7f64-8088-41f0-9f8c-f34562cf0613"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 440,
+                            "key": 440,
+                            "groupName": "Servion",
+                            "label": "Servion",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 440,
+                                "ownerId": 125882,
+                                "groupName": "Servion",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.898+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.898+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "f92ba573-65dc-4d23-920a-89179cc32668"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 441,
+                            "key": 441,
+                            "groupName": "Insurance Information Bureau Of India",
+                            "label": "Insurance Information Bureau Of India",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 441,
+                                "ownerId": 125882,
+                                "groupName": "Insurance Information Bureau Of India",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.908+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.908+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "ff2f6a94-f828-45f7-8ff5-86f2441ad15c"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 328
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "groupId": 442,
+                    "key": 442,
+                    "groupName": "SifyMasterNorthCDN",
+                    "label": "SifyMasterNorthCDN",
+                    "groupType": "FINANCE_DOMAIN",
+                    "group": {
+                        "groupId": 442,
+                        "ownerId": 125882,
+                        "groupName": "SifyMasterNorthCDN",
+                        "groupType": "FINANCE_DOMAIN",
+                        "createdDate": "2021-03-03T04:39:03.925+00:00",
+                        "updatedDate": "2021-03-03T04:39:03.925+00:00",
+                        "comment": null,
+                        "status": true,
+                        "members": [
+                            {
+                                "memberType": "ENVIRONMENT",
+                                "memberId": 371777
+                            }
+                        ],
+                        "props": [
+                            {
+                                "propType": "START_DATE",
+                                "value": "2020-09-01"
+                            },
+                            {
+                                "propType": "END_DATE",
+                                "value": "2121-03-01"
+                            },
+                            {
+                                "propType": "RESET_PERIOD",
+                                "value": "MONTHLY"
+                            },
+                            {
+                                "propType": "CREATE_BUDGET",
+                                "value": "false"
+                            }
+                        ],
+                        "parentGroupId": 321
+                    },
+                    "children": [
+                        {
+                            "groupId": 443,
+                            "key": 443,
+                            "groupName": "Solutions Pvt Ltd",
+                            "label": "Solutions Pvt Ltd",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 443,
+                                "ownerId": 125882,
+                                "groupName": "Solutions Pvt Ltd",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.937+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.937+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "178997991196"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 444,
+                            "key": 444,
+                            "groupName": "video operations",
+                            "label": "video operations",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 444,
+                                "ownerId": 125882,
+                                "groupName": "video operations",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.948+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.948+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "194713279117"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 445,
+                            "key": 445,
+                            "groupName": "aggregator",
+                            "label": "aggregator",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 445,
+                                "ownerId": 125882,
+                                "groupName": "aggregator",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.960+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.960+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "399325616221"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 446,
+                            "key": 446,
+                            "groupName": "aggregator",
+                            "label": "aggregator",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 446,
+                                "ownerId": 125882,
+                                "groupName": "aggregator",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.969+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.969+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "399325616221"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 447,
+                            "key": 447,
+                            "groupName": "babi@indiamart.com",
+                            "label": "babi@indiamart.com",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 447,
+                                "ownerId": 125882,
+                                "groupName": "babi@indiamart.com",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.980+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.980+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "435642640015"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 448,
+                            "key": 448,
+                            "groupName": "Sify-Planetcast",
+                            "label": "Sify-Planetcast",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 448,
+                                "ownerId": 125882,
+                                "groupName": "Sify-Planetcast",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:03.990+00:00",
+                                "updatedDate": "2021-03-03T04:39:03.990+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "446738417440"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 449,
+                            "key": 449,
+                            "groupName": "Sunil Parolia",
+                            "label": "Sunil Parolia",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 449,
+                                "ownerId": 125882,
+                                "groupName": "Sunil Parolia",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.001+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.002+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "448881621135"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 450,
+                            "key": 450,
+                            "groupName": "Sify-DishTV-CDN",
+                            "label": "Sify-DishTV-CDN",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 450,
+                                "ownerId": 125882,
+                                "groupName": "Sify-DishTV-CDN",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.015+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.015+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "475438785965"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 451,
+                            "key": 451,
+                            "groupName": "Abhijay",
+                            "label": "Abhijay",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 451,
+                                "ownerId": 125882,
+                                "groupName": "Abhijay",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.029+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.029+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "574440357411"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 452,
+                            "key": 452,
+                            "groupName": "Vikas Handu",
+                            "label": "Vikas Handu",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 452,
+                                "ownerId": 125882,
+                                "groupName": "Vikas Handu",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.042+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.042+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "705339930841"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 453,
+                            "key": 453,
+                            "groupName": "Sunil Parolia",
+                            "label": "Sunil Parolia",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 453,
+                                "ownerId": 125882,
+                                "groupName": "Sunil Parolia",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.054+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.054+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "720725335128"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 454,
+                            "key": 454,
+                            "groupName": "Sify-samparkfoundation",
+                            "label": "Sify-samparkfoundation",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 454,
+                                "ownerId": 125882,
+                                "groupName": "Sify-samparkfoundation",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.066+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.066+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "819859321120"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        },
+                        {
+                            "groupId": 455,
+                            "key": 455,
+                            "groupName": "mobitolabs",
+                            "label": "mobitolabs",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 455,
+                                "ownerId": 125882,
+                                "groupName": "mobitolabs",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.078+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.078+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "844326801419"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    }
+                                ],
+                                "parentGroupId": 442
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "groupId": 456,
+                    "key": 456,
+                    "groupName": "Aquila GCP Billops",
+                    "label": "Aquila GCP Billops",
+                    "groupType": "FINANCE_DOMAIN",
+                    "group": {
+                        "groupId": 456,
+                        "ownerId": 125882,
+                        "groupName": "Aquila GCP Billops",
+                        "groupType": "FINANCE_DOMAIN",
+                        "createdDate": "2021-03-03T04:39:04.093+00:00",
+                        "updatedDate": "2021-03-03T04:39:04.093+00:00",
+                        "comment": null,
+                        "status": true,
+                        "members": [
+                            {
+                                "memberType": "ENVIRONMENT",
+                                "memberId": 391973
+                            }
+                        ],
+                        "props": [
+                            {
+                                "propType": "START_DATE",
+                                "value": "2020-09-01"
+                            },
+                            {
+                                "propType": "END_DATE",
+                                "value": "2121-03-01"
+                            },
+                            {
+                                "propType": "RESET_PERIOD",
+                                "value": "MONTHLY"
+                            },
+                            {
+                                "propType": "CREATE_BUDGET",
+                                "value": "false"
+                            }
+                        ],
+                        "parentGroupId": 321
+                    },
+                    "children": [
+                        {
+                            "groupId": 457,
+                            "key": 457,
+                            "groupName": "rock-loop-249305",
+                            "label": "rock-loop-249305",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 457,
+                                "ownerId": 125882,
+                                "groupName": "rock-loop-249305",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.104+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.104+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "rock-loop-249305"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    }
+                                ],
+                                "parentGroupId": 456
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "groupId": 458,
+                    "key": 458,
+                    "groupName": "Aquila_OCI",
+                    "label": "Aquila_OCI",
+                    "groupType": "FINANCE_DOMAIN",
+                    "group": {
+                        "groupId": 458,
+                        "ownerId": 125882,
+                        "groupName": "Aquila_OCI",
+                        "groupType": "FINANCE_DOMAIN",
+                        "createdDate": "2021-03-03T04:39:04.117+00:00",
+                        "updatedDate": "2021-03-03T04:39:04.117+00:00",
+                        "comment": null,
+                        "status": true,
+                        "members": [
+                            {
+                                "memberType": "ENVIRONMENT",
+                                "memberId": 389588
+                            }
+                        ],
+                        "props": [
+                            {
+                                "propType": "END_DATE",
+                                "value": "2121-03-01"
+                            },
+                            {
+                                "propType": "CREATE_BUDGET",
+                                "value": "false"
+                            },
+                            {
+                                "propType": "START_DATE",
+                                "value": "2020-09-01"
+                            },
+                            {
+                                "propType": "RESET_PERIOD",
+                                "value": "MONTHLY"
+                            }
+                        ],
+                        "parentGroupId": 321
+                    },
+                    "children": [
+                        {
+                            "groupId": 459,
+                            "key": 459,
+                            "groupName": "7901610",
+                            "label": "7901610",
+                            "groupType": "FINANCE_DOMAIN",
+                            "group": {
+                                "groupId": 459,
+                                "ownerId": 125882,
+                                "groupName": "7901610",
+                                "groupType": "FINANCE_DOMAIN",
+                                "createdDate": "2021-03-03T04:39:04.128+00:00",
+                                "updatedDate": "2021-03-03T04:39:04.128+00:00",
+                                "comment": null,
+                                "status": true,
+                                "members": [
+                                    {
+                                        "memberType": "ACCOUNT",
+                                        "memberId": "7901610"
+                                    }
+                                ],
+                                "props": [
+                                    {
+                                        "propType": "END_DATE",
+                                        "value": "2121-03-01"
+                                    },
+                                    {
+                                        "propType": "START_DATE",
+                                        "value": "2020-09-01"
+                                    },
+                                    {
+                                        "propType": "CREATE_BUDGET",
+                                        "value": "false"
+                                    },
+                                    {
+                                        "propType": "RESET_PERIOD",
+                                        "value": "MONTHLY"
+                                    }
+                                ],
+                                "parentGroupId": 458
+                            },
+                            "children": []
+                        }
+                    ]
                 }
-              ]
+            ]
         }
     ];
     
