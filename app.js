@@ -10349,12 +10349,31 @@ app.post('/api/extended-summary', function (req, res) {
             progressTitle: 'Budget',
             amtTitle: 'Current Consumptions',
             amount: '$150,000.00',
+            trend: "down",
+            amtPercentage: 30
           },
           {
             percentage: '82',
             progressTitle: 'Budget',
             amtTitle: 'Forecast Consumptions',
             amount: '$150,000.00',
+          },
+      ];
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
+app.post('/api/extended-summary-time', function (req, res) {
+    const data = [
+        {
+            amtTitle: 'Total Budget',
+            amount: '$200,000.00',
+          },
+          {
+            amtTitle: 'Time Range',
+            amount: '2020-1-1 to 2020-12-1 ( Reset Monthly )',
+            amtSize: "small"
           },
       ];
 

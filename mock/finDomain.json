@@ -11,6 +11,38 @@
             },
             {
                 "id": 2,
+                "type": "extended-summary",
+                "apiKey": "extendedSummaryTime",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 4
+            },
+            {
+                "id": 22,
+                "type": "extended-summary",
+                "apiKey": "extendedSummary",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 4
+            },
+                {
+                "id": 3,
+                "type": "piGraph",
+                "title": "",
+                "apiKey": "getPiGraphData",
+                "noDataText": "No Data available",
+                "metrics": {},
+                "size": 4,
+                "height": 160,
+                "withCard": false,
+                "initialChartType": "piChart",
+                "drillUrls":{
+                                },
+                "linkText": "Go to Domain",
+                "drillLink": "/governance/domain"
+                },
+                {
+                "id": 4,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
                 "apiKey": "listCatalogRateLinesAPI",
