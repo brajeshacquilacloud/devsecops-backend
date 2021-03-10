@@ -8229,7 +8229,7 @@ app.post('/api/scenario/viewChart', function (req, res) {
         {
             "leafs": [
                 {
-                    "id": 82,
+                    "id": 1,
                     "type": "stackedBarChart",
                     "title": "Savings By Categories",
                     "apiKey": "stackedBarChart",
@@ -10286,58 +10286,88 @@ app.post('/api/pi-graph-data', function (req, res) {
 });
 
 app.post('/api/stackedBarChart', function (req, res) {
-    const data = [{
-        country: 'Lithuania',
-        research: 501.9,
-        marketing: 250,
-        sales: 199,
-      }, {
-        country: 'Czech Republic',
-        research: 301.9,
-        marketing: 222,
-        sales: 251,
-      }, {
-        country: 'Ireland',
-        research: 201.1,
-        marketing: 170,
-        sales: 199,
-      }, {
-        country: 'Germany',
-        research: 165.8,
-        marketing: 122,
-        sales: 90,
-      }, {
-        country: 'Australia',
-        research: 139.9,
-        marketing: 99,
-        sales: 252,
-      }, {
-        country: 'Austria',
-        research: 128.3,
-        marketing: 85,
-        sales: 84,
-      }, {
-        country: 'UK',
-        research: 99,
-        marketing: 93,
-        sales: 142,
-      }, {
-        country: 'Belgium',
-        research: 60,
-        marketing: 50,
-        sales: 55,
-      }, {
-        country: 'The Netherlands',
-        research: 50,
-        marketing: 42,
-        sales: 25,
-      },
-      {
-        country: 'The Netherlands',
-        research: 50,
-        marketing: 42,
-        sales: 25,
-      }];
+    const data = [
+        {
+          "category": "March",
+          "series": [
+            {
+              "key": "Domain1",
+              "value": 4500,
+              "currency": "USD"
+            },
+            {
+              "key": "Domain2",
+              "value": 2000,
+              "currency": "USD"
+            },
+            {
+              "key": "Domain3",
+              "value": 1000,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "category": "February",
+          "series": [
+            {
+              "key": "Domain1",
+              "value": 6000,
+              "currency": "USD"
+            },
+            {
+              "key": "Domain2",
+              "value": 1000,
+              "currency": "USD"
+            },
+            {
+              "key": "Domain3",
+              "value": 2000,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "category": "January",
+          "series": [
+            {
+              "key": "Domain1",
+              "value": 2500,
+              "currency": "USD"
+            },
+            {
+              "key": "Domain2",
+              "value": 6000,
+              "currency": "USD"
+            },
+            {
+              "key": "Domain3",
+              "value": 1000,
+              "currency": "USD"
+            }
+          ]
+        },
+        {
+          "category": "December",
+          "series": [
+            {
+              "key": "Domain1",
+              "value": 5000,
+              "currency": "USD"
+            },
+            {
+              "key": "Domain2",
+              "value": 4000,
+              "currency": "USD"
+            },
+            {
+              "key": "Domain3",
+              "value": 1000,
+              "currency": "USD"
+            }
+          ]
+        }
+      ];
     setResponseHeaders(res);
     res.status(200).send(data);
 });
