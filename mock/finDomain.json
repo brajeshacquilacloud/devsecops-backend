@@ -25,7 +25,7 @@
                 "metrics": {},
                 "size": 4
             },
-                {
+            {
                 "id": 3,
                 "type": "piGraph",
                 "title": "",
@@ -36,10 +36,9 @@
                 "height": 160,
                 "withCard": false,
                 "initialChartType": "piChart",
-                "drillUrls":{
-                                }
-                },
-                {
+                "drillUrls": {}
+            },
+            {
                 "id": 4,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
@@ -53,7 +52,8 @@
                 "metrics": {},
                 "defaultRowPerPage": 10,
                 "subscribedDrillParam": [
-                    "hierarchy_id"
+                    "hierarchy_id",
+                    "rateId"
                 ],
                 "columns": [
                     {
@@ -129,7 +129,6 @@
                         "display": true,
                         "filter": false,
                         "highlight": true
-
                     },
                     {
                         "name": "Unit",
