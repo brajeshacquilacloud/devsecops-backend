@@ -37,9 +37,7 @@
                 "withCard": false,
                 "initialChartType": "piChart",
                 "drillUrls":{
-                                },
-                "linkText": "Go to Domain",
-                "drillLink": "/governance/domain"
+                                }
                 },
                 {
                 "id": 4,
