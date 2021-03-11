@@ -8745,7 +8745,7 @@ app.post('/api/user/userlist', function (req, res) {
 
 app.post('/api/catalog/ratelines', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(rateLinesFakeData);
+    res.status(200).send(req.body.filters.instance ? rateLinesFakeData.slice(50,99) : rateLinesFakeData);
 });
 
 
