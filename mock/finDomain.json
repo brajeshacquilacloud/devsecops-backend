@@ -107,6 +107,19 @@
                         "type": "multiselect",
                         "display": true,
                         "filter": false
+                    },
+                    {
+                        "name": "Amount",
+                        "key": "ratea",
+                        "type": "amount",
+                        "display": true,
+                        "filter": false,
+                        "drillTo": "governance/finance-domain",
+                        "drillParams": [
+                            {
+                                "key": "rateId"
+                            }
+                        ]
                     }
                 ]
             }
