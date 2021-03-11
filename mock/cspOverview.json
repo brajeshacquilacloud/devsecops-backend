@@ -49,7 +49,10 @@
                     "Microsoft Azure1": "abcde.com",
                     "Amazon AWS1": "abcdef.com",
                     "Microsoft Azure2": "abcdefg.com"
-                }
+                },
+                "linkText": "Go to Domain",
+                "drillLink": "/governance/domain",
+                "height": 255
             },
             {
                 "id": 82,
