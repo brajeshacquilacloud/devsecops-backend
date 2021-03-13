@@ -34,6 +34,7 @@
                                 "id": 92,
                                 "title": "Environment",
                                 "type": "select",
+                                "mode": "multiple",
                                 "defSelectKey": "env",
                                 "labelSize": 3,
                                 "size": 9,

@@ -134,7 +134,20 @@
                     "name": "Rate Lines",
                     "page": "ComponentsPage",
                     "link": "/catalog/rateline",
-                    "isHawkUI": true
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "key": "pageSearch",
+                            "title": "Search",
+                            "type": "search"
+                        },
+                        {
+                            "type": "modal",
+                            "modalTitle": "Auto Create",
+                            "componentsAPIKey": "autoCreateDomainAPI",
+                            "title": "Auto Create"
+                        }
+                    ]
                 },
                 {
                     "id": "RateCards",
@@ -313,7 +326,8 @@
                         "apiKey": "hierarchyNavAPI",
                         "id": "groupId",
                         "parentHierarchy": [
-                            "Governance", "Overview"
+                            "Governance",
+                            "Overview"
                         ]
                     },
                     "pageActions": [
@@ -346,7 +360,8 @@
                         "apiKey": "hierarchyNavAPI",
                         "id": "groupId",
                         "parentHierarchy": [
-                            "Governance", "Financial Domain"
+                            "Governance",
+                            "Financial Domain"
                         ]
                     },
                     "pageActions": [
@@ -375,7 +390,8 @@
                         "apiKey": "hierarchyNavAPI",
                         "id": "groupId",
                         "parentHierarchy": [
-                            "Governance", "Add New Financial Domain"
+                            "Governance",
+                            "Add New Financial Domain"
                         ]
                     },
                     "pageFooters": [
