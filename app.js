@@ -9912,37 +9912,37 @@ app.post('/api/environments', function (req, res) {
 app.post('/api/services', function (req, res) {
     const data = [
         {
-            key: 1,
+            key: 'cspBill',
             title: 'CSP Billing',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             img: 'billops_productcard.svg'
         },
         {
-            key: 2,
+            key: 'finops',
             img: 'finops_productcard.svg',
-            title: 'Customer Services',
+            title: 'FinOps',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
-            key: 3,
+            key: 'serviceXyz',
             title: 'Services-XYZ',
             img: 'billops_productcard.svg',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
-            key: 4,
+            key: 'cloudServices',
             title: 'Cloud Services',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             img: 'finops_productcard.svg'
         },
         {
-            key: 5,
+            key: 'testServices',
             title: 'Test services',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             img: 'finops_productcard.svg'
         },
         {
-            key: 6,
+            key: 'edgeCompute',
             title: 'Edge Computing',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             img: 'billops_productcard.svg'
