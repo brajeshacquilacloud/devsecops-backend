@@ -9833,7 +9833,7 @@ app.post('/api/csp/customer/ratepacks/type', function (req, res) {
 
 app.post('/api/csp/billops/usertypes', function (req, res) {
 
-    const data = [{ "name": "Existing", "key": "EXISTING", "selected": false }, { "name": "New", "key": "NEW", "selected": true }];
+    const data = [{ "name": "Existing", "key": "EXISTING", "selected": true }, { "name": "New", "key": "NEW", "selected": false }];
 
     responseStatus = 200;
 

@@ -31,16 +31,6 @@
                                 }
                             },
                             {
-                                "id": 92,
-                                "title": "Environment",
-                                "type": "select",
-                                "mode": "multiple",
-                                "defSelectKey": "env",
-                                "labelSize": 3,
-                                "size": 9,
-                                "apiKey": "envTypeListAPI"
-                            },
-                            {
                                 "id": 1,
                                 "title": "Customer Type",
                                 "type": "group-radio",
@@ -48,6 +38,25 @@
                                 "size": 12,
                                 "apiKey": "billOpsUserTypeListAPI",
                                 "helperText": "Please select Customer Type"
+                            },
+                            {
+                                "id": 92,
+                                "title": "Environment",
+                                "type": "select",
+                                "mode": "multiple",
+                                "defSelectKey": "env",
+                                "labelSize": 3,
+                                "size": 9,
+                                "apiKey": "envTypeListAPI",
+                                "bindLeafData": [
+                                    {
+                                        "hideWhen": [
+                                            "NEW"
+                                        ],
+                                        "bindWith": "customerType",
+                                        "id": 1
+                                    }
+                                ]
                             },
                             {
                                 "id": 323,
