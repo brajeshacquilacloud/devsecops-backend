@@ -9914,34 +9914,38 @@ app.post('/api/services', function (req, res) {
         {
             key: 1,
             title: 'CSP Billing',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            img: 'billops_productcard.svg'
         },
         {
             key: 2,
-            img: 'azure',
+            img: 'finops_productcard.svg',
             title: 'Customer Services',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
             key: 3,
             title: 'Services-XYZ',
-            img: 'aws',
+            img: 'billops_productcard.svg',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
             key: 4,
             title: 'Cloud Services',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            img: 'finops_productcard.svg'
         },
         {
             key: 5,
             title: 'Test services',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            img: 'finops_productcard.svg'
         },
         {
             key: 6,
             title: 'Edge Computing',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            img: 'billops_productcard.svg'
         },
     ]
     responseStatus = 200;
