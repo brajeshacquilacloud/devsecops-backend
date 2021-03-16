@@ -11,8 +11,12 @@
                 "dataAPIKey": "listResourceOrderListAPI",
                 "actionAPIKey": "saveInstanceTypeChangeAPI",
                 "subscribedDrillParam": [
-                    "domain"
+                    "groupId"
                 ],
+                "publishComponent": {
+                    "id": 2,
+                    "defSelectKey": "env"
+                },
                 "components": [
                     {
                         "title": "Existing Relationship Details",
@@ -43,7 +47,6 @@
                                 "id": 92,
                                 "title": "Environment",
                                 "type": "select",
-                                "mode": "multiple",
                                 "defSelectKey": "env",
                                 "labelSize": 3,
                                 "size": 9,
@@ -76,7 +79,10 @@
                 "type": "info-graph",
                 "apiKey": "infoGraphAPI",
                 "size": 6,
-                "noDataText": "No sub-users available"
+                "noDataText": "No sub-users available",
+                "subscribedDrillParam": [
+                    "groupId"
+                ]
             },
             {
                 "id": 3,
