@@ -15,7 +15,7 @@
                 ],
                 "publishComponent": {
                     "id": 2,
-                    "defSelectKey": "env"
+                    "defSelectKey": "rangeFilter"
                 },
                 "components": [
                     {
@@ -42,6 +42,15 @@
                                 "size": 12,
                                 "apiKey": "billOpsUserTypeListAPI",
                                 "helperText": "Please select Customer Type"
+                            },
+                            {
+                                "id": 999,
+                                "defSelectKey": "rangeFilter",
+                                "key": "rangeFilter",
+                                "title": "Billing Cycle",
+                                "type": "dateFilter",
+                                "defaultValue": "Last Week",
+                                "dateFormat": "MM/DD/YYYY"
                             },
                             {
                                 "id": 92,
