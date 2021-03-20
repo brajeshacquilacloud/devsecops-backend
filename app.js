@@ -10034,6 +10034,7 @@ app.post('/api/group/resourceorderlist', function (req, res) {
         "userId": '53',
         "envName": ['west-1231'],
         "packName": "test-pack-name",
+        "rangeFilter": "1584688021_1616264999",
         "packCombo": [
             {
                 "priceList": 'APP-1234',
