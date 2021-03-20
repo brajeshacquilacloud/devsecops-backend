@@ -8081,7 +8081,7 @@ app.post('/api/scenario/editRow', function (req, res) {
                         },
                         {
                             "name": "Unit",
-                            "key": "unit",
+                            "key": "drillTo",
                             "type": "drill",
                             "display": true,
                             "drillTo": "governance/finance-domain",
