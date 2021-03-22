@@ -52,6 +52,36 @@
                 "size": 12
             },
             {
+                "id": 5,
+                "type": "piGraph",
+                "title": "Savings By Categories",
+                "apiKey": "getPiGraphData",
+                "noDataText": "No Data available",
+                "metrics": {},
+                "size": 4,
+                "drillUrls":{
+                    "Microsoft Azure": "/governance/finance-domain/",
+                    "Amazon AWS": "/csp/overview/",
+                    "Microsoft Azure1": "abcde.com",
+                    "Amazon AWS1": "abcdef.com",
+                    "Microsoft Azure2": "abcdefg.com"
+                },
+                "linkText": "Go to Domain",
+                "drillLink": "/governance/domain",
+                "height": 255
+            },
+            {
+                "id": 6,
+                "type": "stackedBarChart",
+                "title": "Savings By Categories",
+                "apiKey": "stackedBarChart",
+                "noDataText": "No Data available",
+                "metrics": {},
+                "size": 8,
+                "linkText": "Go to Domain Optimizer",
+                "drillLink": "/csp/billing"
+            },
+            {
                 "id": 4,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
