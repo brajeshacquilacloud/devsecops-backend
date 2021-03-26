@@ -10296,19 +10296,19 @@ app.post('/api/stackedBarChart', function (req, res) {
           "category": "March",
           "series": [
             {
-              "key": "Domain1",
+              "key": "domain1",
               "name": "Domain1",
               "value": 4500,
               "unit": "USD"
             },
             {
-              "key": "Domain2",
+              "key": "domain2",
               "name": "Domain2",
               "value": 2000,
               "unit": "USD"
             },
             {
-              "key": "Domain3",
+              "key": "domain3",
               "name": "Domain3",
               "value": 1000,
               "unit": "USD"
@@ -10319,19 +10319,19 @@ app.post('/api/stackedBarChart', function (req, res) {
           "category": "February",
           "series": [
             {
-              "key": "Domain1",
+              "key": "domain1",
               "name": "Domain1",
               "value": 4500,
               "unit": "USD"
             },
             {
-              "key": "Domain2",
+              "key": "domain2",
               "name": "Domain2",
               "value": 2000,
               "unit": "USD"
             },
             {
-              "key": "Domain3",
+              "key": "domain3",
               "name": "Domain3",
               "value": 1000,
               "unit": "USD"
@@ -10342,19 +10342,19 @@ app.post('/api/stackedBarChart', function (req, res) {
           "category": "January",
           "series": [
             {
-              "key": "Domain1",
+              "key": "domain1",
               "name": "Domain1",
               "value": 4500,
               "unit": "USD"
             },
             {
-              "key": "Domain2",
+              "key": "domain2",
               "name": "Domain2",
               "value": 2000,
               "unit": "USD"
             },
             {
-              "key": "Domain3",
+              "key": "domain3",
               "name": "Domain3",
               "value": 1000,
               "unit": "USD"
@@ -10365,19 +10365,19 @@ app.post('/api/stackedBarChart', function (req, res) {
           "category": "December",
           "series": [
             {
-              "key": "Domain1",
+              "key": "domain1",
               "name": "Domain1",
               "value": 4500,
               "unit": "USD"
             },
             {
-              "key": "Domain2",
+              "key": "domain2",
               "name": "Domain2",
               "value": 2000,
               "unit": "USD"
             },
             {
-              "key": "Domain3",
+              "key": "domain3",
               "name": "Domain3",
               "value": 1000,
               "unit": "USD"
