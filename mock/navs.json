@@ -415,6 +415,24 @@
             ]
         },
         {
+            "id": "optimizerScreen",
+            "name": "Optimizer",
+            "icon": "customer-setting-icon",
+            "page": "ComponentsPage",
+            "link": "/optimizer",
+            "isHawkUI": true,
+            "subNavs": [
+                {
+                    "id": "optimizerOverview",
+                    "name": "Optimizer Overview",
+                    "link": "/optimizer/overview",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "isHawkUI": true
+                }
+            ]
+        },
+        {
             "id": "cust_Set",
             "name": "Customer Settings",
             "icon": "customer-setting-icon",

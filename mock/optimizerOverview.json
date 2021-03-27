@@ -1,0 +1,62 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "type": "hawkAmountSummary",
+                "apiKey": "getAmountSummaryData",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
+            },
+            {
+                "id": 2,
+                "type": "extended-summary",
+                "apiKey": "extendedSummaryTime",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 4
+            },
+            {
+                "id": 3,
+                "type": "extended-summary",
+                "apiKey": "extendedSummary",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 4
+            },
+           
+            {
+                "id": 4,
+                "leafTitle": "Instances",
+                "type": "tab",
+                "size": 12,
+                "apiKey": "fetchTabDataApi",
+                "tabs": [
+                    {
+                        "id": 5,
+                        "tabTitle": "All",
+                        "type": "piGraph",
+                        "title": "",
+                        "apiKey": "getPiGraphData",
+                        "noDataText": "No Data available",
+                        "metrics": {},
+                        "size": 12,
+                        "height": 160,
+                        "withCard": false,
+                        "initialChartType": "piChart",
+                        "drillUrls": {}
+                    },
+                    {
+                        "id": 6,
+                        "tabTitle": "Rightsizing",
+                        "type": "info-graph",
+                        "apiKey": "infoGraphAPI",
+                        "size": 12,
+                        "noDataText": "No sub-users available"
+                    }
+                ]
+            }
+        ]
+    }
+]
