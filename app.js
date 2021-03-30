@@ -25,6 +25,7 @@ const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
 const treeDataFake = require('./mock/data/treeData.json');
+const sankeyDataFake = require('./mock/data/sankeyData.json');
 const cloudServiceFakeData = require('./mock/data/cloudServiceData.json');
 
 const navs = require('./mock/navs.json');
