@@ -149,6 +149,32 @@
                                 "key": "rateId"
                             }
                         ]
+                    },
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Move",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Update Financial Domain",
+                                "drillParams": [
+                                    {
+                                        "key": "rateId"
+                                    },
+                                    {
+                                        "key": "priceList"
+                                    }
+                                ],
+                                "componentsAPIKey": "addFinAccountsAPI"
+                            }
+                        ]
                     }
                 ]
             }

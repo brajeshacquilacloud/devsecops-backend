@@ -16537,6 +16537,12 @@ app.post('/api/tab-data', function (req, res) {
     res.status(200).send(tabData);
 });
 
+
+app.post('/api/tree-data', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(treeDataFake);
+});
+
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
 });
