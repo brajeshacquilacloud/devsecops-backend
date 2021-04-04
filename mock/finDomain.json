@@ -13,9 +13,13 @@
                 "id": 2,
                 "type": "extended-summary",
                 "apiKey": "extendedSummaryTime",
-                "noDataText": "No Summary Data available",
+                "noDataText": "There is no budget configured.",
                 "metrics": {},
-                "size": 4
+                "size": 4,
+                "noDataDrillDown": {
+                    "text": "Create a budget",
+                    "drillTo": "governance/new-finance-domain"
+                }
             },
             {
                 "id": 22,
