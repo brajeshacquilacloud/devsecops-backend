@@ -26,6 +26,8 @@ const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
 const treeDataFake = require('./mock/data/treeData.json');
+const dirTreeDataFake = require('./mock/data/dirTreeDataFake.json');
+
 const sankeyDataFake = require('./mock/data/sankeyData.json');
 const cloudServiceFakeData = require('./mock/data/cloudServiceData.json');
 
@@ -16542,6 +16544,11 @@ app.post('/api/tab-data', function (req, res) {
 app.post('/api/tree-data', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(treeDataFake);
+});
+
+app.post('/api/dir-tree-data', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(dirTreeDataFake);
 });
 
 var listener = app.listen(PORT, function () {
