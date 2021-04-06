@@ -11,8 +11,12 @@
                 "dataAPIKey": "listResourceOrderListAPI",
                 "actionAPIKey": "saveInstanceTypeChangeAPI",
                 "subscribedDrillParam": [
-                    "domain"
+                    "groupId"
                 ],
+                "publishComponent": {
+                    "id": 2,
+                    "defSelectKey": "rangeFilter"
+                },
                 "components": [
                     {
                         "title": "Existing Relationship Details",
@@ -31,15 +35,6 @@
                                 }
                             },
                             {
-                                "id": 92,
-                                "title": "Environment",
-                                "type": "select",
-                                "defSelectKey": "env",
-                                "labelSize": 3,
-                                "size": 9,
-                                "apiKey": "envTypeListAPI"
-                            },
-                            {
                                 "id": 1,
                                 "title": "Customer Type",
                                 "type": "group-radio",
@@ -47,6 +42,33 @@
                                 "size": 12,
                                 "apiKey": "billOpsUserTypeListAPI",
                                 "helperText": "Please select Customer Type"
+                            },
+                            {
+                                "id": 999,
+                                "defSelectKey": "rangeFilter",
+                                "key": "rangeFilter",
+                                "title": "Billing Cycle",
+                                "type": "dateFilter",
+                                "defaultValue": "Last Week",
+                                "dateFormat": "MM/DD/YYYY"
+                            },
+                            {
+                                "id": 92,
+                                "title": "Environment",
+                                "type": "select",
+                                "defSelectKey": "env",
+                                "labelSize": 3,
+                                "size": 9,
+                                "apiKey": "envTypeListAPI",
+                                "bindLeafData": [
+                                    {
+                                        "hideWhen": [
+                                            "NEW"
+                                        ],
+                                        "bindWith": "customerType",
+                                        "id": 1
+                                    }
+                                ]
                             },
                             {
                                 "id": 323,
@@ -66,7 +88,10 @@
                 "type": "info-graph",
                 "apiKey": "infoGraphAPI",
                 "size": 6,
-                "noDataText": "No sub-users available"
+                "noDataText": "No sub-users available",
+                "subscribedDrillParam": [
+                    "groupId"
+                ]
             },
             {
                 "id": 3,
@@ -81,10 +106,11 @@
                         "leafTitle": "Preview",
                         "columnTitle": "Accounts",
                         "type": "tree-select",
-                        "apiKey": "treeDataAPI",
+                        "mode": "inline",
                         "size": 12,
                         "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
                         "noDataAddIcon": true,
+                        "apiKey": "treeDataAPI",
                         "toolBarActions": [
                             {
                                 "key": "pageSearch",

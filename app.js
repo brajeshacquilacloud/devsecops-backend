@@ -13,6 +13,7 @@ const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
 const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
+const optimizerOverview = require('./mock/optimizerOverview.json');
 
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 const addContainerModal = require('./mock/modal/addContainerModal.json');
@@ -25,11 +26,15 @@ const billProgress = require('./mock/billProgress.json');
 const rateLinesFakeData = require('./mock/data/rateLinesFakeData.json');
 const rateLinesFakeDataPaginated = require('./mock/data/rateLinesFakeDataPaginated.json');
 const treeDataFake = require('./mock/data/treeData.json');
+const dirTreeDataFake = require('./mock/data/dirTreeDataFake.json');
+
+const sankeyDataFake = require('./mock/data/sankeyData.json');
 const cloudServiceFakeData = require('./mock/data/cloudServiceData.json');
 
 const navs = require('./mock/navs.json');
 const cspCustomerProfile = require("./mock/customerProfile.json")
 const infoGraph = require("./mock/data/infoGraph.json")
+const tabData = require("./mock/data/tabData.json")
 
 
 app.use(bodyParser.urlencoded({
@@ -5575,6 +5580,9 @@ app.post('/api/scenario', function (req, res) {
         case "newFinDomain":
             data = newFinDomain;
             break;
+        case "optimizerOverview":
+            data = optimizerOverview;
+            break;
 
         /* Old pages config from here  */
 
@@ -8081,12 +8089,12 @@ app.post('/api/scenario/editRow', function (req, res) {
                         },
                         {
                             "name": "Unit",
-                            "key": "unit",
+                            "key": "drillTo",
                             "type": "drill",
                             "display": true,
                             "drillTo": "governance/finance-domain",
                             "drillParams": [{
-                                "key": "rateId" 
+                                "key": "rateId"
                             }],
                             "drillKey": "unit",
                             "filter": false
@@ -8728,11 +8736,11 @@ app.post('/api/user/userlist', function (req, res) {
         ];
     } else {
         data = [
-            { editAPIKey: 'addEditRatePack',viewChart: '', salesAmount: 603243240.64, userId: 1, model: 'Season', desc: "Test#-1", progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 10000.4), 'currency': '€' },
+            { editAPIKey: 'addEditRatePack', viewChart: '', salesAmount: 603243240.64, userId: 1, model: 'Season', desc: "Test#-1", progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 10000.4), 'currency': '€' },
             { editAPIKey: 'addEditRatePack', viewChart: '', salesAmount: 12243.43, userId: 2, model: 'Season', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34), 'currency': '¥' },
-            { editAPIKey: 'addUserComponentAPI',viewChart: '',  salesAmount: null, userId: 3, model: 'Amount', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 20, progressType: 'danger', alert: 'Manage resource before exhaust', fileName: null, mark: false, project: ['prj-2', 'prj-6'], status: true, severity: ['low'], email: 'power.admin@global.in', roleName: 'API list', accounts: '12345', 'currency': '₹' },
+            { editAPIKey: 'addUserComponentAPI', viewChart: '', salesAmount: null, userId: 3, model: 'Amount', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 20, progressType: 'danger', alert: 'Manage resource before exhaust', fileName: null, mark: false, project: ['prj-2', 'prj-6'], status: true, severity: ['low'], email: 'power.admin@global.in', roleName: 'API list', accounts: '12345', 'currency': '₹' },
             { editAPIKey: 'addUserComponentAPI', viewChart: '', salesAmount: null, userId: 4, model: 'Amount', desc: "Test#-4", progress: 75, progressType: 'info', alert: 'Consumption is high, please rescale', fileName: 'test-image-4.pdf', mark: false, project: ['prj-1', 'prj-4'], status: false, severity: ['critical'], email: 'admin.user@yahoo.in', roleName: 'Network Admin', accounts: Math.floor(Date.now() / 9898.14), 'currency': '£' },
-            { editAPIKey: 'editEnvComponentAPI',viewChart: '',  salesAmount: 32432.312, userId: 6, model: 'Season', progress: 10, progressType: 'danger', alert: 'Go for it', fileName: null, mark: false, project: ['prj-7', 'prj-9'], status: true, severity: ['critical'], email: 'chain.clouds@global.com', roleName: 'Solo Man', accounts: '12343243245.44', 'currency': '$' },
+            { editAPIKey: 'editEnvComponentAPI', viewChart: '', salesAmount: 32432.312, userId: 6, model: 'Season', progress: 10, progressType: 'danger', alert: 'Go for it', fileName: null, mark: false, project: ['prj-7', 'prj-9'], status: true, severity: ['critical'], email: 'chain.clouds@global.com', roleName: 'Solo Man', accounts: '12343243245.44', 'currency': '$' },
             { editAPIKey: 'editEnvComponentAPI', viewChart: '', salesAmount: 7123.312, userId: 7, model: 'Amount', desc: "Test#-6", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high.', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 998787.33) }
         ];
     }
@@ -9833,7 +9841,7 @@ app.post('/api/csp/customer/ratepacks/type', function (req, res) {
 
 app.post('/api/csp/billops/usertypes', function (req, res) {
 
-    const data = [{ "name": "Existing", "key": "EXISTING", "selected": false }, { "name": "New", "key": "NEW", "selected": true }];
+    const data = [{ "name": "Existing", "key": "EXISTING", "selected": true }, { "name": "New", "key": "NEW", "selected": false }];
 
     responseStatus = 200;
 
@@ -9912,36 +9920,40 @@ app.post('/api/environments', function (req, res) {
 app.post('/api/services', function (req, res) {
     const data = [
         {
-            key: 1,
+            key: 'cspBill',
             title: 'CSP Billing',
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            img: 'billops_productcard.svg'
+        },
+        {
+            key: 'finops',
+            img: 'finops_productcard.svg',
+            title: 'FinOps',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
-            key: 2,
-            img: 'azure',
-            title: 'Customer Services',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-        },
-        {
-            key: 3,
+            key: 'serviceXyz',
             title: 'Services-XYZ',
-            img: 'aws',
+            img: 'billops_productcard.svg',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         },
         {
-            key: 4,
+            key: 'cloudServices',
             title: 'Cloud Services',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            img: 'finops_productcard.svg'
         },
         {
-            key: 5,
+            key: 'testServices',
             title: 'Test services',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            img: 'finops_productcard.svg'
         },
         {
-            key: 6,
+            key: 'edgeCompute',
             title: 'Edge Computing',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            img: 'billops_productcard.svg'
         },
     ]
     responseStatus = 200;
@@ -10030,6 +10042,7 @@ app.post('/api/group/resourceorderlist', function (req, res) {
         "userId": '53',
         "envName": ['west-1231'],
         "packName": "test-pack-name",
+        "rangeFilter": "1617011690_1614678894",
         "packCombo": [
             {
                 "priceList": 'APP-1234',
@@ -10256,31 +10269,31 @@ app.post('/api/governance/sankey-data', function (req, res) {
 app.post('/api/pi-graph-data', function (req, res) {
     const data = [
         {
-          name: 'Microsoft Azure',
-          unit: '$',
-          value: 2009819,
+            name: 'Microsoft Azure',
+            unit: '$',
+            value: 2009819,
         },
         {
-          name: 'Amazon AWS',
-          unit: '$',
-          value: 4744583.2,
+            name: 'Amazon AWS',
+            unit: '$',
+            value: 4744583.2,
         },
         {
-          name: 'Microsoft Azure1',
-          unit: '$',
-          value: 2009819,
+            name: 'Microsoft Azure1',
+            unit: '$',
+            value: 2009819,
         },
         {
-          name: 'Amazon AWS1',
-          unit: '$',
-          value: 4745483.2,
+            name: 'Amazon AWS1',
+            unit: '$',
+            value: 4745483.2,
         },
         {
-          name: 'Microsoft Azure2',
-          unit: '$',
-          value: 2409819,
+            name: 'Microsoft Azure2',
+            unit: '$',
+            value: 2409819,
         },
-      ];
+    ];
     setResponseHeaders(res);
     res.status(200).send(data);
 });
@@ -10288,98 +10301,98 @@ app.post('/api/pi-graph-data', function (req, res) {
 app.post('/api/stackedBarChart', function (req, res) {
     const data = [
         {
-          "category": "March",
-          "series": [
-            {
-              "key": "Domain1",
-              "name": "Domain1",
-              "value": 4500,
-              "unit": "USD"
-            },
-            {
-              "key": "Domain2",
-              "name": "Domain2",
-              "value": 2000,
-              "unit": "USD"
-            },
-            {
-              "key": "Domain3",
-              "name": "Domain3",
-              "value": 1000,
-              "unit": "USD"
-            }
-          ]
+            "category": "March",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ]
         },
         {
-          "category": "February",
-          "series": [
-            {
-              "key": "Domain1",
-              "name": "Domain1",
-              "value": 4500,
-              "unit": "USD"
-            },
-            {
-              "key": "Domain2",
-              "name": "Domain2",
-              "value": 2000,
-              "unit": "USD"
-            },
-            {
-              "key": "Domain3",
-              "name": "Domain3",
-              "value": 1000,
-              "unit": "USD"
-            }
-          ]
+            "category": "February",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ]
         },
         {
-          "category": "January",
-          "series": [
-            {
-              "key": "Domain1",
-              "name": "Domain1",
-              "value": 4500,
-              "unit": "USD"
-            },
-            {
-              "key": "Domain2",
-              "name": "Domain2",
-              "value": 2000,
-              "unit": "USD"
-            },
-            {
-              "key": "Domain3",
-              "name": "Domain3",
-              "value": 1000,
-              "unit": "USD"
-            }
-          ]
+            "category": "January",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ]
         },
         {
-          "category": "December",
-          "series": [
-            {
-              "key": "Domain1",
-              "name": "Domain1",
-              "value": 4500,
-              "unit": "USD"
-            },
-            {
-              "key": "Domain2",
-              "name": "Domain2",
-              "value": 2000,
-              "unit": "USD"
-            },
-            {
-              "key": "Domain3",
-              "name": "Domain3",
-              "value": 1000,
-              "unit": "USD"
-            }
-          ]
+            "category": "December",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ]
         }
-      ];
+    ];
     setResponseHeaders(res);
     res.status(200).send(data);
 });
@@ -10393,14 +10406,14 @@ app.post('/api/extended-summary', function (req, res) {
             amount: '$150,000.00',
             trend: "down",
             amtPercentage: 30
-          },
-          {
+        },
+        {
             percentage: '82',
             progressTitle: 'Budget',
             amtTitle: 'Forecast Consumptions',
             amount: '$150,000.00',
-          },
-      ];
+        },
+    ];
 
     setResponseHeaders(res);
     res.status(200).send(data);
@@ -10411,13 +10424,13 @@ app.post('/api/extended-summary-time', function (req, res) {
         {
             amtTitle: 'Total Budget',
             amount: '$200,000.00',
-          },
-          {
+        },
+        {
             amtTitle: 'Time Range',
             amount: '2020-1-1 to 2020-12-1 ( Reset Monthly )',
             amtSize: "small"
-          },
-      ];
+        },
+    ];
 
     setResponseHeaders(res);
     res.status(200).send(data);
@@ -16373,7 +16386,7 @@ app.post('/api/hierarchy', function (req, res) {
             ]
         }
     ];
-    
+
     setResponseHeaders(res);
     res.status(200).send(data);
 });
@@ -16522,9 +16535,20 @@ app.post("/api/csp/analytic/graph", function (req, res) {
 
 
 
+app.post('/api/tab-data', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(tabData);
+});
+
+
 app.post('/api/tree-data', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(treeDataFake);
+});
+
+app.post('/api/dir-tree-data', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(dirTreeDataFake);
 });
 
 var listener = app.listen(PORT, function () {

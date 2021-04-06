@@ -13,9 +13,13 @@
                 "id": 2,
                 "type": "extended-summary",
                 "apiKey": "extendedSummaryTime",
-                "noDataText": "No Summary Data available",
+                "noDataText": "There is no budget configured.",
                 "metrics": {},
-                "size": 4
+                "size": 4,
+                "noDataDrillDown": {
+                    "text": "Create a budget",
+                    "drillTo": "governance/new-finance-domain"
+                }
             },
             {
                 "id": 22,
@@ -25,7 +29,7 @@
                 "metrics": {},
                 "size": 4
             },
-                {
+            {
                 "id": 3,
                 "type": "piGraph",
                 "title": "",
@@ -36,10 +40,9 @@
                 "height": 160,
                 "withCard": false,
                 "initialChartType": "piChart",
-                "drillUrls":{
-                                }
-                },
-                {
+                "drillUrls": {}
+            },
+            {
                 "id": 4,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
@@ -53,7 +56,8 @@
                 "metrics": {},
                 "defaultRowPerPage": 10,
                 "subscribedDrillParam": [
-                    "hierarchy_id"
+                    "hierarchy_id",
+                    "rateId"
                 ],
                 "customFilters": [
                     {
@@ -157,7 +161,6 @@
                         "display": true,
                         "filter": false,
                         "highlight": true
-
                     },
                     {
                         "name": "Unit",
@@ -165,6 +168,45 @@
                         "type": "multiselect",
                         "display": true,
                         "filter": false
+                    },
+                    {
+                        "name": "Amount",
+                        "key": "ratea",
+                        "type": "amount",
+                        "display": true,
+                        "filter": false,
+                        "drillTo": "governance/finance-domain",
+                        "drillParams": [
+                            {
+                                "key": "rateId"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Move",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Update Financial Domain",
+                                "drillParams": [
+                                    {
+                                        "key": "rateId"
+                                    },
+                                    {
+                                        "key": "priceList"
+                                    }
+                                ],
+                                "componentsAPIKey": "addFinAccountsAPI"
+                            }
+                        ]
                     }
                 ]
             }

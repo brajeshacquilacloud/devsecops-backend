@@ -1,0 +1,23 @@
+[
+    {
+        "id": 5,
+        "title": "Potential Savings",
+        "unit": "USD",
+        "amount": 400000,
+        "divider": "year"
+    },
+    {
+        "id": 6,
+        "title": "Potential Cost",
+        "unit": "USD",
+        "amount": 100040,
+        "divider": "year"
+    },
+    {
+        "id": 7,
+        "title": "Total Savings",
+        "unit": "INR",
+        "amount": 2332000,
+        "divider": "month"
+    }
+]

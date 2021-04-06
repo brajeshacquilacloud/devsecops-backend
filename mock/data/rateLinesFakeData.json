@@ -11,7 +11,8 @@
     "rate": 6,
     "ratea": 6819,
     "currency": "USD",
-    "unit": "#5c6"
+    "unit": "#5c6",
+    "drillTo": "csp/billing"
   },
   {
     "rateId": 2,
@@ -25,7 +26,8 @@
     "rate": 9,
     "ratea": 810,
     "currency": "USD",
-    "unit": "#f4b"
+    "unit": "#f4b",
+    "drillTo": "admin/manage-roles"
   },
   {
     "rateId": 3,
@@ -39,7 +41,8 @@
     "rate": 3,
     "ratea": 4958,
     "currency": "USD",
-    "unit": "#3ff"
+    "unit": "#3ff",
+    "drillTo": "admin/manage-roles"
   },
   {
     "rateId": 4,
@@ -53,7 +56,8 @@
     "rate": 8,
     "ratea": 3870,
     "currency": "USD",
-    "unit": "#d85"
+    "unit": "#d85",
+    "drillTo": "governance/new-finance-domain"
   },
   {
     "rateId": 5,
