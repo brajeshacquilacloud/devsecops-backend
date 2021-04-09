@@ -74,6 +74,7 @@
                                 "id": 323,
                                 "title": "Environment-2",
                                 "type": "select",
+                                "mode": "tags",
                                 "defSelectKey": "env2",
                                 "labelSize": 3,
                                 "size": 9,
