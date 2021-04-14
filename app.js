@@ -3800,6 +3800,10 @@ app.post('/api/metrics', function (req, res) {
             "Real Cost": 0.120,
             "Optimal Cost": 0.0792,
             "Misc Cost": 0.162,
+            "alert": {
+                alertTitle: "alertTitle1",
+                alertDesc: "alertDesc1"
+            }
         },
         {
             "date": "2018-07-07 08:00:00.0",
@@ -3818,6 +3822,10 @@ app.post('/api/metrics', function (req, res) {
             "Real Cost": 0.330,
             "Optimal Cost": 0.1492,
             "Misc Cost": 0.222,
+            "alert": {
+                alertTitle: "alertTitle2",
+                alertDesc: "alertDesc2"
+            }
         },
 
         {
@@ -3831,13 +3839,134 @@ app.post('/api/metrics', function (req, res) {
             "Real Cost": 0.430,
             "Optimal Cost": 0.3192,
             "Misc Cost": 0.422,
+            "alert": {
+                alertTitle: "alertTitle3",
+                alertDesc: "alertDesc3"
+            }
         },
         {
             "date": "2018-07-12 08:00:00.0",
             "Real Cost": 0.130,
             "Optimal Cost": 0.1292,
             "Misc Cost": 0.122,
+            "alert": {
+                alertTitle: "alertTitle3",
+                alertDesc: "alertDesc3"
+            }
         },
+    ];
+
+    setResponseHeaders(res);
+    res.send(data);
+    //res.status(500).send({ error: "Internal Server Error" });
+});
+
+app.post('/api/linechart', function (req, res) {
+
+    //Add some delay on purpose.
+    addDelay();
+
+    const data = [
+        {
+            "date": "2018-07-05 06:00:00.0",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ],
+            alert: {
+                alertTitle: "Abc1",
+                "alertDesc": "desc1"
+            }
+        },
+        {
+            "date": "2018-07-06 06:00:00.0",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 1500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ]
+        },
+        {
+            "date": "2018-07-07 06:00:00.0",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 3000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ],
+            alert: {
+                alertTitle: "Abc",
+                "alertDesc": "desc"
+            }
+        },
+        {
+            "date": "2018-07-08 06:00:00.0",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ]
+        }
     ];
 
     setResponseHeaders(res);
@@ -10321,7 +10450,11 @@ app.post('/api/stackedBarChart', function (req, res) {
                     "value": 1000,
                     "unit": "USD"
                 }
-            ]
+            ],
+            alert: {
+                alertTitle: "Abc1",
+                "alertDesc": "desc1"
+            }
         },
         {
             "category": "February",
@@ -10329,7 +10462,7 @@ app.post('/api/stackedBarChart', function (req, res) {
                 {
                     "key": "Domain1",
                     "name": "Domain1",
-                    "value": 4500,
+                    "value": 1500,
                     "unit": "USD"
                 },
                 {
@@ -10358,7 +10491,7 @@ app.post('/api/stackedBarChart', function (req, res) {
                 {
                     "key": "Domain2",
                     "name": "Domain2",
-                    "value": 2000,
+                    "value": 3000,
                     "unit": "USD"
                 },
                 {
@@ -10367,7 +10500,11 @@ app.post('/api/stackedBarChart', function (req, res) {
                     "value": 1000,
                     "unit": "USD"
                 }
-            ]
+            ],
+            alert: {
+                alertTitle: "Abc",
+                "alertDesc": "desc"
+            }
         },
         {
             "category": "December",
