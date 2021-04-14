@@ -108,6 +108,7 @@
                         "columnTitle": "Accounts",
                         "type": "tree-select",
                         "mode": "inline",
+                        "inlineSearchInput": true,
                         "size": 12,
                         "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
                         "noDataAddIcon": true,
