@@ -43,7 +43,7 @@
                 "noDataText": "No Data available",
                 "metrics": {},
                 "size": 4,
-                "drillUrls":{
+                "drillUrls": {
                     "Microsoft Azure": "abc.com",
                     "Amazon AWS": "abcd.com",
                     "Microsoft Azure1": "abcde.com",
@@ -122,13 +122,15 @@
                     {
                         "name": "Chart",
                         "key": "viewChart",
-                        "display": true,
                         "type": "view-chart",
-                        "isRowSelection": true,
                         "componentsAPIKey": "viewChartAPI",
-                        "drillParams": [{
-                            "key": "userId"
-                        }]
+                        "drillTo": "overlay",
+                        "overlayDrawerLink": "/catalog",
+                        "drillParams": [
+                            {
+                                "key": "userId"
+                            }
+                        ]
                     },
                     {
                         "name": "Sales Amount",
@@ -149,7 +151,6 @@
                         "name": "Recommendations",
                         "key": "progressType",
                         "type": "drill-down",
-                        "display": true,
                         "drillTo": "overlay",
                         "overlayDrawerLink": "/catalog",
                         "drillParams": [

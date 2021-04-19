@@ -376,6 +376,10 @@
                             "modalTitle": "Auto Create",
                             "componentsAPIKey": "autoCreateDomainAPI",
                             "title": "Auto Create"
+                        },
+                        {
+                            "type": "share",
+                            "message": "URL Copied, you can share copied URL with multiple people"
                         }
                     ]
                 },
@@ -411,6 +415,24 @@
                             ]
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "id": "optimizerScreen",
+            "name": "Optimizer",
+            "icon": "customer-setting-icon",
+            "page": "ComponentsPage",
+            "link": "/optimizer",
+            "isHawkUI": true,
+            "subNavs": [
+                {
+                    "id": "optimizerOverview",
+                    "name": "Optimizer Overview",
+                    "link": "/optimizer/overview",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "isHawkUI": true
                 }
             ]
         },

@@ -52,26 +52,19 @@
                 "size": 12
             },
             {
-                "id": 5,
+                "id": 81,
                 "type": "piGraph",
                 "title": "Savings By Categories",
                 "apiKey": "getPiGraphData",
                 "noDataText": "No Data available",
                 "metrics": {},
                 "size": 4,
-                "drillUrls":{
-                    "Microsoft Azure": "/governance/finance-domain/",
-                    "Amazon AWS": "/csp/overview/",
-                    "Microsoft Azure1": "abcde.com",
-                    "Amazon AWS1": "abcdef.com",
-                    "Microsoft Azure2": "abcdefg.com"
-                },
                 "linkText": "Go to Domain",
                 "drillLink": "/governance/domain",
                 "height": 255
             },
             {
-                "id": 6,
+                "id": 82,
                 "type": "stackedBarChart",
                 "title": "Savings By Categories",
                 "apiKey": "stackedBarChart",
@@ -80,6 +73,29 @@
                 "size": 8,
                 "linkText": "Go to Domain Optimizer",
                 "drillLink": "/csp/billing"
+            },
+            {
+                "id": 7,
+                "leafTitle": "Demographic View",
+                "type": "line",
+                "noDataText": "No Demographic Info",
+                "apiKey": "lineChartAPI",
+                "isPro": true,
+                "isNew": true,
+                "size": 12
+            },
+            {
+                "id": 9997,
+                "leafTitle": "Top 10 Services by Instance",
+                "type": "bar",
+                "isPro": true,
+                "singular": true,
+                "apiKey": "singularBarAPI",
+                "size": 12,
+                "metrics": {
+                    "deploy": "Not deployed",
+                    "build": "Failed"
+                }
             },
             {
                 "id": 4,
