@@ -3,6 +3,7 @@
     "label": "VP Accounting",
     "key": "VPAccounting",
     "type": "cluster",
+    "checked": true,
     "children": [
       {
         "label": "iWay",

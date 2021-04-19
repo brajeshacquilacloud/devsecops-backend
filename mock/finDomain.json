@@ -13,9 +13,13 @@
                 "id": 2,
                 "type": "extended-summary",
                 "apiKey": "extendedSummaryTime",
-                "noDataText": "No Summary Data available",
+                "noDataText": "There is no budget configured.",
                 "metrics": {},
-                "size": 4
+                "size": 4,
+                "noDataDrillDown": {
+                    "text": "Create a budget",
+                    "drillTo": "governance/new-finance-domain"
+                }
             },
             {
                 "id": 22,
@@ -147,6 +151,32 @@
                         "drillParams": [
                             {
                                 "key": "rateId"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Move",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Update Financial Domain",
+                                "drillParams": [
+                                    {
+                                        "key": "rateId"
+                                    },
+                                    {
+                                        "key": "priceList"
+                                    }
+                                ],
+                                "componentsAPIKey": "addFinAccountsAPI"
                             }
                         ]
                     }
