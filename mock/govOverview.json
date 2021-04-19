@@ -72,6 +72,11 @@
                 "metrics": {},
                 "size": 8,
                 "linkText": "Go to Domain Optimizer",
+                "drillUrls": {
+                    "domain1": "/governance/finance-domain",
+                    "domain2": "/governance/finance-domain",
+                    "domain3": "/governance/finance-domain"
+                },
                 "drillLink": "/csp/billing"
             },
             {
