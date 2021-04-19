@@ -59,13 +59,6 @@
                 "noDataText": "No Data available",
                 "metrics": {},
                 "size": 4,
-                "drillUrls": {
-                    "Microsoft Azure": "abc.com",
-                    "Amazon AWS": "abcd.com",
-                    "Microsoft Azure1": "abcde.com",
-                    "Amazon AWS1": "abcdef.com",
-                    "Microsoft Azure2": "abcdefg.com"
-                },
                 "linkText": "Go to Domain",
                 "drillLink": "/governance/domain",
                 "height": 255
