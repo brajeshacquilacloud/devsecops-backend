@@ -10261,29 +10261,34 @@ app.post('/api/governance/sankey-data', function (req, res) {
 app.post('/api/pi-graph-data', function (req, res) {
     const data = [
         {
-          name: 'Microsoft Azure',
-          unit: '$',
-          value: 2009819,
+            name: 'Microsoft Azure',
+            unit: '$',
+            value: 2009819,
+            link: '/governance/finance-domain'
         },
         {
-          name: 'Amazon AWS',
-          unit: '$',
-          value: 4744583.2,
+            name: 'Amazon AWS',
+            unit: '$',
+            value: 4744583.2,
+            link: '/governance/finance-domain'
         },
         {
-          name: 'Microsoft Azure1',
-          unit: '$',
-          value: 2009819,
+            name: 'Microsoft Azure1',
+            unit: '$',
+            value: 2009819,
+            link: '/governance/finance-domain'
         },
         {
-          name: 'Amazon AWS1',
-          unit: '$',
-          value: 4745483.2,
+            name: 'Amazon AWS1',
+            unit: '$',
+            value: 4745483.2,
+            link: '/governance/finance-domain'
         },
         {
-          name: 'Microsoft Azure2',
-          unit: '$',
-          value: 2409819,
+            name: 'Microsoft Azure2',
+            unit: '$',
+            value: 2409819,
+            link: '/governance/finance-domain'
         },
       ];
     setResponseHeaders(res);
