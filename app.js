@@ -8970,6 +8970,11 @@ app.post('/api/user/navs', function (req, res) {
                 },
                 { id: 'startup', "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
     };
+
+    if (req.body.preSelectUrl) {
+        data.defalultLandingLink = req.body.preSelectUrl;
+    }
+
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
@@ -10391,7 +10396,7 @@ app.post('/api/governance/sankey-data', function (req, res) {
         { "fromKey": "sd-2", "toKey": "c-3", "from": "Sub Domain-2", "to": "Company-3", "amount": 300, "value": filterValue }
     ];
     setResponseHeaders(res);
-    res.status(200).send(data);
+    res.status(200).send(sankeyDataFake);
 
 });
 
@@ -10557,17 +10562,7 @@ app.post('/api/extended-summary', function (req, res) {
 });
 
 app.post('/api/extended-summary-time', function (req, res) {
-    const data = [
-        {
-            amtTitle: 'Total Budget',
-            amount: '$200,000.00',
-        },
-        {
-            amtTitle: 'Time Range',
-            amount: '2020-1-1 to 2020-12-1 ( Reset Monthly )',
-            amtSize: "small"
-        },
-    ];
+    const data = [];
 
     setResponseHeaders(res);
     res.status(200).send(data);
