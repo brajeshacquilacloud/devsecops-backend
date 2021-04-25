@@ -1,0 +1,16 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "type": "schedule-grid",
+                "title": "Startup/Shutdown Schdule Workspace",
+                "apiKey": "fetchInstanceScheduleApi",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12,
+                "view": "TOGGLE"
+            }
+        ]
+    }
+]

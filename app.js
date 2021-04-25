@@ -14,6 +14,7 @@ const govOverview = require('./mock/govOverview.json');
 const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
 const optimizerOverview = require('./mock/optimizerOverview.json');
+const scheduler = require('./mock/scheduler.json');
 
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 const addContainerModal = require('./mock/modal/addContainerModal.json');
@@ -4328,7 +4329,7 @@ app.post('/api/instance/schedule', function (req, res) {
         default: {}
     };
 
-    if (req.query.resourceid) {
+    // if (req.query.resourceid) {
         data = {
             gridData: [
                 {
@@ -5056,10 +5057,10 @@ app.post('/api/instance/schedule', function (req, res) {
                 v3: 9,
             }
         };
-    }
+    // }
 
     setResponseHeaders(res);
-    res.send(data);
+    res.send(data.gridData);
     //res.status(500).send({ error: "Internal Server Error" });
 });
 
@@ -5711,6 +5712,9 @@ app.post('/api/scenario', function (req, res) {
             break;
         case "optimizerOverview":
             data = optimizerOverview;
+            break;
+        case "scheduler":
+            data = scheduler;
             break;
 
         /* Old pages config from here  */
