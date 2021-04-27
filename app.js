@@ -15,6 +15,7 @@ const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
 const optimizerOverview = require('./mock/optimizerOverview.json');
 const scheduler = require('./mock/scheduler.json');
+const heatMap = require('./mock/data/heatMap.json');
 
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 const addContainerModal = require('./mock/modal/addContainerModal.json');
@@ -5064,6 +5065,12 @@ app.post('/api/instance/schedule', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
 });
 
+
+
+app.post('/api/heatmap/schedule', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(heatMap);
+});
 
 app.post('/api/instance/saveschedule', function (req, res) {
     //Add some delay on purpose.

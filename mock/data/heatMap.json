@@ -1,0 +1,734 @@
+[
+    {
+        "day": "MON",
+        "schedule": [
+            {
+                "hour": "00:00",
+                "threshold": 90,
+                "tooltip": {
+                    "title": "12 to 1 AM on Mondays",
+                    "data": [
+                        {
+                            "title": "CPU",
+                            "value": "30.00%"
+                        },
+                        {
+                            "title": "Disk",
+                            "value": "40.00%"
+                        },
+                        {
+                            "title": "Memory",
+                            "value": "60.00%"
+                        },
+                        {
+                            "title": "Bandwith",
+                            "value": "20.00%"
+                        }
+                    ],
+                    "recommendation": {
+                        "title": "Recommendation",
+                        "value": "Shutdown"
+                    }
+                }
+            },
+            {
+                "hour": "01:00",
+                "threshold": 90
+            },
+            {
+                "hour": "02:00",
+                "threshold": 90
+            },
+            {
+                "hour": "03:00",
+                "threshold": 90
+            },
+            {
+                "hour": "04:00",
+                "threshold": 90
+            },
+            {
+                "hour": "05:00",
+                "threshold": 90
+            },
+            {
+                "hour": "06:00",
+                "threshold": 90
+            },
+            {
+                "hour": "07:00",
+                "threshold": 90
+            },
+            {
+                "hour": "08:00",
+                "threshold": 55
+            },
+            {
+                "hour": "09:00",
+                "threshold": 55
+            },
+            {
+                "hour": "10:00",
+                "threshold": 55
+            },
+            {
+                "hour": "11:00",
+                "threshold": 55
+            },
+            {
+                "hour": "12:00",
+                "threshold": 55
+            },
+            {
+                "hour": "13:00",
+                "threshold": 37
+            },
+            {
+                "hour": "14:00",
+                "threshold": 37
+            },
+            {
+                "hour": "15:00",
+                "threshold": 37
+            },
+            {
+                "hour": "16:00",
+                "threshold": 37
+            },
+            {
+                "hour": "17:00",
+                "threshold": 37
+            },
+            {
+                "hour": "18:00",
+                "threshold": 37
+            },
+            {
+                "hour": "19:00",
+                "threshold": 37
+            },
+            {
+                "hour": "20:00",
+                "threshold": 37
+            },
+            {
+                "hour": "21:00",
+                "threshold": 17
+            },
+            {
+                "hour": "22:00",
+                "threshold": 10
+            },
+            {
+                "hour": "23:00",
+                "threshold": 10
+            }
+        ]
+    },
+    {
+        "day": "TUE",
+        "schedule": [
+            {
+                "hour": "00:00",
+                "threshold": 40
+            },
+            {
+                "hour": "01:00",
+                "threshold": 40
+            },
+            {
+                "hour": "02:00",
+                "threshold": 40
+            },
+            {
+                "hour": "03:00",
+                "threshold": 40
+            },
+            {
+                "hour": "04:00",
+                "threshold": 40
+            },
+            {
+                "hour": "05:00",
+                "threshold": 40
+            },
+            {
+                "hour": "06:00",
+                "threshold": 40
+            },
+            {
+                "hour": "07:00",
+                "threshold": 40
+            },
+            {
+                "hour": "08:00",
+                "threshold": 40
+            },
+            {
+                "hour": "09:00",
+                "threshold": 40
+            },
+            {
+                "hour": "10:00",
+                "threshold": 90
+            },
+            {
+                "hour": "11:00",
+                "threshold": 90
+            },
+            {
+                "hour": "12:00",
+                "threshold": 90
+            },
+            {
+                "hour": "13:00",
+                "threshold": 90
+            },
+            {
+                "hour": "14:00",
+                "threshold": 90
+            },
+            {
+                "hour": "15:00",
+                "threshold": 90
+            },
+            {
+                "hour": "16:00",
+                "threshold": 90
+            },
+            {
+                "hour": "17:00",
+                "threshold": 90
+            },
+            {
+                "hour": "18:00",
+                "threshold": 90
+            },
+            {
+                "hour": "19:00",
+                "threshold": 90
+            },
+            {
+                "hour": "20:00",
+                "threshold": 40
+            },
+            {
+                "hour": "21:00",
+                "threshold": 40
+            },
+            {
+                "hour": "22:00",
+                "threshold": 40
+            },
+            {
+                "hour": "23:00",
+                "threshold": 40
+            }
+        ]
+    },
+    {
+        "day": "WED",
+        "schedule": [
+            {
+                "hour": "00:00",
+                "threshold": 40
+            },
+            {
+                "hour": "01:00",
+                "threshold": 40
+            },
+            {
+                "hour": "02:00",
+                "threshold": 40
+            },
+            {
+                "hour": "03:00",
+                "threshold": 40
+            },
+            {
+                "hour": "04:00",
+                "threshold": 40
+            },
+            {
+                "hour": "05:00",
+                "threshold": 40
+            },
+            {
+                "hour": "06:00",
+                "threshold": 40
+            },
+            {
+                "hour": "07:00",
+                "threshold": 40
+            },
+            {
+                "hour": "08:00",
+                "threshold": 40
+            },
+            {
+                "hour": "09:00",
+                "threshold": 40
+            },
+            {
+                "hour": "10:00",
+                "threshold": 90
+            },
+            {
+                "hour": "11:00",
+                "threshold": 90
+            },
+            {
+                "hour": "12:00",
+                "threshold": 90
+            },
+            {
+                "hour": "13:00",
+                "threshold": 90
+            },
+            {
+                "hour": "14:00",
+                "threshold": 90
+            },
+            {
+                "hour": "15:00",
+                "threshold": 90
+            },
+            {
+                "hour": "16:00",
+                "threshold": 90
+            },
+            {
+                "hour": "17:00",
+                "threshold": 90
+            },
+            {
+                "hour": "18:00",
+                "threshold": 90
+            },
+            {
+                "hour": "19:00",
+                "threshold": 90
+            },
+            {
+                "hour": "20:00",
+                "threshold": 40
+            },
+            {
+                "hour": "21:00",
+                "threshold": 40
+            },
+            {
+                "hour": "22:00",
+                "threshold": 40
+            },
+            {
+                "hour": "23:00",
+                "threshold": 40
+            }
+        ]
+    },
+    {
+        "day": "THU",
+        "schedule": [
+            {
+                "hour": "00:00",
+                "threshold": 40
+            },
+            {
+                "hour": "01:00",
+                "threshold": 40
+            },
+            {
+                "hour": "02:00",
+                "threshold": 40
+            },
+            {
+                "hour": "03:00",
+                "threshold": 40
+            },
+            {
+                "hour": "04:00",
+                "threshold": 40
+            },
+            {
+                "hour": "05:00",
+                "threshold": 40
+            },
+            {
+                "hour": "06:00",
+                "threshold": 40
+            },
+            {
+                "hour": "07:00",
+                "threshold": 40
+            },
+            {
+                "hour": "08:00",
+                "threshold": 40
+            },
+            {
+                "hour": "09:00",
+                "threshold": 40
+            },
+            {
+                "hour": "10:00",
+                "threshold": 90
+            },
+            {
+                "hour": "11:00",
+                "threshold": 90
+            },
+            {
+                "hour": "12:00",
+                "threshold": 45
+            },
+            {
+                "hour": "13:00",
+                "threshold": 45
+            },
+            {
+                "hour": "14:00",
+                "threshold": 10
+            },
+            {
+                "hour": "15:00",
+                "threshold": 90
+            },
+            {
+                "hour": "16:00",
+                "threshold": 90
+            },
+            {
+                "hour": "17:00",
+                "threshold": 90
+            },
+            {
+                "hour": "18:00",
+                "threshold": 90
+            },
+            {
+                "hour": "19:00",
+                "threshold": 90
+            },
+            {
+                "hour": "20:00",
+                "threshold": 10
+            },
+            {
+                "hour": "21:00",
+                "threshold": 40
+            },
+            {
+                "hour": "22:00",
+                "threshold": 40
+            },
+            {
+                "hour": "23:00",
+                "threshold": 40
+            }
+        ]
+    },
+    {
+        "day": "FRI",
+        "schedule": [
+            {
+                "hour": "00:00",
+                "threshold": 40
+            },
+            {
+                "hour": "01:00",
+                "threshold": 40
+            },
+            {
+                "hour": "02:00",
+                "threshold": 40
+            },
+            {
+                "hour": "03:00",
+                "threshold": 40
+            },
+            {
+                "hour": "04:00",
+                "threshold": 40
+            },
+            {
+                "hour": "05:00",
+                "threshold": 40
+            },
+            {
+                "hour": "06:00",
+                "threshold": 40
+            },
+            {
+                "hour": "07:00",
+                "threshold": 10
+            },
+            {
+                "hour": "08:00",
+                "threshold": 40
+            },
+            {
+                "hour": "09:00",
+                "threshold": 40
+            },
+            {
+                "hour": "10:00",
+                "threshold": 90
+            },
+            {
+                "hour": "11:00",
+                "threshold": 90
+            },
+            {
+                "hour": "12:00",
+                "threshold": 10
+            },
+            {
+                "hour": "13:00",
+                "threshold": 10
+            },
+            {
+                "hour": "14:00",
+                "threshold": 90
+            },
+            {
+                "hour": "15:00",
+                "threshold": 50
+            },
+            {
+                "hour": "16:00",
+                "threshold": 90
+            },
+            {
+                "hour": "17:00",
+                "threshold": 90
+            },
+            {
+                "hour": "18:00",
+                "threshold": 70
+            },
+            {
+                "hour": "19:00",
+                "threshold": 90
+            },
+            {
+                "hour": "20:00",
+                "threshold": 70
+            },
+            {
+                "hour": "21:00",
+                "threshold": 40
+            },
+            {
+                "hour": "22:00",
+                "threshold": 40
+            },
+            {
+                "hour": "23:00",
+                "threshold": 90
+            }
+        ]
+    },
+    {
+        "day": "SAT",
+        "schedule": [
+            {
+                "hour": "00:00",
+                "threshold": 40
+            },
+            {
+                "hour": "01:00",
+                "threshold": 70
+            },
+            {
+                "hour": "02:00",
+                "threshold": 30
+            },
+            {
+                "hour": "03:00",
+                "threshold": 40
+            },
+            {
+                "hour": "04:00",
+                "threshold": 90
+            },
+            {
+                "hour": "05:00",
+                "threshold": 40
+            },
+            {
+                "hour": "06:00",
+                "threshold": 40
+            },
+            {
+                "hour": "07:00",
+                "threshold": 40
+            },
+            {
+                "hour": "08:00",
+                "threshold": 10
+            },
+            {
+                "hour": "09:00",
+                "threshold": 40
+            },
+            {
+                "hour": "10:00",
+                "threshold": 90
+            },
+            {
+                "hour": "11:00",
+                "threshold": 90
+            },
+            {
+                "hour": "12:00",
+                "threshold": 90
+            },
+            {
+                "hour": "13:00",
+                "threshold": 90
+            },
+            {
+                "hour": "14:00",
+                "threshold": 90
+            },
+            {
+                "hour": "15:00",
+                "threshold": 90
+            },
+            {
+                "hour": "16:00",
+                "threshold": 90
+            },
+            {
+                "hour": "17:00",
+                "threshold": 90
+            },
+            {
+                "hour": "18:00",
+                "threshold": 90
+            },
+            {
+                "hour": "19:00",
+                "threshold": 90
+            },
+            {
+                "hour": "20:00",
+                "threshold": 40
+            },
+            {
+                "hour": "21:00",
+                "threshold": 40
+            },
+            {
+                "hour": "22:00",
+                "threshold": 40
+            },
+            {
+                "hour": "23:00",
+                "threshold": 40
+            }
+        ]
+    },
+    {
+        "day": "SUN",
+        "schedule": [
+            {
+                "hour": "00:00",
+                "threshold": 40
+            },
+            {
+                "hour": "01:00",
+                "threshold": 40
+            },
+            {
+                "hour": "02:00",
+                "threshold": 40
+            },
+            {
+                "hour": "03:00",
+                "threshold": 40
+            },
+            {
+                "hour": "04:00",
+                "threshold": 40
+            },
+            {
+                "hour": "05:00",
+                "threshold": 40
+            },
+            {
+                "hour": "06:00",
+                "threshold": 40
+            },
+            {
+                "hour": "07:00",
+                "threshold": 40
+            },
+            {
+                "hour": "08:00",
+                "threshold": 40
+            },
+            {
+                "hour": "09:00",
+                "threshold": 40
+            },
+            {
+                "hour": "10:00",
+                "threshold": 90
+            },
+            {
+                "hour": "11:00",
+                "threshold": 90
+            },
+            {
+                "hour": "12:00",
+                "threshold": 90
+            },
+            {
+                "hour": "13:00",
+                "threshold": 90
+            },
+            {
+                "hour": "14:00",
+                "threshold": 90
+            },
+            {
+                "hour": "15:00",
+                "threshold": 90
+            },
+            {
+                "hour": "16:00",
+                "threshold": 90
+            },
+            {
+                "hour": "17:00",
+                "threshold": 90
+            },
+            {
+                "hour": "18:00",
+                "threshold": 90
+            },
+            {
+                "hour": "19:00",
+                "threshold": 90
+            },
+            {
+                "hour": "20:00",
+                "threshold": 40
+            },
+            {
+                "hour": "21:00",
+                "threshold": 40
+            },
+            {
+                "hour": "22:00",
+                "threshold": 40
+            },
+            {
+                "hour": "23:00",
+                "threshold": 40
+            }
+        ]
+    }
+]
