@@ -74,10 +74,18 @@
                                 "id": 323,
                                 "title": "Environment-2",
                                 "type": "select",
+                                "mode": "tags",
                                 "defSelectKey": "env2",
                                 "labelSize": 3,
                                 "size": 9,
-                                "apiKey": "envTypeListAPI"
+                                "apiKey": "envTypeListAPI",
+                                "validation": {
+                                    "bindWith": "customerType",
+                                    "skipWhen": "EXISTING",
+                                    "bindLeafId": 1,
+                                    "isRequired": true,
+                                    "message": "Env2 is the required field"
+                                }
                             }
                         ]
                     }
@@ -107,6 +115,7 @@
                         "columnTitle": "Accounts",
                         "type": "tree-select",
                         "mode": "inline",
+                        "inlineSearchInput": true,
                         "size": 12,
                         "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
                         "noDataAddIcon": true,

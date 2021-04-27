@@ -3800,6 +3800,10 @@ app.post('/api/metrics', function (req, res) {
             "Real Cost": 0.120,
             "Optimal Cost": 0.0792,
             "Misc Cost": 0.162,
+            "alert": {
+                alertTitle: "alertTitle1",
+                alertDesc: "alertDesc1"
+            }
         },
         {
             "date": "2018-07-07 08:00:00.0",
@@ -3818,6 +3822,10 @@ app.post('/api/metrics', function (req, res) {
             "Real Cost": 0.330,
             "Optimal Cost": 0.1492,
             "Misc Cost": 0.222,
+            "alert": {
+                alertTitle: "alertTitle2",
+                alertDesc: "alertDesc2"
+            }
         },
 
         {
@@ -3831,13 +3839,134 @@ app.post('/api/metrics', function (req, res) {
             "Real Cost": 0.430,
             "Optimal Cost": 0.3192,
             "Misc Cost": 0.422,
+            "alert": {
+                alertTitle: "alertTitle3",
+                alertDesc: "alertDesc3"
+            }
         },
         {
             "date": "2018-07-12 08:00:00.0",
             "Real Cost": 0.130,
             "Optimal Cost": 0.1292,
             "Misc Cost": 0.122,
+            "alert": {
+                alertTitle: "alertTitle3",
+                alertDesc: "alertDesc3"
+            }
         },
+    ];
+
+    setResponseHeaders(res);
+    res.send(data);
+    //res.status(500).send({ error: "Internal Server Error" });
+});
+
+app.post('/api/linechart', function (req, res) {
+
+    //Add some delay on purpose.
+    addDelay();
+
+    const data = [
+        {
+            "date": "2018-07-05 06:00:00.0",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ],
+            alert: {
+                alertTitle: "Abc1",
+                "alertDesc": "desc1"
+            }
+        },
+        {
+            "date": "2018-07-06 06:00:00.0",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 1500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ]
+        },
+        {
+            "date": "2018-07-07 06:00:00.0",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 3000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ],
+            alert: {
+                alertTitle: "Abc",
+                "alertDesc": "desc"
+            }
+        },
+        {
+            "date": "2018-07-08 06:00:00.0",
+            "series": [
+                {
+                    "key": "Domain1",
+                    "name": "Domain1",
+                    "value": 4500,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain2",
+                    "name": "Domain2",
+                    "value": 2000,
+                    "unit": "USD"
+                },
+                {
+                    "key": "Domain3",
+                    "name": "Domain3",
+                    "value": 1000,
+                    "unit": "USD"
+                }
+            ]
+        }
     ];
 
     setResponseHeaders(res);
@@ -8841,6 +8970,11 @@ app.post('/api/user/navs', function (req, res) {
                 },
                 { id: 'startup', "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
     };
+
+    if (req.body.preSelectUrl) {
+        data.defalultLandingLink = req.body.preSelectUrl;
+    }
+
     setResponseHeaders(res);
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
@@ -10262,7 +10396,7 @@ app.post('/api/governance/sankey-data', function (req, res) {
         { "fromKey": "sd-2", "toKey": "c-3", "from": "Sub Domain-2", "to": "Company-3", "amount": 300, "value": filterValue }
     ];
     setResponseHeaders(res);
-    res.status(200).send(data);
+    res.status(200).send(sankeyDataFake);
 
 });
 
@@ -10272,26 +10406,31 @@ app.post('/api/pi-graph-data', function (req, res) {
             name: 'Microsoft Azure',
             unit: '$',
             value: 2009819,
+            link: '/governance/finance-domain'
         },
         {
             name: 'Amazon AWS',
             unit: '$',
             value: 4744583.2,
+            link: '/governance/finance-domain'
         },
         {
             name: 'Microsoft Azure1',
             unit: '$',
             value: 2009819,
+            link: '/governance/finance-domain'
         },
         {
             name: 'Amazon AWS1',
             unit: '$',
             value: 4745483.2,
+            link: '/governance/finance-domain'
         },
         {
             name: 'Microsoft Azure2',
             unit: '$',
             value: 2409819,
+            link: '/governance/finance-domain'
         },
     ];
     setResponseHeaders(res);
@@ -10321,7 +10460,11 @@ app.post('/api/stackedBarChart', function (req, res) {
                     "value": 1000,
                     "unit": "USD"
                 }
-            ]
+            ],
+            alert: {
+                alertTitle: "Abc1",
+                "alertDesc": "desc1"
+            }
         },
         {
             "category": "February",
@@ -10329,7 +10472,7 @@ app.post('/api/stackedBarChart', function (req, res) {
                 {
                     "key": "Domain1",
                     "name": "Domain1",
-                    "value": 4500,
+                    "value": 1500,
                     "unit": "USD"
                 },
                 {
@@ -10358,7 +10501,7 @@ app.post('/api/stackedBarChart', function (req, res) {
                 {
                     "key": "Domain2",
                     "name": "Domain2",
-                    "value": 2000,
+                    "value": 3000,
                     "unit": "USD"
                 },
                 {
@@ -10367,7 +10510,11 @@ app.post('/api/stackedBarChart', function (req, res) {
                     "value": 1000,
                     "unit": "USD"
                 }
-            ]
+            ],
+            alert: {
+                alertTitle: "Abc",
+                "alertDesc": "desc"
+            }
         },
         {
             "category": "December",
@@ -10420,17 +10567,7 @@ app.post('/api/extended-summary', function (req, res) {
 });
 
 app.post('/api/extended-summary-time', function (req, res) {
-    const data = [
-        {
-            amtTitle: 'Total Budget',
-            amount: '$200,000.00',
-        },
-        {
-            amtTitle: 'Time Range',
-            amount: '2020-1-1 to 2020-12-1 ( Reset Monthly )',
-            amtSize: "small"
-        },
-    ];
+    const data = [];
 
     setResponseHeaders(res);
     res.status(200).send(data);

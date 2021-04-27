@@ -8,6 +8,8 @@
                 "leafTitle": "Avaliable Accounts",
                 "columnTitle": "Cluster Name",
                 "type": "directory-tree",
+                "inlineSearchInput": true,
+                "rowPerPage":20,
                 "apiKey": "directoryTreeDataAPI",
                 "size": 12,
                 "noDataText": "Select A Cloud Provider to see avaliable Accounts.",
