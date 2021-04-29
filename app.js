@@ -10618,6 +10618,7 @@ app.post('/api/hierarchy', function (req, res) {
                     "groupName": "AQ_AWS",
                     "label": "AQ_AWS",
                     "groupType": "FINANCE_DOMAIN",
+                    "selected": true,
                     "group": {
                         "groupId": 323,
                         "ownerId": 125882,
@@ -10656,6 +10657,7 @@ app.post('/api/hierarchy', function (req, res) {
                             "groupName": "Aquila Clouds Engineering",
                             "label": "Aquila Clouds Engineering",
                             "groupType": "FINANCE_DOMAIN",
+                            "selected": true,
                             "group": {
                                 "groupId": 324,
                                 "ownerId": 125882,
