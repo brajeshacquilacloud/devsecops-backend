@@ -414,6 +414,11 @@
                                 "resources",
                                 "tags"
                             ]
+                        },
+                        {
+                            "key": "cancel",
+                            "type": "cancel",
+                            "actionButtonText": "Cancel"
                         }
                     ]
                 }
