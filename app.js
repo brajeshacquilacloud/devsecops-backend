@@ -10550,15 +10550,17 @@ app.post('/api/extended-summary', function (req, res) {
             percentage: '12',
             progressTitle: 'Budget',
             amtTitle: 'Current Consumptions',
-            amount: '$150,000.00',
+            amount: '150,000.00',
             trend: "down",
-            amtPercentage: 30
+            amtPercentage: 30,
+            unit: "$"
         },
         {
             percentage: '82',
             progressTitle: 'Budget',
             amtTitle: 'Forecast Consumptions',
-            amount: '$150,000.00',
+            amount: '150,000.00',
+            // unit: "$"
         },
     ];
 
