@@ -3,12 +3,40 @@
     "label": "VP Accounting",
     "key": "VPAccounting",
     "type": "cluster",
-    "checked": true,
+    "row": {
+      "rateId": "VPAccounting",
+      "services": "1111",
+      "cost": 100
+    },
     "children": [
       {
         "label": "iWay",
         "key": "iWay",
         "type": "service",
+        "row": {
+          "rateId": "iWay",
+          "services": "222",
+          "cost": 200,
+          "severity": "low",
+          "thresh": 20,
+          "alloc": [
+            {
+              "legendTitle": "Other Domain",
+              "displayValue": "$0000.00 (25%)",
+              "value": 10
+            },
+            {
+              "legendTitle": "Current Domain",
+              "displayValue": "$0000.00 (20%)",
+              "value": 40
+            },
+            {
+              "legendTitle": "Capacity",
+              "displayValue": "$3000.00 (20%)",
+              "value": 30
+            }
+          ]
+        },
         "children": [
           {
             "label": "Universidad de Especialidades del Espíritu Santo",
@@ -38,6 +66,30 @@
       {
         "label": "KDB",
         "key": "kdb",
+        "row": {
+          "rateId": "KDB",
+          "services": "333",
+          "cost": 300,
+          "severity": "high",
+          "thresh": 30,
+          "alloc": [
+            {
+              "legendTitle": "Other Domain",
+              "displayValue": "$0000.00 (25%)",
+              "value": 25
+            },
+            {
+              "legendTitle": "Current Domain",
+              "displayValue": "$0000.00 (20%)",
+              "value": 20
+            },
+            {
+              "legendTitle": "Capacity",
+              "displayValue": "$3000.00 (20%)",
+              "value": 20
+            }
+          ]
+        },
         "children": [
           {
             "label": "Latvian University of Agriculture",

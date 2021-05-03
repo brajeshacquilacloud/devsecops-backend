@@ -182,10 +182,46 @@
                         "tabTitle": "Cloud Native Services",
                         "leafTitle": "Preview",
                         "columnTitle": "Services",
-                        "type": "tree-select",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
                         "size": 12,
                         "noDataAddIcon": true,
+                        "hideToolBar": true,
                         "noDataText": "Select A Services to see avaliable Services.",
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "rateId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Services",
+                                "key": "services"
+                            },
+                            {
+                                "name": "Cost Allocation",
+                                "key": "cost"
+                            },
+                            {
+                                "name": "Severity",
+                                "key": "severity",
+                                "type": "select",
+                                "mode": "default",
+                                "apiKey": "listThresholdMetricListAPI"
+                            },
+                            {
+                                "name": "Threshold",
+                                "key": "thresh",
+                                "type": "text-input",
+                                "inputType": "number"
+                            },
+                            {
+                                "name": "Allocation",
+                                "key": "alloc",
+                                "type": "horiz-bar-line"
+                            }
+                        ],
                         "toolBarActions": [
                             {
                                 "key": "pageSearch",
