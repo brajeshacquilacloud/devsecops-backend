@@ -21,13 +21,13 @@
           "thresh": 20,
           "alloc": [
             {
-              "legendTitle": "Other Domain",
-              "displayValue": "$0000.00 (25%)",
+              "legendTitle": "Main Domain",
+              "displayValue": "$4000.00 (25%)",
               "value": 10
             },
             {
-              "legendTitle": "Current Domain",
-              "displayValue": "$0000.00 (20%)",
+              "legendTitle": "Sub Domain",
+              "displayValue": "$3000.00 (20%)",
               "value": 40
             },
             {
@@ -93,7 +93,7 @@
         "children": [
           {
             "label": "Latvian University of Agriculture",
-            "key": "Latvian"
+            "key": "Latvian"            
           },
           {
             "label": "Dublin Institute of Technology",
@@ -109,7 +109,31 @@
     "children": [
       {
         "label": "Victoria University",
-        "key": "Victoria"
+        "key": "Victoria",
+        "row": {
+          "rateId": "Victoria",
+          "services": "444",
+          "cost": 400,
+          "severity": "low",
+          "thresh": 40,
+          "alloc": [
+            {
+              "legendTitle": "Some Domain",
+              "displayValue": "$0000.00 (25%)",
+              "value": 10
+            },
+            {
+              "legendTitle": "Other Domain",
+              "displayValue": "$0000.00 (20%)",
+              "value": 40
+            },
+            {
+              "legendTitle": "Probability",
+              "displayValue": "$4000.00 (20%)",
+              "value": 60
+            }
+          ]
+        }
       },
       {
         "label": "Andrews University",
