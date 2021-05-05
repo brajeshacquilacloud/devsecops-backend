@@ -18,6 +18,16 @@
                         "title": "Search",
                         "type": "search"
                     }
+                ],
+                "customFilters": [
+                    {
+                    "id": 111,
+                    "defSelectKey": "region",
+                    "size": 12,
+                    "title": "",
+                    "type": "select",
+                    "apiKey": "listRegionAPI"
+                    }
                 ]
             }
         ]
