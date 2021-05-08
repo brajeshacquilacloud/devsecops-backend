@@ -204,17 +204,17 @@
                                 "key": "cost"
                             },
                             {
+                                "name": "Threshold",
+                                "key": "thresh",
+                                "type": "text-input",
+                                "inputType": "number"
+                            },
+                            {
                                 "name": "Severity",
                                 "key": "severity",
                                 "type": "select",
                                 "mode": "default",
                                 "apiKey": "listThresholdMetricListAPI"
-                            },
-                            {
-                                "name": "Threshold",
-                                "key": "thresh",
-                                "type": "text-input",
-                                "inputType": "number"
                             },
                             {
                                 "name": "Allocation",

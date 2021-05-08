@@ -6,7 +6,26 @@
     "row": {
       "rateId": "VPAccounting",
       "services": "1111",
-      "cost": 100
+      "cost": 400,
+      "severity": "high",
+      "thresh": 40,
+      "alloc": [
+        {
+          "legendTitle": "First Domain",
+          "displayValue": "$4000.00 (25%)",
+          "value": 10
+        },
+        {
+          "legendTitle": "Sub Domain",
+          "displayValue": "$3000.00 (20%)",
+          "value": 40
+        },
+        {
+          "legendTitle": "Capacity",
+          "displayValue": "$3000.00 (20%)",
+          "value": 30
+        }
+      ]
     },
     "children": [
       {
