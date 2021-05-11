@@ -16688,6 +16688,34 @@ app.post('/api/dir-tree-data', function (req, res) {
     res.status(200).send(dirTreeDataFake);
 });
 
+app.post('/api/data/allocation', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send([{"rateId": "VPAccounting",
+      "services": "0000",
+      "cost": 9999,
+      "severity": "critical",
+      "thresh": 100,
+      "alloc": [
+        {
+          "legendTitle": "First Domain",
+          "displayValue": "$4000.00 (25%)",
+          "value": 90
+        },
+        {
+          "legendTitle": "Sub Domain",
+          "displayValue": "$3000.00 (20%)",
+          "value": 10
+        },
+        {
+          "legendTitle": "Capacity",
+          "displayValue": "$3000.00 (20%)",
+          "value": 10
+        }
+      ]}]);
+});
+
+
+
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
 });
