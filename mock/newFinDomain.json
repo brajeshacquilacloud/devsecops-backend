@@ -141,6 +141,34 @@
                                 "modalTitle": "Add Accounts",
                                 "componentsAPIKey": "addFinAccountsAPI"
                             }
+                        ],
+                        "customFilters": [
+                            {
+                            "id": 111,
+                            "defSelectKey": "region",
+                            "size": 3,
+                            "title": "Region",
+                            "type": "select",
+                            "apiKey": "listRegionAPI"
+                            },
+                            {
+                            "id": 222,
+                            "defSelectKey": "cluster",
+                            "size": 3,
+                            "title": "Cluster",
+                            "type": "select",
+                            "apiKey": "listClusterAPI",
+                            "disableInitApi": true
+                            },
+                            {
+                            "id": 33,
+                            "defSelectKey": "instance",
+                            "size": 3,
+                            "title": "Instance",
+                            "type": "select",
+                            "apiKey": "listAWSInstanceTypeAPI",
+                            "disableInitApi": true
+                            }
                         ]
                     },
                     {

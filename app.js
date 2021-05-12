@@ -8882,7 +8882,7 @@ app.post('/api/user/userlist', function (req, res) {
 
 app.post('/api/catalog/ratelines', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(rateLinesFakeData);
+    res.status(200).send(req.body.filters.instance ? rateLinesFakeData.slice(50,99) : rateLinesFakeData);
 });
 
 
@@ -10550,15 +10550,17 @@ app.post('/api/extended-summary', function (req, res) {
             percentage: '12',
             progressTitle: 'Budget',
             amtTitle: 'Current Consumptions',
-            amount: '$150,000.00',
+            amount: '150,000.00',
             trend: "down",
-            amtPercentage: 30
+            amtPercentage: 30,
+            unit: "$"
         },
         {
             percentage: '82',
             progressTitle: 'Budget',
             amtTitle: 'Forecast Consumptions',
-            amount: '$150,000.00',
+            amount: '150,000.00',
+            // unit: "$"
         },
     ];
 
@@ -10618,6 +10620,7 @@ app.post('/api/hierarchy', function (req, res) {
                     "groupName": "AQ_AWS",
                     "label": "AQ_AWS",
                     "groupType": "FINANCE_DOMAIN",
+                    "selected": true,
                     "group": {
                         "groupId": 323,
                         "ownerId": 125882,
@@ -10656,6 +10659,7 @@ app.post('/api/hierarchy', function (req, res) {
                             "groupName": "Aquila Clouds Engineering",
                             "label": "Aquila Clouds Engineering",
                             "groupType": "FINANCE_DOMAIN",
+                            "selected": true,
                             "group": {
                                 "groupId": 324,
                                 "ownerId": 125882,
