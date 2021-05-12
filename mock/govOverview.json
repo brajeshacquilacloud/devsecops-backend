@@ -67,6 +67,7 @@
                 "id": 82,
                 "type": "stackedBarChart",
                 "title": "Savings By Categories",
+                "hideExport": true,
                 "apiKey": "stackedBarChart",
                 "noDataText": "No Data available",
                 "metrics": {},

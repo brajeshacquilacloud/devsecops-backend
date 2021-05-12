@@ -27,8 +27,6 @@
                                 "type": "text-input",
                                 "defSelectKey": "domainName",
                                 "inputType": "string",
-                                "labelSize": 3,
-                                "size": 9,
                                 "validation": {
                                     "isRequired": true,
                                     "message": "Domain name is the required field"
@@ -39,7 +37,6 @@
                                 "title": "Customer Type",
                                 "type": "group-radio",
                                 "defSelectKey": "customerType",
-                                "size": 12,
                                 "apiKey": "billOpsUserTypeListAPI",
                                 "helperText": "Please select Customer Type"
                             },
@@ -57,8 +54,6 @@
                                 "title": "Environment",
                                 "type": "select",
                                 "defSelectKey": "env",
-                                "labelSize": 3,
-                                "size": 9,
                                 "apiKey": "envTypeListAPI",
                                 "bindLeafData": [
                                     {
@@ -76,8 +71,6 @@
                                 "type": "select",
                                 "mode": "tags",
                                 "defSelectKey": "env2",
-                                "labelSize": 3,
-                                "size": 9,
                                 "apiKey": "envTypeListAPI",
                                 "validation": {
                                     "bindWith": "customerType",
