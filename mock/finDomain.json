@@ -18,7 +18,12 @@
                 "size": 4,
                 "noDataDrillDown": {
                     "text": "Create a budget",
-                    "drillTo": "governance/new-finance-domain"
+                    "drillTo": "governance/new-finance-domain",
+                    "drillParams": [
+                        {
+                            "key": "groupId"
+                        }
+                    ]
                 }
             },
             {
@@ -58,6 +63,34 @@
                 "subscribedDrillParam": [
                     "hierarchy_id",
                     "rateId"
+                ],
+                "customFilters": [
+                    {
+                    "id": 1,
+                    "defSelectKey": "region",
+                    "size": 3,
+                    "title": "Region",
+                    "type": "select",
+                    "apiKey": "listRegionAPI"
+                    },
+                    {
+                    "id": 2,
+                    "defSelectKey": "cluster",
+                    "size": 3,
+                    "title": "Cluster",
+                    "type": "select",
+                    "apiKey": "listClusterAPI",
+                    "disableInitApi": true
+                    },
+                    {
+                    "id": 3,
+                    "defSelectKey": "instance",
+                    "size": 3,
+                    "title": "Instance",
+                    "type": "select",
+                    "apiKey": "listAWSInstanceTypeAPI",
+                    "disableInitApi": true
+                    }
                 ],
                 "columns": [
                     {
