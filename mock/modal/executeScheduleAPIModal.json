@@ -1,0 +1,22 @@
+[
+    {
+        "actionAPIKey": "addEditEnvironmentAPI",
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Execute Time",
+                "type": "text-input",
+                "inputType": "date",
+                "labelSize": 4,
+                "format": "MM/DD/YYYY HH:mm",
+                "showTime": true,
+                "size": 6,
+                "defSelectKey": "execTime",
+                "validation": {
+                    "isRequired": true,
+                    "type": "date"
+                }
+            }
+        ]
+    }
+]

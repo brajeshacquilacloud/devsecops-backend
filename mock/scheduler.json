@@ -6,10 +6,35 @@
                 "type": "schedule-grid",
                 "title": "Startup/Shutdown Schedule Workspace",
                 "apiKey": "fetchInstanceScheduleApi",
+                "defSelectKey": "startShutDownGrid",
                 "noDataText": "No Summary Data available",
                 "metrics": {},
                 "size": 12,
                 "view": "TOGGLE",
+                "toolBarActions": [
+                    {
+                        "key": "reset",
+                        "title": "Reset",
+                        "type": "reset"
+                    },
+                    {
+                        "key": "execute",
+                        "title": "Execute",
+                        "type": "modal",
+                        "modalTitle": "Execute",
+                        "componentsAPIKey": "executeScheduleAPI",
+                        "actionAPIKey": "saveGroupAPI"
+                    },
+                    {
+                        "key": "rec",
+                        "title": "Recommended Schedule",
+                        "type": "modal",
+                        "mode": "inline",
+                        "color": "success",
+                        "modalTitle": "Recommended Schedule",
+                        "componentsAPIKey": "recommendedScheduleAPI"
+                    }
+                ],
                 "legends": [
                     {
                         "title": "Current Startup Time",
