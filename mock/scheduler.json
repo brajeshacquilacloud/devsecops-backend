@@ -15,6 +15,7 @@
                     {
                         "key": "reset",
                         "title": "Reset",
+                        "lable":"reset the current schedule",
                         "type": "reset"
                     },
                     {
