@@ -10437,6 +10437,153 @@ app.post('/api/pi-graph-data', function (req, res) {
     res.status(200).send(data);
 });
 
+app.post('/api/instance-type-api', function (req, res) {
+    const data = [
+        {
+          name: 'CPU (%)',
+          data: [
+            {
+              date: '2019-12-01 00:00:00.0',
+              Amount: 154.04,
+              Amount2: 57039.04,
+              Amount3: 7039.04,
+            },
+            {
+              date: '2020-01-01 00:00:00.0',
+              Amount: 57039.78,
+              Amount2: 1254068.78,
+              Amount3: 254068.78,
+            },
+            {
+              date: '2020-02-01 00:00:00.0',
+              Amount: 2090.33,
+              Amount2: 57039.33,
+              Amount3: 7039.33,
+            },
+            {
+              date: '2020-03-01 00:00:00.0',
+              Amount: 1010.29,
+              Amount2: 1254068.29,
+              Amount3: 254068.29,
+            },
+            {
+              date: '2020-04-01 00:00:00.0',
+              Amount: 57039.09,
+              Amount2: 43.09,
+              Amount3: 243.09,
+            },
+          ],
+        },
+        {
+          name: 'Memory (%)',
+          data: [
+            {
+              date: '2019-12-01 00:00:00.0',
+              Amount: 154.04,
+              Amount2: 57039.04,
+              Amount3: 7039.04,
+            },
+            {
+              date: '2020-01-01 00:00:00.0',
+              Amount: 57039.78,
+              Amount2: 1254068.78,
+              Amount3: 254068.78,
+            },
+            {
+              date: '2020-02-01 00:00:00.0',
+              Amount: 2090.33,
+              Amount2: 57039.33,
+              Amount3: 7039.33,
+            },
+            {
+              date: '2020-03-01 00:00:00.0',
+              Amount: 1010.29,
+              Amount2: 1254068.29,
+              Amount3: 254068.29,
+            },
+            {
+              date: '2020-04-01 00:00:00.0',
+              Amount: 57039.09,
+              Amount2: 43.09,
+              Amount3: 243.09,
+            },
+          ],
+        },
+        {
+          name: 'Bandwith (%)',
+          data: [
+            {
+              date: '2019-12-01 00:00:00.0',
+              Amount: 154.04,
+              Amount2: 57039.04,
+              Amount3: 7039.04,
+            },
+            {
+              date: '2020-01-01 00:00:00.0',
+              Amount: 57039.78,
+              Amount2: 1254068.78,
+              Amount3: 254068.78,
+            },
+            {
+              date: '2020-02-01 00:00:00.0',
+              Amount: 2090.33,
+              Amount2: 57039.33,
+              Amount3: 7039.33,
+            },
+            {
+              date: '2020-03-01 00:00:00.0',
+              Amount: 1010.29,
+              Amount2: 1254068.29,
+              Amount3: 254068.29,
+            },
+            {
+              date: '2020-04-01 00:00:00.0',
+              Amount: 57039.09,
+              Amount2: 43.09,
+              Amount3: 243.09,
+            },
+          ],
+        },
+        {
+          name: 'Disk (%)',
+          data: [
+            {
+              date: '2019-12-01 00:00:00.0',
+              Amount: 154.04,
+              Amount2: 57039.04,
+              Amount3: 7039.04,
+            },
+            {
+              date: '2020-01-01 00:00:00.0',
+              Amount: 57039.78,
+              Amount2: 1254068.78,
+              Amount3: 254068.78,
+            },
+            {
+              date: '2020-02-01 00:00:00.0',
+              Amount: 2090.33,
+              Amount2: 57039.33,
+              Amount3: 7039.33,
+            },
+            {
+              date: '2020-03-01 00:00:00.0',
+              Amount: 1010.29,
+              Amount2: 1254068.29,
+              Amount3: 254068.29,
+            },
+            {
+              date: '2020-04-01 00:00:00.0',
+              Amount: 57039.09,
+              Amount2: 43.09,
+              Amount3: 243.09,
+            },
+          ],
+        },
+      ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
 app.post('/api/stackedBarChart', function (req, res) {
     const data = [
         {

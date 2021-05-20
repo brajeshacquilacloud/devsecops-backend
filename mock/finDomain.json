@@ -48,6 +48,40 @@
                 "drillUrls": {}
             },
             {
+                "id": 31,
+                "type": "instance-type",
+                "title": "Suggested Instance Type",
+                "subTitle": "Usage Details of Selected Instance Type",
+                "apiKey": "instanceTypeAPI",
+                "noDataText": "No Data available",
+                "metrics": {},
+                "size": 12,
+                "height": 160,
+                "withCard": false,
+                "initialChartType": "piChart",
+                "drillUrls": {},
+                "suggestedTypes": [
+                    {
+                      "id": 1,
+                      "heading": "FarGate",
+                      "price": "$123",
+                      "savings": 14
+                    },
+                    {
+                      "id": 2,
+                      "heading": "EC2",
+                      "price": "$223",
+                      "savings": 54
+                    },
+                    {
+                      "id": 3,
+                      "heading": "Instance1",
+                      "price": "$2233",
+                      "savings": 54
+                    }
+                  ]
+            },
+            {
                 "id": 4,
                 "isHawkUI": true,
                 "type": "hawkDatatable",
