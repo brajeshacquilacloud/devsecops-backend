@@ -52,14 +52,9 @@
                 "type": "instance-type",
                 "title": "Suggested Instance Type",
                 "subTitle": "Usage Details of Selected Instance Type",
-                "apiKey": "instanceTypeAPI",
-                "noDataText": "No Data available",
-                "metrics": {},
+                "apiKey": "instanceGraphAPI",
+                "dataAPIKey": "instanceTypeAPI",
                 "size": 12,
-                "height": 160,
-                "withCard": false,
-                "initialChartType": "piChart",
-                "drillUrls": {},
                 "suggestedTypes": [
                     {
                       "id": 1,
