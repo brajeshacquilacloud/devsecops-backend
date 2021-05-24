@@ -10670,8 +10670,7 @@ app.post('/api/instance-graph-api', function (req, res) {
           "price": "123",
           "unit": "$",
           "savings": 14,
-          "stepper": 4,
-          "drillParams": ["id", "heading"]
+          "stepper": 4
         },
         {
           "id": 7,
@@ -10679,8 +10678,7 @@ app.post('/api/instance-graph-api', function (req, res) {
           "price": "223",
           "unit": "$",
           "savings": 54,
-          "stepper": 1,
-          "drillParams": ["id", "heading"]
+          "stepper": 1
         },
         {
           "id": 13,
@@ -10688,8 +10686,7 @@ app.post('/api/instance-graph-api', function (req, res) {
           "price": "2233",
           "unit": "$",
           "savings": 54,
-          "stepper": 3,
-          "drillParams": ["id", "heading"]
+          "stepper": 3
         }
       ];
     setResponseHeaders(res);

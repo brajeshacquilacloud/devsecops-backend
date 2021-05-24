@@ -55,26 +55,7 @@
                 "apiKey": "instanceGraphAPI",
                 "dataAPIKey": "instanceTypeAPI",
                 "size": 12,
-                "suggestedTypes": [
-                    {
-                      "id": 1,
-                      "heading": "FarGate",
-                      "price": "$123",
-                      "savings": 14
-                    },
-                    {
-                      "id": 2,
-                      "heading": "EC2",
-                      "price": "$223",
-                      "savings": 54
-                    },
-                    {
-                      "id": 3,
-                      "heading": "Instance1",
-                      "price": "$2233",
-                      "savings": 54
-                    }
-                  ]
+                "drillParams": ["id", "heading"]
             },
             {
                 "id": 4,
