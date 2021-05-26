@@ -10443,6 +10443,7 @@ app.post('/api/instance-type-api', function (req, res) {
         {
           id: 1,
           name: 'CPU (%)',
+          unit: "$",
           data: [
             {
               date: '2019-12-01 00:00:00.0',
