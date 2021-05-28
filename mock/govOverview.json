@@ -10,6 +10,23 @@
                 "size": 12
             },
             {
+                "id": 212121,
+                "type": "extended-summary",
+                "apiKey": "extendedSummaryTime",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "noDataDrillDown": {
+                    "text":"Create a Budget?",
+                    "drillTo": "governance/new-finance-domain",
+                    "drillParams": [
+                        {
+                            "key": "groupId"
+                        }
+                    ]
+                },
+                "size": 12
+            },
+            {
                 "id": 2,
                 "size": 12,
                 "title": "Domain Consumptions",

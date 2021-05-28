@@ -8777,6 +8777,15 @@ app.post('/api/analytic/summarydata', function (req, res) {
                 {
                     "name": "Instance Type",
                     "value": 'm5a.2xlarge'
+                },
+                {
+                    "name": "Start/Shutdown State",
+                    "value": 'Off',
+                    "modal": {
+                        "title": "Change State",
+                        "modalTitle": "Change State",
+                        "componentsAPIKey": "autoCreateDomainAPI",
+                    }
                 }
             ],
         },
