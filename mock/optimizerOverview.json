@@ -15,6 +15,14 @@
                 "apiKey": "extendedSummaryTime",
                 "noDataText": "No Summary Data available",
                 "metrics": {},
+                "noDataDrillDown": {
+                    "drillTo": "governance/new-finance-domain",
+                    "drillParams": [
+                        {
+                            "key": "groupId"
+                        }
+                    ]
+                },
                 "size": 4
             },
             {
@@ -25,7 +33,6 @@
                 "metrics": {},
                 "size": 4
             },
-           
             {
                 "id": 4,
                 "leafTitle": "Instances",
