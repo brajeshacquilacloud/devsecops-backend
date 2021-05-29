@@ -1,0 +1,52 @@
+[
+    {
+        "actionAPIKey": "addEditEnvironmentAPI",
+        "modalWidth": 1250,
+        "actionButtonText": "Use Reccomendation Schedule",
+        "leafs": [
+            {
+                "id": 1,
+                "type": "schedule-grid",
+                "title": "Current Schedule",
+                "apiKey": "fetchInstanceScheduleApi",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12,
+                "view": "TOGGLE",
+                "readOnly": true,
+                "legends": [
+                    {
+                        "title": "Current Startup Time",
+                        "colorCode": "#BFA4E1"
+                    },
+                    {
+                        "title": "Current Shutdown Time",
+                        "colorCode": "#DCDEDF"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "type": "schedule-grid",
+                "title": "Recommended Schedule",
+                "apiKey": "fetchInstanceScheduleApi",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "defSelectKey": "recommendedGrid",
+                "size": 12,
+                "view": "TOGGLE",
+                "readOnly": true,
+                "legends": [
+                    {
+                        "title": "Current Startup Time",
+                        "colorCode": "#BFA4E1"
+                    },
+                    {
+                        "title": "Current Shutdown Time",
+                        "colorCode": "#DCDEDF"
+                    }
+                ]
+            }
+        ]
+    }
+]

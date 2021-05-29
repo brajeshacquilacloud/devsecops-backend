@@ -14,8 +14,12 @@ const govOverview = require('./mock/govOverview.json');
 const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
 const optimizerOverview = require('./mock/optimizerOverview.json');
+const scheduler = require('./mock/scheduler.json');
+const heatMap = require('./mock/data/heatMap.json');
 
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
+const executeScheduleAPIModal = require('./mock/modal/executeScheduleAPIModal.json');
+const recommendedScheduleApiModal = require('./mock/modal/recommendedScheduleApiModal.json');
 const addContainerModal = require('./mock/modal/addContainerModal.json');
 const cloudNativeModal = require('./mock/modal/cloudNativeModal.json');
 const resourcesModal = require('./mock/modal/resourcesModal.json');
@@ -4328,741 +4332,747 @@ app.post('/api/instance/schedule', function (req, res) {
         default: {}
     };
 
-    if (req.query.resourceid) {
-        data = {
-            gridData: [
-                {
-                    "day": "MON",
-                    "schedule": [
-                        {
-                            "hour": "00:00",
-                            "status": Math.random() > 0.40,
-                            "data": {
-                                v1: "10",
-                                v2: "20",
-                                v3: "25",
-                            }
-                        },
-                        {
-                            "hour": "01:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "02:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "03:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "04:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "05:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "06:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "07:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "08:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "09:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "10:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "11:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "12:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "13:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "14:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "15:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "16:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "17:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "18:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "19:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "20:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "21:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "22:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "23:00",
-                            "status": Math.random() > 0.40
+    // if (req.query.resourceid) {
+    data = {
+        gridData: [
+            {
+                "day": "MON",
+                "schedule": [
+                    {
+                        "hour": "00:00",
+                        "status": Math.random() > 0.40,
+                        "data": {
+                            v1: "10",
+                            v2: "20",
+                            v3: "25",
                         }
-                    ]
-                },
-                {
-                    "day": "TUE",
-                    "schedule": [
-                        {
-                            "hour": "00:00",
-                            "status": Math.random() > 0.40,
-                            "data": {
-                                v1: "10",
-                                v1: "20",
-                                v1: "25",
-                            }
-                        },
-                        {
-                            "hour": "01:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "02:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "03:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "04:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "05:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "06:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "07:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "08:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "09:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "10:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "11:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "12:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "13:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "14:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "15:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "16:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "17:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "18:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "19:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "20:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "21:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "22:00",
-                            "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "01:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "02:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "03:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "04:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "05:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "06:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "07:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "08:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "09:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "10:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "11:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "12:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "13:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "14:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "15:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "16:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "17:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "18:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "19:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "20:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "21:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "22:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "23:00",
+                        "status": Math.random() > 0.40
+                    }
+                ]
+            },
+            {
+                "day": "TUE",
+                "schedule": [
+                    {
+                        "hour": "00:00",
+                        "status": Math.random() > 0.40,
+                        "data": {
+                            v1: "10",
+                            v1: "20",
+                            v1: "25",
+                        }
+                    },
+                    {
+                        "hour": "01:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "02:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "03:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "04:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "05:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "06:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "07:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "08:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "09:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "10:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "11:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "12:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "13:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "14:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "15:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "16:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "17:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "18:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "19:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "20:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "21:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "22:00",
+                        "status": Math.random() > 0.40
 
-                        },
-                        {
-                            "hour": "23:00",
-                            "status": Math.random() > 0.40
-                        }
-                    ]
-                },
-                {
-                    "day": "WED",
-                    "schedule": [
-                        {
-                            "hour": "00:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "01:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "02:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "03:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "04:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "05:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "06:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "07:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "08:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "09:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "10:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "11:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "12:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "13:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "14:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "15:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "16:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "17:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "18:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "19:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "20:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "21:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "22:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "23:00",
-                            "status": Math.random() > 0.40
-                        }
-                    ]
-                },
-                {
-                    "day": "THU",
-                    "schedule": [
-                        {
-                            "hour": "00:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "01:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "02:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "03:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "04:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "05:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "06:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "07:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "08:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "09:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "10:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "11:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "12:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "13:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "14:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "15:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "16:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "17:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "18:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "19:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "20:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "21:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "22:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "23:00",
-                            "status": Math.random() > 0.40
-                        }
-                    ]
-                },
-                {
-                    "day": "FRI",
-                    "schedule": [
-                        {
-                            "hour": "00:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "01:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "02:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "03:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "04:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "05:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "06:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "07:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "08:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "09:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "10:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "11:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "12:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "13:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "14:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "15:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "16:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "17:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "18:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "19:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "20:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "21:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "22:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "23:00",
-                            "status": Math.random() > 0.40
-                        }
-                    ]
-                },
-                {
-                    "day": "SAT",
-                    "schedule": [
-                        {
-                            "hour": "00:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "01:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "02:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "03:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "04:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "05:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "06:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "07:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "08:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "09:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "10:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "11:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "12:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "13:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "14:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "15:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "16:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "17:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "18:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "19:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "20:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "21:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "22:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "23:00",
-                            "status": Math.random() > 0.40
-                        }
-                    ]
-                },
-                {
-                    "day": "SUN",
-                    "schedule": [
-                        {
-                            "hour": "00:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "01:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "02:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "03:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "04:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "05:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "06:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "07:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "08:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "09:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "10:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "11:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "12:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "13:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "14:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "15:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "16:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "17:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "18:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "19:00",
-                            "status": Math.random() > 0.50
-                        },
-                        {
-                            "hour": "20:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "21:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "22:00",
-                            "status": Math.random() > 0.40
-                        },
-                        {
-                            "hour": "23:00",
-                            "status": Math.random() > 0.40
-                        }
-                    ]
-                }
-            ],
-            defaultConfig: {
-                v1: 12,
-                v2: 10,
-                v3: 9,
+                    },
+                    {
+                        "hour": "23:00",
+                        "status": Math.random() > 0.40
+                    }
+                ]
+            },
+            {
+                "day": "WED",
+                "schedule": [
+                    {
+                        "hour": "00:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "01:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "02:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "03:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "04:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "05:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "06:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "07:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "08:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "09:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "10:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "11:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "12:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "13:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "14:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "15:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "16:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "17:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "18:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "19:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "20:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "21:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "22:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "23:00",
+                        "status": Math.random() > 0.40
+                    }
+                ]
+            },
+            {
+                "day": "THU",
+                "schedule": [
+                    {
+                        "hour": "00:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "01:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "02:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "03:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "04:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "05:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "06:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "07:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "08:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "09:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "10:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "11:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "12:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "13:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "14:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "15:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "16:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "17:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "18:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "19:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "20:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "21:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "22:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "23:00",
+                        "status": Math.random() > 0.40
+                    }
+                ]
+            },
+            {
+                "day": "FRI",
+                "schedule": [
+                    {
+                        "hour": "00:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "01:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "02:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "03:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "04:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "05:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "06:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "07:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "08:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "09:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "10:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "11:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "12:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "13:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "14:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "15:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "16:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "17:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "18:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "19:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "20:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "21:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "22:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "23:00",
+                        "status": Math.random() > 0.40
+                    }
+                ]
+            },
+            {
+                "day": "SAT",
+                "schedule": [
+                    {
+                        "hour": "00:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "01:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "02:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "03:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "04:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "05:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "06:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "07:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "08:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "09:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "10:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "11:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "12:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "13:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "14:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "15:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "16:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "17:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "18:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "19:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "20:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "21:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "22:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "23:00",
+                        "status": Math.random() > 0.40
+                    }
+                ]
+            },
+            {
+                "day": "SUN",
+                "schedule": [
+                    {
+                        "hour": "00:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "01:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "02:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "03:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "04:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "05:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "06:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "07:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "08:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "09:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "10:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "11:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "12:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "13:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "14:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "15:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "16:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "17:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "18:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "19:00",
+                        "status": Math.random() > 0.50
+                    },
+                    {
+                        "hour": "20:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "21:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "22:00",
+                        "status": Math.random() > 0.40
+                    },
+                    {
+                        "hour": "23:00",
+                        "status": Math.random() > 0.40
+                    }
+                ]
             }
-        };
-    }
+        ],
+        defaultConfig: {
+            v1: 12,
+            v2: 10,
+            v3: 9,
+        }
+    };
+    // }
 
     setResponseHeaders(res);
-    res.send(data);
+    res.send(data.gridData);
     //res.status(500).send({ error: "Internal Server Error" });
 });
 
+
+
+app.post('/api/heatmap/schedule', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(heatMap);
+});
 
 app.post('/api/instance/saveschedule', function (req, res) {
     //Add some delay on purpose.
@@ -5711,6 +5721,9 @@ app.post('/api/scenario', function (req, res) {
             break;
         case "optimizerOverview":
             data = optimizerOverview;
+            break;
+        case "scheduler":
+            data = scheduler;
             break;
 
         /* Old pages config from here  */
@@ -8055,6 +8068,12 @@ app.post('/api/scenario/modal', function (req, res) {
         case "addFinAccountsAPI":
             data = addFinAccountsModal;
             break;
+        case "executeScheduleAPI":
+            data = executeScheduleAPIModal;
+            break;
+        case "recommendedScheduleAPI":
+            data = recommendedScheduleApiModal;
+            break;
         case "addContainerAPI":
             data = addContainerModal;
             break;
@@ -8758,6 +8777,15 @@ app.post('/api/analytic/summarydata', function (req, res) {
                 {
                     "name": "Instance Type",
                     "value": 'm5a.2xlarge'
+                },
+                {
+                    "name": "Start/Shutdown State",
+                    "value": 'Off',
+                    "modal": {
+                        "title": "Change State",
+                        "modalTitle": "Change State",
+                        "componentsAPIKey": "autoCreateDomainAPI",
+                    }
                 }
             ],
         },
@@ -8882,7 +8910,7 @@ app.post('/api/user/userlist', function (req, res) {
 
 app.post('/api/catalog/ratelines', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(req.body.filters.instance ? rateLinesFakeData.slice(50,99) : rateLinesFakeData);
+    res.status(200).send(req.body.filters.instance ? rateLinesFakeData.slice(50, 99) : rateLinesFakeData);
 });
 
 

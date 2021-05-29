@@ -439,6 +439,15 @@
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "isHawkUI": true
+                },
+                {
+                    "id": "scheduler",
+                    "name": "Toggle Schedule",
+                    "link": "/optimizer/schedule",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
                 }
             ]
         },
