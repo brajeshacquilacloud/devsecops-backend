@@ -10465,6 +10465,263 @@ app.post('/api/pi-graph-data', function (req, res) {
     res.status(200).send(data);
 });
 
+app.post('/api/instance-type-api', function (req, res) {
+    const instanceId = req.body.drillParams.instanceId || 1;
+    const data = [
+        {
+          id: 1,
+          name: 'CPU (%)',
+          unit: "$",
+          data: [
+            {
+              date: '2019-12-01 00:00:00.0',
+              Amount: 154.04,
+              Amount2: 57039.04,
+              Amount3: 7039.04,
+            },
+            {
+              date: '2020-01-01 00:00:00.0',
+              Amount: 57039.78,
+              Amount2: 1254068.78,
+              Amount3: 254068.78,
+            },
+            {
+              date: '2020-02-01 00:00:00.0',
+              Amount: 2090.33,
+              Amount2: 57039.33,
+              Amount3: 7039.33,
+            },
+            {
+              date: '2020-03-01 00:00:00.0',
+              Amount: 1010.29,
+              Amount2: 1254068.29,
+              Amount3: 254068.29,
+            },
+            {
+              date: '2020-04-01 00:00:00.0',
+              Amount: 57039.09,
+              Amount2: 43.09,
+              Amount3: 243.09,
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: 'Memory (%)',
+          data: [
+            {
+              date: '2019-12-01 00:00:00.0',
+              Amount: 154.04,
+              Amount2: 57039.04,
+              Amount3: 7039.04,
+            },
+            {
+              date: '2020-01-01 00:00:00.0',
+              Amount: 57039.78,
+              Amount2: 1254068.78,
+              Amount3: 254068.78,
+            },
+            {
+              date: '2020-02-01 00:00:00.0',
+              Amount: 2090.33,
+              Amount2: 57039.33,
+              Amount3: 7039.33,
+            },
+            {
+              date: '2020-03-01 00:00:00.0',
+              Amount: 1010.29,
+              Amount2: 1254068.29,
+              Amount3: 254068.29,
+            },
+            {
+              date: '2020-04-01 00:00:00.0',
+              Amount: 57039.09,
+              Amount2: 43.09,
+              Amount3: 243.09,
+            },
+          ],
+        },
+        {
+          id: 3,
+          name: 'Bandwith (%)',
+          isNew: true,
+          "data": [
+            {
+                "date": "2018-07-05 06:00:00.0",
+                "series": [
+                    {
+                        "key": "Domain1",
+                        "name": "Domain1",
+                        "value": 4500,
+                        "unit": "USD"
+                    },
+                    {
+                        "key": "Domain2",
+                        "name": "Domain2",
+                        "value": 2000,
+                        "unit": "USD"
+                    },
+                    {
+                        "key": "Domain3",
+                        "name": "Domain3",
+                        "value": 1000,
+                        "unit": "USD"
+                    }
+                ],
+                alert: {
+                    alertTitle: "Abc1",
+                    "alertDesc": "desc1"
+                }
+            },
+            {
+                "date": "2018-07-06 06:00:00.0",
+                "series": [
+                    {
+                        "key": "Domain1",
+                        "name": "Domain1",
+                        "value": 1500,
+                        "unit": "USD"
+                    },
+                    {
+                        "key": "Domain2",
+                        "name": "Domain2",
+                        "value": 2000,
+                        "unit": "USD"
+                    },
+                    {
+                        "key": "Domain3",
+                        "name": "Domain3",
+                        "value": 1000,
+                        "unit": "USD"
+                    }
+                ]
+            },
+            {
+                "date": "2018-07-07 06:00:00.0",
+                "series": [
+                    {
+                        "key": "Domain1",
+                        "name": "Domain1",
+                        "value": 4500,
+                        "unit": "USD"
+                    },
+                    {
+                        "key": "Domain2",
+                        "name": "Domain2",
+                        "value": 3000,
+                        "unit": "USD"
+                    },
+                    {
+                        "key": "Domain3",
+                        "name": "Domain3",
+                        "value": 1000,
+                        "unit": "USD"
+                    }
+                ],
+                alert: {
+                    alertTitle: "Abc",
+                    "alertDesc": "desc"
+                }
+            },
+            {
+                "date": "2018-07-08 06:00:00.0",
+                "series": [
+                    {
+                        "key": "Domain1",
+                        "name": "Domain1",
+                        "value": 4500,
+                        "unit": "USD"
+                    },
+                    {
+                        "key": "Domain2",
+                        "name": "Domain2",
+                        "value": 2000,
+                        "unit": "USD"
+                    },
+                    {
+                        "key": "Domain3",
+                        "name": "Domain3",
+                        "value": 1000,
+                        "unit": "USD"
+                    }
+                ]
+            }
+        ],
+        },
+        {
+          id: 4,
+          name: 'Disk (%)',
+          data: [
+            {
+              date: '2019-12-01 00:00:00.0',
+              Amount: 154.04,
+              Amount2: 57039.04,
+              Amount3: 7039.04,
+            },
+            {
+              date: '2020-01-01 00:00:00.0',
+              Amount: 57039.78,
+              Amount2: 1254068.78,
+              Amount3: 254068.78,
+            },
+            {
+              date: '2020-02-01 00:00:00.0',
+              Amount: 2090.33,
+              Amount2: 57039.33,
+              Amount3: 7039.33,
+            },
+            {
+              date: '2020-03-01 00:00:00.0',
+              Amount: 1010.29,
+              Amount2: 1254068.29,
+              Amount3: 254068.29,
+            },
+            {
+              date: '2020-04-01 00:00:00.0',
+              Amount: 57039.09,
+              Amount2: 43.09,
+              Amount3: 243.09,
+            },
+          ],
+        },
+      ];
+
+    const updatedData = data.map(d=> ({...d, id: d.id * instanceId }));
+    setResponseHeaders(res);
+    res.status(200).send(updatedData);
+});
+
+app.post('/api/instance-graph-api', function (req, res) {
+    const data = [
+        {
+          "id": 5,
+          "heading": "FarGate",
+          "price": "123",
+          "unit": "$",
+          "savings": 14,
+          "stepper": 4
+        },
+        {
+          "id": 7,
+          "heading": "EC2",
+          "price": "223",
+          "unit": "$",
+          "savings": 54,
+          "stepper": 1
+        },
+        {
+          "id": 13,
+          "heading": "Instance1",
+          "price": "2233",
+          "unit": "$",
+          "savings": 54,
+          "stepper": 3
+        }
+      ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
 app.post('/api/stackedBarChart', function (req, res) {
     const data = [
         {
