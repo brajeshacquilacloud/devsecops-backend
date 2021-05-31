@@ -381,6 +381,19 @@
                         {
                             "type": "share",
                             "message": "URL Copied, you can share copied URL with multiple people"
+                        },
+                        {
+                            "key": "execute",
+                            "title": "Execute",
+                            "type": "modal",
+                            "modalTitle": "Execute",
+                            "componentsAPIKey": "executeInstanceAPI",
+                            "isHawkUI": true,
+                            "drillParams": [
+                                {
+                                    "key": "instanceId"
+                                }
+                            ]
                         }
                     ]
                 },
