@@ -96,7 +96,7 @@
                     ],
                     {
                         "id": 6,
-                        "tabTitle": "Rightsizing",
+                        "tabTitle": "Cost over metrics",
                         "type": "info-graph",
                         "apiKey": "infoGraphAPI",
                         "size": 12,
