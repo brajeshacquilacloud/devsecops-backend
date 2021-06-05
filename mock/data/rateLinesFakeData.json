@@ -3,7 +3,16 @@
     "rateId": 1,
     "priceList": "wmatuszynski0",
     "name": "Zathin",
-    "category": "MPV",
+    "category": [
+      {
+        "name": "Rightsizing",
+        "tabIndex": "0"
+      },
+      {
+        "name": "Cost Over Metric",
+        "tabIndex": "1"
+      }
+    ],
     "subcategory": "Consumer Services",
     "location": "Florida",
     "region": "United States",
