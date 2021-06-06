@@ -144,9 +144,17 @@
                         },
                         {
                             "type": "modal",
-                            "modalTitle": "Auto Create",
+                            "modalTitle": "Auto Create-2",
                             "componentsAPIKey": "autoCreateDomainAPI",
-                            "title": "Auto Create"
+                            "title": "Auto Create-2",
+                            "visibleInTab": "1"
+                        },
+                        {
+                            "type": "modal",
+                            "modalTitle": "Auto Create-1",
+                            "componentsAPIKey": "autoCreateDomainAPI",
+                            "title": "Auto Create-1",
+                            "visibleInTab": "0"
                         }
                     ]
                 },
