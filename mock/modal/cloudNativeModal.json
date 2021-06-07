@@ -9,6 +9,7 @@
                 "columnTitle": "Cloud Native Services",
                 "type": "tree-select",
                 "apiKey": "treeDataAPI",
+                "maxPageSize": 1000,
                 "size": 12,
                 "noDataText": "Select A Cloud Native to see avaliable Accounts.",
                 "actionButtonText":"Add",
