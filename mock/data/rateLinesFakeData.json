@@ -6,11 +6,11 @@
     "category": [
       {
         "name": "Rightsizing",
-        "tabIndex": "0"
+        "tabId": 7
       },
       {
         "name": "Cost Over Metric",
-        "tabIndex": "1"
+        "tabId": 6
       }
     ],
     "subcategory": "Consumer Services",
