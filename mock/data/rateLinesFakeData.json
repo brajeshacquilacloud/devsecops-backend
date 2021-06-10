@@ -6,7 +6,8 @@
     "category": [
       {
         "name": "Rightsizing",
-        "tabId": 5
+        "tabId": 5,
+        "overlayDrawerLink": "/catalog"
       },
       {
         "name": "Cost Over Metric",
