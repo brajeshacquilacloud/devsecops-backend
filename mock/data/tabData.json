@@ -2,21 +2,21 @@
     {
         "id": 5,
         "lable": "Potential Savings",
-        "unit": "USD",
+        "tabUnit": "USD",
         "amount": 400000,
         "divider": "year"
     },
     {
         "id": 6,
         "lable": "Potential Cost",
-        "unit": "USD",
+        "tabUnit": "USD",
         "amount": 100040,
         "divider": "year"
     },
     {
         "id": 7,
         "lable": "Total Savings",
-        "unit": "INR",
+        "tabUnit": "INR",
         "amount": 2332000,
         "divider": "month"
     }
