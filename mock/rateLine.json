@@ -14,6 +14,7 @@
                 "id": 4,
                 "leafTitle": "Instances",
                 "type": "tab",
+                "mode": "tabApi",
                 "size": 12,
                 "apiKey": "fetchTabDataApi",
                 "tabs": [
