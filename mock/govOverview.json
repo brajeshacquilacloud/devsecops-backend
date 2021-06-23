@@ -33,7 +33,7 @@
                 "type": "sankey",
                 "apiKey": "getSankeyChartData",
                 "noDataText": "Domain Data available",
-                "tooltipHeader": "Consumption",
+                "tooltipHeader": "Consumption($)",
                 "toolBar": {
                     "apiKey": "costFlowsApi",
                     "deleteApiKey": "deleteCostFlowsApi",
