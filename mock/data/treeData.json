@@ -3,12 +3,59 @@
     "label": "VP Accounting",
     "key": "VPAccounting",
     "type": "cluster",
-    "checked": true,
+    "row": {
+      "rateId": "VPAccounting",
+      "services": "1111",
+      "cost": 400,
+      "severity": "high",
+      "thresh": 40,
+      "alloc": [
+        {
+          "legendTitle": "First Domain",
+          "displayValue": "$4000.00 (25%)",
+          "value": 10
+        },
+        {
+          "legendTitle": "Sub Domain",
+          "displayValue": "$3000.00 (20%)",
+          "value": 40
+        },
+        {
+          "legendTitle": "Capacity",
+          "displayValue": "$3000.00 (20%)",
+          "value": 30
+        }
+      ]
+    },
     "children": [
       {
         "label": "iWay",
         "key": "iWay",
         "type": "service",
+        "row": {
+          "rateId": "iWay",
+          "services": "222",
+          "cost": 200,
+          "severity": "low",
+          "thresh": 20,
+          "alloc": [
+            {
+              "legendTitle": "Main Domain",
+              "displayValue": "$4000.00 (25%)",
+              "value": 10
+            },
+            {
+              "legendTitle": "Sub Domain",
+              "displayValue": "$3000.00 (20%)",
+              "value": 40
+            },
+            {
+              "legendTitle": "Capacity",
+              "displayValue": "$3000.00 (20%)",
+              "value": 30
+            }
+          ]
+        },
         "children": [
           {
             "label": "Universidad de Especialidades del Espíritu Santo",
@@ -38,10 +85,34 @@
       {
         "label": "KDB",
         "key": "kdb",
+        "row": {
+          "rateId": "KDB",
+          "services": "333",
+          "cost": 300,
+          "severity": "high",
+          "thresh": 30,
+          "alloc": [
+            {
+              "legendTitle": "Other Domain",
+              "displayValue": "$0000.00 (25%)",
+              "value": 25
+            },
+            {
+              "legendTitle": "Current Domain",
+              "displayValue": "$0000.00 (20%)",
+              "value": 20
+            },
+            {
+              "legendTitle": "Capacity",
+              "displayValue": "$3000.00 (20%)",
+              "value": 20
+            }
+          ]
+        },
         "children": [
           {
             "label": "Latvian University of Agriculture",
-            "key": "Latvian"
+            "key": "Latvian"            
           },
           {
             "label": "Dublin Institute of Technology",
@@ -57,7 +128,31 @@
     "children": [
       {
         "label": "Victoria University",
-        "key": "Victoria"
+        "key": "Victoria",
+        "row": {
+          "rateId": "Victoria",
+          "services": "444",
+          "cost": 400,
+          "severity": "low",
+          "thresh": 40,
+          "alloc": [
+            {
+              "legendTitle": "Some Domain",
+              "displayValue": "$0000.00 (25%)",
+              "value": 10
+            },
+            {
+              "legendTitle": "Other Domain",
+              "displayValue": "$0000.00 (20%)",
+              "value": 40
+            },
+            {
+              "legendTitle": "Probability",
+              "displayValue": "$4000.00 (20%)",
+              "value": 60
+            }
+          ]
+        }
       },
       {
         "label": "Andrews University",

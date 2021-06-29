@@ -203,10 +203,49 @@
                         "tabTitle": "Cloud Native Services",
                         "leafTitle": "Preview",
                         "columnTitle": "Services",
-                        "type": "tree-select",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
+                        "apiKey": "allocationDataApi",
                         "size": 12,
                         "noDataAddIcon": true,
+                        "hideToolBar": true,
                         "noDataText": "Select A Services to see avaliable Services.",
+                        "selectableRows": "multiple",
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "rateId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Services",
+                                "key": "services",
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Cost Allocation",
+                                "key": "cost"
+                            },
+                            {
+                                "name": "Threshold",
+                                "key": "thresh",
+                                "type": "text-input",
+                                "inputType": "number"
+                            },
+                            {
+                                "name": "Severity",
+                                "key": "severity",
+                                "type": "select",
+                                "mode": "default",
+                                "apiKey": "listThresholdMetricListAPI"
+                            },
+                            {
+                                "name": "Allocation",
+                                "key": "alloc",
+                                "type": "horiz-bar-line"
+                            }
+                        ],
                         "toolBarActions": [
                             {
                                 "key": "pageSearch",
