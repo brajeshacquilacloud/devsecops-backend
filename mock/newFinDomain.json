@@ -189,6 +189,7 @@
                         "noDataAddIcon": true,
                         "hideToolBar": true,
                         "noDataText": "Select A Services to see avaliable Services.",
+                        "selectableRows": "multiple",
                         "columns": [
                             {
                                 "name": "Id",
@@ -198,7 +199,8 @@
                             },
                             {
                                 "name": "Services",
-                                "key": "services"
+                                "key": "services",
+                                "isRowSelection": true
                             },
                             {
                                 "name": "Cost Allocation",
