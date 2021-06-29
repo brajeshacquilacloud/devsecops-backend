@@ -144,9 +144,17 @@
                         },
                         {
                             "type": "modal",
-                            "modalTitle": "Auto Create",
+                            "modalTitle": "Auto Create-2",
                             "componentsAPIKey": "autoCreateDomainAPI",
-                            "title": "Auto Create"
+                            "title": "Auto Create-2",
+                            "visibleInTab": "1"
+                        },
+                        {
+                            "type": "modal",
+                            "modalTitle": "Auto Create-1",
+                            "componentsAPIKey": "autoCreateDomainAPI",
+                            "title": "Auto Create-1",
+                            "visibleInTab": "0"
                         }
                     ]
                 },
@@ -381,6 +389,19 @@
                         {
                             "type": "share",
                             "message": "URL Copied, you can share copied URL with multiple people"
+                        },
+                        {
+                            "key": "execute",
+                            "title": "Execute",
+                            "type": "modal",
+                            "modalTitle": "Execute",
+                            "componentsAPIKey": "executeInstanceAPI",
+                            "isHawkUI": true,
+                            "drillParams": [
+                                {
+                                    "key": "instanceId"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -439,6 +460,15 @@
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "isHawkUI": true
+                },
+                {
+                    "id": "scheduler",
+                    "name": "Toggle Schedule",
+                    "link": "/optimizer/schedule",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
                 }
             ]
         },

@@ -169,5 +169,572 @@
         "amount": 662.36,
         "value": 662.36,
         "currency": "USD"
+    },
+    {
+        "fromKey": "Microsoft Azure",
+        "toKey": "Virtual Network",
+        "from": "Microsoft Azure",
+        "to": "Virtual Network",
+        "amount": 641.76,
+        "value": 641.76,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Microsoft Azure",
+        "toKey": "Azure Site Recovery",
+        "from": "Microsoft Azure",
+        "to": "Azure Site Recovery",
+        "amount": 538.77,
+        "value": 538.77,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Microsoft Azure",
+        "toKey": "Azure App Service",
+        "from": "Microsoft Azure",
+        "to": "Azure App Service",
+        "amount": 496.97,
+        "value": 496.97,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Microsoft Azure",
+        "toKey": "Security Center",
+        "from": "Microsoft Azure",
+        "to": "Security Center",
+        "amount": 393.71,
+        "value": 393.71,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Microsoft Azure",
+        "toKey": "API Management",
+        "from": "Microsoft Azure",
+        "to": "API Management",
+        "amount": 237.16,
+        "value": 237.16,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Microsoft Azure",
+        "toKey": "Azure Database for MySQL",
+        "from": "Microsoft Azure",
+        "to": "Azure Database for MySQL",
+        "amount": 125.11,
+        "value": 125.11,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Microsoft Azure",
+        "toKey": "Advanced Data Security",
+        "from": "Microsoft Azure",
+        "to": "Advanced Data Security",
+        "amount": 121.79,
+        "value": 121.79,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Microsoft Azure",
+        "toKey": "NAT Gateway",
+        "from": "Microsoft Azure",
+        "to": "NAT Gateway",
+        "amount": 102.63,
+        "value": 102.63,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "OCI",
+        "toKey": "COMPUTE",
+        "from": "OCI",
+        "to": "COMPUTE",
+        "amount": 363.07,
+        "value": 363.07,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Elastic Compute Cloud",
+        "toKey": "Asia Pacific (Mumbai)",
+        "from": "Amazon Elastic Compute Cloud",
+        "to": "Asia Pacific (Mumbai)",
+        "amount": 11565.51,
+        "value": 11565.51,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Simple Storage Service",
+        "toKey": "Asia Pacific (Mumbai)",
+        "from": "Amazon Simple Storage Service",
+        "to": "Asia Pacific (Mumbai)",
+        "amount": 1726.65,
+        "value": 1726.65,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Elastic Transcoder",
+        "toKey": "Asia Pacific (Mumbai)",
+        "from": "Amazon Elastic Transcoder",
+        "to": "Asia Pacific (Mumbai)",
+        "amount": 1198.44,
+        "value": 1198.44,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Elastic Compute Cloud",
+        "toKey": "US East (N. Virginia)",
+        "from": "Amazon Elastic Compute Cloud",
+        "to": "US East (N. Virginia)",
+        "amount": 1115.73,
+        "value": 1115.73,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Redshift",
+        "toKey": "US East (N. Virginia)",
+        "from": "Amazon Redshift",
+        "to": "US East (N. Virginia)",
+        "amount": 1030.3,
+        "value": 1030.3,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Relational Database Service",
+        "toKey": "US East (N. Virginia)",
+        "from": "Amazon Relational Database Service",
+        "to": "US East (N. Virginia)",
+        "amount": 1000.47,
+        "value": 1000.47,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Elastic Compute Cloud",
+        "toKey": "Asia Pacific (Singapore)",
+        "from": "Amazon Elastic Compute Cloud",
+        "to": "Asia Pacific (Singapore)",
+        "amount": 781.09,
+        "value": 781.09,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Relational Database Service",
+        "toKey": "Asia Pacific (Mumbai)",
+        "from": "Amazon Relational Database Service",
+        "to": "Asia Pacific (Mumbai)",
+        "amount": 743.31,
+        "value": 743.31,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Relational Database Service",
+        "toKey": "Asia Pacific (Singapore)",
+        "from": "Amazon Relational Database Service",
+        "to": "Asia Pacific (Singapore)",
+        "amount": 383.81,
+        "value": 383.81,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Simple Storage Service",
+        "toKey": "Asia Pacific (Singapore)",
+        "from": "Amazon Simple Storage Service",
+        "to": "Asia Pacific (Singapore)",
+        "amount": 329.62,
+        "value": 329.62,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Simple Storage Service",
+        "toKey": "Global",
+        "from": "Amazon Simple Storage Service",
+        "to": "Global",
+        "amount": 309.39,
+        "value": 309.39,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Elastic MapReduce",
+        "toKey": "US East (N. Virginia)",
+        "from": "Amazon Elastic MapReduce",
+        "to": "US East (N. Virginia)",
+        "amount": 261.82,
+        "value": 261.82,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Elastic Compute Cloud",
+        "toKey": "Global",
+        "from": "Amazon Elastic Compute Cloud",
+        "to": "Global",
+        "amount": 241.12,
+        "value": 241.12,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Elastic Load Balancing",
+        "toKey": "Asia Pacific (Mumbai)",
+        "from": "Elastic Load Balancing",
+        "to": "Asia Pacific (Mumbai)",
+        "amount": 237.21,
+        "value": 237.21,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Elastic Load Balancing",
+        "toKey": "US East (N. Virginia)",
+        "from": "Elastic Load Balancing",
+        "to": "US East (N. Virginia)",
+        "amount": 222.52,
+        "value": 222.52,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon CloudFront",
+        "toKey": "India",
+        "from": "Amazon CloudFront",
+        "to": "India",
+        "amount": 212.1,
+        "value": 212.1,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon CloudFront",
+        "toKey": "Global",
+        "from": "Amazon CloudFront",
+        "to": "Global",
+        "amount": 195.64,
+        "value": 195.64,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "AWS WAF",
+        "toKey": "US East (N. Virginia)",
+        "from": "AWS WAF",
+        "to": "US East (N. Virginia)",
+        "amount": 187.0,
+        "value": 187.0,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon CloudFront",
+        "toKey": "US East (N. Virginia)",
+        "from": "Amazon CloudFront",
+        "to": "US East (N. Virginia)",
+        "amount": 161.1,
+        "value": 161.1,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "AmazonCloudWatch",
+        "toKey": "Asia Pacific (Mumbai)",
+        "from": "AmazonCloudWatch",
+        "to": "Asia Pacific (Mumbai)",
+        "amount": 158.56,
+        "value": 158.56,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Simple Storage Service",
+        "toKey": "US East (N. Virginia)",
+        "from": "Amazon Simple Storage Service",
+        "to": "US East (N. Virginia)",
+        "amount": 137.54,
+        "value": 137.54,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Amazon Route 53",
+        "toKey": "Global",
+        "from": "Amazon Route 53",
+        "to": "Global",
+        "amount": 121.81,
+        "value": 121.81,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines",
+        "toKey": "West India",
+        "from": "Virtual Machines",
+        "to": "West India",
+        "amount": 22661.7,
+        "value": 22661.7,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines",
+        "toKey": "South India",
+        "from": "Virtual Machines",
+        "to": "South India",
+        "amount": 14376.16,
+        "value": 14376.16,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "SQL Database",
+        "toKey": "West India",
+        "from": "SQL Database",
+        "to": "West India",
+        "amount": 9241.36,
+        "value": 9241.36,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Azure Stack Hub",
+        "toKey": "azurestack",
+        "from": "Azure Stack Hub",
+        "to": "azurestack",
+        "amount": 7990.64,
+        "value": 7990.64,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines Licenses",
+        "toKey": "West India",
+        "from": "Virtual Machines Licenses",
+        "to": "West India",
+        "amount": 6924.47,
+        "value": 6924.47,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "SQL Database",
+        "toKey": "East US",
+        "from": "SQL Database",
+        "to": "East US",
+        "amount": 6128.56,
+        "value": 6128.56,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Storage",
+        "toKey": "West India",
+        "from": "Storage",
+        "to": "West India",
+        "amount": 4241.72,
+        "value": 4241.72,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Storage",
+        "toKey": "South India",
+        "from": "Storage",
+        "to": "South India",
+        "amount": 2634.1,
+        "value": 2634.1,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Backup",
+        "toKey": "West India",
+        "from": "Backup",
+        "to": "West India",
+        "amount": 2458.52,
+        "value": 2458.52,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Storage",
+        "toKey": "Central India",
+        "from": "Storage",
+        "to": "Central India",
+        "amount": 2374.93,
+        "value": 2374.93,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Azure Database for PostgreSQL",
+        "toKey": "West India",
+        "from": "Azure Database for PostgreSQL",
+        "to": "West India",
+        "amount": 2290.86,
+        "value": 2290.86,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines",
+        "toKey": "Central India",
+        "from": "Virtual Machines",
+        "to": "Central India",
+        "amount": 2218.4,
+        "value": 2218.4,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Storage",
+        "toKey": "East US",
+        "from": "Storage",
+        "to": "East US",
+        "amount": 1849.74,
+        "value": 1849.74,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines",
+        "toKey": "East US",
+        "from": "Virtual Machines",
+        "to": "East US",
+        "amount": 1556.44,
+        "value": 1556.44,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines",
+        "toKey": "Central US",
+        "from": "Virtual Machines",
+        "to": "Central US",
+        "amount": 1495.8,
+        "value": 1495.8,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Application Gateway",
+        "toKey": "East US",
+        "from": "Application Gateway",
+        "to": "East US",
+        "amount": 1424.57,
+        "value": 1424.57,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Bandwidth",
+        "toKey": "South India",
+        "from": "Bandwidth",
+        "to": "South India",
+        "amount": 1377.61,
+        "value": 1377.61,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "VPN Gateway",
+        "toKey": "Global",
+        "from": "VPN Gateway",
+        "to": "Global",
+        "amount": 1247.03,
+        "value": 1247.03,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Storage",
+        "toKey": "East Asia",
+        "from": "Storage",
+        "to": "East Asia",
+        "amount": 1202.56,
+        "value": 1202.56,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Log Analytics",
+        "toKey": "Central India",
+        "from": "Log Analytics",
+        "to": "Central India",
+        "amount": 1134.5,
+        "value": 1134.5,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines Licenses",
+        "toKey": "South India",
+        "from": "Virtual Machines Licenses",
+        "to": "South India",
+        "amount": 1056.1,
+        "value": 1056.1,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines",
+        "toKey": "Southeast Asia",
+        "from": "Virtual Machines",
+        "to": "Southeast Asia",
+        "amount": 959.49,
+        "value": 959.49,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Bandwidth",
+        "toKey": "West India",
+        "from": "Bandwidth",
+        "to": "West India",
+        "amount": 898.6,
+        "value": 898.6,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Storage",
+        "toKey": "Central US",
+        "from": "Storage",
+        "to": "Central US",
+        "amount": 771.93,
+        "value": 771.93,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Backup",
+        "toKey": "South India",
+        "from": "Backup",
+        "to": "South India",
+        "amount": 575.55,
+        "value": 575.55,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Advanced Threat Protection",
+        "toKey": "asiasoutheast",
+        "from": "Advanced Threat Protection",
+        "to": "asiasoutheast",
+        "amount": 554.67,
+        "value": 554.67,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Azure Site Recovery",
+        "toKey": "Central India",
+        "from": "Azure Site Recovery",
+        "to": "Central India",
+        "amount": 538.77,
+        "value": 538.77,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Backup",
+        "toKey": "Central US",
+        "from": "Backup",
+        "to": "Central US",
+        "amount": 537.45,
+        "value": 537.45,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Storage",
+        "toKey": "Southeast Asia",
+        "from": "Storage",
+        "to": "Southeast Asia",
+        "amount": 504.31,
+        "value": 504.31,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "Virtual Machines Licenses",
+        "toKey": "Central India",
+        "from": "Virtual Machines Licenses",
+        "to": "Central India",
+        "amount": 488.0,
+        "value": 488.0,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "VPN Gateway",
+        "toKey": "East US",
+        "from": "VPN Gateway",
+        "to": "East US",
+        "amount": 444.08,
+        "value": 444.08,
+        "currency": "USD"
+    },
+    {
+        "fromKey": "c5.4xlarge",
+        "toKey": "Linux",
+        "from": "c5.4xlarge",
+        "to": "Linux",
+        "amount": 130.56,
+        "value": 130.56,
+        "currency": "USD"
     }
 ]

@@ -10,8 +10,9 @@
                 "type": "tree-select",
                 "apiKey": "treeDataAPI",
                 "size": 12,
+                "disableParentSelection": true,
                 "noDataText": "Select Resources.",
-                "actionButtonText":"Add",
+                "actionButtonText": "Add",
                 "toolBarActions": [
                     {
                         "key": "pageSearch",

@@ -1,0 +1,80 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "type": "schedule-grid",
+                "title": "Startup/Shutdown Schedule Workspace",
+                "apiKey": "fetchInstanceScheduleApi",
+                "defSelectKey": "startShutDownGrid",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12,
+                "view": "TOGGLE",
+                "toolBarActions": [
+                    {
+                        "key": "reset",
+                        "title": "Reset",
+                        "lable":"reset the current schedule",
+                        "type": "reset"
+                    },
+                    {
+                        "key": "execute",
+                        "title": "Execute",
+                        "type": "modal",
+                        "modalTitle": "Execute",
+                        "componentsAPIKey": "executeScheduleAPI",
+                        "actionAPIKey": "saveGroupAPI"
+                    },
+                    {
+                        "key": "rec",
+                        "title": "Recommended Schedule",
+                        "type": "modal",
+                        "mode": "inline",
+                        "color": "success",
+                        "modalTitle": "Recommended Schedule",
+                        "componentsAPIKey": "recommendedScheduleAPI"
+                    }
+                ],
+                "legends": [
+                    {
+                        "title": "Current Startup Time",
+                        "colorCode": "#BFA4E1"
+                    },
+                    {
+                        "title": "Current Shutdown Time",
+                        "colorCode": "#DCDEDF"
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "type": "schedule-grid",
+                "title": "Usage",
+                "apiKey": "fetchHeatMapScheduleApi",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12,
+                "view": "HEATMAP",
+                "legends": [
+                    {
+                        "title": "75 - 100%",
+                        "colorCode": "#5E1CB5"
+                    },
+                    {
+                        "title": "50 - 75%",
+                        "colorCode": "#7E49C4"
+                    },
+                    {
+                        "title": "25 - 50%",
+                        "colorCode": "#BFA4E1"
+                    },
+                    {
+                        "title": "0 - 25%",
+                        "colorCode": "#DFD2F0"
+                    }
+                ]
+            }
+        ]
+    }
+]

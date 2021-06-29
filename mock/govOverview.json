@@ -10,13 +10,30 @@
                 "size": 12
             },
             {
+                "id": 212121,
+                "type": "extended-summary",
+                "apiKey": "extendedSummaryTime",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "noDataDrillDown": {
+                    "text":"Create a Budget?",
+                    "drillTo": "governance/new-finance-domain",
+                    "drillParams": [
+                        {
+                            "key": "groupId"
+                        }
+                    ]
+                },
+                "size": 12
+            },
+            {
                 "id": 2,
                 "size": 12,
                 "title": "Domain Consumptions",
                 "type": "sankey",
                 "apiKey": "getSankeyChartData",
                 "noDataText": "Domain Data available",
-                "tooltipHeader": "Consumption",
+                "tooltipHeader": "Consumption($)",
                 "toolBar": {
                     "apiKey": "costFlowsApi",
                     "deleteApiKey": "deleteCostFlowsApi",
@@ -67,6 +84,7 @@
                 "id": 82,
                 "type": "stackedBarChart",
                 "title": "Savings By Categories",
+                "hideExport": true,
                 "apiKey": "stackedBarChart",
                 "noDataText": "No Data available",
                 "metrics": {},

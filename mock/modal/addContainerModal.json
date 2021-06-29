@@ -1,11 +1,12 @@
 [
     {
         "actionAPIKey": "addEditEnvironmentAPI",
+        "modalContentTitle": "Avaliable Containers",
+        "modalWidth": 700,
         "leafs": [
             {
                 "id": 3,
                 "defSelectKey": "containerServices",
-                "leafTitle": "Avaliable Containers",
                 "columnTitle": "Containers",
                 "type": "tree-select",
                 "apiKey": "treeDataAPI",
@@ -17,6 +18,16 @@
                         "key": "pageSearch",
                         "title": "Search",
                         "type": "search"
+                    }
+                ],
+                "customFilters": [
+                    {
+                    "id": 111,
+                    "defSelectKey": "region",
+                    "size": 12,
+                    "title": "Provider Type",
+                    "type": "select",
+                    "apiKey": "listRegionAPI"
                     }
                 ]
             }
