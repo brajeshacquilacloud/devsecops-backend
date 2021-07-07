@@ -21,7 +21,7 @@
                     {
                         "key": "execute",
                         "title": "Execute",
-                        "type": "modal",
+                        "type": "execute",
                         "modalTitle": "Execute",
                         "componentsAPIKey": "executeScheduleAPI",
                         "actionAPIKey": "saveGroupAPI"
