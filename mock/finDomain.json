@@ -12,18 +12,22 @@
             {
                 "id": 2,
                 "type": "extended-summary",
-                "apiKey": "extendedSummaryTime",
+                "apiKey": "finopsDomainExtendedSummaryPieAPI",
                 "noDataText": "There is no budget configured.",
+                "subscribedDrillParam": [
+                    "groupId"
+                ],
                 "metrics": {},
-                "size": 4,
+                "size": 6,
                 "noDataDrillDown": {
-                    "text": "Create a budget",
-                    "drillTo": "governance/new-finance-domain",
+                    "text": "Create a budget?",
+                    "drillTo": "governance/edit-finance-domain",
                     "drillParams": [
                         {
                             "key": "groupId"
                         }
-                    ]
+                    ],
+                    "permission": "FINOPS_ADD_DOMAIN_VIEW"
                 }
             },
             {
