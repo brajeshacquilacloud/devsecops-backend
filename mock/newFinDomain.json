@@ -22,6 +22,22 @@
                         "title": "Existing Relationship Details",
                         "subComponents": [
                             {
+                                "id": 1222,
+                                "title": "Execute Time",
+                                "type": "text-input",
+                                "inputType": "range",
+                                "picker": "month",
+                                "labelSize": 4,
+                                "format": "MM/YYYY",
+                                "showTime": true,
+                                "size": 12,
+                                "defSelectKey": "execTime",
+                                "validation": {
+                                    "isRequired": true,
+                                    "type": "date"
+                                }
+                            },
+                            {
                                 "id": 91,
                                 "title": "Domain Name",
                                 "type": "text-input",
