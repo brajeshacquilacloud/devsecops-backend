@@ -30,6 +30,7 @@
                                 "labelSize": 4,
                                 "format": "MM/YYYY",
                                 "showTime": true,
+                                "hideRanges": true,
                                 "size": 12,
                                 "defSelectKey": "execTime",
                                 "validation": {
