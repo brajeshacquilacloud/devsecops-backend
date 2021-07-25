@@ -11,11 +11,13 @@
                 "metrics": {},
                 "size": 12,
                 "view": "TOGGLE",
+                "enableEdit": true,
+                "editText": "Click on Edit to start scheduling",
                 "toolBarActions": [
                     {
                         "key": "reset",
                         "title": "Reset",
-                        "lable":"reset the current schedule",
+                        "lable": "reset the current schedule",
                         "type": "reset"
                     },
                     {
