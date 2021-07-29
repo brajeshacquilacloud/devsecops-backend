@@ -10186,6 +10186,7 @@ app.post('/api/group/resourceorderlist', function (req, res) {
         "email": 'i.am.test.user@gmail.com',
         "customerType": 'EXISTING',
         "customerID": 1234,
+        "execTime": "1612117800000,1622485800000",
         "projects": "S-2",
         "orgName": 'ACB Inc.',
         "industry": ['test-t5.medium'],
