@@ -6,11 +6,12 @@
     "category": [
       {
         "name": "Rightsizing",
-        "tabIndex": "0"
+        "tabId": 5,
+        "overlayDrawerLink": "/catalog"
       },
       {
         "name": "Cost Over Metric",
-        "tabIndex": "1"
+        "tabId": 6
       }
     ],
     "subcategory": "Consumer Services",
