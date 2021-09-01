@@ -10466,6 +10466,133 @@ app.post('/api/pi-graph-data', function (req, res) {
     res.status(200).send(data);
 });
 
+app.post('/api/list-count', function (req, res) {
+    const data = [
+        {
+            name: 'EC2 Instances',
+            description: 'across 2 regions',
+            count: 5,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Amazon AWS',
+            description: 'across 2 regions',
+            count: 4744583.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Microsoft Azure1',
+            description: 'across 2 regions',
+            count: 2009819,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Amazon AWS1',
+            description: 'across 2 regions',
+            count: 4745483.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Microsoft Azure2',
+            description: 'across 2 regions',
+            count: 4745483.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'EC2 Instances',
+            description: 'across 2 regions',
+            count: 5,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Amazon AWS',
+            description: 'across 2 regions',
+            count: 4744583.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Microsoft Azure1',
+            description: 'across 2 regions',
+            count: 2009819,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Amazon AWS1',
+            description: 'across 2 regions',
+            count: 4745483.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Microsoft Azure2',
+            description: 'across 2 regions',
+            count: 4745483.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'EC2 Instances',
+            description: 'across 2 regions',
+            count: 5,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Amazon AWS',
+            description: 'across 2 regions',
+            count: 4744583.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Microsoft Azure1',
+            description: 'across 2 regions',
+            count: 2009819,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Amazon AWS1',
+            description: 'across 2 regions',
+            count: 4745483.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Microsoft Azure2',
+            description: 'across 2 regions',
+            count: 4745483.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'EC2 Instances',
+            description: 'across 2 regions',
+            count: 5,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Amazon AWS',
+            description: 'across 2 regions',
+            count: 4744583.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Microsoft Azure1',
+            description: 'across 2 regions',
+            count: 2009819,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Amazon AWS1',
+            description: 'across 2 regions',
+            count: 4745483.2,
+            link: '/governance/finance-domain'
+        },
+        {
+            name: 'Microsoft Azure2',
+            description: 'across 2 regions',
+            count: 4745483.2,
+            link: '/governance/finance-domain'
+        },
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
 app.post('/api/instance-type-api', function (req, res) {
     const instanceId = req.body.drillParams.instanceId || 1;
     const data = [
