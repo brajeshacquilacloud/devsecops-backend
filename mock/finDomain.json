@@ -52,6 +52,16 @@
                 "drillUrls": {}
             },
             {
+                "id": 334,
+                "type": "list-count",
+                "title": "Service",
+                "apiKey": "listCount",
+                "noDataText": "No Data available",
+                "listSize": 4,
+                "viewMoreLabel": "View More Data",
+                "size": 6
+            },
+            {
                 "id": 31,
                 "type": "instance-type",
                 "title": "Suggested Instance Type",
