@@ -9272,8 +9272,7 @@ app.post('/api/instances/aggregatehistogrammetrics', function (req, res) {
     res.status(200).send(data);
 });
 
-
-app.post('/api/registration/checktokenexists', function (req, res) {
+app.post('/api/auth/checktokenexists', function (req, res) {
 
     let data = { status: "true" };
 
