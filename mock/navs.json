@@ -351,8 +351,9 @@
                                 },
                                 {
                                     "lable": "Download CSV",
-                                    "apiKey": "cspCustomerReviewInvoiceDownloadAPI",
-                                    "fileName": "Billing Overview.csv"
+                                    "fileName": "Billing Overview.csv",
+                                    "componentsAPIKey": "extendedDownloadAPI",
+                                    "modalTitle": "Download"
                                 }
                             ]
                         }
@@ -374,17 +375,12 @@
                         ]
                     },
                     "pageActions": [
-                        {
-                            "title": "Add Domain",
-                            "type": "drill",
-                            "color": "success",
-                            "drillTo": "governance/new-finance-domain"
-                        },
+                     
                         {
                             "type": "modal",
-                            "modalTitle": "Auto Create",
-                            "componentsAPIKey": "autoCreateDomainAPI",
-                            "title": "Auto Create"
+                            "modalTitle": "Download",
+                            "componentsAPIKey": "extendedDownloadAPI",
+                            "title": "Download"
                         },
                         {
                             "type": "share",
