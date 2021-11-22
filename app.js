@@ -9313,7 +9313,7 @@ app.post('/api/auth/auth-entity', function (req, res) {
     // For KeyCloak use: http://localhost:8081/auth/realms/master/protocol/openid-connect/auth?response_type=code&client_id=test&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi/auth/keycloak-exchange-token&state=022d48a0-1394-42c6-93f8-c575a1e09fbe&login=true&scope=openid
 
     let data = {
-        type: 'OKTA',
+        type: 'LOCAL',
         authUrl: `https://dev-747839.okta.com/oauth2/default/v1/authorize?client_id=0oa1r9u7oni7kCn08357&response_type=id_token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3A9000&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo&login_hint=${req.body.email}`,
     };
 
@@ -10028,6 +10028,12 @@ app.post('/api/environments', function (req, res) {
             showEdit: true,
             showDelete: true,
             disabled: false,
+            state: 'success',
+            subTitle: 'Last successful refresh: 2021-11-10 8:00AM',
+            drillDetail: {
+                title: 'See Environment Logs',
+                drillTo: 'admin/users',
+            }
         },
         {
             key: 2,
@@ -10038,6 +10044,7 @@ app.post('/api/environments', function (req, res) {
             showEdit: true,
             showDelete: false,
             disabled: false,
+            state: 'warning',
         },
         {
             key: 3,
@@ -10048,6 +10055,7 @@ app.post('/api/environments', function (req, res) {
             showEdit: false,
             showDelete: false,
             disabled: true,
+            state: 'error',
         },
         {
             key: 4,
