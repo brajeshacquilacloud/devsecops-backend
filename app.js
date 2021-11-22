@@ -6463,6 +6463,42 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ]
             break;
+        case 'extendedDownloadAPI':
+            data = [
+                {
+                    "actionAPIKey": "cspCustomerReviewInvoiceDownloadAPI",
+                    "actionButtonText": 'Download',
+                    "actionType": 'download',
+                    "fileName": "Rate Cards.pdf",
+                    "notification":{
+                        "variant": "success",
+                        "message": "File downloaded successfullly",
+                    },
+                    "modalWidth": 500,
+                    "leafs": [
+                        {
+                            id: 2,
+                            leafTitle: 'File Type',
+                            type: 'group-radio',
+                            "apiKey": "billOpsUserTypeListAPI",
+                            defSelectKey: 'tbr',
+                            labelSize: 4,
+                            size: 8,
+                        },
+                        {
+                            id: 1,
+                            leafTitle: "Environment",
+                            type: "select",
+                            defSelectKey: "environment",
+                            labelSize: 3,
+                            size: 9,
+                            apiKey: "costFlowsApi",
+                            metrics: {},
+                        },
+                    ]
+                }
+            ]
+            break;
 
         case 'AddEditPackageModal':
             data = [
@@ -8910,7 +8946,7 @@ app.post('/api/user/userlist', function (req, res) {
 
 app.post('/api/catalog/ratelines', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(req.body.filters.instance ? rateLinesFakeData.slice(50, 99) : rateLinesFakeData);
+    res.status(200).send(req.body.filters && req.body.filters.instance ? rateLinesFakeData.slice(50, 99) : rateLinesFakeData);
 });
 
 
@@ -9292,9 +9328,6 @@ app.post('/api/column/update', function (req, res) {
 
 
 app.post('/api/cloud-providers', function (req, res) {
-    console.log('auth: ', req.headers.authorization);
-
-
     let data = {
         'cloudProviders': [
             { name: 'AWS', key: 'aws', icon: 'amazon' },

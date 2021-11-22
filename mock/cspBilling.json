@@ -111,8 +111,9 @@
                             },
                             {
                                 "lable": "Download CSV",
-                                "apiKey": "cspCustomerReviewInvoiceDownloadAPI",
-                                "fileName": "Billing Overview.csv"
+                                "fileName": "Billing Overview.csv",
+                                "componentsAPIKey": "extendedDownloadAPI",
+                                "modalTitle": "Download"
                             }
                         ]
                     },

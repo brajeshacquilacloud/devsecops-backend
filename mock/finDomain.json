@@ -69,7 +69,10 @@
                 "apiKey": "instanceGraphAPI",
                 "dataAPIKey": "instanceTypeAPI",
                 "size": 12,
-                "drillParams": ["id", "heading"]
+                "drillParams": [
+                    "id",
+                    "heading"
+                ]
             },
             {
                 "id": 4,
@@ -90,30 +93,30 @@
                 ],
                 "customFilters": [
                     {
-                    "id": 1,
-                    "defSelectKey": "region",
-                    "size": 3,
-                    "title": "Region",
-                    "type": "select",
-                    "apiKey": "listRegionAPI"
+                        "id": 1,
+                        "defSelectKey": "region",
+                        "size": 3,
+                        "title": "Region",
+                        "type": "select",
+                        "apiKey": "listRegionAPI"
                     },
                     {
-                    "id": 2,
-                    "defSelectKey": "cluster",
-                    "size": 3,
-                    "title": "Cluster",
-                    "type": "select",
-                    "apiKey": "listClusterAPI",
-                    "disableInitApi": true
+                        "id": 2,
+                        "defSelectKey": "cluster",
+                        "size": 3,
+                        "title": "Cluster",
+                        "type": "select",
+                        "apiKey": "listClusterAPI",
+                        "disableInitApi": true
                     },
                     {
-                    "id": 3,
-                    "defSelectKey": "instance",
-                    "size": 3,
-                    "title": "Instance",
-                    "type": "select",
-                    "apiKey": "listAWSInstanceTypeAPI",
-                    "disableInitApi": true
+                        "id": 3,
+                        "defSelectKey": "instance",
+                        "size": 3,
+                        "title": "Instance",
+                        "type": "select",
+                        "apiKey": "listAWSInstanceTypeAPI",
+                        "disableInitApi": true
                     }
                 ],
                 "columns": [
@@ -236,6 +239,31 @@
                                 "componentsAPIKey": "addFinAccountsAPI"
                             }
                         ]
+                    }
+                ],
+                "toolBarActions": [
+                    {
+                        "toolbarTitle": "Download",
+                        "type": "download",
+                        "downloadOptions": [
+                            {
+                                "lable": "Download PDF",
+                                "apiKey": "cspBillSentInvoiceDownloadAPI",
+                                "fileName": "Billing Overview.pdf"
+                            },
+                            {
+                                "lable": "Download CSV",
+                                "fileName": "Billing Overview.csv",
+                                "componentsAPIKey": "extendedDownloadAPI",
+                                "modalTitle": "Download"
+                            }
+                        ]
+                    },
+                    {
+                        "toolbarTitle": "Consumption import",
+                        "type": "actionAndRefresh",
+                        "actionAPIKey": "saveGroupAPI",
+                        "actionIcon": "LoopIcon"
                     }
                 ]
             }
