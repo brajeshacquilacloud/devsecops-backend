@@ -10370,7 +10370,8 @@ app.post('/api/page/title', function (req, res) {
 
     const title = req.body.drillParams && req.body.drillParams.email ? `Details for: ${req.body.drillParams.email}` : 'Dynamic Name From API';
     const data = {
-        name: title
+        name: title,
+        subName: "The most basic example. The size of the floating layer depends on the contents region. Enter the following commands to start to get started working quickly."
     }
     setResponseHeaders(res);
     res.status(200).send(data);
