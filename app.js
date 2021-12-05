@@ -6037,6 +6037,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     dataAPIKey: 'listResourceOrderListAPI',
                     actionButtonText: 'Add',
+                    disableActionButton: true,
                     modalWidth: 500,
                     modalActions: [
                         {
@@ -6073,6 +6074,16 @@ app.post('/api/scenario/modal', function (req, res) {
                             size: 9,
                             apiKey: "providerSubscriptionId",
                             metrics: {},
+                        },
+                        {
+                            id: 411,
+                            leafTitle: "Comments",
+                            type: "text-input",
+                            defSelectKey: 'details',
+                            inputType: 'text-area',
+                            labelSize: 3,
+                            size: 9,
+                            rows: 15,
                         },
                         {
                             id: 3,
@@ -6470,7 +6481,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     "actionButtonText": 'Download',
                     "actionType": 'download',
                     "fileName": "Rate Cards.pdf",
-                    "notification":{
+                    "notification": {
                         "variant": "success",
                         "message": "File downloaded successfullly",
                     },
