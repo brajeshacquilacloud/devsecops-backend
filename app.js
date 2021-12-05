@@ -10075,6 +10075,12 @@ app.post('/api/environments', function (req, res) {
             showEdit: true,
             showDelete: true,
             disabled: false,
+            state: 'success',
+            subTitle: 'Last successful refresh: 2021-11-10 8:00AM',
+            drillDetail: {
+                title: 'See Environment Logs',
+                drillTo: 'admin/users',
+            }
         },
         {
             key: 2,
@@ -10085,6 +10091,7 @@ app.post('/api/environments', function (req, res) {
             showEdit: true,
             showDelete: false,
             disabled: false,
+            state: 'warning',
         },
         {
             key: 3,
@@ -10095,6 +10102,7 @@ app.post('/api/environments', function (req, res) {
             showEdit: false,
             showDelete: false,
             disabled: true,
+            state: 'error',
         },
         {
             key: 4,
@@ -10409,7 +10417,8 @@ app.post('/api/page/title', function (req, res) {
 
     const title = req.body.drillParams && req.body.drillParams.email ? `Details for: ${req.body.drillParams.email}` : 'Dynamic Name From API';
     const data = {
-        name: title
+        name: title,
+        subName: "The most basic example. The size of the floating layer depends on the contents region. Enter the following commands to start to get started working quickly."
     }
     setResponseHeaders(res);
     res.status(200).send(data);

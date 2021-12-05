@@ -46,6 +46,11 @@
                         "filterType": "multiselect"
                     },
                     {
+                        "name": "State",
+                        "key": "progressType",
+                        "type": "state"
+                    },
+                    {
                         "name": "Status",
                         "key": "status",
                         "type": "status",
