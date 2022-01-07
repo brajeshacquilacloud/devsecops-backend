@@ -41,7 +41,7 @@
                 "apiKey": "fetchTabDataApi",
                 "tabs": [
                     {
-                        "id": 5,
+                        "id": 0,
                         "tabTitle": "All",
                         "type": "piGraph",
                         "title": "",
