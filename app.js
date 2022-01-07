@@ -17101,8 +17101,12 @@ app.post("/api/csp/analytic/graph", function (req, res) {
 
 
 app.post('/api/tab-data', function (req, res) {
+    for (let index = 0; index < 999999999; index++) { }
+    for (let index = 0; index < 999999999; index++) { }
     setResponseHeaders(res);
     res.status(200).send(tabData);
+    // res.status(500).send({ error: "Internal Server Error" });
+
 });
 
 
