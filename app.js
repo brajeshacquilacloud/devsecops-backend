@@ -3871,106 +3871,23 @@ app.post('/api/linechart', function (req, res) {
     addDelay();
 
     const data = [
-        {
-            "date": "2018-07-05 06:00:00.0",
-            "series": [
-                {
-                    "key": "Domain1",
-                    "name": "Domain1",
-                    "value": 4500,
-                    "unit": "USD"
-                },
-                {
-                    "key": "Domain2",
-                    "name": "Domain2",
-                    "value": 2000,
-                    "unit": "USD"
-                },
-                {
-                    "key": "Domain3",
-                    "name": "Domain3",
-                    "value": 1000,
-                    "unit": "USD"
-                }
-            ],
-            alert: {
-                alertTitle: "Abc1",
-                "alertDesc": "desc1"
-            }
-        },
-        {
-            "date": "2018-07-06 06:00:00.0",
-            "series": [
-                {
-                    "key": "Domain1",
-                    "name": "Domain1",
-                    "value": 1500,
-                    "unit": "USD"
-                },
-                {
-                    "key": "Domain2",
-                    "name": "Domain2",
-                    "value": 2000,
-                    "unit": "USD"
-                },
-                {
-                    "key": "Domain3",
-                    "name": "Domain3",
-                    "value": 1000,
-                    "unit": "USD"
-                }
-            ]
-        },
-        {
-            "date": "2018-07-07 06:00:00.0",
-            "series": [
-                {
-                    "key": "Domain1",
-                    "name": "Domain1",
-                    "value": 4500,
-                    "unit": "USD"
-                },
-                {
-                    "key": "Domain2",
-                    "name": "Domain2",
-                    "value": 3000,
-                    "unit": "USD"
-                },
-                {
-                    "key": "Domain3",
-                    "name": "Domain3",
-                    "value": 1000,
-                    "unit": "USD"
-                }
-            ],
-            alert: {
-                alertTitle: "Abc",
-                "alertDesc": "desc"
-            }
-        },
-        {
-            "date": "2018-07-08 06:00:00.0",
-            "series": [
-                {
-                    "key": "Domain1",
-                    "name": "Domain1",
-                    "value": 4500,
-                    "unit": "USD"
-                },
-                {
-                    "key": "Domain2",
-                    "name": "Domain2",
-                    "value": 2000,
-                    "unit": "USD"
-                },
-                {
-                    "key": "Domain3",
-                    "name": "Domain3",
-                    "value": 1000,
-                    "unit": "USD"
-                }
-            ]
-        }
+        ['x', 'azure', 'aws'],
+        [{
+            v: new Date(1999, 0, 1),
+            f: 'January First, Nineteen ninety-nine'
+        }, -.5, 5.7],
+        [new Date(2014, 1), .4, 8.7],
+        [new Date(2014, 2), .5, 12],
+        [new Date(2014, 3), 2.9, 15.3],
+        [new Date(2014, 4), 6.3, 18.6],
+        [new Date(2014, 5), 9, 20.9],
+        [new Date(2014, 6), 10.6, 19.8],
+        [new Date(2014, 7), 10.3, 16.6],
+        [new Date(2014, 8), 7.4, 13.3],
+        [new Date(2014, 9), 4.4, 9.9],
+        [new Date(2014, 10), 1.1, 6.6],
+        [new Date(2014, 11), -.2, 4.5],
+        [new Date(2019, 11), 12, 4.5]
     ];
 
     setResponseHeaders(res);
@@ -6470,7 +6387,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     "actionButtonText": 'Download',
                     "actionType": 'download',
                     "fileName": "Rate Cards.pdf",
-                    "notification":{
+                    "notification": {
                         "variant": "success",
                         "message": "File downloaded successfullly",
                     },

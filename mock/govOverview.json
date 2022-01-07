@@ -98,13 +98,13 @@
                 "drillLink": "/csp/billing"
             },
             {
-                "id": 7,
-                "leafTitle": "Demographic View",
+                "id": 8,
+                "leafTitle": "Google Chart View",
                 "type": "line",
+                "legendPosition": "bottom",
                 "noDataText": "No Demographic Info",
                 "apiKey": "lineChartAPI",
-                "isPro": true,
-                "isNew": true,
+                "lib": "google",
                 "size": 12
             },
             {
