@@ -163,7 +163,13 @@
                         "type": "multiselect",
                         "display": true,
                         "filter": false,
-                        "highlight": true
+                        "highlight": true,
+                        "drillTo": "governance/finance-domain",
+                        "drillParams": [
+                            {
+                                "key": "rateId"
+                            }
+                        ]
                     },
                     {
                         "name": "Tag",
