@@ -3,6 +3,7 @@
     "rateId": 1,
     "priceList": "wmatuszynski0",
     "name": "Zathin",
+    "selected": true,
     "category": [
       {
         "name": "Rightsizing",

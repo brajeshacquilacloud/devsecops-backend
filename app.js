@@ -2431,7 +2431,7 @@ function getRolesUIData() {
                         key: 'edit',
                         type: 'modal',
                         modalTitle: 'Edit Roles/Permissions',
-                        componentsAPIKey: 'editEnvComponentAPI',
+                        componentsAPIKey: 'editRolesComponentAPI',
                     },
                     {
                         key: 'delete',
@@ -4142,6 +4142,7 @@ app.post('/api/testMetric', function (req, res) {
             "noance": false,
             "scheduled": 'will be scheduled in an minute',
             "action": '',
+            "selected": true
         },
         {
             "resourceId": "res-231432",
@@ -5259,8 +5260,8 @@ app.post('/api/containers/service/distribution', function (req, res) {
     addDelay();
 
     let data = [
-        { name: 'Kafka', value: 4 },
-        { name: 'Azure', value: 1 },
+        { name: 'Kafka', value: 1 },
+        { name: 'Azure', value: 4 },
         { name: 'SQL mockit', value: 9 },
         { name: 'ECS', value: 2 },
         { name: 'GCP', value: 2 },
@@ -7444,6 +7445,74 @@ app.post('/api/scenario/modal', function (req, res) {
                     ]
                 }
             ]
+        case 'EditRoles':
+            data = [{
+                actionAPIKey: 'addEditEnvironmentAPI',
+                dataAPIKey: 'listResourceOrderListAPI',
+                actionButtonText: 'Edit Roles',
+                leafs: [
+                    {
+                        "id": 6,
+                        "defSelectKey": "tags",
+                        "leafTitle": "Tags",
+                        "hideToolBar": true,
+                        "type": "hawkDatatable",
+                        "noDataText": "Group Resources can\\'t be retrieved",
+                        "apiKey": "testMetricAPI",
+                        "size": 12,
+                        "selectableRows": "multiple",
+                        "validation": {
+                            "isRequired": true,
+                            "message": 'Least one row should be selected',
+                        },
+                        "columns": [
+                            {
+                                "display": true,
+                                "name": "Alert Type",
+                                "key": "alertType",
+                                "isRowSelection": true
+                            },
+                            {
+                                "display": true,
+                                "name": "Instance ID",
+                                "key": "instanceId",
+                                "isRowSelection": true
+                            },
+                            {
+                                "display": true,
+                                "name": "Current Instance Type",
+                                "key": "current"
+                            },
+                            {
+                                "display": true,
+                                "name": "Suggested Instance Type",
+                                "key": "suggested"
+                            },
+                            {
+                                "display": true,
+                                "name": "Resource Id",
+                                "key": "resourceId",
+                                "isRowSelection": true
+                            },
+                            {
+                                "display": true,
+                                "name": "Usage Date",
+                                "key": "usageDate"
+                            },
+                            {
+                                "display": true,
+                                "name": "Current Cost",
+                                "key": "costMtm"
+                            },
+                            {
+                                "display": true,
+                                "name": "variance",
+                                "key": "variance"
+                            }
+                        ]
+                    }
+                ]
+            }]
             break;
 
         case 'EditThresholdsModal':
@@ -8346,7 +8415,7 @@ app.post('/api/scenario/viewChart', function (req, res) {
                     "metrics": {},
                     "size": 12,
                     "linkText": "Go to Domain Optimizer",
-                    // "drillLink": "/csp/billing",
+                    "drillLink": "/csp/billing",
                     withCard: false
                 },
             ]
