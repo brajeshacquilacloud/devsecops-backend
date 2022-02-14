@@ -339,6 +339,7 @@
                             "Overview"
                         ]
                     },
+                    "contextKey": "groupId",
                     "pageActions": [
                         {
                             "toolbarTitle": "Download",
@@ -374,8 +375,8 @@
                             "Financial Domain"
                         ]
                     },
+                    "contextKey": "groupId",
                     "pageActions": [
-                     
                         {
                             "type": "modal",
                             "modalTitle": "Download",
@@ -416,6 +417,7 @@
                             "Add New Financial Domain"
                         ]
                     },
+                    "contextKey": "groupId",
                     "pageFooters": [
                         {
                             "key": "saveAction",
