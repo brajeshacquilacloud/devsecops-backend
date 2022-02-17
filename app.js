@@ -10832,6 +10832,8 @@ app.post('/api/instance-graph-api', function (req, res) {
             "price": "223",
             "unit": "$",
             "savings": 54,
+            "pill": 'SPOT INSTANCE',
+            "pillColor": "#DACEEA",
             "stepper": 1
         },
         {
@@ -10840,7 +10842,9 @@ app.post('/api/instance-graph-api', function (req, res) {
             "price": "2233",
             "unit": "$",
             "savings": 54,
-            "stepper": 3
+            "stepper": 3,
+            "pill": 'NEW GENERATION',
+            "pillColor": "#C0E8F1"
         }
     ];
     setResponseHeaders(res);
