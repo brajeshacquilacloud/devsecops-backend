@@ -22,6 +22,7 @@
     "rate": 6,
     "ratea": 6819,
     "currency": "USD",
+    "merchatCurrency": "INR",
     "unit": "#5c6",
     "drillTo": "csp/billing"
   },
@@ -37,6 +38,7 @@
     "rate": 9,
     "ratea": 810,
     "currency": "USD",
+    "merchatCurrency": "INR",
     "unit": "#f4b",
     "drillTo": "admin/manage-roles"
   },
@@ -52,6 +54,7 @@
     "rate": 3,
     "ratea": 4958,
     "currency": "USD",
+    "merchatCurrency": "INR",
     "unit": "#3ff",
     "drillTo": "admin/manage-roles"
   },
