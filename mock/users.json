@@ -67,10 +67,10 @@
                     },
                     {
                         "name": "Edit",
-                        "key": "action",
-                        "sort": false,
-                        "type": "edit",
-                        "display": true,
+                        "key": "progressType",
+                        "secKey": "componentsAPIKey",
+                        "titleKey": "model",
+                        "type": "state-modal",
                         "drillTo": "modal",
                         "modalTitle": "Edit user",
                         "drillParams": [
@@ -80,8 +80,7 @@
                             {
                                 "key": "email"
                             }
-                        ],
-                        "componentsAPIKey": "addUserComponentAPI"
+                        ]
                     },
                     {
                         "name": "Delete",
