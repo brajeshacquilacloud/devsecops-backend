@@ -10,6 +10,12 @@
                 "size": 12
             },
             {
+                "id": 121,
+                "type": "back-nav",
+                "title": "Back to Cluster List",
+                "size": 12
+            },
+            {
                 "id": 2,
                 "type": "extended-summary",
                 "apiKey": "finopsDomainExtendedSummaryPieAPI",
