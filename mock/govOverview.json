@@ -107,7 +107,8 @@
                 "lib": "google",
                 "size": 12,
                 "yAxis": {
-                    "title": "Proportion"
+                    "title": "Proportion",
+                    "format": "$#"
                 },
                 "xAxis": {
                     "title": "Time",
