@@ -3871,18 +3871,23 @@ app.post('/api/linechart', function (req, res) {
     addDelay();
 
     const data = [
-        [new Date(2014, 0),  1.5,  5.7],
-        [new Date(2014, 1),   2.4,  8.7],
-        [new Date(2014, 2),   7.5,   12],
-        [new Date(2014, 3),  2.9, 15.3],
-        [new Date(2014, 4),  6.3, 18.6],
-        [new Date(2014, 5),    9, 20.9],
+        [
+            "x",
+            "azure",
+            "aws"
+        ],
+        [new Date(2014, 0), 1.5, 5.7],
+        [new Date(2014, 1), 2.4, 8.7],
+        [new Date(2014, 2), 7.5, 12],
+        [new Date(2014, 3), 2.9, 15.3],
+        [new Date(2014, 4), 6.3, 18.6],
+        [new Date(2014, 5), 9, 20.9],
         [new Date(2014, 6), 10.6, 19.8],
         [new Date(2014, 7), 10.3, 16.6],
-        [new Date(2014, 8),  7.4, 13.3],
-        [new Date(2014, 9),  4.4,  9.9],
-        [new Date(2014, 10), 15.1,  6.6],
-        [new Date(2014, 11), 12.2,  4.5]
+        [new Date(2014, 8), 7.4, 13.3],
+        [new Date(2014, 9), 4.4, 9.9],
+        [new Date(2014, 10), 15.1, 6.6],
+        [new Date(2014, 11), 12.2, 4.5]
     ];
 
     setResponseHeaders(res);
