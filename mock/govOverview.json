@@ -114,7 +114,11 @@
                     "title": "Time",
                     "format": "MMM yyyy"
                 },
-                "dateTimeIndex": 0
+                "dateTimeIndex": 0,
+                "googleChartTooltip": {
+                    "1": "USD",
+                    "2": "INR"
+                }
             },
             {
                 "id": 9997,
