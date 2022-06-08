@@ -116,8 +116,14 @@
                 },
                 "dateTimeIndex": 0,
                 "googleChartTooltip": {
-                    "1": "USD",
-                    "2": "INR"
+                    "1": {
+                        "unit": "USD",
+                        "position": "prefix"
+                    },
+                    "2": {
+                        "unit": "%",
+                        "position": "postfix"
+                    }
                 }
             },
             {
