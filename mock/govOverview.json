@@ -106,6 +106,10 @@
                 "apiKey": "lineChartAPI",
                 "lib": "google",
                 "size": 12,
+                "unit": {
+                    "value": "USD",
+                    "position": "postfix"
+                },
                 "yAxis": {
                     "title": "Proportion",
                     "format": "$#"
@@ -115,6 +119,7 @@
                     "format": "MMM yyyy"
                 },
                 "dateTimeIndex": 0,
+                "isCustomizedTooltip": true,
                 "googleChartTooltip": {
                     "1": {
                         "unit": "USD",
