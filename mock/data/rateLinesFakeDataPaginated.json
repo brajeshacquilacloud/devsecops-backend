@@ -4,7 +4,7 @@
         {
             "rateId": 1,
             "priceList": "wmatuszynski0",
-            "name": "Zathin",
+            "name": "pavan",
             "category": "MPV",
             "subcategory": "Consumer Services",
             "location": "Florida",
@@ -13,7 +13,8 @@
             "rate": 6,
             "ratea": 6819,
             "currency": "USD",
-            "unit": "#5c6"
+            "unit": "#5c6",
+            "image":"azure.png"
         },
         {
             "rateId": 2,
@@ -27,7 +28,9 @@
             "rate": 9,
             "ratea": 810,
             "currency": "USD",
-            "unit": "#f4b"
+            "unit": "#f4b",
+            "image":"azure.png"
+            
         },
         {
             "rateId": 3,
@@ -41,7 +44,8 @@
             "rate": 3,
             "ratea": 4958,
             "currency": "USD",
-            "unit": "#3ff"
+            "unit": "#3ff",
+            "image":"azure.png"
         },
         {
             "rateId": 4,
@@ -55,7 +59,8 @@
             "rate": 8,
             "ratea": 3870,
             "currency": "USD",
-            "unit": "#d85"
+            "unit": "#d85",
+            "image":"azure.png"
         },
         {
             "rateId": 5,
@@ -69,7 +74,8 @@
             "rate": 8,
             "ratea": 2125,
             "currency": "USD",
-            "unit": "#08a"
+            "unit": "#08a",
+            "image":"azure.png"
         },
         {
             "rateId": 6,
@@ -83,7 +89,8 @@
             "rate": 4,
             "ratea": 7060,
             "currency": "USD",
-            "unit": "#314"
+            "unit": "#314",
+            "image":"azure.png"
         },
         {
             "rateId": 7,
@@ -97,7 +104,8 @@
             "rate": 1,
             "ratea": 2481,
             "currency": "USD",
-            "unit": "#bf7"
+            "unit": "#bf7",
+            "image":"azure.png"
         },
         {
             "rateId": 8,
@@ -111,7 +119,8 @@
             "rate": 10,
             "ratea": 8717,
             "currency": "USD",
-            "unit": "#c7d"
+            "unit": "#c7d",
+            "image":"azure.png"
         },
         {
             "rateId": 9,
@@ -125,7 +134,8 @@
             "rate": 9,
             "ratea": 1524,
             "currency": "USD",
-            "unit": "#8dd"
+            "unit": "#8dd",
+            "image":"azure.png"
         },
         {
             "rateId": 10,
@@ -139,7 +149,8 @@
             "rate": 2,
             "ratea": 8711,
             "currency": "USD",
-            "unit": "#ef2"
+            "unit": "#ef2",
+            "image":"azure.png"
         },
         {
             "rateId": 11,

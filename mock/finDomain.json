@@ -133,6 +133,13 @@
                         "isRowSelection": true
                     },
                     {
+                        "name": "image",
+                        "key": "image",
+                        "type": "image",
+                        "display": true,
+                        "isRowSelection": false
+                    },
+                    {
                         "name": "Price List",
                         "key": "priceList",
                         "display": true,
