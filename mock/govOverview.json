@@ -101,11 +101,35 @@
                 "id": 8,
                 "leafTitle": "Google Chart View",
                 "type": "line",
-                "legendPosition": "bottom",
+                "legendPosition": "right",
                 "noDataText": "No Demographic Info",
                 "apiKey": "lineChartAPI",
                 "lib": "google",
-                "size": 12
+                "size": 12,
+                "unit": {
+                    "value": "USD",
+                    "position": "postfix"
+                },
+                "yAxis": {
+                    "title": "Proportion",
+                    "format": "$#"
+                },
+                "xAxis": {
+                    "title": "Time",
+                    "format": "MMM yyyy"
+                },
+                "dateTimeIndex": 0,
+                "isCustomizedTooltip": true,
+                "googleChartTooltip": {
+                    "1": {
+                        "unit": "USD",
+                        "position": "prefix"
+                    },
+                    "2": {
+                        "unit": "%",
+                        "position": "postfix"
+                    }
+                }
             },
             {
                 "id": 9997,
