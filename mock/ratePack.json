@@ -104,6 +104,7 @@
                         "name": "Rate Pack Info",
                         "key": "action",
                         "type": "drill",
+                        "secKey": "drillTo",
                         "display": true,
                         "drillTo": "catalog/ratepacks",
                         "drillParams": [
