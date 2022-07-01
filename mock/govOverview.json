@@ -120,16 +120,8 @@
                 },
                 "dateTimeIndex": 0,
                 "isCustomizedTooltip": true,
-                "googleChartTooltip": {
-                    "1": {
-                        "unit": "USD",
-                        "position": "prefix"
-                    },
-                    "2": {
-                        "unit": "%",
-                        "position": "postfix"
-                    }
-                }
+                "curveType": "function",
+                "alerts": ["Threshold"]
             },
             {
                 "id": 9997,
