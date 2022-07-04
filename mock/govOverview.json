@@ -2,201 +2,39 @@
     {
         "leafs": [
             {
-                "id": 1,
-                "type": "hawkAmountSummary",
-                "apiKey": "getAmountSummaryData",
-                "noDataText": "No Summary Data available",
-                "metrics": {},
-                "size": 12
-            },
-            {
-                "id": 212121,
-                "type": "extended-summary",
-                "apiKey": "extendedSummaryTime",
-                "noDataText": "No Summary Data available",
-                "metrics": {},
-                "noDataDrillDown": {
-                    "text":"Create a Budget?",
-                    "drillTo": "governance/new-finance-domain",
-                    "drillParams": [
-                        {
-                            "key": "groupId"
-                        }
-                    ]
-                },
-                "size": 12
-            },
-            {
-                "id": 2,
-                "size": 12,
-                "title": "Domain Consumptions",
-                "type": "sankey",
-                "apiKey": "getSankeyChartData",
-                "noDataText": "Domain Data available",
-                "tooltipHeader": "Consumption($)",
-                "toolBar": {
-                    "apiKey": "costFlowsApi",
-                    "deleteApiKey": "deleteCostFlowsApi",
-                    "metrics": {
-                        "type": "chip"
-                    },
-                    "actionApiKey": "SaveDimention",
-                    "modalOps": {
-                        "toolbarTitle": "Add Dimention",
-                        "modalTitle": "Add Dimention",
-                        "type": "modal",
-                        "componentsAPIKey": "addDimentionAPI"
-                    }
-                },
-                "drillDown": {
-                    "drillTo": "governance/finance-domain",
-                    "drillParamKey": "hierarchy_id"
-                },
-                "filters": [
-                    {
-                        "key": "costOver",
-                        "name": "Show Cost Over",
-                        "apiKey": "providerSubscriptionId"
-                    }
-                ]
-            },
-            {
-                "id": 3,
-                "type": "hawkTabLineChart",
-                "apiKey": "getAnalayticGraphData",
-                "noDataText": "No Data available",
-                "metrics": {},
-                "size": 12
-            },
-            {
-                "id": 81,
-                "type": "piGraph",
-                "title": "Savings By Categories",
-                "apiKey": "getPiGraphData",
-                "noDataText": "No Data available",
-                "metrics": {},
-                "size": 4,
-                "linkText": "Go to Domain",
-                "drillLink": "/governance/domain",
-                "height": 255
-            },
-            {
-                "id": 82,
-                "type": "stackedBarChart",
-                "title": "Savings By Categories",
-                "hideExport": true,
-                "apiKey": "stackedBarChart",
-                "noDataText": "No Data available",
-                "metrics": {},
-                "size": 8,
-                "linkText": "Go to Domain Optimizer",
-                "drillUrls": {
-                    "domain1": "/governance/finance-domain",
-                    "domain2": "/governance/finance-domain",
-                    "domain3": "/governance/finance-domain"
-                },
-                "drillLink": "/csp/billing"
-            },
-            {
-                "id": 8,
-                "leafTitle": "Google Chart View",
+                "id": 60,
+                "leafTitle": "Top 10 Services Spend Trends",
                 "type": "line",
-                "legendPosition": "right",
-                "noDataText": "No Demographic Info",
-                "apiKey": "lineChartAPI",
                 "lib": "google",
+                "legendPosition": "right",
+                "apiKey": "lineChartAPI",
                 "size": 12,
-                "unit": {
-                    "value": "USD",
-                    "position": "postfix"
-                },
+                "height": 300,
+                "width": "75%",
                 "yAxis": {
-                    "title": "Proportion",
+                    "title": "Cost",
                     "format": "$#"
                 },
                 "xAxis": {
-                    "title": "Time",
-                    "format": "MMM yyyy"
+                    "title": "Time"
                 },
+                "toolTipDateFormat": "MMM yyyy",
+                "lineColumns": [
+                    "x",
+                    "azure",
+                    "aws"
+                ],
                 "dateTimeIndex": 0,
+                "noDataText": "Data not available.",
+                "unit": {
+                    "value": "USD",
+                    "position": "prefix"
+                },
                 "isCustomizedTooltip": true,
-                "curveType": "function",
-                "alerts": ["Threshold"]
-            },
-            {
-                "id": 9997,
-                "leafTitle": "Top 10 Services by Instance",
-                "type": "bar",
-                "isPro": true,
-                "singular": true,
-                "apiKey": "singularBarAPI",
-                "size": 12,
-                "metrics": {
-                    "deploy": "Not deployed",
-                    "build": "Failed"
+                "alert": {
+                    "column": "Alerts",
+                    "showAlertInLegend": false
                 }
-            },
-            {
-                "id": 4,
-                "isHawkUI": true,
-                "type": "hawkDatatable",
-                "apiKey": "listCatalogRateLinesAPI",
-                "size": 12,
-                "hideToolBar": false,
-                "defSelectKey": "mainDatatable",
-                "filter": false,
-                "noDataText": "No rates available",
-                "noDataAddIcon": true,
-                "metrics": {},
-                "defaultRowPerPage": 10,
-                "columns": [
-                    {
-                        "name": "Id",
-                        "key": "rateId",
-                        "display": false,
-                        "isRowSelection": true
-                    },
-                    {
-                        "name": "Price List",
-                        "key": "priceList",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Name",
-                        "key": "name",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Category",
-                        "key": "category",
-                        "type": "multiselect",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
-                        "name": "Rate",
-                        "key": "rate",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
-                        "name": "Amount",
-                        "key": "ratea",
-                        "type": "amount",
-                        "display": true,
-                        "filter": false,
-                        "drillTo": "governance/finance-domain",
-                        "drillParams": [
-                            {
-                                "key": "rateId"
-                            }
-                        ]
-                    }
-                ]
             }
         ]
     }
