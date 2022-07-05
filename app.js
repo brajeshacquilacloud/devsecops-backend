@@ -3870,74 +3870,94 @@ app.post('/api/linechart', function (req, res) {
     //Add some delay on purpose.
     addDelay();
 
-    const data = [
+    let data = [
         [
             "x",
             "API Request",
             "Data Transfer",
-            "Storage"
+            "Storage",
+            "Alerts"
         ],
         [
             "2021-06-01",
             3.9,
             2.5,
-            0.04
+            0.04,
+            null,
         ],
         [
             "2021-07-01",
             1.00,
             5.828E-7,
-            2.4
+            2.4,
+            { value: 15, text: "High Alert" },
         ],
         [
             "2021-08-01",
-            9.91,
-            5.828E-7,
-            2.1
+            5,
+            7,
+            15,
+            null,
         ],
         [
             "2021-09-01",
             9.59,
             5.64E-7,
-            1.2
+            1.2,
+            null,
         ],
         [
             "2021-10-01",
             8.15,
             3.66,
-            1.0
+            1.0,
+            null,
         ],
         [
             "2021-11-01",
             9.59,
             5.64E-7,
-            2.0
+            2.0,
+            null,
         ],
         [
             "2021-12-01",
             0.00,
             5.82,
-            0.0
+            0.0,
+            null,
         ],
         [
             "2022-01-01",
             0.00,
             1.92,
-            0.0
+            0.0,
+            { value: 12, text: "The tooltip option triggers when the user selects" },
         ],
         [
             "2022-02-01",
             0.01,
             6.80,
-            0.02
+            3.02,
+            null,
         ],
         [
             "2022-03-21",
             3.00,
             7.19,
-            2.01
+            2.01,
+            null,
         ]
     ];
+
+
+    // data = [["x", "Cost", "Average Cost"], ["2022-05-01", 323.33, 192.8], ["2022-06-01", 62.28, 192.8]];
+
+    // data = [["x", "Amazon CloudFront", "Amazon Elastic Compute Cloud", "Amazon Relational Database Service", "Amazon Route 53", "Amazon Simple Storage Service", "BLOCK_STORAGE", "COMPUTE", "Savings Plans for AWS Compute usage", "Storage", "Virtual Machines", { type: 'string', role: 'annotation', p: { html: true } }],
+    // ["2022-06-01", 565.19, 4434.03, 6251.51, 360.89, 1436.82, 615.83, 2335.93, 4751.7, 484.48, 429.06, null], ["2022-05-01", 16741.54, 98752.09, 21513.57, 1347.26, 39584.43, null, null, 7666.35, 1709.83, 1597.07, null], ["2022-04-01", null, 460.22, 45.93, 1.5, 13.96, null, null, null, null, null, null], ["2022-03-01", null, 478.71, 3.78, 1.5, 10.37, null, null, null, null, null, null], ["2022-02-01", null, 338.9, 12.67, 1.5, 7.97, null, null, null, null, null, null], ["2022-01-01", 373.7, 4394.45, 441, 296.33, 889.41, null, null, 233.9, null, null, null], ["2021-12-01", null, 99.21, null, 1.5, 6.49, 406.49, 1842.86, null, null, null, null], ["2021-11-01", null, 97.64, null, 1.5, 7.03, null, null, null, null, null, null], ["2021-10-01", 4926.14, 41181.54, 5889.1, 575.07, 9451.13, 1130.77, 3873.59, 2757.24, null, null, null], ["2021-09-01", 2035.77, 17682.48, 2050.91, 414.71, 5041.6, 1523.92, 5857.05, 3601.37, null, null, null],
+    // ["2021-08-01", 15500.5, 96104.94, 20009.54, 1121.17, 27491.23, 1583.05, 6514.49, 6393.6, null, null, "Max point reached"],
+    // ["2021-07-01", 1274.74, 7269.53, 1177.88, 341.35, 2613.19, 988.39, 4100.74, 216, null, null, null]];
+
 
     setResponseHeaders(res);
     res.send(data);
