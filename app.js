@@ -10223,6 +10223,12 @@ app.post('/api/services', function (req, res) {
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
             img: 'billops_productcard.svg'
         },
+        {
+            key: 'DevSecOps',
+            title: 'DevSecOps',
+            description: 'DevSecOps for secure developer environment ',
+            img: 'finops_productcard.svg'
+        },
     ]
     responseStatus = 200;
     setResponseHeaders(res);

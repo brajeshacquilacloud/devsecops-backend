@@ -1,0 +1,14 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "type": "hawkAmountSummary",
+                "apiKey": "getAmountSummaryData",
+                "noDataText": "No Summary Data available",
+                "metrics": {},
+                "size": 12
+            }
+        ]
+    }
+]

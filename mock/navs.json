@@ -123,6 +123,59 @@
             ]
         },
         {
+            "id": "dev-sec-ops",
+            "name": "DevSecOps",
+            "icon": "home-icon",
+            "selected": true,
+            "link": "/dev-sec-ops",
+            "page": "ComponentsPage",
+            "isHawkUI": false,
+            "subNavs": [
+                {
+                    "id": "dev-sec-ops-overview",
+                    "name": "Overview",
+                    "page": "ComponentsPage",
+                    "link": "/dev-sec-ops/overview",
+                    "isHawkUI": true,
+                    "pageActions": [
+                        {
+                            "key": "overview",
+                            "title": "overview",
+                            "type": "search"
+                        }
+                    ]
+                },
+                {
+                    "id": "dev-sec-ops-pipeline",
+                    "name": "Pipeline",
+                    "page": "ComponentsPage",
+                    "link": "/dev-sec-ops/pipeline",
+                    "isHawkUI": true
+                },
+                {
+                    "id": "dev-sec-ops-scan-summary",
+                    "name": "Scan Summary",
+                    "page": "ComponentsPage",
+                    "link": "/dev-sec-ops/scan-summary",
+                    "isHawkUI": true
+                },
+                {
+                    "id": "dev-sec-ops-notification",
+                    "name": "Notification/Alert",
+                    "page": "ComponentsPage",
+                    "link": "/dev-sec-ops/notification",
+                    "isHawkUI": true
+                },
+                {
+                    "id": "dev-sec-ops-analytics",
+                    "name": "Analytics",
+                    "page": "ComponentsPage",
+                    "link": "/dev-sec-ops/analytics",
+                    "isHawkUI": true
+                }
+            ]
+        },
+        {
             "id": "prod_catalog",
             "name": "Product Catalog",
             "icon": "menu-icon",
