@@ -132,46 +132,77 @@
             "isHawkUI": false,
             "subNavs": [
                 {
-                    "id": "dev-sec-ops-overview",
+                    "id": "devSecOpsOverview",
                     "name": "Overview",
-                    "page": "ComponentsPage",
                     "link": "/dev-sec-ops/overview",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "pageActions": [
-                        {
-                            "key": "overview",
-                            "title": "overview",
-                            "type": "search"
-                        }
-                    ]
+                    "className": "admin-icon"
                 },
                 {
-                    "id": "dev-sec-ops-pipeline",
+                    "id": "devSecOpsPipeline",
                     "name": "Pipeline",
-                    "page": "ComponentsPage",
                     "link": "/dev-sec-ops/pipeline",
-                    "isHawkUI": true
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
                 },
                 {
-                    "id": "dev-sec-ops-scan-summary",
+                    "id": "devSecOpsScanSummary",
                     "name": "Scan Summary",
-                    "page": "ComponentsPage",
                     "link": "/dev-sec-ops/scan-summary",
-                    "isHawkUI": true
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
                 },
                 {
-                    "id": "dev-sec-ops-notification",
+                    "id": "devSecOpsNotification",
                     "name": "Notification/Alert",
-                    "page": "ComponentsPage",
                     "link": "/dev-sec-ops/notification",
-                    "isHawkUI": true
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
+
                 },
                 {
-                    "id": "dev-sec-ops-analytics",
+                    "id": "devSecOpsAnalytics",
                     "name": "Analytics",
-                    "page": "ComponentsPage",
                     "link": "/dev-sec-ops/analytics",
-                    "isHawkUI": true
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
+
+                },
+                {
+                    "id": "devSecOpsApprovalStatus",
+                    "name": "Approval Status",
+                    "link": "/dev-sec-ops/approval-status",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
+
+                },
+                {
+                    "id": "devSecOpsUserManagement",
+                    "name": "User Management",
+                    "link": "/dev-sec-ops/user-management",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
                 }
             ]
         },

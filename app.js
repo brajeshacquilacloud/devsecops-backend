@@ -11,6 +11,16 @@ const ratePack = require('./mock/ratePack.json');
 const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
+const devSecOpsOverview = require('./mock/devSecOpsOverview.json');
+const devSecOpsPipeline = require('./mock/devSecOpsPipeline.json');
+const devSecOpsScanSummary = require('./mock/devSecOpsScanSummary.json');
+const devSecOpsNotification = require('./mock/devSecOpsNotification.json');
+const devSecOpsAnalytics = require('./mock/devSecOpsAnalytics.json');
+const devSecOpsApprovalStatus = require('./mock/devSecOpsApprovalStatus.json');
+const devSecOpsUserManagement = require('./mock/devSecOpsUserManagement.json');
+
+
+
 const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
 const optimizerOverview = require('./mock/optimizerOverview.json');
@@ -5700,6 +5710,27 @@ app.post('/api/scenario', function (req, res) {
         case "govOverview":
             data = govOverview;
             break;
+        case "devSecOpsOverview":
+            data = devSecOpsOverview;
+            break;
+        case "devSecOpsPipeline":
+            data = devSecOpsPipeline;
+            break;
+        case "devSecOpsScanSummary":
+            data = devSecOpsScanSummary;
+            break;
+        case "devSecOpsNotification":
+            data = devSecOpsNotification;
+            break;
+        case "devSecOpsAnalytics":
+            data = devSecOpsAnalytics;
+            break;
+        case "devSecOpsApprovalStatus":
+            data = devSecOpsApprovalStatus;
+            break;
+        case "devSecOpsUserManagement":
+            data = devSecOpsUserManagement;
+            break;
         case "finDomain":
             data = finDomain;
             break;
@@ -9096,9 +9127,41 @@ app.post('/api/user/navs', function (req, res) {
         "defalultLandingLink": "/services", "navigations":
             [
                 {
-                    id: 'aquilaServices', name: 'Aquila Services', link: '/services', icon: 'aquilaService', page: 'ComponentsPage', linkedeUrlParam: 'nodeIndex', isHawkUI: true, className: 'admin-icon',
+                    id: 'aquilaServices',
+                    name: 'Aquila Services',
+                    link: '/services',
+                    icon: 'aquilaService',
+                    page: 'ComponentsPage',
+                    linkedeUrlParam: 'nodeIndex',
+                    isHawkUI: true,
+                    className: 'admin-icon',
                 },
-                { id: 'startup', "name": "Startup/shutdown", "link": "/schedule", "icon": "SendIcon", "isSetting": false, "page": "Schedule", "role": "ROOT_ADMIN,ADMIN,POWER_USER" }, { "link": "/detail/:id", "page": "DetailView" }, { "link": "/drill", "page": "DetailView" }, { "link": "/login", "page": "Login" }, { "link": "/register", "page": "RegisterPage" }]
+                {
+                    id: 'startup',
+                    "name": "Startup/shutdown",
+                    "link": "/schedule",
+                    "icon": "SendIcon",
+                    "isSetting": false,
+                    "page": "Schedule",
+                    "role": "ROOT_ADMIN,ADMIN,POWER_USER"
+                },
+                {
+                    "link": "/detail/:id",
+                    "page": "DetailView"
+                },
+                {
+                    "link": "/drill",
+                    "page": "DetailView"
+                },
+                {
+                    "link": "/login",
+                    "page": "Login"
+                },
+                {
+                    "link": "/register",
+                    "page": "RegisterPage"
+                }
+            ]
     };
 
     if (req.body.preSelectUrl) {
