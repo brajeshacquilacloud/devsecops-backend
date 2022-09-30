@@ -11,6 +11,11 @@ const ratePack = require('./mock/ratePack.json');
 const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
+
+
+
+const devSecOpsLandingPageFirstTimeLogin = require('./mock/devSecOpsLandingPageFirstTimeLogin.json');
+const devSecOpsLandingPageFirstTimeDiscovery = require('./mock/devSecOpsLandingPageFirstTimeDiscovery.json');
 const devSecOpsOverview = require('./mock/devSecOpsOverview.json');
 const devSecOpsPipeline = require('./mock/devSecOpsPipeline.json');
 const devSecOpsScanSummary = require('./mock/devSecOpsScanSummary.json');
@@ -18,8 +23,6 @@ const devSecOpsNotification = require('./mock/devSecOpsNotification.json');
 const devSecOpsAnalytics = require('./mock/devSecOpsAnalytics.json');
 const devSecOpsApprovalStatus = require('./mock/devSecOpsApprovalStatus.json');
 const devSecOpsUserManagement = require('./mock/devSecOpsUserManagement.json');
-
-
 
 const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
@@ -5709,6 +5712,12 @@ app.post('/api/scenario', function (req, res) {
             break;
         case "govOverview":
             data = govOverview;
+            break;
+        case "devSecOpsLandingPageFirstTimeLogin":
+            data = devSecOpsLandingPageFirstTimeLogin;
+            break;
+        case "devSecOpsLandingPageFirstTimeDiscovery":
+            data = devSecOpsLandingPageFirstTimeDiscovery;
             break;
         case "devSecOpsOverview":
             data = devSecOpsOverview;

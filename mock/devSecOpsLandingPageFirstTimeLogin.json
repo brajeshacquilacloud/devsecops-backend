@@ -1,0 +1,16 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "title": "Welcome to Aquila DevSecOps",
+                "type": "devSecOpsLandingPageFirstTimeLogin",
+                "buttonTitle": "Discovery",
+                "logoURL": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/wfa4rkgjbrrupxx6ymjh",
+                "buttonNavigationURL": "https://google.com",
+                "size": 12
+
+            }
+        ]
+    }
+]

@@ -124,13 +124,33 @@
         },
         {
             "id": "dev-sec-ops",
-            "name": "DevSecOps",
+            "name": "Dev Sec Ops",
             "icon": "home-icon",
             "selected": true,
             "link": "/dev-sec-ops",
             "page": "ComponentsPage",
             "isHawkUI": false,
             "subNavs": [
+                {
+                    "id": "devSecOpsLandingPageFirstTimeLogin",
+                    "name": "Landing Page",
+                    "link": "/dev-sec-ops/devSecOpsLandingPageFirstTimeLogin",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": false,
+                    "className": "admin-icon"
+                },
+                {
+                    "id": "devSecOpsLandingPageFirstTimeDiscovery",
+                    "name": "Discovery",
+                    "link": "/dev-sec-ops/devSecOpsLandingPageFirstTimeDiscovery",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": false,
+                    "className": "admin-icon"
+                },
                 {
                     "id": "devSecOpsOverview",
                     "name": "Overview",

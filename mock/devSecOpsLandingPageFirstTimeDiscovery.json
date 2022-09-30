@@ -3,8 +3,8 @@
         "leafs": [
             {
                 "id": 1,
-                "leafTitle": "Aquila DevSecOps Overview",
-                "type": "hawkAmountSummary",
+                "title": "Discovery of DevOps Pipelines",
+                "type": "devSecOpsLandingPageFirstTimeDiscovery",
                 "size": 12
             }
         ]
