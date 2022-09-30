@@ -5,7 +5,50 @@
                 "id": 1,
                 "title": "Discovery of DevOps Pipelines",
                 "type": "devSecOpsLandingPageFirstTimeDiscovery",
-                "size": 12
+                "size": 12,
+                "pipelineCardTitle": "Pipeline Information",
+                "pipelineFieldLabel": "Pipeline Name",
+                "pipelineFieldValue": "Aquila Clouds FinOps Domain Pipeline",
+                "fieldType": "select",
+                "labelSize": 3,
+                "fieldSize": 9,
+                "devSecOpsPipelineStage": [
+                    {
+                        "stageName": "Source Control",
+                        "stageTitle": "Source Control",
+                        "serverName": "SonarQube",
+                        "athorizationKeyPassword": "Authorization Key/ Password",
+                        "sonarQubePropertyFile": "file"
+                    },
+                    {
+                        "stageName": "Build Tool",
+                        "stageTitle": "Build Tool",
+                        "serverName": "SonarQube",
+                        "athorizationKeyPassword": "Authorization Key/ Password",
+                        "sonarQubePropertyFile": "file"
+                    },
+                    {
+                        "stageName": "Dev Test",
+                        "stageTitle": "Dev Test",
+                        "serverName": "SonarQube",
+                        "athorizationKeyPassword": "Authorization Key/ Password",
+                        "sonarQubePropertyFile": "file"
+                    },
+                    {
+                        "stageName": "Deploy",
+                        "stageTitle": "Deploy",
+                        "serverName": "SonarQube",
+                        "athorizationKeyPassword": "Authorization Key/ Password",
+                        "sonarQubePropertyFile": "file"
+                    },
+                    {
+                        "stageName": "Run Time",
+                        "stageTitle": "Run Time",
+                        "serverName": "SonarQube",
+                        "athorizationKeyPassword": "Authorization Key/ Password",
+                        "sonarQubePropertyFile": "file"
+                    }
+                ]
             }
         ]
     }

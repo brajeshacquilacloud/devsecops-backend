@@ -12,8 +12,6 @@ const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
 
-
-
 const devSecOpsLandingPageFirstTimeLogin = require('./mock/devSecOpsLandingPageFirstTimeLogin.json');
 const devSecOpsLandingPageFirstTimeDiscovery = require('./mock/devSecOpsLandingPageFirstTimeDiscovery.json');
 const devSecOpsOverview = require('./mock/devSecOpsOverview.json');

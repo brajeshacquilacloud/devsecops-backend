@@ -133,7 +133,7 @@
             "subNavs": [
                 {
                     "id": "devSecOpsLandingPageFirstTimeLogin",
-                    "name": "Landing Page",
+                    "name": "Overview",
                     "link": "/dev-sec-ops/devSecOpsLandingPageFirstTimeLogin",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
@@ -143,7 +143,7 @@
                 },
                 {
                     "id": "devSecOpsLandingPageFirstTimeDiscovery",
-                    "name": "Discovery",
+                    "name": "Discovery of DevOps Pipelines",
                     "link": "/dev-sec-ops/devSecOpsLandingPageFirstTimeDiscovery",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
@@ -190,7 +190,6 @@
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
                     "className": "admin-icon"
-
                 },
                 {
                     "id": "devSecOpsAnalytics",
@@ -201,7 +200,6 @@
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
                     "className": "admin-icon"
-
                 },
                 {
                     "id": "devSecOpsApprovalStatus",
@@ -212,7 +210,6 @@
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
                     "className": "admin-icon"
-
                 },
                 {
                     "id": "devSecOpsUserManagement",
