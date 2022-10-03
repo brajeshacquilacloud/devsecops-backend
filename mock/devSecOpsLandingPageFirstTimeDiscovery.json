@@ -16,7 +16,21 @@
                     {
                         "stageName": "Source Control",
                         "stageTitle": "Source Control",
-                        "serverName": "SonarQube",
+                        "serverName": [
+                            {
+                                "pipelineToolName": "SonarQube"
+                            },
+                            {
+                                "pipelineToolName": "Grype"
+                            },
+                            {
+                                "pipelineToolName": "Trivy"
+                            },
+                            {
+                                "pipelineToolName": "Black Duck"
+                            }
+
+                        ],
                         "athorizationKeyPassword": "Authorization Key/ Password",
                         "sonarQubePropertyFile": "file"
                     },
