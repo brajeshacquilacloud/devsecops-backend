@@ -10261,43 +10261,50 @@ app.post('/api/services', function (req, res) {
             key: 'cspBill',
             title: 'CSP Billing',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            img: 'billops_productcard.svg'
+            img: 'billops_productcard.svg',
+            link: "/governance/overview"
         },
         {
             key: 'finops',
             img: 'finops_productcard.svg',
             title: 'FinOps',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            link: "/governance/overview"
         },
         {
             key: 'serviceXyz',
             title: 'Services-XYZ',
             img: 'billops_productcard.svg',
-            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit'
+            description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+            link: "/governance/overview"
         },
         {
             key: 'cloudServices',
             title: 'Cloud Services',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            img: 'finops_productcard.svg'
+            img: 'finops_productcard.svg',
+            link: "/governance/overview"
         },
         {
             key: 'testServices',
             title: 'Test services',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            img: 'finops_productcard.svg'
+            img: 'finops_productcard.svg',
+            link: "/governance/overview"
         },
         {
             key: 'edgeCompute',
             title: 'Edge Computing',
             description: 'Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            img: 'billops_productcard.svg'
+            img: 'billops_productcard.svg',
+            link: "/governance/overview"
         },
         {
             key: 'DevSecOps',
             title: 'DevSecOps',
             description: 'DevSecOps for secure developer environment ',
-            img: 'finops_productcard.svg'
+            img: 'finops_productcard.svg',
+            link: "/dev-sec-ops/devSecOpsLandingPageFirstTimeLogin"
         },
     ]
     responseStatus = 200;

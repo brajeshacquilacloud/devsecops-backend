@@ -140,6 +140,7 @@
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": false,
                     "className": "admin-icon"
+                    
                 },
                 {
                     "id": "devSecOpsLandingPageFirstTimeDiscovery",
