@@ -5,7 +5,19 @@
                 "id": 1,
                 "leafTitle": "Aquila DevSecOps Overview",
                 "type": "devSecOpsOverview",
-                "size": 12
+                "size": 12,
+                "activePipelinesData": [
+                    {
+                        "data": [
+                            {
+                                "pipelineName": "Pipeline Name",
+                                "deployment": "Running",
+                                "confidenceLevel": 92,
+                                "Action": "Stop Pipeline"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
