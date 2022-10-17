@@ -13,167 +13,223 @@
                 "defSelectKey": "PipelineInfo",
                 "labelSize": 3,
                 "fieldSize": 9,
-                "buttonNavigationURL" : "/dev-sec-ops/overview",
+                "buttonNavigationURL": "/dev-sec-ops/overview",
                 "devSecOpsPipelineStage": [
                     {
                         "stageName": "Source Control",
                         "stageTitle": "Source Control",
                         "defSelectKey": "Source_Control",
-                        "stage": [{
-                            "name": "server Name",
-                            "type":"select",
-                            "inputType": "select",
-                            "defSelectKey": "Server_name",
-                            "list": [
-                                {
-                                    "name": "SonarQube",
-                                    "key" :"SonarQube"
-                                },
-                                {
-                                    "name": "Grype",
-                                    "key" :"Grype"
-                                },
-                                {
-                                    "name": "Trivy",
-                                    "key" :"Trivy"
-                                },
-                                {
-                                    "name": "Black Duck",
-                                    "key" :"Black Duck"
-                                }
-                            ]
-                        },
-                         {"name" : "Authorization Key/ Password" ,"type":"text", "inputType"  :"text" , "defSelectKey" : "athorizationKeyPassword"},
-                        {"name":"SonarQube Property File" ,"type":"textarea", "inputType":"file", "defSelectKey" : "sonarQubePropertyFile"}
-                    ]
+                        "stage": [
+                            {
+                                "name": "server Name",
+                                "type": "select",
+                                "inputType": "select",
+                                "defSelectKey": "Server_name",
+                                "list": [
+                                    {
+                                        "name": "SonarQube",
+                                        "key": "SonarQube"
+                                    },
+                                    {
+                                        "name": "Grype",
+                                        "key": "Grype"
+                                    },
+                                    {
+                                        "name": "Trivy",
+                                        "key": "Trivy"
+                                    },
+                                    {
+                                        "name": "Black Duck",
+                                        "key": "Black Duck"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Authorization Key/ Password",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "athorizationKeyPassword"
+                            },
+                            {
+                                "name": "SonarQube Property File",
+                                "type": "textarea",
+                                "inputType": "file",
+                                "defSelectKey": "sonarQubePropertyFile"
+                            }
+                        ]
                     },
                     {
                         "stageName": "Build Tool",
                         "stageTitle": "Build Tool",
-                        "defSelectKey":"Build_Tool",
-                        "stage": [{
-                            "name": "server Name",
-                            "type":"select",
-                            "inputType": "select",
-                            "defSelectKey": "Server_name",
-                            "list": [
-                                {
-                                    "name": "SonarQube",
-                                    "key" :"SonarQube"
-                                },
-                                {
-                                    "name": "Grype",
-                                    "key" :"Grype"
-                                },
-                                {
-                                    "name": "Trivy",
-                                    "key" :"Trivy"
-                                },
-                                {
-                                    "name": "Black Duck",
-                                    "key" :"Black Duck"
-                                }
-                            ]
-                        },
-                        {"name" : "Authorization Key/ Password" ,"type":"text", "inputType"  :"text" , "defSelectKey" : "athorizationKeyPassword"},
-                        {"name":"SonarQube Property File" ,"type":"textarea", "inputType":"file", "defSelectKey" : "sonarQubePropertyFile"} 
-                    ]
+                        "defSelectKey": "Build_Tool",
+                        "stage": [
+                            {
+                                "name": "server Name",
+                                "type": "select",
+                                "inputType": "select",
+                                "defSelectKey": "Server_name",
+                                "list": [
+                                    {
+                                        "name": "SonarQube",
+                                        "key": "SonarQube"
+                                    },
+                                    {
+                                        "name": "Grype",
+                                        "key": "Grype"
+                                    },
+                                    {
+                                        "name": "Trivy",
+                                        "key": "Trivy"
+                                    },
+                                    {
+                                        "name": "Black Duck",
+                                        "key": "Black Duck"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Authorization Key/ Password",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "athorizationKeyPassword"
+                            },
+                            {
+                                "name": "SonarQube Property File",
+                                "type": "textarea",
+                                "inputType": "file",
+                                "defSelectKey": "sonarQubePropertyFile"
+                            }
+                        ]
                     },
                     {
                         "stageName": "Dev Test",
                         "stageTitle": "Dev Test",
-                        "defSelectKey":"Dev_Test",
-                        "stage": [{
-                            "name": "server Name",
-                            "type":"select",
-                            "inputType": "select",
-                            "defSelectKey": "Server_name",
-                            "list": [
-                                {
-                                    "name": "SonarQube",
-                                    "key" :"SonarQube"
-                                },
-                                {
-                                    "name": "Grype",
-                                    "key" :"Grype"
-                                },
-                                {
-                                    "name": "Trivy",
-                                    "key" :"Trivy"
-                                },
-                                {
-                                    "name": "Black Duck",
-                                    "key" :"Black Duck"
-                                }
-                            ]
-                        },
-                       {"name" : "Authorization Key/ Password" ,"type":"text", "inputType"  :"text" , "defSelectKey" : "athorizationKeyPassword"},
-                       {"name":"SonarQube Property File" ,"type":"textarea", "inputType":"file", "defSelectKey" : "sonarQubePropertyFile"}
-                    ]
+                        "defSelectKey": "Dev_Test",
+                        "stage": [
+                            {
+                                "name": "server Name",
+                                "type": "select",
+                                "inputType": "select",
+                                "defSelectKey": "Server_name",
+                                "list": [
+                                    {
+                                        "name": "SonarQube",
+                                        "key": "SonarQube"
+                                    },
+                                    {
+                                        "name": "Grype",
+                                        "key": "Grype"
+                                    },
+                                    {
+                                        "name": "Trivy",
+                                        "key": "Trivy"
+                                    },
+                                    {
+                                        "name": "Black Duck",
+                                        "key": "Black Duck"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Authorization Key/ Password",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "athorizationKeyPassword"
+                            },
+                            {
+                                "name": "SonarQube Property File",
+                                "type": "textarea",
+                                "inputType": "file",
+                                "defSelectKey": "sonarQubePropertyFile"
+                            }
+                        ]
                     },
                     {
                         "stageName": "Deploy",
                         "stageTitle": "Deploy",
-                        "defSelectKey":"Deploy",
-                        "stage": [{
-                            "name": "server Name",
-                            "type":"select",
-                            "inputType": "select",
-                            "defSelectKey": "Server_name",
-                            "list": [
-                                {
-                                    "name": "SonarQube",
-                                    "key" :"SonarQube"
-                                },
-                                {
-                                    "name": "Grype",
-                                    "key" :"Grype"
-                                },
-                                {
-                                    "name": "Trivy",
-                                    "key" :"Trivy"
-                                },
-                                {
-                                    "name": "Black Duck",
-                                    "key" :"Black Duck"
-                                }
-                            ]
-                        },
-                       {"name" : "Authorization Key/ Password" ,"type":"text" , "inputType"  :"text" , "defSelectKey" : "athorizationKeyPassword"},
-                        {"name":"SonarQube Property File" ,"type":"textarea" , "inputType":"file", "defSelectKey" : "sonarQubePropertyFile"}
-                    ]
+                        "defSelectKey": "Deploy",
+                        "stage": [
+                            {
+                                "name": "server Name",
+                                "type": "select",
+                                "inputType": "select",
+                                "defSelectKey": "Server_name",
+                                "list": [
+                                    {
+                                        "name": "SonarQube",
+                                        "key": "SonarQube"
+                                    },
+                                    {
+                                        "name": "Grype",
+                                        "key": "Grype"
+                                    },
+                                    {
+                                        "name": "Trivy",
+                                        "key": "Trivy"
+                                    },
+                                    {
+                                        "name": "Black Duck",
+                                        "key": "Black Duck"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Authorization Key/ Password",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "athorizationKeyPassword"
+                            },
+                            {
+                                "name": "SonarQube Property File",
+                                "type": "textarea",
+                                "inputType": "file",
+                                "defSelectKey": "sonarQubePropertyFile"
+                            }
+                        ]
                     },
                     {
                         "stageName": "Run Time",
                         "stageTitle": "Run Time",
-                        "defSelectKey":"Run_Time",
-                        "stage": [{
-                            "name": "server Name",
-                            "type":"select",
-                            "inputType": "select",
-                            "defSelectKey": "Server_name",
-                            "list": [
-                                {
-                                    "name": "SonarQube",
-                                    "key" :"SonarQube"
-                                },
-                                {
-                                    "name": "Grype",
-                                    "key" :"Grype"
-                                },
-                                {
-                                    "name": "Trivy",
-                                    "key" :"Trivy"
-                                },
-                                {
-                                    "name": "Black Duck",
-                                    "key" :"Black Duck"
-                                }
-                            ]
-                        },
-                          {"name" : "Authorization Key/ Password" ,"type":"text",  "inputType"  :"text" , "defSelectKey" : "athorizationKeyPassword"},
-                        {"name":"SonarQube Property File" , "type":"textarea", "inputType":"file", "defSelectKey" : "sonarQubePropertyFile"}
-                ]}
+                        "defSelectKey": "Run_Time",
+                        "stage": [
+                            {
+                                "name": "server Name",
+                                "type": "select",
+                                "inputType": "select",
+                                "defSelectKey": "Server_name",
+                                "list": [
+                                    {
+                                        "name": "SonarQube",
+                                        "key": "SonarQube"
+                                    },
+                                    {
+                                        "name": "Grype",
+                                        "key": "Grype"
+                                    },
+                                    {
+                                        "name": "Trivy",
+                                        "key": "Trivy"
+                                    },
+                                    {
+                                        "name": "Black Duck",
+                                        "key": "Black Duck"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Authorization Key/ Password",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "athorizationKeyPassword"
+                            },
+                            {
+                                "name": "SonarQube Property File",
+                                "type": "textarea",
+                                "inputType": "file",
+                                "defSelectKey": "sonarQubePropertyFile"
+                            }
+                        ]
+                    }
                 ]
             }
         ]

@@ -65,7 +65,7 @@
               {
                 "id": 3,
                 "title": "Account type",
-                "apiKey": "dummyList",  
+                "apiKey": "dummyList",
                 "defSelectKey": "account_type",
                 "size": 12,
                 "inputType": "string",
@@ -195,12 +195,32 @@
             "selectableRows": "single",
             "defaultRowPerPage": 10,
             "columns": [
-                        { "name": "First Name", "key": "firstName", "display": true },
-                        { "name": "Last Name", "key": "lastName", "display": true },
-                        { "name": "User Id", "key": "userID", "display": true },
-                        { "name": "Email Id", "key": "emailId", "display": true },
-                        { "name": "Designation", "key": "designation", "display": true }
-                      ]
+              {
+                "name": "First Name",
+                "key": "firstName",
+                "display": true
+              },
+              {
+                "name": "Last Name",
+                "key": "lastName",
+                "display": true
+              },
+              {
+                "name": "User Id",
+                "key": "userID",
+                "display": true
+              },
+              {
+                "name": "Email Id",
+                "key": "emailId",
+                "display": true
+              },
+              {
+                "name": "Designation",
+                "key": "designation",
+                "display": true
+              }
+            ]
           },
           {
             "type": "users",
@@ -215,11 +235,11 @@
             "modalApiKey": "addEditCloudAccounts",
             "header": "Cloud Accounts",
             "id": 7,
-            "dataApiKey": "getCloudAccounts"  
+            "dataApiKey": "getCloudAccounts"
           },
           {
             "type": "settings",
-            "header" : "Settings",
+            "header": "Settings",
             "id": 6,
             "dataApiKey": "getSettings"
           }

@@ -4,7 +4,7 @@
             {
                 "id": 1,
                 "leafTitle": "Aquila DevSecOps Overview",
-                "type": "hawkAmountSummary",
+                "type": "devSecOpsOverview",
                 "size": 12
             }
         ]
