@@ -12,9 +12,9 @@
                 "activePipelinesData": {
                     "data": [
                         {
-                            "PipelineName": "Pipeline Name",
-                            "status": "Running",
-                            "statusProgress": "92",
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Running",
+                            "confidenceLevel": "92",
                             "action": "Stop Pipeline"
                         }
                     ]
