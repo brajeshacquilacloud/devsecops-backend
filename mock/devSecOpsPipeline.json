@@ -3,8 +3,11 @@
         "leafs": [
             {
                 "id": 1,
-                "leafTitle": "Aquila DevSecOps Pipeline",
-                "type": "line",
+                "isHawkUI": true,
+                "defSelectKey": "devSecOpsPipeline",
+                "apiKey": "devSecOpsPipelineAPI",
+                "leafTitle": "Current Pipeline Name",
+                "type": "devSecOpsPipeline",
                 "size": 12
             }
         ]

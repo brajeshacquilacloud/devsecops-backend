@@ -3,21 +3,25 @@
         "leafs": [
             {
                 "id": 1,
+                "isHawkUI": true,
+                "defSelectKey": "activePipelinesDatatable",
+                "apiKey": "activePipelinesListAPI",
                 "leafTitle": "Aquila DevSecOps Overview",
                 "type": "devSecOpsOverview",
                 "size": 12,
-                "activePipelinesData": [
-                    {
-                        "data": [
-                            {
-                                "pipelineName": "Pipeline Name",
-                                "deployment": "Running",
-                                "confidenceLevel": 92,
-                                "Action": "Stop Pipeline"
-                            }
-                        ]
-                    }
-                ]
+                "activePipelinesData": {
+                    "data": [
+                        {
+                            "PipelineName": "Pipeline Name",
+                            "status": "Running",
+                            "statusProgress": "92",
+                            "action": "Stop Pipeline"
+                        }
+                    ]
+                },
+                "hideToolBar": true,
+                "filter": false,
+                "noDataText": "No data available"
             }
         ]
     }

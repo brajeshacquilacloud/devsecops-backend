@@ -17,11 +17,11 @@
                 "devSecOpsPipelineStage": [
                     {
                         "stageName": "Source Control",
-                        "stageTitle": "Source Control",
+                        "stageTitle": "Source Control Phase",
                         "defSelectKey": "Source_Control",
                         "stage": [
                             {
-                                "name": "server Name",
+                                "name": "Server Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",
@@ -60,11 +60,11 @@
                     },
                     {
                         "stageName": "Build Tool",
-                        "stageTitle": "Build Tool",
+                        "stageTitle": "Build Tool Phase",
                         "defSelectKey": "Build_Tool",
                         "stage": [
                             {
-                                "name": "server Name",
+                                "name": "Server Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",
@@ -103,11 +103,11 @@
                     },
                     {
                         "stageName": "Dev Test",
-                        "stageTitle": "Dev Test",
+                        "stageTitle": "Dev Test Phase",
                         "defSelectKey": "Dev_Test",
                         "stage": [
                             {
-                                "name": "server Name",
+                                "name": "Server Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",
@@ -146,11 +146,11 @@
                     },
                     {
                         "stageName": "Deploy",
-                        "stageTitle": "Deploy",
+                        "stageTitle": "Deploy Phase",
                         "defSelectKey": "Deploy",
                         "stage": [
                             {
-                                "name": "server Name",
+                                "name": "Server Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",
@@ -189,11 +189,11 @@
                     },
                     {
                         "stageName": "Run Time",
-                        "stageTitle": "Run Time",
+                        "stageTitle": "Run Time Phase",
                         "defSelectKey": "Run_Time",
                         "stage": [
                             {
-                                "name": "server Name",
+                                "name": "Server Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",

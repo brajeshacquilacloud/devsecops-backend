@@ -1,0 +1,15 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "isHawkUI": true,
+                "defSelectKey": "devSecOpsOverviewCurrentPipelineDetails",
+                "apiKey": "devSecOpsOverviewCurrentPipelineDetailsAPI",
+                "leafTitle": "Current Pipeline Name",
+                "type": "devSecOpsOverviewCurrentPipelineDetails",
+                "size": 12
+            }
+        ]
+    }
+]
