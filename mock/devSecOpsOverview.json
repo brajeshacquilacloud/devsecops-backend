@@ -9,8 +9,16 @@
                 "leafTitle": "Aquila DevSecOps Overview",
                 "type": "devSecOpsOverview",
                 "size": 12,
+                "hideToolBar": true,
+                "filter": false,
+                "noDataText": "No data available",
+                "welcomeMessageText": "Welcome,",
+                "welcomeUserName": "username",
+                "addPipelineButtonText": "Add Pipeline",
+                "dashboardSectionTitle": "Current Domain Name",
+                "activePipelinesTableTitle": "Active Pipelines",
                 "activePipelinesColumns": {
-                    "data" : [
+                    "data": [
                         {
                             "name": "Pipeline Name",
                             "key": "pipelineName",
@@ -87,16 +95,16 @@
                         },
                         {
                             "pipelineName": "Pipeline Name",
-                            "deployment": "Running",
-                            "confidenceLevel": "92",
-                            "progressType": "success",
+                            "deployment": "Completed",
+                            "confidenceLevel": "20",
+                            "progressType": "danger",
                             "action": "Stop Pipeline"
                         },
                         {
                             "pipelineName": "Pipeline Name",
                             "deployment": "Running",
-                            "confidenceLevel": "92",
-                            "progressType": "success",
+                            "confidenceLevel": "34",
+                            "progressType": "warning",
                             "action": "Stop Pipeline"
                         },
                         {
@@ -136,7 +144,8 @@
                         }
                     ]
                 },
-                "scanSummaryColumns":{
+                "scanSummaryTableTitle": "Scan Summary",
+                "scanSummaryColumns": {
                     "data": [
                         {
                             "name": "Event",
@@ -252,9 +261,20 @@
                         }
                     ]
                 },
-                "hideToolBar": true,
-                "filter": false,
-                "noDataText": "No data available"
+                "activeInactivePipeline": {
+                    "totalPipeline": 143,
+                    "activePipeline": 85,
+                    "inactivePipeline": 10,
+                    "percentage": 12,
+                    "trend": "down"
+                },
+                "triggerExecuted": {
+                    "totalTrigger": 143,
+                    "activeTrigger": 85,
+                    "inactiveTrigger": 10,
+                    "percentage": 12,
+                    "trend": "up"
+                }
             }
         ]
     }
