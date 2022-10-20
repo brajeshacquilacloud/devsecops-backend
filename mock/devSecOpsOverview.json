@@ -154,7 +154,8 @@
                         },
                         {
                             "name": "Step",
-                            "key": "step",
+                            "key": "status",
+                            "type": "step",
                             "display": true
                         },
                         {
@@ -189,73 +190,73 @@
                     "data": [
                         {
                             "event": "Event Name",
-                            "step": "Build",
+                            "status": "Build",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Dev Test",
+                            "status": "Dev Test",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Deploy",
+                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Dev Test",
+                            "status": "Dev Test",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Build",
+                            "status": "Build",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Deploy",
+                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Deploy",
+                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Deploy",
+                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Deploy",
+                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Deploy",
+                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Deploy",
+                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         },
                         {
                             "event": "Event Name",
-                            "step": "Build",
+                            "status": "Build",
                             "pipelineName": "Pipeline Name",
                             "action": "..."
                         }
