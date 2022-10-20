@@ -9,13 +9,246 @@
                 "leafTitle": "Aquila DevSecOps Overview",
                 "type": "devSecOpsOverview",
                 "size": 12,
+                "activePipelinesColumns": {
+                    "data" : [
+                        {
+                            "name": "Pipeline Name",
+                            "key": "pipelineName",
+                            "display": true
+                        },
+                        {
+                            "name": "Deployment",
+                            "key": "deployment",
+                            "display": true
+                        },
+                        {
+                            "name": "Confidence Level",
+                            "key": "confidenceLevel",
+                            "secKey": "progressType",
+                            "type": "progress",
+                            "display": true
+                        },
+                        {
+                            "name": "Action",
+                            "key": "action",
+                            "display": true
+                        }
+                    ]
+                },
                 "activePipelinesData": {
                     "data": [
                         {
                             "pipelineName": "Pipeline Name",
                             "deployment": "Running",
                             "confidenceLevel": "92",
+                            "progressType": "success",
                             "action": "Stop Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Completed",
+                            "confidenceLevel": "10",
+                            "progressType": "danger",
+                            "action": "Run Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Faulted",
+                            "confidenceLevel": "34",
+                            "progressType": "warning",
+                            "action": "Faulted message"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Pending",
+                            "confidenceLevel": "48",
+                            "progressType": "warning",
+                            "action": "Approval Required"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Completed",
+                            "confidenceLevel": "82",
+                            "action": "Run Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Running",
+                            "confidenceLevel": "92",
+                            "progressType": "success",
+                            "action": "Stop Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Running",
+                            "confidenceLevel": "92",
+                            "progressType": "success",
+                            "action": "Stop Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Running",
+                            "confidenceLevel": "92",
+                            "progressType": "success",
+                            "action": "Stop Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Running",
+                            "confidenceLevel": "92",
+                            "progressType": "success",
+                            "action": "Stop Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Running",
+                            "confidenceLevel": "92",
+                            "progressType": "success",
+                            "action": "Stop Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Running",
+                            "confidenceLevel": "92",
+                            "progressType": "success",
+                            "action": "Stop Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Completed",
+                            "confidenceLevel": "10",
+                            "progressType": "danger",
+                            "action": "Run Pipeline"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Faulted",
+                            "confidenceLevel": "34",
+                            "progressType": "warning",
+                            "action": "Faulted message"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Running",
+                            "confidenceLevel": "92",
+                            "progressType": "success",
+                            "action": "Stop Pipeline"
+                        }
+                    ]
+                },
+                "scanSummaryColumns":{
+                    "data": [
+                        {
+                            "name": "Event",
+                            "key": "event",
+                            "display": true
+                        },
+                        {
+                            "name": "Step",
+                            "key": "step",
+                            "display": true
+                        },
+                        {
+                            "name": "Pipeline name",
+                            "key": "pipelineName",
+                            "display": true
+                        },
+                        {
+                            "name": "",
+                            "key": "action",
+                            "display": true,
+                            "filter": false,
+                            "type": "rowAction",
+                            "rowActions": [
+                                {
+                                    "name": "Delete",
+                                    "key": "action",
+                                    "type": "delete",
+                                    "display": true
+                                },
+                                {
+                                    "name": "Edit",
+                                    "key": "action",
+                                    "type": "edit",
+                                    "display": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "scanSummaryData": {
+                    "data": [
+                        {
+                            "event": "Event Name",
+                            "step": "Build",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Dev Test",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Dev Test",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Build",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "step": "Build",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
                         }
                     ]
                 },
