@@ -182,6 +182,16 @@
                     "className": "admin-icon"
                 },
                 {
+                    "id": "devSecOpsPipelineConfigureToolDetails",
+                    "name": "Pipeline Configure Tool",
+                    "link": "/dev-sec-ops/devSecOpsPipelineConfigureToolDetails",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
+                },
+                {
                     "id": "devSecOpsScanSummary",
                     "name": "Scan Summary",
                     "link": "/dev-sec-ops/scan-summary",

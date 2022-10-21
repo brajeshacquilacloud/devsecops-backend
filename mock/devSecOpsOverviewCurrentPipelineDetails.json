@@ -8,7 +8,144 @@
                 "apiKey": "devSecOpsOverviewCurrentPipelineDetailsAPI",
                 "leafTitle": "Current Pipeline Name",
                 "type": "devSecOpsOverviewCurrentPipelineDetails",
-                "size": 12
+                "size": 12,
+                "hideToolBar": true,
+                "filter": false,
+                "noDataText": "No data available",
+                "welcomeMessageText": "Welcome,",
+                "welcomeUserName": "username",
+                "addPipelineButtonText": "Add Pipeline",
+                "dashboardSectionTitle": "Current Pieline Name",
+                "pipelineStatusTableTitle": "Pipeline Status",
+                "pipelineStatusData":{
+                    "data": [
+                        {
+                            "testRun": 134,
+                            "eventTrigger:": 4,
+                            "deploymentStatus": "Completed",
+                            "confidenceLevel": 92
+                        }
+                    ]
+                },
+
+                "scanSummaryTableTitle": "Scan Summary",
+                "scanSummaryColumns": {
+                    "data": [
+                        {
+                            "name": "Event",
+                            "key": "event",
+                            "display": true
+                        },
+                        {
+                            "name": "Step",
+                            "key": "status",
+                            "type": "step",
+                            "display": true
+                        },
+                        {
+                            "name": "Pipeline name",
+                            "key": "pipelineName",
+                            "display": true
+                        },
+                        {
+                            "name": "",
+                            "key": "action",
+                            "display": true,
+                            "filter": false,
+                            "type": "rowAction",
+                            "rowActions": [
+                                {
+                                    "name": "Delete",
+                                    "key": "action",
+                                    "type": "delete",
+                                    "display": true
+                                },
+                                {
+                                    "name": "Edit",
+                                    "key": "action",
+                                    "type": "edit",
+                                    "display": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "scanSummaryData": {
+                    "data": [
+                        {
+                            "event": "Event Name",
+                            "status": "Build",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Dev Test",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Dev Test",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Build",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Deploy",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        },
+                        {
+                            "event": "Event Name",
+                            "status": "Build",
+                            "pipelineName": "Pipeline Name",
+                            "action": "..."
+                        }
+                    ]
+                }
             }
         ]
     }

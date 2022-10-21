@@ -1,0 +1,15 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "isHawkUI": true,
+                "defSelectKey": "devSecOpsPipelineConfigureToolDetails",
+                "apiKey": "devSecOpsPipelineConfigureToolDetailsAPI",
+                "leafTitle": "Pipeline Configure Tool Details",
+                "type": "devSecOpsPipelineConfigureToolDetails",
+                "size": 12
+            }
+        ]
+    }
+]
