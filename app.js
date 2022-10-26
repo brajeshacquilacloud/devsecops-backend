@@ -18,8 +18,8 @@ const devSecOpsOverview = require('./mock/devSecOpsOverview.json');
 const devSecOpsOverviewCurrentPipelineDetails = require('./mock/devSecOpsOverviewCurrentPipelineDetails.json');
 const devSecOpsPipeline = require('./mock/devSecOpsPipeline.json');
 const devSecOpsPipelineConfigureToolDetails = require('./mock/devSecOpsPipelineConfigureToolDetails.json');
+const devSecOpsPipelineScanSummary = require('./mock/devSecOpsPipelineScanSummary.json');
 
-const devSecOpsScanSummary = require('./mock/devSecOpsScanSummary.json');
 const devSecOpsNotification = require('./mock/devSecOpsNotification.json');
 const devSecOpsAnalytics = require('./mock/devSecOpsAnalytics.json');
 const devSecOpsApprovalStatus = require('./mock/devSecOpsApprovalStatus.json');
@@ -5732,8 +5732,8 @@ app.post('/api/scenario', function (req, res) {
         case "devSecOpsPipelineConfigureToolDetails":
             data = devSecOpsPipelineConfigureToolDetails;
             break;
-        case "devSecOpsScanSummary":
-            data = devSecOpsScanSummary;
+        case "devSecOpsPipelineScanSummary":
+            data = devSecOpsPipelineScanSummary;
             break;
         case "devSecOpsNotification":
             data = devSecOpsNotification;

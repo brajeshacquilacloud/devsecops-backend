@@ -192,13 +192,13 @@
                     "className": "admin-icon"
                 },
                 {
-                    "id": "devSecOpsScanSummary",
+                    "id": "devSecOpsPipelineScanSummary",
                     "name": "Scan Summary",
-                    "link": "/dev-sec-ops/scan-summary",
+                    "link": "/dev-sec-ops/devSecOpsPipelineScanSummary",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
-                    "isHawkUI": true,
+                    "isHawkUI": false,
                     "className": "admin-icon"
                 },
                 {

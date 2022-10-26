@@ -1,0 +1,155 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "isHawkUI": true,
+                "defSelectKey": "devSecOpsPipelineScanSummary",
+                "apiKey": "devSecOpsPipelineScanSummaryAPI",
+                "leafTitle": "Current Pipeline Name",
+                "type": "devSecOpsPipelineScanSummary",
+                "size": 12,
+                "hideToolBar": true,
+                "filter": false,
+                "noDataText": "No data available",
+                "welcomeMessageText": "Welcome,",
+                "welcomeUserName": "username",
+                "addPipelineButtonText": "Add Pipeline",
+                "dashboardSectionTitle": "Current Pieline Name",
+                "dashboardSectionRunPipelineTitle": "Run Pipeline",
+                "pipelineStatusTableTitle": "Pipeline Status",
+                "pipelineStatusData":{
+                    "data": [
+                        {
+                            "testRun": 134,
+                            "eventTrigger:": 4,
+                            "deploymentStatus": "Completed",
+                            "confidenceLevel": 92
+                        }
+                    ]
+                },
+                "scanSummaryTableGoToAnalyticsTitle":"Go To Analytics",
+                "scanSummaryTableGoToAnalyticsUrl":"https://google.com",
+                "scanSummaryTableTitle": "Scan Summary",
+                "scanSummaryColumns": {
+                    "data": [
+                        {
+                            "name": "Incident Name",
+                            "key": "event",
+                            "display": true
+                        },
+                        {
+                            "name": "Risk Level",
+                            "key": "status",
+                            "type": "step",
+                            "display": true
+                        },
+                        {
+                            "name": "Discovery Time",
+                            "key": "discoveryTime",
+                            "display": true
+                        },
+                        {
+                            "name": "Description",
+                            "key": "description",
+                            "display": true
+                        },
+                        {
+                            "name": "Incident Details",
+                            "key": "action",
+                            "display": true
+                        }
+                    ]
+                },
+                "scanSummaryData": {
+                    "data": [
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Medium",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Medium",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Low",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Low",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "discoveryTime": "3-5-2022 10:00AM",
+                            "description": "description",
+                            "action": "View"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]
