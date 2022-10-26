@@ -16,6 +16,7 @@
                 "welcomeUserName": "username",
                 "addPipelineButtonText": "Add Pipeline",
                 "dashboardSectionTitle": "Current Pieline Name",
+                "dashboardSectionRunPipelineTitle": "Run Pipeline",
                 "pipelineStatusTableTitle": "Pipeline Status",
                 "pipelineStatusData":{
                     "data": [
@@ -27,12 +28,13 @@
                         }
                     ]
                 },
-
+                "scanSummaryTableGoToAnalyticsTitle":"Go To Analytics",
+                "scanSummaryTableGoToAnalyticsUrl":"https://google.com",
                 "scanSummaryTableTitle": "Scan Summary",
                 "scanSummaryColumns": {
                     "data": [
                         {
-                            "name": "Event",
+                            "name": "Risk Level",
                             "key": "event",
                             "display": true
                         },
@@ -43,30 +45,9 @@
                             "display": true
                         },
                         {
-                            "name": "Pipeline name",
-                            "key": "pipelineName",
-                            "display": true
-                        },
-                        {
                             "name": "",
                             "key": "action",
-                            "display": true,
-                            "filter": false,
-                            "type": "rowAction",
-                            "rowActions": [
-                                {
-                                    "name": "Delete",
-                                    "key": "action",
-                                    "type": "delete",
-                                    "display": true
-                                },
-                                {
-                                    "name": "Edit",
-                                    "key": "action",
-                                    "type": "edit",
-                                    "display": true
-                                }
-                            ]
+                            "display": true
                         }
                     ]
                 },
@@ -76,73 +57,73 @@
                             "event": "Event Name",
                             "status": "Build",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Dev Test",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Deploy",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Dev Test",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Build",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Deploy",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Deploy",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Deploy",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Deploy",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Deploy",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Deploy",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         },
                         {
                             "event": "Event Name",
                             "status": "Build",
                             "pipelineName": "Pipeline Name",
-                            "action": "..."
+                            "action": "View"
                         }
                     ]
                 }
