@@ -202,6 +202,16 @@
                     "className": "admin-icon"
                 },
                 {
+                    "id": "devSecOpsApprovalActionStatus",
+                    "name": "Approval Action Status",
+                    "link": "/dev-sec-ops/devSecOpsApprovalActionStatus",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": false,
+                    "className": "admin-icon"
+                },
+                {
                     "id": "devSecOpsNotification",
                     "name": "Notification/Alert",
                     "link": "/dev-sec-ops/notification",

@@ -12,7 +12,7 @@
                 "hideToolBar": true,
                 "filter": false,
                 "noDataText": "No data available",
-                "welcomeMessageText": "Welcome,",
+                "welcomeMessageText": "Current Pieline Name",
                 "welcomeUserName": "username",
                 "addPipelineButtonText": "Add Pipeline",
                 "dashboardSectionTitle": "Current Pieline Name",
@@ -36,6 +36,7 @@
                         {
                             "name": "Risk Level",
                             "key": "event",
+                            "type": "step",
                             "display": true
                         },
                         {
@@ -45,8 +46,9 @@
                             "display": true
                         },
                         {
-                            "name": "",
-                            "key": "action",
+                            "name": "View",
+                            "key": "view",
+                            "type": "drill",
                             "display": true
                         }
                     ]
@@ -54,76 +56,64 @@
                 "scanSummaryData": {
                     "data": [
                         {
-                            "event": "Event Name",
+                            "event": "High",
                             "status": "Build",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "Medium",
                             "status": "Dev Test",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "High",
                             "status": "Deploy",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "Medium",
                             "status": "Dev Test",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "Low",
                             "status": "Build",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "Low",
                             "status": "Deploy",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "Medium",
                             "status": "Deploy",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "High",
                             "status": "Deploy",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "Medium",
                             "status": "Deploy",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "High",
                             "status": "Deploy",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "Low",
                             "status": "Deploy",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         },
                         {
-                            "event": "Event Name",
+                            "event": "Medium",
                             "status": "Build",
-                            "pipelineName": "Pipeline Name",
-                            "action": "View"
+                            "view": "View"
                         }
                     ]
                 }

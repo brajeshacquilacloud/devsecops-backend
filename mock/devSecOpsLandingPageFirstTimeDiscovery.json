@@ -21,7 +21,7 @@
                         "defSelectKey": "Source_Control",
                         "stage": [
                             {
-                                "name": "Server Name",
+                                "name": "Tool Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",
@@ -64,7 +64,7 @@
                         "defSelectKey": "Build_Tool",
                         "stage": [
                             {
-                                "name": "Server Name",
+                                "name": "Tool Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",
@@ -107,7 +107,7 @@
                         "defSelectKey": "Dev_Test",
                         "stage": [
                             {
-                                "name": "Server Name",
+                                "name": "Tool Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",
@@ -150,7 +150,7 @@
                         "defSelectKey": "Deploy",
                         "stage": [
                             {
-                                "name": "Server Name",
+                                "name": "Tool Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",
@@ -193,7 +193,7 @@
                         "defSelectKey": "Run_Time",
                         "stage": [
                             {
-                                "name": "Server Name",
+                                "name": "Tool Name",
                                 "type": "select",
                                 "inputType": "select",
                                 "defSelectKey": "Server_name",

@@ -1,0 +1,154 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "isHawkUI": true,
+                "defSelectKey": "devSecOpsApprovalActionStatus",
+                "apiKey": "devSecOpsApprovalActionStatusAPI",
+                "leafTitle": "Current Pipeline Name",
+                "type": "devSecOpsApprovalActionStatus",
+                "size": 12,
+                "hideToolBar": true,
+                "filter": false,
+                "noDataText": "No data available",
+                "welcomeMessageText": "Welcome,",
+                "welcomeUserName": "username",
+                "addPipelineButtonText": "Add Pipeline",
+                "dashboardSectionTitle": "Current Pieline Name",
+                "dashboardSectionRunPipelineTitle": "Run Pipeline",
+                "pipelineStatusTableTitle": "Pipeline Status",
+                "pipelineStatusData":{
+                    "data": [
+                        {
+                            "testRun": 134,
+                            "eventTrigger:": 4,
+                            "deploymentStatus": "Completed",
+                            "confidenceLevel": 92
+                        }
+                    ]
+                },
+                "scanSummaryTableGoToAnalyticsTitle":"Go To Analytics",
+                "scanSummaryTableGoToAnalyticsUrl":"https://google.com",
+                "scanSummaryTableTitle": "Scan Summary",
+                "approvalActionStatusColumns": {
+                    "data": [
+                        {
+                            "name": "Stage",
+                            "key": "stage",
+                            "display": true
+                        },
+                        {
+                            "name": "Pipeline",
+                            "key": "pipeline",
+                            "display": true
+                        },
+                        {
+                            "name": "Domain",
+                            "key": "domain",
+                            "display": true
+                        },
+                        {
+                            "name": "Approval Status",
+                            "key": "approvalStatus",
+                            "display": true
+                        },
+                        {
+                            "name": "Stage Details",
+                            "key": "action",
+                            "display": true
+                        }
+                    ]
+                },
+                "approvalActionStatusData": {
+                    "data": [
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approve Reject",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approved",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approve Reject",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Rejected",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approved",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approved",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approved",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approve Reject",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approve Reject",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approve Reject",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approve Reject",
+                            "action": "View"
+                        },
+                        {
+                            "stage": "Stage Name",
+                            "pipeline": "Pipeline Name",
+                            "domain": "Domain Name",
+                            "approvalStatus": "Approve Reject",
+                            "action": "View"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]
