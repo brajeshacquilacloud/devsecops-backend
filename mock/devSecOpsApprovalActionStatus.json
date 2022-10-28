@@ -51,11 +51,13 @@
                         {
                             "name": "Approval Status",
                             "key": "approvalStatus",
+                            "type": "approval-action-status",
                             "display": true
                         },
                         {
                             "name": "Stage Details",
                             "key": "action",
+                            "type": "drill",
                             "display": true
                         }
                     ]
@@ -66,7 +68,7 @@
                             "stage": "Stage Name",
                             "pipeline": "Pipeline Name",
                             "domain": "Domain Name",
-                            "approvalStatus": "Approve Reject",
+                            "approvalStatus":  "Approve",
                             "action": "View"
                         },
                         {
@@ -80,7 +82,7 @@
                             "stage": "Stage Name",
                             "pipeline": "Pipeline Name",
                             "domain": "Domain Name",
-                            "approvalStatus": "Approve Reject",
+                            "approvalStatus": "Reject",
                             "action": "View"
                         },
                         {
@@ -115,35 +117,35 @@
                             "stage": "Stage Name",
                             "pipeline": "Pipeline Name",
                             "domain": "Domain Name",
-                            "approvalStatus": "Approve Reject",
+                            "approvalStatus": "Reject",
                             "action": "View"
                         },
                         {
                             "stage": "Stage Name",
                             "pipeline": "Pipeline Name",
                             "domain": "Domain Name",
-                            "approvalStatus": "Approve Reject",
+                            "approvalStatus": "Reject",
                             "action": "View"
                         },
                         {
                             "stage": "Stage Name",
                             "pipeline": "Pipeline Name",
                             "domain": "Domain Name",
-                            "approvalStatus": "Approve Reject",
+                            "approvalStatus": "Approve",
                             "action": "View"
                         },
                         {
                             "stage": "Stage Name",
                             "pipeline": "Pipeline Name",
                             "domain": "Domain Name",
-                            "approvalStatus": "Approve Reject",
+                            "approvalStatus": "Reject",
                             "action": "View"
                         },
                         {
                             "stage": "Stage Name",
                             "pipeline": "Pipeline Name",
                             "domain": "Domain Name",
-                            "approvalStatus": "Approve Reject",
+                            "approvalStatus": "Approve",
                             "action": "View"
                         }
                     ]

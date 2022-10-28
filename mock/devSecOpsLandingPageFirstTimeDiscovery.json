@@ -45,16 +45,22 @@
                                 ]
                             },
                             {
+                                "name": "Server Name / IP Address",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "server_name_ip_address"
+                            },
+                            {
                                 "name": "Authorization Key/ Password",
                                 "type": "text",
                                 "inputType": "text",
                                 "defSelectKey": "athorizationKeyPassword"
                             },
                             {
-                                "name": "SonarQube Property File",
+                                "name": "Property File",
                                 "type": "textarea",
                                 "inputType": "file",
-                                "defSelectKey": "sonarQubePropertyFile"
+                                "defSelectKey": "propertyFile"
                             }
                         ]
                     },
@@ -88,16 +94,22 @@
                                 ]
                             },
                             {
+                                "name": "Server Name / IP Address",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "server_name_ip_address"
+                            },
+                            {
                                 "name": "Authorization Key/ Password",
                                 "type": "text",
                                 "inputType": "text",
                                 "defSelectKey": "athorizationKeyPassword"
                             },
                             {
-                                "name": "SonarQube Property File",
+                                "name": "Property File",
                                 "type": "textarea",
                                 "inputType": "file",
-                                "defSelectKey": "sonarQubePropertyFile"
+                                "defSelectKey": "propertyFile"
                             }
                         ]
                     },
@@ -131,16 +143,22 @@
                                 ]
                             },
                             {
+                                "name": "Server Name / IP Address",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "server_name_ip_address"
+                            },
+                            {
                                 "name": "Authorization Key/ Password",
                                 "type": "text",
                                 "inputType": "text",
                                 "defSelectKey": "athorizationKeyPassword"
                             },
                             {
-                                "name": "SonarQube Property File",
+                                "name": "Property File",
                                 "type": "textarea",
                                 "inputType": "file",
-                                "defSelectKey": "sonarQubePropertyFile"
+                                "defSelectKey": "propertyFile"
                             }
                         ]
                     },
@@ -174,16 +192,22 @@
                                 ]
                             },
                             {
+                                "name": "Server Name / IP Address",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "server_name_ip_address"
+                            },
+                            {
                                 "name": "Authorization Key/ Password",
                                 "type": "text",
                                 "inputType": "text",
                                 "defSelectKey": "athorizationKeyPassword"
                             },
                             {
-                                "name": "SonarQube Property File",
+                                "name": "Property File",
                                 "type": "textarea",
                                 "inputType": "file",
-                                "defSelectKey": "sonarQubePropertyFile"
+                                "defSelectKey": "propertyFile"
                             }
                         ]
                     },
@@ -217,16 +241,22 @@
                                 ]
                             },
                             {
+                                "name": "Server Name / IP Address",
+                                "type": "text",
+                                "inputType": "text",
+                                "defSelectKey": "server_name_ip_address"
+                            },
+                            {
                                 "name": "Authorization Key/ Password",
                                 "type": "text",
                                 "inputType": "text",
                                 "defSelectKey": "athorizationKeyPassword"
                             },
                             {
-                                "name": "SonarQube Property File",
+                                "name": "Property File",
                                 "type": "textarea",
                                 "inputType": "file",
-                                "defSelectKey": "sonarQubePropertyFile"
+                                "defSelectKey": "propertyFile"
                             }
                         ]
                     }
