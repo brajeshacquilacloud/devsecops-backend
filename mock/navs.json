@@ -202,16 +202,6 @@
                     "className": "admin-icon"
                 },
                 {
-                    "id": "devSecOpsApprovalActionStatus",
-                    "name": "Approval Action Status",
-                    "link": "/dev-sec-ops/devSecOpsApprovalActionStatus",
-                    "icon": "InboxIcon",
-                    "page": "ComponentsPage",
-                    "linkedeUrlParam": "nodeIndex",
-                    "isHawkUI": false,
-                    "className": "admin-icon"
-                },
-                {
                     "id": "devSecOpsNotification",
                     "name": "Notification/Alert",
                     "link": "/dev-sec-ops/notification",
@@ -224,7 +214,7 @@
                 {
                     "id": "devSecOpsAnalytics",
                     "name": "Analytics",
-                    "link": "/dev-sec-ops/analytics",
+                    "link": "/dev-sec-ops/devSecOpsAnalytics",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -232,9 +222,9 @@
                     "className": "admin-icon"
                 },
                 {
-                    "id": "devSecOpsApprovalStatus",
+                    "id": "devSecOpsApprovalActionStatus",
                     "name": "Approval Status",
-                    "link": "/dev-sec-ops/approval-status",
+                    "link": "/dev-sec-ops/devSecOpsApprovalActionStatus",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -244,7 +234,7 @@
                 {
                     "id": "devSecOpsUserManagement",
                     "name": "User Management",
-                    "link": "/dev-sec-ops/user-management",
+                    "link": "/dev-sec-ops/devSecOpsUserManagement",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",

@@ -3,9 +3,96 @@
         "leafs": [
             {
                 "id": 1,
-                "leafTitle": "Aquila DevSecOps Analytics",
-                "type": "line",
-                "size": 12
+                "isHawkUI": true,
+                "defSelectKey": "devSecOpsAnalytics",
+                "apiKey": "devSecOpsAnalyticsAPI",
+                "leafTitle": "Analytics",
+                "type": "devSecOpsAnalytics",
+                "size": 12,
+                "allIncidentTableColumns": {
+                    "data": [
+                        {
+                            "name": "Incident Name",
+                            "key": "event",
+                            "display": true
+                        },
+                        {
+                            "name": "Risk Level",
+                            "key": "status",
+                            "type": "step",
+                            "display": true
+                        },
+                        {
+                            "name": "Incident Details",
+                            "key": "view",
+                            "display": true
+                        }
+                    ]
+                },
+                "allIncidentTableData": {
+                    "data": [
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Medium",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Medium",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Low",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Medium",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Medium",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "Medium",
+                            "view": "Details"
+                        },
+                        {
+                            "event": "Incident Name",
+                            "status": "High",
+                            "view": "Details"
+                        }
+                    ]
+                }
             }
         ]
     }

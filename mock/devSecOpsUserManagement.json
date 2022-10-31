@@ -3,9 +3,53 @@
         "leafs": [
             {
                 "id": 1,
-                "leafTitle": "Aquila DevSecOps User Management",
-                "type": "line",
-                "size": 12
+                "isHawkUI": true,
+                "defSelectKey": "devSecOpsUserManagement",
+                "apiKey": "devSecOpsUserManagementAPI",
+                "leafTitle": "User Management",
+                "type": "devSecOpsUserManagement",
+                "size": 12,
+                "userManagementColumns": {
+                    "data": [
+                        {
+                            "name": "Name",
+                            "key": "name",
+                            "display": true
+                        },
+                        {
+                            "name": "Role",
+                            "key": "role",
+                            "display": true
+                        },
+                        {
+                            "name": "Email",
+                            "key": "email",
+                            "display": true
+                        },
+                        {
+                            "name": "Details",
+                            "key": "edit",
+                            "type": "edit",
+                            "display": true
+                        }
+                    ]
+                },
+                "userManagementData": {
+                    "data": [
+                        {
+                            "name": "Pete",
+                            "role": "Manager",
+                            "email": "pete@gmail.com",
+                            "edit":  "edit"
+                        },
+                        {
+                            "name": "Morgon",
+                            "role": "Developer",
+                            "email": "morgon@gmail.com",
+                            "edit":  "edit"
+                        }
+                    ]
+                }
             }
         ]
     }
