@@ -164,20 +164,25 @@
                 "scanSummaryColumns": {
                     "data": [
                         {
+                            "name": "Incident",
+                            "key": "incidentName",
+                            "display": true
+                        },
+                        {
                             "name": "Risk Level",
                             "key": "event",
                             "type": "step",
                             "display": true
                         },
                         {
-                            "name": "Step",
-                            "key": "status",
-                            "type": "step",
+                            "name": "Pipeline name",
+                            "key": "pipelineName",
                             "display": true
                         },
                         {
-                            "name": "Pipeline name",
-                            "key": "pipelineName",
+                            "name": "Step",
+                            "key": "status",
+                            "type": "step",
                             "display": true
                         },
                         {
@@ -192,75 +197,87 @@
                 "scanSummaryData": {
                     "data": [
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
-                            "status": "Build",
                             "pipelineName": "Pipeline Name",
+                            "status": "Build",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "High",
+                            "pipelineName": "Pipeline Name",
                             "status": "Dev Test",
-                            "pipelineName": "Pipeline Name",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
-                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
+                            "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "High",
+                            "pipelineName": "Pipeline Name",
                             "status": "Dev Test",
-                            "pipelineName": "Pipeline Name",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Low",
+                            "pipelineName": "Pipeline Name",
                             "status": "Build",
-                            "pipelineName": "Pipeline Name",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Low",
-                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
+                            "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
-                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
+                            "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "High",
-                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
+                            "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
-                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
+                            "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "High",
-                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
+                            "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Low",
-                            "status": "Deploy",
                             "pipelineName": "Pipeline Name",
+                            "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Low",
+                            "pipelineName": "Pipeline Name",
                             "status": "Build",
-                            "pipelineName": "Pipeline Name",
                             "view": "View"
                         }
                     ]

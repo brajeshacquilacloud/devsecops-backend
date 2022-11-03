@@ -34,6 +34,11 @@
                 "scanSummaryColumns": {
                     "data": [
                         {
+                            "name": "Incident",
+                            "key": "incidentName",
+                            "display": true
+                        },
+                        {
                             "name": "Risk Level",
                             "key": "event",
                             "type": "step",
@@ -56,61 +61,73 @@
                 "scanSummaryData": {
                     "data": [
                         {
+                            "incidentName": "Incident Name",
                             "event": "High",
                             "status": "Build",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Dev Test",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "High",
                             "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Dev Test",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Low",
                             "status": "Build",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Low",
                             "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "High",
                             "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "High",
                             "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Low",
                             "status": "Deploy",
                             "view": "View"
                         },
                         {
+                            "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Build",
                             "view": "View"

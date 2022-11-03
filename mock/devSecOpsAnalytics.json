@@ -92,6 +92,41 @@
                             "view": "Details"
                         }
                     ]
+                },
+                "googleCustomChart": {
+                    "id": 60,
+                    "leafTitle": "Top 10 Services Spend Trends",
+                    "type": "line",
+                    "lib": "google",
+                    "legendPosition": "right",
+                    "apiKey": "lineChartAPI",
+                    "size": 12,
+                    "height": 300,
+                    "width": "75%",
+                    "yAxis": {
+                        "title": "Cost",
+                        "format": "$#"
+                    },
+                    "xAxis": {
+                        "title": "Time"
+                    },
+                    "toolTipDateFormat": "MMM yyyy",
+                    "lineColumns": [
+                        "x",
+                        "azure",
+                        "aws"
+                    ],
+                    "dateTimeIndex": 0,
+                    "noDataText": "Data not available.",
+                    "unit": {
+                        "value": "USD",
+                        "position": "prefix"
+                    },
+                    "isCustomizedTooltip": true,
+                    "alert": {
+                        "column": "Alerts",
+                        "showAlertInLegend": false
+                    }
                 }
             }
         ]
