@@ -39,7 +39,8 @@
                         {
                             "name": "Edit",
                             "key": "edit",
-                            "type": "edit",
+                            "type": "drill",
+                            "secKey": "drillTo",
                             "display": true,
                             "sort": false
                         }
@@ -53,7 +54,8 @@
                             "progressType": "success",
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -61,7 +63,8 @@
                             "progressType": "danger",
                             "action": "Run Pipeline",
                             "actionText": "Run Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -69,7 +72,8 @@
                             "progressType": "warning",
                             "action": "Faulted message",
                             "actionText": "Faulted message",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -77,14 +81,16 @@
                             "progressType": "warning",
                             "action": "Approval Required",
                             "actionText": "Approval Required",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
                             "deployment": "Completed",
                             "action": "Run Pipeline",
                             "actionText": "Run Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -92,7 +98,8 @@
                             "progressType": "success",
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -100,7 +107,8 @@
                             "progressType": "success",
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -108,7 +116,8 @@
                             "progressType": "danger",
                             "action": "Run Pipeline",
                             "actionText": "Run Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -116,7 +125,8 @@
                             "progressType": "warning",
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -124,7 +134,8 @@
                             "progressType": "success",
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -132,7 +143,8 @@
                             "progressType": "success",
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -140,7 +152,8 @@
                             "progressType": "danger",
                             "action": "Run Pipeline",
                             "actionText": "Run Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -148,7 +161,8 @@
                             "progressType": "warning",
                             "action": "Faulted message",
                             "actionText": "Faulted message",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -156,7 +170,8 @@
                             "progressType": "success",
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
-                            "edit": "Edit"
+                            "edit": "Edit",
+                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
                         }
                     ]
                 },
@@ -188,9 +203,9 @@
                         {
                             "name": "View",
                             "key": "view",
-                            "display": true,
                             "type": "drill",
-                            "filter": false
+                            "secKey": "drillTo",
+                            "display": true
                         }
                     ]
                 },
@@ -201,84 +216,96 @@
                             "event": "Medium",
                             "pipelineName": "Pipeline Name",
                             "status": "Build",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "High",
                             "pipelineName": "Pipeline Name",
                             "status": "Dev Test",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Medium",
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "High",
                             "pipelineName": "Pipeline Name",
                             "status": "Dev Test",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Low",
                             "pipelineName": "Pipeline Name",
                             "status": "Build",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Low",
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Medium",
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "High",
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Medium",
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "High",
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Low",
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Low",
                             "pipelineName": "Pipeline Name",
                             "status": "Build",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
                         }
                     ]
                 },
