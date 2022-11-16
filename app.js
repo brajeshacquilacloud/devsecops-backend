@@ -57,6 +57,30 @@ const cspCustomerProfile = require("./mock/customerProfile.json")
 const infoGraph = require("./mock/data/infoGraph.json")
 const tabData = require("./mock/data/tabData.json")
 
+// Swagger Code Start Here
+const swaggerJSDoc = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express')
+const options = {
+    definition: {
+        openapi : '3.0.0',
+        info: {
+            title: 'Aquila Clouds DevSecOps API Documentation',
+            version: '1.0.0'
+        },
+        servers:[
+            {
+                url: 'http://localhost:8080/'
+            }
+        ]
+    },
+    apis:['./app.js']
+}
+const swaggerSpec = swaggerJSDoc(options)
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+// Swagger Code End Here
+
+
+
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -17254,6 +17278,20 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
 });
 
 // Start Creating DevSecOps API For All Page
+
+/**
+ * @swagger
+ * /api/devsecops/welcome:
+ *  post:
+ *      summary: Welcome page.
+ *      description: Show this page to first time loggedIn User.
+ *      responses:
+ *          200:
+ *              description: Page is working fine!
+ *
+ */
+
+
 
 // #### Start Welcome Page #####
 app.post('/api/devsecops/welcome', function (req, res) {
