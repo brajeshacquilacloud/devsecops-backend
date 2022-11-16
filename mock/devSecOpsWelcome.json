@@ -4,8 +4,10 @@
             {
                 "id": 1,
                 "leafTitle": "Welcome User",
-                "type": "welcomeLayout",
+                "type": "devSecOpsWelcome",
+                "defSelectKey": "defkeywelcome",
                 "isHawkUI": true,
+                "dataAPIKey": "devSecOpsWelcomeAPI",
                 "components": [
                     {
                         "id": 1,
