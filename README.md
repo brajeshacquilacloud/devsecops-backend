@@ -7,7 +7,7 @@ Make sure you have all the necessary [prerequisites](#prerequisites). They are c
 Enter the following commands to start to get started working quickly.
 
 ```
-git clone 
+git clone
 cd <project>
 yarn install
 ```
@@ -19,4 +19,12 @@ Run mock API server with below command.
 
 ```
 yarn start:mock
+```
+
+## Running swagger API Doc.
+
+Run swagger API server with below URL .
+
+```
+http://localhost:8080/docs/
 ```

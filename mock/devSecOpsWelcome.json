@@ -27,7 +27,7 @@
                         "id": 3,
                         "type": "button",
                         "buttonTitle": "Start Discovery",
-                        "buttonNavigationURL": "/devsecops/devSecOpsLandingPageFirstTimeDiscovery",
+                        "buttonNavigationURL": "/dnd",
                         "dataApiKey": "getButtonDetails",
                         "size": 12
                     }
