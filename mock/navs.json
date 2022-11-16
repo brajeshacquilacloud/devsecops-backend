@@ -127,24 +127,24 @@
             "name": "Dev Sec Ops",
             "icon": "home-icon",
             "selected": true,
-            "link": "/dev-sec-ops",
+            "link": "/devsecops",
             "page": "ComponentsPage",
-            "isHawkUI": false,
+            "isHawkUI": true,
             "subNavs": [
                 {
-                    "id": "devSecOpsLandingPageFirstTimeLogin",
-                    "name": "Overview",
-                    "link": "/dev-sec-ops/devSecOpsLandingPageFirstTimeLogin",
+                    "id": "devSecOpsWelcome",
+                    "name": "Welcome",
+                    "link": "/devsecops/welcome",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
-                    "isHawkUI": false,
+                    "isHawkUI": true,
                     "className": "admin-icon"
                 },
                 {
                     "id": "devSecOpsLandingPageFirstTimeDiscovery",
                     "name": "Discovery of DevOps Pipelines",
-                    "link": "/dev-sec-ops/devSecOpsLandingPageFirstTimeDiscovery",
+                    "link": "/devsecops/devSecOpsLandingPageFirstTimeDiscovery",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -154,7 +154,7 @@
                 {
                     "id": "devSecOpsOverview",
                     "name": "Overview",
-                    "link": "/dev-sec-ops/overview",
+                    "link": "/devsecops/overview",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -164,7 +164,7 @@
                 {
                     "id": "devSecOpsOverviewCurrentPipelineDetails",
                     "name": "Current Pipeline Details",
-                    "link": "/dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails",
+                    "link": "/devsecops/devSecOpsOverviewCurrentPipelineDetails",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -174,7 +174,7 @@
                 {
                     "id": "devSecOpsPipeline",
                     "name": "Pipeline",
-                    "link": "/dev-sec-ops/pipeline",
+                    "link": "/devsecops/pipeline",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -184,7 +184,7 @@
                 {
                     "id": "devSecOpsPipelineConfigureToolDetails",
                     "name": "Pipeline Configure Tool",
-                    "link": "/dev-sec-ops/devSecOpsPipelineConfigureToolDetails",
+                    "link": "/devsecops/devSecOpsPipelineConfigureToolDetails",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -194,7 +194,7 @@
                 {
                     "id": "devSecOpsPipelineScanSummary",
                     "name": "Scan Summary",
-                    "link": "/dev-sec-ops/devSecOpsPipelineScanSummary",
+                    "link": "/devsecops/devSecOpsPipelineScanSummary",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -204,7 +204,7 @@
                 {
                     "id": "devSecOpsNotification",
                     "name": "Notification/Alert",
-                    "link": "/dev-sec-ops/notification",
+                    "link": "/devsecops/notification",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -214,7 +214,7 @@
                 {
                     "id": "devSecOpsAnalytics",
                     "name": "Analytics",
-                    "link": "/dev-sec-ops/devSecOpsAnalytics",
+                    "link": "/devsecops/devSecOpsAnalytics",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -224,7 +224,7 @@
                 {
                     "id": "devSecOpsApprovalActionStatus",
                     "name": "Approval Status",
-                    "link": "/dev-sec-ops/devSecOpsApprovalActionStatus",
+                    "link": "/devsecops/devSecOpsApprovalActionStatus",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -234,7 +234,7 @@
                 {
                     "id": "devSecOpsUserManagement",
                     "name": "User Management",
-                    "link": "/dev-sec-ops/devSecOpsUserManagement",
+                    "link": "/devsecops/devSecOpsUserManagement",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",

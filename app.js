@@ -12,7 +12,8 @@ const managePack = require('./mock/managePack.json');
 const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
 
-const devSecOpsLandingPageFirstTimeLogin = require('./mock/devSecOpsLandingPageFirstTimeLogin.json');
+// Start DevSecOps Import Files
+const devSecOpsWelcome = require("./mock/devSecOpsWelcome.json")
 const devSecOpsLandingPageFirstTimeDiscovery = require('./mock/devSecOpsLandingPageFirstTimeDiscovery.json');
 const devSecOpsOverview = require('./mock/devSecOpsOverview.json');
 const devSecOpsOverviewCurrentPipelineDetails = require('./mock/devSecOpsOverviewCurrentPipelineDetails.json');
@@ -25,6 +26,7 @@ const devSecOpsNotification = require('./mock/devSecOpsNotification.json');
 const devSecOpsAnalytics = require('./mock/devSecOpsAnalytics.json');
 const devSecOpsApprovalStatus = require('./mock/devSecOpsApprovalStatus.json');
 const devSecOpsUserManagement = require('./mock/devSecOpsUserManagement.json');
+// End DevSecOps Import Files
 
 const finDomain = require('./mock/finDomain.json');
 const newFinDomain = require('./mock/newFinDomain.json');
@@ -59,8 +61,10 @@ const tabData = require("./mock/data/tabData.json")
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
 app.use(bodyParser.json());
 app.use(cors());
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -2391,7 +2395,6 @@ function getManageUsersData() {
     ]
 }
 
-
 function getEnvironmentsUIData() {
     return [{
         leafs: [
@@ -3032,7 +3035,6 @@ app.post('/api/filters/datafilter', function (req, res) {
     res.send(FILTER_LIST);
 });
 
-
 // Mock API for the Global TIME filters.
 app.post('/api/filters/timefilter', function (req, res) {
 
@@ -3114,7 +3116,6 @@ app.post('/data/1', function (req, res) {
     res.send(data);
 });
 
-
 app.post('/data/2', function (req, res) {
     let data = [];
 
@@ -3175,7 +3176,6 @@ app.post('/data/2', function (req, res) {
     setResponseHeaders(res);
     res.send(data);
 });
-
 
 //Mock API for the Linear chart Visualization components.
 app.post('/data/3', function (req, res) {
@@ -3979,8 +3979,6 @@ app.post('/api/linechart', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
 });
 
-
-
 app.post('/api/metricdistributionbyutil', function (req, res) {
     //Add some delay on purpose.
 
@@ -4045,7 +4043,6 @@ app.post('/api/metricdistributionbyutil', function (req, res) {
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
-
 
 app.post('/api/metricdistributionbyday', function (req, res) {
     //Add some delay on purpose.
@@ -4129,7 +4126,6 @@ app.post('/api/aggregatedmetrics', function (req, res) {
     res.send(data);
     //res.status(500).send({ error: "Internal Server Error" });
 });
-
 
 app.post('/api/fetchgroups', function (req, res) {
 
@@ -5069,8 +5065,6 @@ app.post('/api/instance/schedule', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
 });
 
-
-
 app.post('/api/heatmap/schedule', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(heatMap);
@@ -5263,7 +5257,6 @@ app.post('/api/containers/byreservationandutilization', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/containers/aggregatedcost', function (req, res) {
     addDelay();
 
@@ -5320,8 +5313,6 @@ app.post('/api/flem/service/status', function (req, res) {
     res.status(200).send(data);
 });
 
-
-
 app.post('/api/containers/task/distribution', function (req, res) {
     addDelay();
 
@@ -5337,8 +5328,6 @@ app.post('/api/containers/task/distribution', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
-
-
 
 app.post('/api/containers/service/distribution', function (req, res) {
     addDelay();
@@ -5388,7 +5377,6 @@ app.post('/api/containers/clusteraggregates', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/containers/serviceaggregates', function (req, res) {
     addDelay();
 
@@ -5418,7 +5406,6 @@ app.post('/api/containers/taskaggregates', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/flemingo/summary', function (req, res) {
     addDelay();
@@ -5482,7 +5469,6 @@ app.post('/api/flemingo/costs', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/flemingo/accomodations', function (req, res) {
     addDelay();
 
@@ -5517,9 +5503,6 @@ app.post('/api/flemingo/accomodations', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
-
-
-
 
 app.post('/api/flemingo/awsSpending', function (req, res) {
     addDelay();
@@ -5569,7 +5552,6 @@ app.post('/api/flemingo/awsSpending', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/instances/aggregatehistogrammetrics3', function (req, res) {
     addDelay();
 
@@ -5617,7 +5599,6 @@ app.post('/api/instances/aggregatehistogrammetrics3', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/instances/getaggregatemetriccountbyday', function (req, res) {
     addDelay();
 
@@ -5654,8 +5635,6 @@ app.post('/api/instances/getaggregatemetriccountbyday', function (req, res) {
     res.status(200).send(data);
 });
 
-
-
 app.post('/api/cloud/byconsume', function (req, res) {
     addDelay();
     let data = [
@@ -5667,7 +5646,6 @@ app.post('/api/cloud/byconsume', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/scenario', function (req, res) {
 
@@ -5715,8 +5693,10 @@ app.post('/api/scenario', function (req, res) {
         case "govOverview":
             data = govOverview;
             break;
-        case "devSecOpsLandingPageFirstTimeLogin":
-            data = devSecOpsLandingPageFirstTimeLogin;
+
+        // Start DevSecOps API Calling Scenario
+        case "devSecOpsWelcome":
+            data = devSecOpsWelcome;
             break;
         case "devSecOpsLandingPageFirstTimeDiscovery":
             data = devSecOpsLandingPageFirstTimeDiscovery;
@@ -5751,6 +5731,9 @@ app.post('/api/scenario', function (req, res) {
         case "devSecOpsUserManagement":
             data = devSecOpsUserManagement;
             break;
+        // End DevSecOps API Calling Scenario
+
+
         case "finDomain":
             data = finDomain;
             break;
@@ -5873,7 +5856,6 @@ app.post('/api/scenario', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/scenario/modal', function (req, res) {
     addDelay();
@@ -8587,8 +8569,6 @@ app.post('/api/instance/singular', function (req, res) {
     res.status(200).send(data);
 });
 
-
-
 app.post('/api/chargeback/global/currency', function (req, res) {
     addDelay();
 
@@ -8626,7 +8606,6 @@ app.post('/api/chargeback/rateline/instancetype', function (req, res) {
     //res.status(500).send({ error: "Internal Server Error" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/action/regionlist', function (req, res) {
     addDelay();
@@ -8721,7 +8700,6 @@ app.post('/api/action/instancetypechange', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/action/save-env-details', function (req, res) {
 
     let data = {
@@ -8770,7 +8748,6 @@ app.post('/api/action/elbmonitoringtype', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/action/envtypes', function (req, res) {
 
     let data = [
@@ -8809,7 +8786,6 @@ app.post('/api/action/cloudlist', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/action/elbinstancelist', function (req, res) {
 
     let data = [
@@ -8822,7 +8798,6 @@ app.post('/api/action/elbinstancelist', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/action/alertItemList', function (req, res) {
 
@@ -8838,9 +8813,6 @@ app.post('/api/action/alertItemList', function (req, res) {
     res.status(200).send(data);
 });
 
-
-
-
 app.post('/api/action/accountlist', function (req, res) {
 
     let data = [
@@ -8854,7 +8826,6 @@ app.post('/api/action/accountlist', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/action/elbmetriclist', function (req, res) {
 
@@ -8872,8 +8843,6 @@ app.post('/api/action/elbmetriclist', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
-
 
 app.post('/api/action/elbmonitoringstatus', function (req, res) {
 
@@ -9066,7 +9035,6 @@ app.post('/api/catalog/ratelines', function (req, res) {
     res.status(200).send(req.body.filters && req.body.filters.instance ? rateLinesFakeData.slice(50, 99) : rateLinesFakeData);
 });
 
-
 app.post('/api/catalog/paginated/ratelines', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(rateLinesFakeDataPaginated);
@@ -9088,7 +9056,6 @@ app.post('/api/user/alertemaillist', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/action/updatealertprefs', function (req, res) {
 
     let data = {
@@ -9101,7 +9068,6 @@ app.post('/api/action/updatealertprefs', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/action/updateUser', function (req, res) {
 
     let data = {
@@ -9113,7 +9079,6 @@ app.post('/api/action/updateUser', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/group/save', function (req, res) {
 
@@ -9139,7 +9104,6 @@ app.post('/api/user/deleteuser', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/user/navs', function (req, res) {
 
@@ -9192,9 +9156,6 @@ app.post('/api/user/navs', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
-
-
 
 app.post('/api/user/environment/environmentlist', function (req, res) {
 
@@ -9251,8 +9212,6 @@ app.post('/api/user/environment/environmentstatus', function (req, res) {
     res.status(200).send(data);
 });
 
-
-
 app.post('/api/user/environment/typelist', function (req, res) {
 
     let data = [{ "name": "Amazon AWS", "key": "AWS", "selected": false }, { "name": "KUBERNETES", "key": "KUBERNETES", "selected": true }];
@@ -9270,7 +9229,6 @@ app.post('/api/user/environment/connectionparamlist2', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/user/environment/connectionparamlist', function (req, res) {
 
@@ -9418,7 +9376,6 @@ app.post('/api/user/threshold/thresholdlist', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/action/grouptypes', function (req, res) {
 
     let data = [
@@ -9436,8 +9393,6 @@ app.post('/api/action/grouptypes', function (req, res) {
     res.status(200).send(data);
 });
 
-
-
 app.post('/api/billing/aggregatedcost', function (req, res) {
 
     let data = { "name": null, "value": 10660.67838084227, "graphData": [{ "date": "2019-01-02", "value": 51.16 }, { "date": "2019-01-03", "value": 51.01 }, { "date": "2019-01-04", "value": 49.46 }, { "date": "2019-01-05", "value": 49.84 }, { "date": "2019-01-06", "value": 49.86 }, { "date": "2019-01-07", "value": 50.23 }, { "date": "2019-01-08", "value": 48.05 }, { "date": "2019-01-09", "value": 48.53 }, { "date": "2019-01-10", "value": 49.87 }, { "date": "2019-01-11", "value": 49.56 }, { "date": "2019-01-12", "value": 49.48 }, { "date": "2019-01-13", "value": 49.51 }, { "date": "2019-01-14", "value": 49.28 }, { "date": "2019-01-15", "value": 50.96 }, { "date": "2019-01-16", "value": 51.52 }, { "date": "2019-01-17", "value": 51.29 }, { "date": "2019-01-18", "value": 51.01 }, { "date": "2019-01-19", "value": 50.98 }, { "date": "2019-01-20", "value": 50.57 }, { "date": "2019-01-21", "value": 50.44 }, { "date": "2019-01-22", "value": 50.86 }, { "date": "2019-01-23", "value": 53.11 }, { "date": "2019-01-24", "value": 53.12 }, { "date": "2019-01-25", "value": 51.69 }, { "date": "2019-01-26", "value": 51.52 }, { "date": "2019-01-27", "value": 51.53 }, { "date": "2019-01-28", "value": 51.39 }, { "date": "2019-01-29", "value": 51.25 }, { "date": "2019-01-30", "value": 52.97 }, { "date": "2019-01-31", "value": 53.11 }, { "date": "2019-02-01", "value": 56.05 }, { "date": "2019-02-02", "value": 53.73 }, { "date": "2019-02-03", "value": 53.73 }, { "date": "2019-02-04", "value": 53.77 }, { "date": "2019-02-05", "value": 55.92 }, { "date": "2019-02-06", "value": 58.23 }, { "date": "2019-02-07", "value": 60.32 }, { "date": "2019-02-08", "value": 60.52 }, { "date": "2019-02-09", "value": 62.22 }, { "date": "2019-02-10", "value": 59.05 }, { "date": "2019-02-11", "value": 60.87 }, { "date": "2019-02-12", "value": 62.62 }, { "date": "2019-02-13", "value": 62.3 }, { "date": "2019-02-14", "value": 66.31 }, { "date": "2019-02-15", "value": 69.31 }, { "date": "2019-02-16", "value": 69.96 }, { "date": "2019-02-17", "value": 68.43 }, { "date": "2019-02-18", "value": 60.46 }, { "date": "2019-02-19", "value": 51.96 }, { "date": "2019-02-20", "value": 51.98 }, { "date": "2019-02-21", "value": 52.19 }, { "date": "2019-02-22", "value": 52.88 }, { "date": "2019-02-23", "value": 54.47 }, { "date": "2019-02-24", "value": 55.18 }, { "date": "2019-02-25", "value": 54.2 }, { "date": "2019-02-26", "value": 58.65 }, { "date": "2019-02-27", "value": 54.91 }, { "date": "2019-02-28", "value": 54.25 }, { "date": "2019-03-01", "value": 51.77 }, { "date": "2019-03-02", "value": 45.2 }, { "date": "2019-03-03", "value": 44.84 }, { "date": "2019-03-04", "value": 46.16 }, { "date": "2019-03-05", "value": 47.34 }, { "date": "2019-03-06", "value": 45.88 }, { "date": "2019-03-07", "value": 46.59 }, { "date": "2019-03-08", "value": 47.0 }, { "date": "2019-03-09", "value": 47.5 }, { "date": "2019-03-10", "value": 46.54 }, { "date": "2019-03-11", "value": 55.41 }, { "date": "2019-03-12", "value": 58.82 }, { "date": "2019-03-13", "value": 53.04 }, { "date": "2019-03-14", "value": 52.6 }, { "date": "2019-03-15", "value": 52.35 }, { "date": "2019-03-16", "value": 50.32 }, { "date": "2019-03-17", "value": 45.87 }, { "date": "2019-03-18", "value": 47.65 }, { "date": "2019-03-19", "value": 47.62 }, { "date": "2019-03-20", "value": 47.59 }, { "date": "2019-03-21", "value": 47.69 }, { "date": "2019-03-22", "value": 47.57 }, { "date": "2019-03-23", "value": 47.78 }, { "date": "2019-03-24", "value": 45.41 }, { "date": "2019-03-25", "value": 48.67 }, { "date": "2019-03-26", "value": 47.86 }, { "date": "2019-03-27", "value": 47.84 }, { "date": "2019-03-28", "value": 48.25 }, { "date": "2019-03-29", "value": 47.63 }, { "date": "2019-03-30", "value": 45.62 }, { "date": "2019-03-31", "value": 44.99 }, { "date": "2019-04-01", "value": 59.58 }, { "date": "2019-04-02", "value": 62.75 }, { "date": "2019-04-03", "value": 68.09 }, { "date": "2019-04-04", "value": 70.1 }, { "date": "2019-04-05", "value": 70.61 }, { "date": "2019-04-06", "value": 68.43 }, { "date": "2019-04-07", "value": 68.21 }, { "date": "2019-04-08", "value": 71.01 }, { "date": "2019-04-09", "value": 71.69 }, { "date": "2019-04-10", "value": 75.67 }, { "date": "2019-04-11", "value": 78.63 }, { "date": "2019-04-12", "value": 81.17 }, { "date": "2019-04-13", "value": 77.71 }, { "date": "2019-04-14", "value": 76.78 }, { "date": "2019-04-15", "value": 78.75 }, { "date": "2019-04-16", "value": 78.66 }, { "date": "2019-04-17", "value": 79.36 }, { "date": "2019-04-18", "value": 79.4 }, { "date": "2019-04-19", "value": 79.37 }, { "date": "2019-04-20", "value": 77.3 }, { "date": "2019-04-21", "value": 76.8 }, { "date": "2019-04-22", "value": 78.17 }, { "date": "2019-04-23", "value": 67.24 }, { "date": "2019-04-24", "value": 53.26 }, { "date": "2019-04-25", "value": 51.37 }, { "date": "2019-04-26", "value": 49.68 }, { "date": "2019-04-27", "value": 47.81 }, { "date": "2019-04-28", "value": 47.77 }, { "date": "2019-04-29", "value": 60.43 }, { "date": "2019-04-30", "value": 59.11 }, { "date": "2019-05-01", "value": 42.14 }, { "date": "2019-05-02", "value": 59.58 }, { "date": "2019-05-03", "value": 63.69 }, { "date": "2019-05-04", "value": 62.14 }, { "date": "2019-05-05", "value": 54.32 }, { "date": "2019-05-06", "value": 55.44 }, { "date": "2019-05-07", "value": 65.71 }, { "date": "2019-05-08", "value": 65.45 }, { "date": "2019-05-09", "value": 77.08 }, { "date": "2019-05-10", "value": 72.44 }, { "date": "2019-05-11", "value": 87.72 }, { "date": "2019-05-12", "value": 88.27 }, { "date": "2019-05-13", "value": 89.34 }, { "date": "2019-05-14", "value": 85.92 }, { "date": "2019-05-15", "value": 86.7 }, { "date": "2019-05-16", "value": 86.65 }, { "date": "2019-05-17", "value": 85.55 }, { "date": "2019-05-18", "value": 84.76 }, { "date": "2019-05-19", "value": 84.35 }, { "date": "2019-05-20", "value": 86.46 }, { "date": "2019-05-21", "value": 86.48 }, { "date": "2019-05-22", "value": 85.98 }, { "date": "2019-05-23", "value": 86.98 }, { "date": "2019-05-24", "value": 85.95 }, { "date": "2019-05-25", "value": 86.66 }, { "date": "2019-05-26", "value": 84.76 }, { "date": "2019-05-27", "value": 89.38 }, { "date": "2019-05-28", "value": 89.92 }, { "date": "2019-05-29", "value": 88.66 }, { "date": "2019-05-30", "value": 88.98 }, { "date": "2019-05-31", "value": 79.08 }, { "date": "2019-06-01", "value": 76.02 }, { "date": "2019-06-02", "value": 70.08 }, { "date": "2019-06-03", "value": 71.26 }, { "date": "2019-06-04", "value": 70.41 }, { "date": "2019-06-05", "value": 70.32 }, { "date": "2019-06-06", "value": 68.87 }, { "date": "2019-06-07", "value": 68.6 }, { "date": "2019-06-08", "value": 64.48 }, { "date": "2019-06-09", "value": 64.17 }, { "date": "2019-06-10", "value": 72.81 }, { "date": "2019-06-11", "value": 76.03 }, { "date": "2019-06-12", "value": 72.28 }, { "date": "2019-06-13", "value": 67.97 }, { "date": "2019-06-14", "value": 70.92 }, { "date": "2019-06-15", "value": 69.57 }, { "date": "2019-06-16", "value": 64.46 }, { "date": "2019-06-17", "value": 67.06 }, { "date": "2019-06-18", "value": 65.72 }, { "date": "2019-06-19", "value": 78.44 }, { "date": "2019-06-20", "value": 80.88 }, { "date": "2019-06-21", "value": 75.38 }, { "date": "2019-06-22", "value": 16.48 }] };
@@ -9446,7 +9401,6 @@ app.post('/api/billing/aggregatedcost', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/instances/aggregatehistogrammetrics', function (req, res) {
 
@@ -9475,7 +9429,6 @@ app.post('/api/column/update', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/cloud-providers', function (req, res) {
     let data = {
         'cloudProviders': [
@@ -9491,7 +9444,6 @@ app.post('/api/cloud-providers', function (req, res) {
     res.status(200).send(data);
 
 });
-
 
 app.post('/api/auth/auth-entity', function (req, res) {
 
@@ -9529,7 +9481,6 @@ app.post('/api/auth/exchange-token', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(200).send(data);
 });
-
 
 app.post('/api/auth/refresh-token', function (req, res) {
     const data =
@@ -9577,7 +9528,6 @@ app.post('/api/cloud-connections', function (req, res) {
     res.status(responseStatus).send(data);
 });
 
-
 app.post('/api/csp/customers', function (req, res) {
     const data = [{ "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "35be91be-97a3-4d0f-8a62-6ad7a9f2c3a8", "companyName": "DOAGOM (ATMA)", "domain": "DOAGOM.onmicrosoft.com", "subscriptionCount": 8 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "f92ba573-65dc-4d23-920a-89179cc32668", "companyName": "Servion", "domain": "servion.onmicrosoft.com", "subscriptionCount": 6 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "0336464a-c425-408c-a568-15c3416a24b8", "companyName": "Max Healthcare Institute Ltd", "domain": "MaxHealthcareInstituteL.onmicrosoft.com", "subscriptionCount": 5 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "d6b4b447-7721-47a6-a67d-c41e7624bc14", "companyName": "BCT Consulting Pvt. Ltd", "domain": "bctconsultingindia.onmicrosoft.com", "subscriptionCount": 5 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "0632aefb-7e51-4308-a170-4eb69380b706", "companyName": "ISGEC Heavy Engineering Limited", "domain": "isgecfw.com", "subscriptionCount": 4 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "30798b3a-e358-4f4f-9414-529ce291627b", "companyName": "Sify AIS2 Azure", "domain": "sifyais2.onmicrosoft.com", "subscriptionCount": 4 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "ff2f6a94-f828-45f7-8ff5-86f2441ad15c", "companyName": "Insurance Information Bureau Of India", "domain": "iiboi.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "423d44a8-0004-4c25-8ae8-f69f14afbad8", "companyName": "Goltens India Pvt Ltd", "domain": "goltens.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "aefe51b0-2009-4c72-987d-03988faf99d6", "companyName": "Indian Institute of Astrophysics", "domain": "itmtiiap.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "9fb7f5de-057b-4b00-b650-143febd38178", "companyName": "OnProcess Technology India Pvt Ltd", "domain": "OPTIndia.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "1775da10-eb53-4c45-9248-7ccb96c2b22b", "companyName": "JMT AUTO LTD", "domain": "JmtautoIndia.onmicrosoft.com", "subscriptionCount": 3 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "06abe061-90f9-4146-a042-44526d16cf6f", "companyName": "HarshRoongta.com", "domain": "harshroongta.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "2b385a20-90f8-44b9-a5fa-d5db68c336c8", "companyName": "Bangalore Baptist Hospital", "domain": "bbhin.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "6f2aecdd-87bf-4682-b47d-6d01f9718cf5", "companyName": "Calyx Spaces LLP", "domain": "calyxgroupllp.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "0951bc8d-d7bc-40d0-9668-9119a55ad78c", "companyName": "Advent Global Solutions Ltd.", "domain": "adventglobal.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "8bb87ac6-0fc6-4ed0-b080-d28833a09ebb", "companyName": "Abdos Lamitubes Private Limited", "domain": "abdosindia.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "e3ea4141-2678-4a2c-8af0-996c385d004e", "companyName": "Intellect Design Arena Limited", "domain": "Intellectdesignarena.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "d42e2961-bb47-4d71-bcc2-535fb99917ca", "companyName": "Baazar Retail Ltd.", "domain": "baazarkolkata.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "9afff424-8480-46bb-85b2-ae981fdb1cff", "companyName": "Vishal Megamart", "domain": "VishalMegamartIn.onmicrosoft.com", "subscriptionCount": 2 }, { "tenantId": "dd2af4ea-2053-43da-ab8c-b29fc6488fa5", "customerId": "f741ba45-5916-44ea-93f1-936f94303831", "companyName": "SifyBLRAzureStack", "domain": "SifyBLRAzureStack.onmicrosoft.com", "subscriptionCount": 2 }];
 
@@ -9597,7 +9547,6 @@ app.post('/api/csp/customer/approvedratecardlist', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
-
 
 app.post('/api/csp/customer/subscriptions', function (req, res) {
     const data = [{ "id": "5feaee19-f8bc-4e00-85b5-0e9fb8f74825", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-12-09T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "1c3a7483-f3fe-4553-afb8-cc169002f114", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "248644f5-5d49-4089-a9b1-cc678b6f3c22", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "deleted", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "2c8f50c0-075c-405f-94d3-01038eb7d6e8", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "62379adc-124b-4f58-8739-60160bb0dadc", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "957cf25f-d430-452f-a31c-05f84e6a1e70", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "1c161303-a6be-4b7e-bd95-bc8ba298b694", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-04-25T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }, { "id": "d2e7061b-5b71-4911-8b1b-1929a2378222", "offerId": "MS-AZR-0145P", "offerName": "Microsoft Azure", "friendlyName": null, "quantity": 1, "effectiveStartDate": "2019-03-28T00:00:00.000+0000", "commitmentEndDate": "9999-12-14T00:00:00.000+0000", "status": "active", "billingCycle": "monthly", "termDuration": "P1Y" }];
@@ -9820,13 +9769,11 @@ app.post("/api/csp/customer/contact", function (req, res) {
     res.status(200).send(data);
 })
 
-
 app.post("/api/info-graph", function (req, res) {
     data = infoGraph;
     setResponseHeaders(res);
     res.status(200).send(data);
 })
-
 
 app.post("/api/csp/customer/cloudaccounts", function (req, res) {
     const data = [
@@ -10000,7 +9947,6 @@ app.post('/api/csp/tenants/fetchtenants', function (req, res) {
     res.status(responseStatus).send(data);
 });
 
-
 app.post('/api/explorer/cost-flow', function (req, res) {
 
     const data = [
@@ -10039,7 +9985,6 @@ app.post('/api/explorer/cost-flow', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
-
 
 app.post('/api/explorer/remove/cost-flow', function (req, res) {
 
@@ -10136,7 +10081,6 @@ app.post('/api/csp/azurestack/fetchprovidersubscription', function (req, res) {
     res.status(responseStatus).send(data);
 });
 
-
 app.post('/api/csp/customer/fetchcustomers', function (req, res) {
 
     // for (let index = 0; index < 999999999; index++) { }
@@ -10168,8 +10112,6 @@ app.post('/api/csp/customer/fetchcustomers', function (req, res) {
     res.status(responseStatus).send(data);
 });
 
-
-
 app.post('/api/csp/customer/ratepacks/type', function (req, res) {
 
     const data = [{ "name": "Yes", "key": "true", "selected": true }, { "name": "No", "key": "false", "selected": false }];
@@ -10181,7 +10123,6 @@ app.post('/api/csp/customer/ratepacks/type', function (req, res) {
     res.status(responseStatus).send(data);
 });
 
-
 app.post('/api/csp/billops/usertypes', function (req, res) {
 
     const data = [{ "name": "Existing", "key": "EXISTING", "selected": true }, { "name": "New", "key": "NEW", "selected": false }];
@@ -10192,7 +10133,6 @@ app.post('/api/csp/billops/usertypes', function (req, res) {
     //res.status(500).send({ error: "Unable to get summary info for your selected resource" });
     res.status(responseStatus).send(data);
 });
-
 
 app.post('/api/user/threshold/thresholdmetriclist', function (req, res) {
     const data = [{ 'key': 'high', 'name': 'High' }, { 'key': 'medium', 'name': 'Medium' }, { 'key': 'critical', 'name': 'Critical' }, { 'key': 'low', 'name': 'Low' }];
@@ -10314,10 +10254,10 @@ app.post('/api/services', function (req, res) {
         },
         {
             key: 'DevSecOps',
-            title: 'DevSecOps',
+            title: 'Dev Sec Ops',
             description: 'DevSecOps for secure developer environment ',
             img: 'finops_productcard.svg',
-            link: "/dev-sec-ops/devSecOpsLandingPageFirstTimeLogin"
+            link: "/devsecops/welcome"
         },
     ]
     responseStatus = 200;
@@ -10557,12 +10497,10 @@ app.post("/api/dummy/list", function (req, res) {
     res.status(200).send(data);
 })
 
-
 app.post('/api/csp/customer/invoice/download', function (req, res) {
     setResponseHeaders(res);
     res.download('./README.md');
 });
-
 
 app.post('/api/page/title', function (req, res) {
 
@@ -10575,14 +10513,11 @@ app.post('/api/page/title', function (req, res) {
     res.status(200).send(data);
 });
 
-
 app.post('/api/cloud-service-data', function (req, res) {
 
     setResponseHeaders(res);
     res.status(200).send(cloudServiceFakeData);
 });
-
-
 
 app.post('/api/email/emaillist', function (req, res) {
 
@@ -10598,8 +10533,6 @@ app.post('/api/email/emaillist', function (req, res) {
     res.status(200).send(data);
 });
 
-
-
 app.post('/api/csp/analytic/billstatus', function (req, res) {
     const data = [
         { "name": "Draft", "value": 290, "unit": "" },
@@ -10611,8 +10544,6 @@ app.post('/api/csp/analytic/billstatus', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(data);
 });
-
-
 
 app.post('/api/governance/sankey-data', function (req, res) {
 
@@ -17264,8 +17195,6 @@ app.post("/api/csp/analytic/graph", function (req, res) {
     res.status(200).send(data);
 })
 
-
-
 app.post('/api/tab-data', function (req, res) {
     for (let index = 0; index < 999999999; index++) { }
     for (let index = 0; index < 999999999; index++) { }
@@ -17274,7 +17203,6 @@ app.post('/api/tab-data', function (req, res) {
     // res.status(500).send({ error: "Internal Server Error" });
 
 });
-
 
 app.post('/api/tree-data', function (req, res) {
     setResponseHeaders(res);
@@ -17324,6 +17252,21 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
             "amount": "2021-07-01 to 2021-07-31 (Reset Monthly)", "amtSize": "small", "unit": ""
         }, { "percentage": "", "progressTitle": "", "amtTitle": "Budget Expected to Last Till", "amount": "2021-07-31", "amtSize": "small", "unit": "" }]);
 });
+
+// Start Creating DevSecOps API For All Page
+
+// #### Start Welcome Page #####
+app.post('/api/devsecops/welcome', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(req.body.filters && req.body.filters.instance ? rateLinesFakeData.slice(50, 99) : rateLinesFakeData);
+});
+// #### End Welcome Page #####
+
+// End Creating DevSecOps API For All Page
+
+
+
+
 
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);
