@@ -57,6 +57,8 @@ const cspCustomerProfile = require("./mock/customerProfile.json")
 const infoGraph = require("./mock/data/infoGraph.json")
 const tabData = require("./mock/data/tabData.json")
 
+
+
 // Swagger Code Start Here
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
@@ -17296,7 +17298,7 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
 // #### Start Welcome Page #####
 app.post('/api/devsecops/welcome', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(req.body.filters && req.body.filters.instance ? rateLinesFakeData.slice(50, 99) : rateLinesFakeData);
+    res.status(200).send(devSecOpsWelcome);
 });
 // #### End Welcome Page #####
 
