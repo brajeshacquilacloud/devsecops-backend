@@ -2,6 +2,22 @@
     {
         "leafs": [
             {
+                "id": 4,
+                "leafTitle": "Section Title And Button",
+                "type": "section-title-and-button",
+                "apiKey": "devSecOpsAddDomainButtonAPI",
+                "isHawkUI": true,
+                "size": 12
+            },
+            {
+                "id": 5,
+                "leafTitle": "clearfix div",
+                "type": "clearfix-div",
+                "apiKey": "devSecOpsClearfixDivAPI",
+                "isHawkUI": true,
+                "size": 12
+            },
+            {
                 "id": 1,
                 "leafTitle": "Added Domain Card",
                 "type": "addDomainCard",
@@ -11,6 +27,30 @@
             },
             {
                 "id": 2,
+                "leafTitle": "clearfix div",
+                "type": "clearfix-div",
+                "apiKey": "devSecOpsClearfixDivAPI",
+                "isHawkUI": true,
+                "size": 12
+            },
+            {
+                "id": 6,
+                "leafTitle": "Section Title And Button",
+                "type": "section-title-and-button",
+                "apiKey": "devSecOpsAddPipelineButtonAPI",
+                "isHawkUI": true,
+                "size": 12
+            },
+            {
+                "id": 7,
+                "leafTitle": "clearfix div",
+                "type": "clearfix-div",
+                "apiKey": "devSecOpsClearfixDivAPI",
+                "isHawkUI": true,
+                "size": 12
+            },
+            {
+                "id": 3,
                 "leafTitle": "Added Pipeline Card",
                 "type": "addPipelineCard",
                 "apiKey": "devSecOpsAddPipelineCardAPI",

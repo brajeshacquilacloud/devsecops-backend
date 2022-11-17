@@ -17349,12 +17349,6 @@ app.post('/api/devsecops/add-domain', function (req, res) {
             "lastScan": "2022-10-21 11:00AM",
             "pipelineCount": "34",
             "scanTest": "76"
-        },
-        {
-            "domainName": "Cloud Advisory Domain",
-            "lastScan": "2022-10-21 11:00AM",
-            "pipelineCount": "34",
-            "scanTest": "23"
         }
 
     ]
@@ -17402,6 +17396,59 @@ app.post('/api/devsecops/add-pipeline', function (req, res) {
 });
 // #### End Add Pipeline Page #####
 
+
+
+/**
+ * @swagger
+ * /api/devsecops/add-domain-button:
+ *  post:
+ *      summary: Add New domain with title section.
+ *      description: Add New domain with title section.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+// #### Start Add Domain Button #####
+app.post('/api/devsecops/add-domain-button', function (req, res) {
+    let data = [
+        {
+            "sectionTitle": "Domain",
+            "buttonTitle": "Add Domain"
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Add Domain Button #####
+
+
+
+/**
+ * @swagger
+ * /api/devsecops/add-pipeline-button:
+ *  post:
+ *      summary: Add New Pipeline with title section.
+ *      description: Add New Pipeline with title section.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+// #### Start Add Pipeline Button #####
+app.post('/api/devsecops/add-pipeline-button', function (req, res) {
+    let data = [
+        {
+            "sectionTitle": "Pipeline",
+            "buttonTitle": "Add Pipeline"
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Add Pipeline Button #####
 
 
 
