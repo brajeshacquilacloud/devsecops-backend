@@ -14,6 +14,7 @@ const govOverview = require('./mock/govOverview.json');
 
 // Start DevSecOps Import Files
 const devSecOpsWelcome = require("./mock/devSecOpsWelcome.json")
+const devSecOpsAddDomainAddPipeline = require('./mock/devSecOpsAddDomainAddPipeline.json');
 const devSecOpsLandingPageFirstTimeDiscovery = require('./mock/devSecOpsLandingPageFirstTimeDiscovery.json');
 const devSecOpsOverview = require('./mock/devSecOpsOverview.json');
 const devSecOpsOverviewCurrentPipelineDetails = require('./mock/devSecOpsOverviewCurrentPipelineDetails.json');
@@ -5724,6 +5725,9 @@ app.post('/api/scenario', function (req, res) {
         case "devSecOpsWelcome":
             data = devSecOpsWelcome;
             break;
+        case "devSecOpsAddDomainAddPipeline":
+            data = devSecOpsAddDomainAddPipeline;
+            break;
         case "devSecOpsLandingPageFirstTimeDiscovery":
             data = devSecOpsLandingPageFirstTimeDiscovery;
             break;
@@ -10527,20 +10531,6 @@ app.post('/api/csp/customer/invoice/download', function (req, res) {
     setResponseHeaders(res);
     res.download('./README.md');
 });
-
-/**
- * @swagger
- * /api/page/title:
- *  post:
- *      summary: Page Title.
- *      description: Get the title of the page.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response!
- *
- */
-
-
 
 app.post('/api/page/title', function (req, res) {
 
@@ -17307,14 +17297,113 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
  *
  */
 
-
-
 // #### Start Welcome Page #####
 app.post('/api/devsecops/welcome', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsWelcome);
 });
 // #### End Welcome Page #####
+
+
+/**
+ * @swagger
+ * /api/devsecops/add-domain:
+ *  post:
+ *      summary: Add New Domain page.
+ *      description: Add New Domain Page API.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+// #### Start Add Domain Page #####
+app.post('/api/devsecops/add-domain', function (req, res) {
+    let data = [
+        {
+            "domainName": "FinOps Domain",
+            "lastScan": "2022-10-21 11:00AM",
+            "pipelineCount": "34",
+            "scanTest": "942"
+        },
+        {
+            "domainName": "BillOps Domain",
+            "lastScan": "2022-10-21 11:00AM",
+            "pipelineCount": "34",
+            "scanTest": "541"
+        },
+        {
+            "domainName": "DevSecOps Domain",
+            "lastScan": "2022-10-21 11:00AM",
+            "pipelineCount": "34",
+            "scanTest": "834"
+        },
+        {
+            "domainName": "InfraOps Domain",
+            "lastScan": "2022-10-21 11:00AM",
+            "pipelineCount": "34",
+            "scanTest": "111"
+        },
+        {
+            "domainName": "ServiceOps Domain",
+            "lastScan": "2022-10-21 11:00AM",
+            "pipelineCount": "34",
+            "scanTest": "76"
+        },
+        {
+            "domainName": "Cloud Advisory Domain",
+            "lastScan": "2022-10-21 11:00AM",
+            "pipelineCount": "34",
+            "scanTest": "23"
+        }
+
+    ]
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Add Domain Page #####
+
+
+
+/**
+ * @swagger
+ * /api/devsecops/add-pipeline:
+ *  post:
+ *      summary: Add New pipeline page.
+ *      description: Add New pipeline Page API.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+// #### Start Add Pipeline Page #####
+app.post('/api/devsecops/add-pipeline', function (req, res) {
+    let data = [
+        {
+            "pipelineName": "FinOps Pipeline",
+            "lastScan": "2022-10-21 11:00AM",
+            "scanTest": "541"
+        },
+        {
+            "pipelineName": "BillOps Pipeline",
+            "lastScan": "2022-10-21 11:00AM",
+            "scanTest": "321"
+        },
+        {
+            "pipelineName": "DevSecOps Pipeline",
+            "lastScan": "2022-10-21 11:00AM",
+            "scanTest": "123"
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Add Pipeline Page #####
+
+
+
 
 // End Creating DevSecOps API For All Page
 

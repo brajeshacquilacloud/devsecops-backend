@@ -1,0 +1,22 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Added Domain Card",
+                "type": "addDomainCard",
+                "apiKey": "devSecOpsAddDomainCardAPI",
+                "isHawkUI": true,
+                "size": 3
+            },
+            {
+                "id": 2,
+                "leafTitle": "Added Pipeline Card",
+                "type": "addPipelineCard",
+                "apiKey": "devSecOpsAddPipelineCardAPI",
+                "isHawkUI": true,
+                "size": 3
+            }
+        ]
+    }
+]

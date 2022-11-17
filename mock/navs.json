@@ -142,6 +142,16 @@
                     "className": "admin-icon"
                 },
                 {
+                    "id": "devSecOpsAddDomainAddPipeline",
+                    "name": "Add Domain / Add Pipeline",
+                    "link": "/devsecops/add-domain-add-pipeline",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
+                },
+                {
                     "id": "devSecOpsLandingPageFirstTimeDiscovery",
                     "name": "Discovery of DevOps Pipelines",
                     "link": "/devsecops/devSecOpsLandingPageFirstTimeDiscovery",

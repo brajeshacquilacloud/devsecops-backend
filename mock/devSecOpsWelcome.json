@@ -27,7 +27,7 @@
                         "id": 3,
                         "type": "button",
                         "buttonTitle": "Start Discovery",
-                        "buttonNavigationURL": "/devsecops/addpipeline",
+                        "buttonNavigationURL": "/devsecops/pipeline",
                         "dataApiKey": "getButtonDetails",
                         "size": 12
                     }
