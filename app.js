@@ -64,18 +64,18 @@ const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
 const options = {
     definition: {
-        openapi : '3.0.0',
+        openapi: '3.0.0',
         info: {
             title: 'Aquila Clouds DevSecOps API Documentation',
             version: '1.0.0'
         },
-        servers:[
+        servers: [
             {
                 url: 'http://localhost:8080/'
             }
         ]
     },
-    apis:['./app.js']
+    apis: ['./app.js']
 }
 const swaggerSpec = swaggerJSDoc(options)
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
@@ -10528,6 +10528,20 @@ app.post('/api/csp/customer/invoice/download', function (req, res) {
     res.download('./README.md');
 });
 
+/**
+ * @swagger
+ * /api/page/title:
+ *  post:
+ *      summary: Page Title.
+ *      description: Get the title of the page.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
 app.post('/api/page/title', function (req, res) {
 
     const title = req.body.drillParams && req.body.drillParams.email ? `Details for: ${req.body.drillParams.email}` : 'Dynamic Name From API';
@@ -17289,7 +17303,7 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
  *      description: Show this page to first time loggedIn User.
  *      responses:
  *          200:
- *              description: Page is working fine!
+ *              description: Page is working fine if got the json response!
  *
  */
 
