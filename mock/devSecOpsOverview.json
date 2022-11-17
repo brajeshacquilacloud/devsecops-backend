@@ -55,7 +55,7 @@
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -64,7 +64,7 @@
                             "action": "Run Pipeline",
                             "actionText": "Run Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -73,7 +73,7 @@
                             "action": "Faulted message",
                             "actionText": "Faulted message",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -82,7 +82,7 @@
                             "action": "Approval Required",
                             "actionText": "Approval Required",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -90,7 +90,7 @@
                             "action": "Run Pipeline",
                             "actionText": "Run Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -99,7 +99,7 @@
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -108,7 +108,7 @@
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -117,7 +117,7 @@
                             "action": "Run Pipeline",
                             "actionText": "Run Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -126,7 +126,7 @@
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -135,7 +135,7 @@
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -144,7 +144,7 @@
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -153,7 +153,7 @@
                             "action": "Run Pipeline",
                             "actionText": "Run Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -162,7 +162,7 @@
                             "action": "Faulted message",
                             "actionText": "Faulted message",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
                         {
                             "pipelineName": "Pipeline Name",
@@ -171,7 +171,7 @@
                             "action": "Stop Pipeline",
                             "actionText": "Stop Pipeline",
                             "edit": "Edit",
-                            "drillTo": "dev-sec-ops/devSecOpsOverviewCurrentPipelineDetails"
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         }
                     ]
                 },
@@ -217,7 +217,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Build",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -225,7 +225,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Dev Test",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -233,7 +233,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -241,7 +241,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Dev Test",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -249,7 +249,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Build",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -257,7 +257,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -265,7 +265,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -273,7 +273,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -281,7 +281,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -289,7 +289,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -297,7 +297,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Deploy",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
@@ -305,7 +305,7 @@
                             "pipelineName": "Pipeline Name",
                             "status": "Build",
                             "view": "View",
-                            "drillTo": "dev-sec-ops/devSecOpsPipelineScanSummary"
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         }
                     ]
                 },

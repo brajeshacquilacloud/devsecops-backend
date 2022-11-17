@@ -54,6 +54,7 @@
                             "name": "View",
                             "key": "view",
                             "type": "drill",
+                            "secKey": "drillTo",
                             "display": true
                         }
                     ]
@@ -64,73 +65,96 @@
                             "incidentName": "Incident Name",
                             "event": "High",
                             "status": "Build",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Dev Test",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "High",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Dev Test",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Low",
                             "status": "Build",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Low",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "High",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "High",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Low",
                             "status": "Deploy",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         },
                         {
                             "incidentName": "Incident Name",
                             "event": "Medium",
                             "status": "Build",
-                            "view": "View"
+                            "view": "View",
+                            "drillTo": "devsecops/devSecOpsPipelineScanSummary"
+
                         }
                     ]
                 }
