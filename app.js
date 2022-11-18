@@ -17299,26 +17299,35 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
 
 // #### Start Welcome Page #####
 app.post('/api/devsecops/welcome', function (req, res) {
+    let data = [
+        {
+            "img": 'finops_productcard.svg',
+            "heading": "Let us discover your DevOps & CI/CD Environment.",
+            "buttonTitle": "Start Discovery",
+            "redirectionURL": "/devsecops/pipeline"
+        }
+    ]
     setResponseHeaders(res);
-    res.status(200).send(devSecOpsWelcome);
+    res.status(200).send(data);
+    // res.status(200).send(devSecOpsWelcome);
 });
 // #### End Welcome Page #####
 
 
 /**
  * @swagger
- * /api/devsecops/add-domain:
+ * /api/devsecops/add-domain-card:
  *  post:
- *      summary: Add New Domain page.
- *      description: Add New Domain Page API.
+ *      summary: Add New Domain Card page.
+ *      description: Add New Domain Card Page API.
  *      responses:
  *          200:
  *              description: Page is working fine if got the json response!
  *
  */
 
-// #### Start Add Domain Page #####
-app.post('/api/devsecops/add-domain', function (req, res) {
+// #### Start Add Domain Card Page #####
+app.post('/api/devsecops/add-domain-card', function (req, res) {
     let data = [
         {
             "domainName": "FinOps Domain",
@@ -17328,25 +17337,25 @@ app.post('/api/devsecops/add-domain', function (req, res) {
         },
         {
             "domainName": "BillOps Domain",
-            "lastScan": "2022-10-21 11:00AM",
+            "lastScan": "2022-10-22 11:00AM",
             "pipelineCount": "34",
             "scanTest": "541"
         },
         {
             "domainName": "DevSecOps Domain",
-            "lastScan": "2022-10-21 11:00AM",
+            "lastScan": "2022-10-23 11:00AM",
             "pipelineCount": "34",
             "scanTest": "834"
         },
         {
             "domainName": "InfraOps Domain",
-            "lastScan": "2022-10-21 11:00AM",
+            "lastScan": "2022-10-24 11:00AM",
             "pipelineCount": "34",
             "scanTest": "111"
         },
         {
             "domainName": "ServiceOps Domain",
-            "lastScan": "2022-10-21 11:00AM",
+            "lastScan": "2022-10-25 11:00AM",
             "pipelineCount": "34",
             "scanTest": "76"
         }
@@ -17356,45 +17365,45 @@ app.post('/api/devsecops/add-domain', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(data);
 });
-// #### End Add Domain Page #####
+// #### End Add Domain Card Page #####
 
 
 
 /**
  * @swagger
- * /api/devsecops/add-pipeline:
+ * /api/devsecops/add-pipeline-card:
  *  post:
- *      summary: Add New pipeline page.
- *      description: Add New pipeline Page API.
+ *      summary: Add New pipeline card page.
+ *      description: Add New pipeline card Page API.
  *      responses:
  *          200:
  *              description: Page is working fine if got the json response!
  *
  */
 
-// #### Start Add Pipeline Page #####
-app.post('/api/devsecops/add-pipeline', function (req, res) {
+// #### Start Add Pipeline Card Page #####
+app.post('/api/devsecops/add-pipeline-card', function (req, res) {
     let data = [
         {
             "pipelineName": "FinOps Pipeline",
-            "lastScan": "2022-10-21 11:00AM",
+            "lastScan": "2022-10-26 11:00AM",
             "scanTest": "541"
         },
         {
             "pipelineName": "BillOps Pipeline",
-            "lastScan": "2022-10-21 11:00AM",
+            "lastScan": "2022-10-27 11:00AM",
             "scanTest": "321"
         },
         {
             "pipelineName": "DevSecOps Pipeline",
-            "lastScan": "2022-10-21 11:00AM",
+            "lastScan": "2022-10-28 11:00AM",
             "scanTest": "123"
         }
     ]
     setResponseHeaders(res);
     res.status(200).send(data);
 });
-// #### End Add Pipeline Page #####
+// #### End Add Pipeline Card Page #####
 
 
 
@@ -17449,6 +17458,31 @@ app.post('/api/devsecops/add-pipeline-button', function (req, res) {
     res.status(200).send(data);
 });
 // #### End Add Pipeline Button #####
+
+
+/**
+ * @swagger
+ * /api/devsecops/clearfix-div:
+ *  post:
+ *      summary: Add clearfix div.
+ *      description: Add clearfix div.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+// #### Start Add clearfix div #####
+app.post('/api/devsecops/clearfix-div', function (req, res) {
+    let data = [
+        {
+            "divTitle": "Clearfix Div"
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Add clearfix div #####
 
 
 
