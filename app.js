@@ -60,6 +60,13 @@ const tabData = require("./mock/data/tabData.json")
 
 
 
+const devSecOpsDomainCardAPIData = require("./mock/data/devSecOpsDomainCardAPIData.json")
+
+
+const fs = require("fs");
+
+
+
 // Swagger Code Start Here
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
@@ -17316,85 +17323,118 @@ app.post('/api/devsecops/welcome', function (req, res) {
 
 /**
  * @swagger
- * /api/devsecops/add-domain-card:
+ * /api/devsecops/domain-card:
  *  post:
- *      summary: Add New Domain Card page.
- *      description: Add New Domain Card Page API.
+ *      summary: Domain Cards.
+ *      description: List of all domain cards here.
  *      responses:
  *          200:
- *              description: Page is working fine if got the json response!
+ *              description: Page is working fine if got the json response with list of domain cards object!
  *
  */
 
-// #### Start Add Domain Card Page #####
-app.post('/api/devsecops/add-domain-card', function (req, res) {
-    let data = [
-        {
-            "domainName": "FinOps Domain",
-            "lastScan": "2022-10-21 11:00AM",
-            "pipelineCount": "34",
-            "scanTest": "942"
-        },
-        {
-            "domainName": "BillOps Domain",
-            "lastScan": "2022-10-22 11:00AM",
-            "pipelineCount": "34",
-            "scanTest": "541"
-        },
-        {
-            "domainName": "DevSecOps Domain",
-            "lastScan": "2022-10-23 11:00AM",
-            "pipelineCount": "34",
-            "scanTest": "834"
-        },
-        {
-            "domainName": "InfraOps Domain",
-            "lastScan": "2022-10-24 11:00AM",
-            "pipelineCount": "34",
-            "scanTest": "111"
-        },
-        {
-            "domainName": "ServiceOps Domain",
-            "lastScan": "2022-10-25 11:00AM",
-            "pipelineCount": "34",
-            "scanTest": "76"
-        }
-
-    ]
-
+// #### Start Domain Card Page #####
+app.post('/api/devsecops/domain-card', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(data);
+    res.status(200).send(devSecOpsDomainCardAPIData);
 });
-// #### End Add Domain Card Page #####
+// #### End Domain Card Page #####
+
+/**
+ * @swagger
+ *  components:
+ *      schema:
+ *          domain-card:
+ *              type: object
+ *              properties:
+ *                  id:
+ *                      type: string
+ *                  domainName:
+ *                      type: string
+ *                  lastScan:
+ *                      type: string
+ *                  pipelineCount:
+ *                      type: integer
+ *                  scanTest:
+ *                      type: integer
+ */
+
+
+/**
+ * @swagger
+ * /api/devsecops/add-domain-card:
+ *  post:
+ *      summary: Add New Domain Card.
+ *      description: Create new domain card.
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#components/schema/domain-card'
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the message in 'Added Successfully' in 'Response body'!
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: array
+ *                          items:
+*                               $ref: '#components/schema/domain-card'
+ *
+ */
+
+// #### Start Add New Domain Card Page #####
+app.post('/api/devsecops/add-domain-card', function (req, res) {
+    let data = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
+    let TotalRecords = JSON.parse(data);
+    let uuid = "DevSecOps" + Math.random().toString(16).slice(2);
+
+    TotalRecords.push(req.body)
+
+    let newRecord = JSON.stringify(TotalRecords);
+
+    fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newRecord, (err) => {
+        if (err) throw err;
+        // setResponseHeaders(res);
+        res.status(200).send("Added Successfully");
+    });
+});
+// #### End Add New Domain Card Page #####
+
+
 
 
 
 /**
  * @swagger
- * /api/devsecops/add-pipeline-card:
+ * /api/devsecops/pipeline-card:
  *  post:
- *      summary: Add New pipeline card page.
- *      description: Add New pipeline card Page API.
+ *      summary: Pipeline Cards
+ *      description: List of all pipeline cards here.
  *      responses:
  *          200:
- *              description: Page is working fine if got the json response!
+ *              description: Page is working fine if got the json response with list of domain cards object!
  *
  */
 
-// #### Start Add Pipeline Card Page #####
-app.post('/api/devsecops/add-pipeline-card', function (req, res) {
+// #### Start Pipeline Card Page #####
+app.post('/api/devsecops/pipeline-card', function (req, res) {
     let data = [
         {
+            "id": 1,
             "pipelineName": "FinOps Pipeline",
             "lastScan": "2022-10-26 11:00AM",
             "scanTest": "541"
         },
         {
+            "id": 2,
             "pipelineName": "BillOps Pipeline",
             "lastScan": "2022-10-27 11:00AM",
             "scanTest": "321"
         },
         {
+            "id": 3,
             "pipelineName": "DevSecOps Pipeline",
             "lastScan": "2022-10-28 11:00AM",
             "scanTest": "123"
@@ -17403,7 +17443,7 @@ app.post('/api/devsecops/add-pipeline-card', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(data);
 });
-// #### End Add Pipeline Card Page #####
+// #### End Pipeline Card Page #####
 
 
 

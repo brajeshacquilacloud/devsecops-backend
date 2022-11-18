@@ -21,7 +21,7 @@
                 "id": 1,
                 "leafTitle": "Added Domain Card",
                 "type": "addDomainCard",
-                "apiKey": "devSecOpsAddDomainCardAPI",
+                "apiKey": "devSecOpsDomainCardAPI",
                 "isHawkUI": true,
                 "size": 3
             },
@@ -53,7 +53,7 @@
                 "id": 3,
                 "leafTitle": "Added Pipeline Card",
                 "type": "addPipelineCard",
-                "apiKey": "devSecOpsAddPipelineCardAPI",
+                "apiKey": "devSecOpsPipelineCardAPI",
                 "isHawkUI": true,
                 "size": 3
             }

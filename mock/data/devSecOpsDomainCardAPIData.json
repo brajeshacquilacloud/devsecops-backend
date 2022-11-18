@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "domainName": "FinOps Domain",
+        "lastScan": "2022-10-21 11:00AM",
+        "pipelineCount": "34",
+        "scanTest": "942"
+    },
+    {
+        "id": 2,
+        "domainName": "BillOps Domain",
+        "lastScan": "2022-10-22 11:00AM",
+        "pipelineCount": "34",
+        "scanTest": "541"
+    },
+    {
+        "id": 3,
+        "domainName": "DevSecOps Domain",
+        "lastScan": "2022-10-23 11:00AM",
+        "pipelineCount": "34",
+        "scanTest": "834"
+    },
+    {
+        "id": 4,
+        "domainName": "InfraOps Domain",
+        "lastScan": "2022-10-24 11:00AM",
+        "pipelineCount": "34",
+        "scanTest": "111"
+    },
+    {
+        "id": "string",
+        "domainName": "string",
+        "lastScan": "string",
+        "pipelineCount": 0,
+        "scanTest": 0
+    },
+    {
+        "id": "First Domain id",
+        "domainName": "First Domain",
+        "lastScan": "string",
+        "pipelineCount": 10,
+        "scanTest": 220
+    },
+    {
+        "domainName": "sdsdfsdf",
+        "lastScan": "sdfsdfsdf",
+        "pipelineCount": 330,
+        "scanTest": 5320
+    }
+]
