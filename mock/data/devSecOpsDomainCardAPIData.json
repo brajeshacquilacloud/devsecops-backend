@@ -26,25 +26,5 @@
         "lastScan": "2022-10-24 11:00AM",
         "pipelineCount": "34",
         "scanTest": "111"
-    },
-    {
-        "id": "string",
-        "domainName": "string",
-        "lastScan": "string",
-        "pipelineCount": 0,
-        "scanTest": 0
-    },
-    {
-        "id": "First Domain id",
-        "domainName": "First Domain",
-        "lastScan": "string",
-        "pipelineCount": 10,
-        "scanTest": 220
-    },
-    {
-        "domainName": "sdsdfsdf",
-        "lastScan": "sdfsdfsdf",
-        "pipelineCount": 330,
-        "scanTest": 5320
     }
 ]
