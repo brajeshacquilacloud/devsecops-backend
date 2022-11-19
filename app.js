@@ -36,6 +36,10 @@ const scheduler = require('./mock/scheduler.json');
 const heatMap = require('./mock/data/heatMap.json');
 
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
+
+const addDomainModal = require('./mock/modal/addDomainModal.json');
+
+
 const executeScheduleAPIModal = require('./mock/modal/executeScheduleAPIModal.json');
 const recommendedScheduleApiModal = require('./mock/modal/recommendedScheduleApiModal.json');
 const addContainerModal = require('./mock/modal/addContainerModal.json');
@@ -8240,6 +8244,14 @@ app.post('/api/scenario/modal', function (req, res) {
         case "addFinAccountsAPI":
             data = addFinAccountsModal;
             break;
+
+
+        case "addDomainAPI":
+            data = addDomainModal;
+            break;
+
+
+
         case "executeScheduleAPI":
             data = executeScheduleAPIModal;
             break;

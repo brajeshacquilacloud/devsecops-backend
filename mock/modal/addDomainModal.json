@@ -1,0 +1,18 @@
+[
+    {
+        "actionAPIKey": "addDomainAPI",
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Domain Name",
+                "type": "text-input",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "addDomain",
+                "validation": {
+                    "isRequired": true
+                }
+            }
+        ]
+    }
+]

@@ -14,8 +14,8 @@
                         "title": "Add Domain",
                         "type": "modal",
                         "mode": "inline",
-                        "modalTitle": "Add Domain",
-                        "componentsAPIKey": "addFinAccountsAPI"
+                        "modalTitle": "Add New Domain",
+                        "componentsAPIKey": "addDomainAPI"
                     }
                 ]
             },
