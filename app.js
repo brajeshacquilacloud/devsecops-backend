@@ -38,7 +38,7 @@ const heatMap = require('./mock/data/heatMap.json');
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 
 const addDomainModal = require('./mock/modal/addDomainModal.json');
-
+const addUserModal = require('./mock/modal/addUserModal.json');
 
 const executeScheduleAPIModal = require('./mock/modal/executeScheduleAPIModal.json');
 const recommendedScheduleApiModal = require('./mock/modal/recommendedScheduleApiModal.json');
@@ -8245,11 +8245,15 @@ app.post('/api/scenario/modal', function (req, res) {
             data = addFinAccountsModal;
             break;
 
-
+        // Start DevSecOps API Mapping
         case "addDomainAPI":
             data = addDomainModal;
             break;
+        case "addUserAPI":
+            data = addUserModal;
+            break;
 
+        // End DevSecOps API Mapping
 
 
         case "executeScheduleAPI":
@@ -17511,19 +17515,6 @@ app.post('/api/devsecops/add-pipeline-button', function (req, res) {
 });
 // #### End Add Pipeline Button #####
 
-
-/**
- * @swagger
- * /api/devsecops/clearfix-div:
- *  post:
- *      summary: Add clearfix div.
- *      description: Add clearfix div.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response!
- *
- */
-
 // #### Start Add clearfix div #####
 app.post('/api/devsecops/clearfix-div', function (req, res) {
     let data = [
@@ -17538,11 +17529,77 @@ app.post('/api/devsecops/clearfix-div', function (req, res) {
 
 
 
+/**
+ * @swagger
+ * /api/devsecops/add-user-button:
+ *  post:
+ *      summary: Add New User.
+ *      description: Add New User Button.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+// #### Start Add Domain Button #####
+app.post('/api/devsecops/add-user-button', function (req, res) {
+    let data = [
+        {
+            "sectionTitle": "",
+            "buttonTitle": "Add User...."
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Add User Button #####
+
+
+/**
+ * @swagger
+ * /api/devsecops/users-list:
+ *  post:
+ *      summary: Users List.
+ *      description: List of Users.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/users-list', function (req, res) {
+
+    let data = [
+        {
+            userId: 1,
+            name: "Michaels Brown",
+            status: 'processing',
+            email: 'michaels@devsecops.com',
+            roleName: 'Manager',
+        },
+        {
+            userId: 2,
+            name: "robert Clary",
+            status: 'true',
+            email: 'robert@devsecops.com',
+            roleName: 'Developer',
+        },
+        {
+            userId: 3,
+            name: "Tom Brady",
+            status: 'false',
+            email: 'tom@devsecops.com',
+            roleName: 'Manager',
+        },
+
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
 // End Creating DevSecOps API For All Page
-
-
-
-
 
 var listener = app.listen(PORT, function () {
     console.log('Mock server is up and listening on port ' + listener.address().port);

@@ -1,0 +1,18 @@
+[
+    {
+        "actionAPIKey": "addUserAPI",
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Enter User Name",
+                "type": "text-input",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "addUser",
+                "validation": {
+                    "isRequired": true
+                }
+            }
+        ]
+    }
+]

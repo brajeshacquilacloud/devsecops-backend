@@ -26,5 +26,12 @@
         "lastScan": "2022-10-24 11:00AM",
         "pipelineCount": "34",
         "scanTest": "111"
+    },
+    {
+        "id": "5",
+        "domainName": "FinOps Example",
+        "lastScan": "string",
+        "pipelineCount": 0,
+        "scanTest": 0
     }
 ]
