@@ -27,6 +27,7 @@ const devSecOpsNotification = require('./mock/devSecOpsNotification.json');
 const devSecOpsAnalytics = require('./mock/devSecOpsAnalytics.json');
 const devSecOpsApprovalStatus = require('./mock/devSecOpsApprovalStatus.json');
 const devSecOpsUserManagement = require('./mock/devSecOpsUserManagement.json');
+const devSecOpsSettings = require('./mock/devSecOpsSettings.json');
 // End DevSecOps Import Files
 
 const finDomain = require('./mock/finDomain.json');
@@ -66,6 +67,7 @@ const tabData = require("./mock/data/tabData.json")
 
 const devSecOpsDomainCardAPIData = require("./mock/data/devSecOpsDomainCardAPIData.json")
 const devSecOpsUsersListAPIData = require("./mock/data/devSecOpsUsersListAPIData.json")
+const devSecOpsServerSettingsAPIData = require("./mock/data/devSecOpsServerSettingsAPIData.json")
 
 
 const fs = require("fs");
@@ -5773,6 +5775,10 @@ app.post('/api/scenario', function (req, res) {
         case "devSecOpsUserManagement":
             data = devSecOpsUserManagement;
             break;
+        case "devSecOpsSettings":
+            data = devSecOpsSettings;
+            break;
+
         // End DevSecOps API Calling Scenario
 
 
@@ -17660,6 +17666,32 @@ app.post('/api/devsecops/add-user', function (req, res) {
     });
 });
 // #### End Create New User #####
+
+
+
+// #### Start Server Setting API  #####
+/**
+ * @swagger
+ * /api/devsecops/server-settings:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Server Setting.
+ *      description: Manager Server Setting.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/server-settings', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsServerSettingsAPIData);
+});
+
+// #### End Server Setting API #####
 
 
 

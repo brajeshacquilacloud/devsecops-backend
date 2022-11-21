@@ -1,0 +1,12 @@
+[
+    {
+        "serverName": "ELK Server Information",
+        "serverConnected": "false",
+        "settingComment": ""
+    },
+    {
+        "serverName": "H2O Server Information",
+        "serverConnected": "true",
+        "settingComment": ""
+    }
+]

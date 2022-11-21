@@ -240,6 +240,16 @@
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
                     "className": "admin-icon"
+                },
+                {
+                    "id": "devSecOpsSettings",
+                    "name": "Settings",
+                    "link": "/devsecops/settings",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon"
                 }
             ]
         },

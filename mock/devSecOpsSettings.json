@@ -1,0 +1,75 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Server Settings",
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "apiKey": "devSecOpsServerSettingsAPI",
+                "size": 12,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "defaultRowPerPage": 10,
+                "columns": [
+                    {
+                        "name": "Server Name",
+                        "key": "serverName",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Server Connected",
+                        "key": "serverConnected",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "",
+                        "key": "settingComment",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
