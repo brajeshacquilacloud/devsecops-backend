@@ -17313,6 +17313,8 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
  * @swagger
  * /api/devsecops/welcome:
  *  post:
+ *      tags:
+ *      - "Landing Page (First Time)"
  *      summary: Welcome page.
  *      description: Show this page to first time loggedIn User.
  *      responses:
@@ -17342,6 +17344,8 @@ app.post('/api/devsecops/welcome', function (req, res) {
  * @swagger
  * /api/devsecops/domain-card:
  *  post:
+ *      tags:
+ *      - "Domain Management"
  *      summary: Domain Cards.
  *      description: List of all domain cards here.
  *      responses:
@@ -17381,6 +17385,8 @@ app.post('/api/devsecops/domain-card', function (req, res) {
  * @swagger
  * /api/devsecops/add-domain-card:
  *  post:
+ *      tags:
+ *      - "Domain Management"
  *      summary: Add New Domain Card.
  *      description: Create new domain card.
  *      requestBody:
@@ -17427,6 +17433,8 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
  * @swagger
  * /api/devsecops/pipeline-card:
  *  post:
+ *      tags:
+ *      - "Pipeline Management"
  *      summary: Pipeline Cards
  *      description: List of all pipeline cards here.
  *      responses:
@@ -17468,6 +17476,8 @@ app.post('/api/devsecops/pipeline-card', function (req, res) {
  * @swagger
  * /api/devsecops/add-domain-button:
  *  post:
+ *      tags:
+ *      - "Domain Management"
  *      summary: Add New domain with title section.
  *      description: Add New domain with title section.
  *      responses:
@@ -17495,6 +17505,8 @@ app.post('/api/devsecops/add-domain-button', function (req, res) {
  * @swagger
  * /api/devsecops/add-pipeline-button:
  *  post:
+ *      tags:
+ *      - "Pipeline Management"
  *      summary: Add New Pipeline with title section.
  *      description: Add New Pipeline with title section.
  *      responses:
@@ -17534,6 +17546,8 @@ app.post('/api/devsecops/clearfix-div', function (req, res) {
  * @swagger
  * /api/devsecops/add-user-button:
  *  post:
+ *      tags:
+ *      - "User Management"
  *      summary: Add New User.
  *      description: Add New User Button.
  *      responses:
@@ -17547,7 +17561,7 @@ app.post('/api/devsecops/add-user-button', function (req, res) {
     let data = [
         {
             "sectionTitle": "",
-            "buttonTitle": "Add User...."
+            "buttonTitle": "Add User"
         }
     ]
     setResponseHeaders(res);
@@ -17561,6 +17575,8 @@ app.post('/api/devsecops/add-user-button', function (req, res) {
  * @swagger
  * /api/devsecops/users-list:
  *  post:
+ *      tags:
+ *      - "User Management"
  *      summary: Users List.
  *      description: List of Users.
  *      responses:
@@ -17605,6 +17621,8 @@ app.post('/api/devsecops/users-list', function (req, res) {
  * @swagger
  * /api/devsecops/add-user:
  *  post:
+ *      tags:
+ *          - "User Management"
  *      summary: Add User.
  *      description: Create new user.
  *      requestBody:
