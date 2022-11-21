@@ -1,0 +1,30 @@
+[
+    {
+        "userId": 1,
+        "name": "Michaels Brown",
+        "status": "processing",
+        "email": "michaels@devsecops.com",
+        "roleName": "Manager"
+    },
+    {
+        "userId": 2,
+        "name": "robert Clary",
+        "status": true,
+        "email": "robert@devsecops.com",
+        "roleName": "Developer"
+    },
+    {
+        "userId": 3,
+        "name": "Tom Brady",
+        "status": false,
+        "email": "tom@devsecops.com",
+        "roleName": "Manager"
+    },
+    {
+        "userId": "1",
+        "name": "Pete",
+        "status": "true",
+        "email": "pete@gmail.com",
+        "roleName": "Manager"
+    }
+]

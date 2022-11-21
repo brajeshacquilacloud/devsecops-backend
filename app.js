@@ -65,6 +65,7 @@ const tabData = require("./mock/data/tabData.json")
 
 
 const devSecOpsDomainCardAPIData = require("./mock/data/devSecOpsDomainCardAPIData.json")
+const devSecOpsUsersListAPIData = require("./mock/data/devSecOpsUsersListAPIData.json")
 
 
 const fs = require("fs");
@@ -17555,6 +17556,7 @@ app.post('/api/devsecops/add-user-button', function (req, res) {
 // #### End Add User Button #####
 
 
+// #### Start Users List #####
 /**
  * @swagger
  * /api/devsecops/users-list:
@@ -17570,34 +17572,80 @@ app.post('/api/devsecops/add-user-button', function (req, res) {
 
 
 app.post('/api/devsecops/users-list', function (req, res) {
-
-    let data = [
-        {
-            userId: 1,
-            name: "Michaels Brown",
-            status: 'processing',
-            email: 'michaels@devsecops.com',
-            roleName: 'Manager',
-        },
-        {
-            userId: 2,
-            name: "robert Clary",
-            status: 'true',
-            email: 'robert@devsecops.com',
-            roleName: 'Developer',
-        },
-        {
-            userId: 3,
-            name: "Tom Brady",
-            status: 'false',
-            email: 'tom@devsecops.com',
-            roleName: 'Manager',
-        },
-
-    ]
     setResponseHeaders(res);
-    res.status(200).send(data);
+    res.status(200).send(devSecOpsUsersListAPIData);
 });
+
+// #### End Users List #####
+
+
+// #### Start Create New User #####
+
+/**
+ * @swagger
+ *  components:
+ *      schema:
+ *          add-user:
+ *              type: object
+ *              properties:
+ *                  userId:
+ *                      type: string
+ *                  name:
+ *                      type: string
+ *                  status:
+ *                      type: string
+ *                  email:
+ *                      type: string
+ *                  roleName:
+ *                      type: string
+ */
+
+
+/**
+ * @swagger
+ * /api/devsecops/add-user:
+ *  post:
+ *      summary: Add User.
+ *      description: Create new user.
+ *      requestBody:
+ *          required: true
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#components/schema/add-user'
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the message in 'Added Successfully' in 'Response body'!
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: array
+ *                          items:
+ *                               $ref: '#components/schema/add-user'
+ *
+ */
+
+// #### Start Add User #####
+app.post('/api/devsecops/add-user', function (req, res) {
+    let data = fs.readFileSync("./mock/data/devSecOpsUsersListAPIData.json");
+    let TotalRecords = JSON.parse(data);
+    let uuid = "DevSecOps" + Math.random().toString(16).slice(2);
+
+    TotalRecords.push(req.body)
+
+    let newRecord = JSON.stringify(TotalRecords);
+
+    fs.writeFile("./mock/data/devSecOpsUsersListAPIData.json", newRecord, (err) => {
+        if (err) throw err;
+        // setResponseHeaders(res);
+        res.status(200).send("Added Successfully");
+    });
+});
+// #### End Create New User #####
+
+
+
+
 
 // End Creating DevSecOps API For All Page
 
