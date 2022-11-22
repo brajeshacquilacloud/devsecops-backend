@@ -70,6 +70,9 @@ const devSecOpsUsersListAPIData = require("./mock/data/devSecOpsUsersListAPIData
 const devSecOpsServerSettingsAPIData = require("./mock/data/devSecOpsServerSettingsAPIData.json")
 const devSecOpsScheduleSettingsAPIData = require("./mock/data/devSecOpsScheduleSettingsAPIData.json")
 const devSecOpsOtherSettingsAPIData = require("./mock/data/devSecOpsOtherSettingsAPIData.json")
+const devSecOpsApprovalActionStatusAPIData = require("./mock/data/devSecOpsApprovalActionStatusAPIData.json")
+
+
 
 
 
@@ -17750,6 +17753,34 @@ app.post('/api/devsecops/other-settings', function (req, res) {
 });
 
 // #### End Other Setting API #####
+
+
+
+// #### Start Users List #####
+/**
+ * @swagger
+ * /api/devsecops/approval-action-status:
+ *  post:
+ *      tags:
+ *      - "Approval Action Status"
+ *      summary: Approval Action Status List.
+ *      description: List of Approval Action Status.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/approval-action-status', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsApprovalActionStatusAPIData);
+});
+
+// #### End Users List #####
+
+
 
 
 
