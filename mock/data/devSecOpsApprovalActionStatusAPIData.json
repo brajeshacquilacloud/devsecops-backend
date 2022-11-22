@@ -65,14 +65,14 @@
     {
         "approvalActionStatusId": 10,
         "stage": "Alivia Joule",
-        "status": "false",
+        "pipeline": "false",
         "domain": "alivia@gmail.com",
         "approvalStatus": "Approved"
     },
     {
         "approvalActionStatusId": 11,
         "stage": "Campbell Bartlett",
-        "status": "true",
+        "pipeline": "true",
         "domain": "campbell@gmail.com",
         "approvalStatus": "Approved"
     }

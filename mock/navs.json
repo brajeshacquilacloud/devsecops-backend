@@ -223,7 +223,7 @@
                 },
                 {
                     "id": "devSecOpsApprovalActionStatus",
-                    "name": "Approval Status",
+                    "name": "Approval Action Status",
                     "link": "/devsecops/devSecOpsApprovalActionStatus",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
