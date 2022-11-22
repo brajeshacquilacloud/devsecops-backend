@@ -72,6 +72,9 @@ const devSecOpsScheduleSettingsAPIData = require("./mock/data/devSecOpsScheduleS
 const devSecOpsOtherSettingsAPIData = require("./mock/data/devSecOpsOtherSettingsAPIData.json")
 const devSecOpsApprovalActionStatusAPIData = require("./mock/data/devSecOpsApprovalActionStatusAPIData.json")
 const devSecOpsAllIncidentAPIData = require("./mock/data/devSecOpsAllIncidentAPIData.json")
+const devSecOpsCusteredSimilarErrorsChartAPIData = require("./mock/data/devSecOpsCusteredSimilarErrorsChartAPIData.json")
+const devSecOpsFrequencyComponentChartAPIData = require("./mock/data/devSecOpsFrequencyComponentChartAPIData.json")
+const devSecOpsRootCauseAnalysisChartAPIData = require("./mock/data/devSecOpsRootCauseAnalysisChartAPIData.json")
 
 
 
@@ -17806,6 +17809,104 @@ app.post('/api/devsecops/all-incident', function (req, res) {
 });
 
 // #### End Analytics Page All Incident Table Data #####
+
+
+
+// #### Start Custered Similar Errors Chart Data #####
+
+/**
+ * @swagger
+ * /api/devsecops/custered-similar-errors-chart:
+ *  post:
+ *      tags:
+ *      - "Analytics"
+ *      summary: Custered Similar Errors Chart.
+ *      description: Custered Similar Errors Chart Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+
+app.post('/api/devsecops/custered-similar-errors-chart', function (req, res) {
+
+    //Add some delay on purpose.
+    addDelay();
+    setResponseHeaders(res);
+    res.send(devSecOpsCusteredSimilarErrorsChartAPIData);
+
+});
+
+// #### End Custered Similar Errors Chart Data #####
+
+
+
+// #### Start Frequency Component Chart Data #####
+
+/**
+ * @swagger
+ * /api/devsecops/frequency-component-chart:
+ *  post:
+ *      tags:
+ *      - "Analytics"
+ *      summary: Frequency Component Chart.
+ *      description: Frequency Component Chart Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+
+app.post('/api/devsecops/frequency-component-chart', function (req, res) {
+
+    //Add some delay on purpose.
+    addDelay();
+    setResponseHeaders(res);
+    res.send(devSecOpsFrequencyComponentChartAPIData);
+
+});
+
+// #### End Frequency Component Chart Data #####
+
+
+
+// #### Start Root Cause Analysis Chart Data #####
+
+/**
+ * @swagger
+ * /api/devsecops/root-cause-analysis-chart:
+ *  post:
+ *      tags:
+ *      - "Analytics"
+ *      summary: Root Cause Analysis Chart.
+ *      description: Root Cause Analysis Chart Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/root-cause-analysis-chart', function (req, res) {
+
+    //Add some delay on purpose.
+    addDelay();
+    setResponseHeaders(res);
+    res.send(devSecOpsRootCauseAnalysisChartAPIData);
+
+});
+
+// #### End Root Cause Analysis Chart Data #####
+
+
+
+
+
 
 
 // End Creating DevSecOps API For All Page

@@ -2,12 +2,12 @@
     {
         "leafs": [
             {
-                "id": 3,
+                "id": 1,
                 "leafTitle": "All Incident",
                 "isHawkUI": true,
                 "type": "hawkDatatable",
                 "apiKey": "devSecOpsAllIncidentAPI",
-                "size": 6,
+                "size": 12,
                 "noDataText": "No sub-users available",
                 "metrics": {},
                 "hideToolBar": true,
@@ -68,6 +68,111 @@
                         ]
                     }
                 ]
+            },
+            {
+                "id": 2,
+                "leafTitle": "Custered / Similar Errors",
+                "type": "line",
+                "lib": "google",
+                "legendPosition": "bottom",
+                "apiKey": "devSecOpsCusteredSimilarErrorsChartAPI",
+                "size": 4,
+                "height": 300,
+                "width": "75%",
+                "yAxis": {
+                    "title": "Cost",
+                    "format": "$#"
+                },
+                "xAxis": {
+                    "title": "Time"
+                },
+                "toolTipDateFormat": "MMM yyyy",
+                "lineColumns": [
+                    "x",
+                    "azure",
+                    "aws"
+                ],
+                "dateTimeIndex": 0,
+                "noDataText": "Data not available.",
+                "unit": {
+                    "value": "USD",
+                    "position": "prefix"
+                },
+                "isCustomizedTooltip": true,
+                "alert": {
+                    "column": "Alerts",
+                    "showAlertInLegend": false
+                }
+            },
+            {
+                "id": 3,
+                "leafTitle": "Frequency / Component",
+                "type": "line",
+                "lib": "google",
+                "legendPosition": "bottom",
+                "apiKey": "devSecOpsFrequencyComponentChartAPI",
+                "size": 4,
+                "height": 300,
+                "width": "75%",
+                "yAxis": {
+                    "title": "Cost",
+                    "format": "$#"
+                },
+                "xAxis": {
+                    "title": "Time"
+                },
+                "toolTipDateFormat": "MMM yyyy",
+                "lineColumns": [
+                    "x",
+                    "azure",
+                    "aws"
+                ],
+                "dateTimeIndex": 0,
+                "noDataText": "Data not available.",
+                "unit": {
+                    "value": "USD",
+                    "position": "prefix"
+                },
+                "isCustomizedTooltip": true,
+                "alert": {
+                    "column": "Alerts",
+                    "showAlertInLegend": false
+                }
+            },
+            {
+                "id": 4,
+                "leafTitle": "Root Cause Analysis",
+                "type": "line",
+                "lib": "google",
+                "legendPosition": "bottom",
+                "apiKey": "devSecOpsRootCauseAnalysisChartAPI",
+                "size": 4,
+                "height": 300,
+                "width": "75%",
+                "yAxis": {
+                    "title": "Cost",
+                    "format": "$#"
+                },
+                "xAxis": {
+                    "title": "Time"
+                },
+                "toolTipDateFormat": "MMM yyyy",
+                "lineColumns": [
+                    "x",
+                    "azure",
+                    "aws"
+                ],
+                "dateTimeIndex": 0,
+                "noDataText": "Data not available.",
+                "unit": {
+                    "value": "USD",
+                    "position": "prefix"
+                },
+                "isCustomizedTooltip": true,
+                "alert": {
+                    "column": "Alerts",
+                    "showAlertInLegend": false
+                }
             }
         ]
     }
