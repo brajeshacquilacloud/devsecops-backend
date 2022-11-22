@@ -10,6 +10,8 @@
                 "size": 12,
                 "noDataText": "No sub-users available",
                 "metrics": {},
+                "hideToolBar": true,
+                "pagination": false,
                 "defaultRowPerPage": 10,
                 "columns": [
                     {
@@ -29,6 +31,148 @@
                     {
                         "name": "",
                         "key": "settingComment",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "leafTitle": "Schedule",
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "apiKey": "devSecOpsScheduleSettingsAPI",
+                "size": 12,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "hideToolBar": true,
+                "pagination": false,
+                "defaultRowPerPage": 10,
+                "columns": [
+                    {
+                        "name": "Recurrence",
+                        "key": "recurrence",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Time",
+                        "key": "time",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "",
+                        "key": "settingComment",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "leafTitle": "Other Settings",
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "apiKey": "devSecOpsOtherSettingsAPI",
+                "size": 12,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "hideToolBar": true,
+                "pagination": false,
+                "defaultRowPerPage": 10,
+                "columns": [
+                    {
+                        "name": "Name",
+                        "key": "name",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Yes / No",
+                        "key": "yesNo",
+                        "display": true,
+                        "filter": false,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Vulnerability Component",
+                        "key": "vulnerabilityComponent",
                         "display": true,
                         "filter": false,
                         "filterType": "textField"

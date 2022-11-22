@@ -68,6 +68,10 @@ const tabData = require("./mock/data/tabData.json")
 const devSecOpsDomainCardAPIData = require("./mock/data/devSecOpsDomainCardAPIData.json")
 const devSecOpsUsersListAPIData = require("./mock/data/devSecOpsUsersListAPIData.json")
 const devSecOpsServerSettingsAPIData = require("./mock/data/devSecOpsServerSettingsAPIData.json")
+const devSecOpsScheduleSettingsAPIData = require("./mock/data/devSecOpsScheduleSettingsAPIData.json")
+const devSecOpsOtherSettingsAPIData = require("./mock/data/devSecOpsOtherSettingsAPIData.json")
+
+
 
 
 const fs = require("fs");
@@ -17677,7 +17681,7 @@ app.post('/api/devsecops/add-user', function (req, res) {
  *      tags:
  *      - "Settings"
  *      summary: Server Setting.
- *      description: Manager Server Setting.
+ *      description: Manage Server Setting.
  *      responses:
  *          200:
  *              description: Page is working fine if got the json response!
@@ -17692,6 +17696,60 @@ app.post('/api/devsecops/server-settings', function (req, res) {
 });
 
 // #### End Server Setting API #####
+
+
+
+
+// #### Start schedule Setting API  #####
+/**
+ * @swagger
+ * /api/devsecops/schedule-settings:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Schedule Setting.
+ *      description: Manage schedule Setting.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/schedule-settings', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsScheduleSettingsAPIData);
+});
+
+// #### End schedule Setting API #####
+
+
+
+
+// #### Start schedule Setting API  #####
+/**
+ * @swagger
+ * /api/devsecops/other-settings:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Other Setting.
+ *      description: Manage Other Setting.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/other-settings', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsOtherSettingsAPIData);
+});
+
+// #### End Other Setting API #####
 
 
 
