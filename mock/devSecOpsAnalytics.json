@@ -2,132 +2,72 @@
     {
         "leafs": [
             {
-                "id": 1,
+                "id": 3,
+                "leafTitle": "All Incident",
                 "isHawkUI": true,
-                "defSelectKey": "devSecOpsAnalytics",
+                "type": "hawkDatatable",
                 "apiKey": "devSecOpsAnalyticsAPI",
-                "leafTitle": "Analytics",
-                "type": "devSecOpsAnalytics",
-                "size": 12,
-                "allIncidentTableColumns": {
-                    "data": [
-                        {
-                            "name": "Incident Name",
-                            "key": "event",
-                            "display": true
-                        },
-                        {
-                            "name": "Risk Level",
-                            "key": "status",
-                            "type": "step",
-                            "display": true
-                        },
-                        {
-                            "name": "Incident Details",
-                            "key": "view",
-                            "display": true
-                        }
-                    ]
-                },
-                "allIncidentTableData": {
-                    "data": [
-                        {
-                            "event": "Incident Name",
-                            "status": "High",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "High",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "Medium",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "High",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "Medium",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "Low",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "High",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "Medium",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "Medium",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "High",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "Medium",
-                            "view": "Details"
-                        },
-                        {
-                            "event": "Incident Name",
-                            "status": "High",
-                            "view": "Details"
-                        }
-                    ]
-                },
-                "googleCustomChart": {
-                    "id": 60,
-                    "leafTitle": "Top 10 Services Spend Trends",
-                    "type": "line",
-                    "lib": "google",
-                    "legendPosition": "right",
-                    "apiKey": "lineChartAPI",
-                    "size": 12,
-                    "height": 300,
-                    "width": "75%",
-                    "yAxis": {
-                        "title": "Cost",
-                        "format": "$#"
+                "size": 6,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "hideToolBar": true,
+                "defaultRowPerPage": 10,
+                "columns": [
+                    {
+                        "name": "Id",
+                        "key": "incidentId",
+                        "display": false
                     },
-                    "xAxis": {
-                        "title": "Time"
+                    {
+                        "name": "Incident Name",
+                        "key": "incidentName",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
                     },
-                    "toolTipDateFormat": "MMM yyyy",
-                    "lineColumns": [
-                        "x",
-                        "azure",
-                        "aws"
-                    ],
-                    "dateTimeIndex": 0,
-                    "noDataText": "Data not available.",
-                    "unit": {
-                        "value": "USD",
-                        "position": "prefix"
+                    {
+                        "name": "Risk Level",
+                        "key": "riskLevel",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
                     },
-                    "isCustomizedTooltip": true,
-                    "alert": {
-                        "column": "Alerts",
-                        "showAlertInLegend": false
+                    {
+                        "name": "Incident Details",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Edit user",
+                                "drillParams": [
+                                    {
+                                        "key": "instanceId"
+                                    }
+                                ],
+                                "componentsAPIKey": "addUserComponentAPI"
+                            }
+                        ]
                     }
-                }
+                ]
             }
         ]
     }
