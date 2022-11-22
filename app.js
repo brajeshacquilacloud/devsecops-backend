@@ -21,11 +21,12 @@ const devSecOpsOverviewCurrentPipelineDetails = require('./mock/devSecOpsOvervie
 const devSecOpsPipeline = require('./mock/devSecOpsPipeline.json');
 const devSecOpsPipelineConfigureToolDetails = require('./mock/devSecOpsPipelineConfigureToolDetails.json');
 const devSecOpsPipelineScanSummary = require('./mock/devSecOpsPipelineScanSummary.json');
-const devSecOpsApprovalActionStatus = require('./mock/devSecOpsApprovalActionStatus.json');
+
+
 
 const devSecOpsNotification = require('./mock/devSecOpsNotification.json');
 const devSecOpsAnalytics = require('./mock/devSecOpsAnalytics.json');
-const devSecOpsApprovalStatus = require('./mock/devSecOpsApprovalStatus.json');
+const devSecOpsApprovalActionStatus = require('./mock/devSecOpsApprovalActionStatus.json');
 const devSecOpsUserManagement = require('./mock/devSecOpsUserManagement.json');
 const devSecOpsSettings = require('./mock/devSecOpsSettings.json');
 // End DevSecOps Import Files
@@ -75,6 +76,7 @@ const devSecOpsAllIncidentAPIData = require("./mock/data/devSecOpsAllIncidentAPI
 const devSecOpsCusteredSimilarErrorsChartAPIData = require("./mock/data/devSecOpsCusteredSimilarErrorsChartAPIData.json")
 const devSecOpsFrequencyComponentChartAPIData = require("./mock/data/devSecOpsFrequencyComponentChartAPIData.json")
 const devSecOpsRootCauseAnalysisChartAPIData = require("./mock/data/devSecOpsRootCauseAnalysisChartAPIData.json")
+const devSecOpsNotificationAlertAPIData = require("./mock/data/devSecOpsNotificationAlertAPIData.json")
 
 
 
@@ -5771,17 +5773,14 @@ app.post('/api/scenario', function (req, res) {
         case "devSecOpsPipelineScanSummary":
             data = devSecOpsPipelineScanSummary;
             break;
-        case "devSecOpsApprovalActionStatus":
-            data = devSecOpsApprovalActionStatus;
-            break;
         case "devSecOpsNotification":
             data = devSecOpsNotification;
             break;
         case "devSecOpsAnalytics":
             data = devSecOpsAnalytics;
             break;
-        case "devSecOpsApprovalStatus":
-            data = devSecOpsApprovalStatus;
+        case "devSecOpsApprovalActionStatus":
+            data = devSecOpsApprovalActionStatus;
             break;
         case "devSecOpsUserManagement":
             data = devSecOpsUserManagement;
@@ -17904,7 +17903,29 @@ app.post('/api/devsecops/root-cause-analysis-chart', function (req, res) {
 // #### End Root Cause Analysis Chart Data #####
 
 
+// #### Start Notification Alert #####
+/**
+ * @swagger
+ * /api/devsecops/notification-alert:
+ *  post:
+ *      tags:
+ *      - "Notification Alert"
+ *      summary: Notification Alert.
+ *      description: List of Notification Alert.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
 
+
+
+app.post('/api/devsecops/notification-alert', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsNotificationAlertAPIData);
+});
+
+// #### End Users List #####
 
 
 

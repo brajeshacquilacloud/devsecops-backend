@@ -4,7 +4,40 @@
         "leafs": [
             {
                 "id": 1,
-                "leafTitle": "Enter User Name",
+                "leafTitle": "Name",
+                "type": "text-input",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "addUser",
+                "validation": {
+                    "isRequired": true
+                }
+            },
+            {
+                "id": 2,
+                "leafTitle": "Email",
+                "type": "text-input",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "addUser",
+                "validation": {
+                    "isRequired": true
+                }
+            },
+            {
+                "id": 3,
+                "leafTitle": "Role",
+                "type": "text-input",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "addUser",
+                "validation": {
+                    "isRequired": true
+                }
+            },
+            {
+                "id": 4,
+                "leafTitle": "Status",
                 "type": "text-input",
                 "labelSize": 4,
                 "size": 8,
