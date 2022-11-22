@@ -36,6 +36,7 @@
                 "size": 12,
                 "noDataText": "No sub-users available",
                 "metrics": {},
+                "hideToolBar": true,
                 "defaultRowPerPage": 10,
                 "columns": [
                     {
