@@ -71,7 +71,7 @@ const devSecOpsServerSettingsAPIData = require("./mock/data/devSecOpsServerSetti
 const devSecOpsScheduleSettingsAPIData = require("./mock/data/devSecOpsScheduleSettingsAPIData.json")
 const devSecOpsOtherSettingsAPIData = require("./mock/data/devSecOpsOtherSettingsAPIData.json")
 const devSecOpsApprovalActionStatusAPIData = require("./mock/data/devSecOpsApprovalActionStatusAPIData.json")
-const devSecOpsAnalyticsAPIData = require("./mock/data/devSecOpsAnalyticsAPIData.json")
+const devSecOpsAllIncidentAPIData = require("./mock/data/devSecOpsAllIncidentAPIData.json")
 
 
 
@@ -17783,15 +17783,15 @@ app.post('/api/devsecops/approval-action-status', function (req, res) {
 
 
 
-// #### Start Analytics Page #####
+// #### Start Analytics Page All Incident Table Data #####
 /**
  * @swagger
- * /api/devsecops/analytics:
+ * /api/devsecops/all-incident:
  *  post:
  *      tags:
  *      - "Analytics"
- *      summary: Analytics.
- *      description: Analytics Page Data.
+ *      summary: All Incident.
+ *      description: All Incident Table Data.
  *      responses:
  *          200:
  *              description: Page is working fine if got the json response!
@@ -17800,12 +17800,12 @@ app.post('/api/devsecops/approval-action-status', function (req, res) {
 
 
 
-app.post('/api/devsecops/analytics', function (req, res) {
+app.post('/api/devsecops/all-incident', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(devSecOpsAnalyticsAPIData);
+    res.status(200).send(devSecOpsAllIncidentAPIData);
 });
 
-// #### End Analytics Page #####
+// #### End Analytics Page All Incident Table Data #####
 
 
 // End Creating DevSecOps API For All Page

@@ -6,7 +6,7 @@
                 "leafTitle": "All Incident",
                 "isHawkUI": true,
                 "type": "hawkDatatable",
-                "apiKey": "devSecOpsAnalyticsAPI",
+                "apiKey": "devSecOpsAllIncidentAPI",
                 "size": 6,
                 "noDataText": "No sub-users available",
                 "metrics": {},
