@@ -17328,7 +17328,7 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/welcome:
- *  get:
+ *  post:
  *      tags:
  *      - "Landing Page (First Time)"
  *      summary: Welcome page.
@@ -17340,7 +17340,7 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
  */
 
 // #### Start Welcome Page #####
-app.get('/api/devsecops/welcome', function (req, res) {
+app.post('/api/devsecops/welcome', function (req, res) {
     let data = [
         {
             "img": 'finops_productcard.svg',
@@ -17359,7 +17359,7 @@ app.get('/api/devsecops/welcome', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/domain-card:
- *  get:
+ *  post:
  *      tags:
  *      - "Domain Management"
  *      summary: Domain Cards.
@@ -17371,7 +17371,7 @@ app.get('/api/devsecops/welcome', function (req, res) {
  */
 
 // #### Start Domain Card Page #####
-app.get('/api/devsecops/domain-card', function (req, res) {
+app.post('/api/devsecops/domain-card', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsDomainCardAPIData);
 });
@@ -17448,7 +17448,7 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/pipeline-card:
- *  get:
+ *  post:
  *      tags:
  *      - "Pipeline Management"
  *      summary: Pipeline Cards
@@ -17460,7 +17460,7 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
  */
 
 // #### Start Pipeline Card Page #####
-app.get('/api/devsecops/pipeline-card', function (req, res) {
+app.post('/api/devsecops/pipeline-card', function (req, res) {
     let data = [
         {
             "id": 1,
@@ -17590,7 +17590,7 @@ app.post('/api/devsecops/add-user-button', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/users-list:
- *  get:
+ *  post:
  *      tags:
  *      - "User Management"
  *      summary: Users List.
@@ -17603,7 +17603,7 @@ app.post('/api/devsecops/add-user-button', function (req, res) {
 
 
 
-app.get('/api/devsecops/users-list', function (req, res) {
+app.post('/api/devsecops/users-list', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsUsersListAPIData);
 });
@@ -17683,7 +17683,7 @@ app.post('/api/devsecops/add-user', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/server-settings:
- *  get:
+ *  post:
  *      tags:
  *      - "Settings"
  *      summary: Server Setting.
@@ -17696,7 +17696,7 @@ app.post('/api/devsecops/add-user', function (req, res) {
 
 
 
-app.get('/api/devsecops/server-settings', function (req, res) {
+app.post('/api/devsecops/server-settings', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsServerSettingsAPIData);
 });
@@ -17710,7 +17710,7 @@ app.get('/api/devsecops/server-settings', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/schedule-settings:
- *  get:
+ *  post:
  *      tags:
  *      - "Settings"
  *      summary: Schedule Setting.
@@ -17723,7 +17723,7 @@ app.get('/api/devsecops/server-settings', function (req, res) {
 
 
 
-app.get('/api/devsecops/schedule-settings', function (req, res) {
+app.post('/api/devsecops/schedule-settings', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsScheduleSettingsAPIData);
 });
@@ -17737,7 +17737,7 @@ app.get('/api/devsecops/schedule-settings', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/other-settings:
- *  get:
+ *  post:
  *      tags:
  *      - "Settings"
  *      summary: Other Setting.
@@ -17750,7 +17750,7 @@ app.get('/api/devsecops/schedule-settings', function (req, res) {
 
 
 
-app.get('/api/devsecops/other-settings', function (req, res) {
+app.post('/api/devsecops/other-settings', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsOtherSettingsAPIData);
 });
@@ -17763,7 +17763,7 @@ app.get('/api/devsecops/other-settings', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/approval-action-status:
- *  get:
+ *  post:
  *      tags:
  *      - "Approval Action Status"
  *      summary: Approval Action Status List.
@@ -17776,7 +17776,7 @@ app.get('/api/devsecops/other-settings', function (req, res) {
 
 
 
-app.get('/api/devsecops/approval-action-status', function (req, res) {
+app.post('/api/devsecops/approval-action-status', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsApprovalActionStatusAPIData);
 });
@@ -17789,7 +17789,7 @@ app.get('/api/devsecops/approval-action-status', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/all-incident:
- *  get:
+ *  post:
  *      tags:
  *      - "Analytics"
  *      summary: All Incident.
@@ -17802,7 +17802,7 @@ app.get('/api/devsecops/approval-action-status', function (req, res) {
 
 
 
-app.get('/api/devsecops/all-incident', function (req, res) {
+app.post('/api/devsecops/all-incident', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsAllIncidentAPIData);
 });
@@ -17816,7 +17816,7 @@ app.get('/api/devsecops/all-incident', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/custered-similar-errors-chart:
- *  get:
+ *  post:
  *      tags:
  *      - "Analytics"
  *      summary: Custered Similar Errors Chart.
@@ -17830,7 +17830,7 @@ app.get('/api/devsecops/all-incident', function (req, res) {
 
 
 
-app.get('/api/devsecops/custered-similar-errors-chart', function (req, res) {
+app.post('/api/devsecops/custered-similar-errors-chart', function (req, res) {
 
     //Add some delay on purpose.
     addDelay();
@@ -17848,7 +17848,7 @@ app.get('/api/devsecops/custered-similar-errors-chart', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/frequency-component-chart:
- *  get:
+ *  post:
  *      tags:
  *      - "Analytics"
  *      summary: Frequency Component Chart.
@@ -17862,7 +17862,7 @@ app.get('/api/devsecops/custered-similar-errors-chart', function (req, res) {
 
 
 
-app.get('/api/devsecops/frequency-component-chart', function (req, res) {
+app.post('/api/devsecops/frequency-component-chart', function (req, res) {
 
     //Add some delay on purpose.
     addDelay();
@@ -17880,7 +17880,7 @@ app.get('/api/devsecops/frequency-component-chart', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/root-cause-analysis-chart:
- *  get:
+ *  post:
  *      tags:
  *      - "Analytics"
  *      summary: Root Cause Analysis Chart.
@@ -17891,7 +17891,7 @@ app.get('/api/devsecops/frequency-component-chart', function (req, res) {
  *
  */
 
-app.get('/api/devsecops/root-cause-analysis-chart', function (req, res) {
+app.post('/api/devsecops/root-cause-analysis-chart', function (req, res) {
 
     //Add some delay on purpose.
     addDelay();
@@ -17907,7 +17907,7 @@ app.get('/api/devsecops/root-cause-analysis-chart', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/notification-alert:
- *  get:
+ *  post:
  *      tags:
  *      - "Notification Alert"
  *      summary: Notification Alert.
@@ -17920,7 +17920,7 @@ app.get('/api/devsecops/root-cause-analysis-chart', function (req, res) {
 
 
 
-app.get('/api/devsecops/notification-alert', function (req, res) {
+app.post('/api/devsecops/notification-alert', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsNotificationAlertAPIData);
 });
