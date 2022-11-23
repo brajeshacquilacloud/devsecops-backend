@@ -8270,6 +8270,85 @@ app.post('/api/scenario/modal', function (req, res) {
             data = addUserModal;
             break;
 
+        case 'devSecOpsAddEditUserModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add',
+                    disableActionButton: true,
+                    modalWidth: 500,
+                    modalActions: [
+                        {
+                            id: 'help',
+                            type: 'help',
+                            url: "http://google.com",
+                            target: "new",
+                        }
+                    ],
+                    leafs: [
+                        {
+                            id: 2,
+                            leafTitle: "User Role",
+                            type: "select",
+                            defSelectKey: "projects",
+                            mode: "multiple",
+                            labelSize: 3,
+                            size: 9,
+                            apiKey: "providerSubscriptionId",
+                            metrics: {},
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "User ID",
+                            type: "text-input",
+                            defSelectKey: 'user-id',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 4,
+                            leafTitle: "First Name",
+                            type: "text-input",
+                            defSelectKey: 'first-name',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 5,
+                            leafTitle: "Last Name",
+                            type: "text-input",
+                            defSelectKey: 'last-name',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 8,
+                            leafTitle: "Email",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                            defSelectKey: 'email',
+                            metrics: '{ "email" : "user_email"}',
+                            validation: {
+                                isRequired: true,
+                                message: 'Please enter correct email address',
+                                type: 'email'
+                            },
+                        }
+                    ]
+                }
+            ];
+            break;
+
+
+
+
+
         // End DevSecOps API Mapping
 
 
