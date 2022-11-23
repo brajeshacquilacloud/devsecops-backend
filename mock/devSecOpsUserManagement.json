@@ -84,10 +84,10 @@
                                 "key": "action",
                                 "type": "delete",
                                 "display": true,
-                                "apiKey": "deleteUserAPI",
+                                "apiKey": "devSecOpsDeleteUserAPI",
                                 "requestParams": [
                                     {
-                                        "key": "instanceId"
+                                        "key": "userId"
                                     }
                                 ]
                             },
@@ -100,7 +100,7 @@
                                 "modalTitle": "Edit user",
                                 "drillParams": [
                                     {
-                                        "key": "instanceId"
+                                        "key": "userId"
                                     }
                                 ],
                                 "componentsAPIKey": "addUserComponentAPI"

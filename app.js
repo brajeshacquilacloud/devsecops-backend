@@ -9175,6 +9175,7 @@ app.post('/api/user/deleteuser', function (req, res) {
     res.status(200).send(data);
 });
 
+
 app.post('/api/user/navs', function (req, res) {
 
     let data = req.body.serviceKey ? navs : {
@@ -17926,6 +17927,37 @@ app.post('/api/devsecops/notification-alert', function (req, res) {
 });
 
 // #### End Users List #####
+
+
+
+// #### Start Users Delete #####
+/**
+ * @swagger
+ * /api/devsecops/delete-user:
+ *  post:
+ *      tags:
+ *      - "User Management"
+ *      summary: Delete User.
+ *      description: Want to Delete use this API.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+app.post('/api/devsecops/delete-user', function (req, res) {
+
+    let data = {
+        key: 'UPDATE_PREF',
+        variant: 'success',
+        message: 'User deleted succesfully',
+    };
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+
+// #### End Users Delete #####
 
 
 
