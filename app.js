@@ -8269,7 +8269,6 @@ app.post('/api/scenario/modal', function (req, res) {
         case "addUserAPI":
             data = addUserModal;
             break;
-
         case 'devSecOpsEditUserModal':
             data = [
                 {
@@ -8335,6 +8334,88 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ];
             break;
+        case 'devSecOpsEditApprovalActionStatusModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add',
+                    disableActionButton: true,
+                    modalWidth: 500,
+                    modalActions: [
+                    ],
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "DevOps Tool:",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 6,
+                            size: 6,
+                            defSelectKey: 'devops-tool'
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "IP Address:",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 6,
+                            size: 6,
+                            defSelectKey: 'ip-address'
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "Athorizatioin Key/Password:",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 6,
+                            size: 6,
+                            defSelectKey: "athorizatioin-key-password",
+                        },
+                        {
+                            id: 4,
+                            leafTitle: "Property File:",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 6,
+                            size: 6,
+                            defSelectKey: "property-file",
+                        },
+                        {
+                            id: 5,
+                            leafTitle: "SecOps Tool:",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 6,
+                            size: 6,
+                            defSelectKey: "secops-tool",
+                        },
+                        {
+                            id: 6,
+                            leafTitle: "Other Information:",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 6,
+                            size: 6,
+                            defSelectKey: "other-information",
+                        },
+                        {
+                            id: 7,
+                            leafTitle: "Other Information:",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 6,
+                            size: 6,
+                            defSelectKey: "other-information-2",
+                        },
+
+                    ]
+                }
+            ];
+            break;
+
+
+
         // End DevSecOps API Mapping
 
         case "executeScheduleAPI":

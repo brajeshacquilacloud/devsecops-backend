@@ -53,30 +53,18 @@
                         "type": "rowAction",
                         "rowActions": [
                             {
-                                "name": "Delete",
-                                "key": "action",
-                                "type": "delete",
-                                "display": true,
-                                "apiKey": "deleteUserAPI",
-                                "requestParams": [
-                                    {
-                                        "key": "instanceId"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Edit",
+                                "name": "View",
                                 "key": "action",
                                 "type": "edit",
                                 "display": true,
                                 "drillTo": "modal",
-                                "modalTitle": "Edit user",
+                                "modalTitle": "Stage Details",
                                 "drillParams": [
                                     {
-                                        "key": "instanceId"
+                                        "key": "approvalActionStatusId"
                                     }
                                 ],
-                                "componentsAPIKey": "addUserComponentAPI"
+                                "componentsAPIKey": "devSecOpsEditApprovalActionStatusComponentAPI"
                             }
                         ]
                     }
