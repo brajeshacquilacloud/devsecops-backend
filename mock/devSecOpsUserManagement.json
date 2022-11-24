@@ -103,7 +103,7 @@
                                         "key": "userId"
                                     }
                                 ],
-                                "componentsAPIKey": "addUserComponentAPI"
+                                "componentsAPIKey": "devSecOpsEditUserComponentAPI"
                             }
                         ]
                     }

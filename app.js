@@ -8270,7 +8270,7 @@ app.post('/api/scenario/modal', function (req, res) {
             data = addUserModal;
             break;
 
-        case 'devSecOpsAddEditUserModal':
+        case 'devSecOpsEditUserModal':
             data = [
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
@@ -8288,69 +8288,54 @@ app.post('/api/scenario/modal', function (req, res) {
                     ],
                     leafs: [
                         {
+                            id: 1,
+                            leafTitle: "Name",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 4,
+                            size: 8,
+                            defSelectKey: 'user-name'
+                        },
+                        {
                             id: 2,
-                            leafTitle: "User Role",
-                            type: "select",
-                            defSelectKey: "projects",
-                            mode: "multiple",
-                            labelSize: 3,
-                            size: 9,
-                            apiKey: "providerSubscriptionId",
-                            metrics: {},
-                        },
-                        {
-                            id: 3,
-                            leafTitle: "User ID",
-                            type: "text-input",
-                            defSelectKey: 'user-id',
-                            inputType: 'string',
-                            labelSize: 3,
-                            size: 9,
-                        },
-                        {
-                            id: 4,
-                            leafTitle: "First Name",
-                            type: "text-input",
-                            defSelectKey: 'first-name',
-                            inputType: 'string',
-                            labelSize: 3,
-                            size: 9,
-                        },
-                        {
-                            id: 5,
-                            leafTitle: "Last Name",
-                            type: "text-input",
-                            defSelectKey: 'last-name',
-                            inputType: 'string',
-                            labelSize: 3,
-                            size: 9,
-                        },
-                        {
-                            id: 8,
                             leafTitle: "Email",
                             type: "text-input",
                             inputType: 'string',
-                            labelSize: 3,
-                            size: 9,
-                            defSelectKey: 'email',
+                            labelSize: 4,
+                            size: 8,
+                            defSelectKey: 'email-id',
                             metrics: '{ "email" : "user_email"}',
                             validation: {
                                 isRequired: true,
                                 message: 'Please enter correct email address',
                                 type: 'email'
-                            },
-                        }
+                            }
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "User Role",
+                            type: "select",
+                            defSelectKey: "user-role",
+                            mode: "multiple",
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsUserRoleAPI"
+                        },
+                        {
+                            id: 4,
+                            leafTitle: "Status",
+                            type: "group-radio",
+                            defSelectKey: 'user-status',
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsUserActiveStatusAPI"
+                        },
+
                     ]
                 }
             ];
             break;
-
-
-
-
-
         // End DevSecOps API Mapping
-
 
         case "executeScheduleAPI":
             data = executeScheduleAPIModal;
@@ -18012,7 +17997,7 @@ app.post('/api/devsecops/notification-alert', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/delete-user:
- *  post:
+ *  delete:
  *      tags:
  *      - "User Management"
  *      summary: Delete User.
@@ -18024,7 +18009,7 @@ app.post('/api/devsecops/notification-alert', function (req, res) {
  */
 
 
-app.post('/api/devsecops/delete-user', function (req, res) {
+app.delete('/api/devsecops/delete-user', function (req, res) {
 
     let data = {
         key: 'UPDATE_PREF',
@@ -18046,7 +18031,7 @@ app.post('/api/devsecops/delete-user', function (req, res) {
  *      tags:
  *      - "User Management"
  *      summary: User Active Status.
- *      description: Manager User Active/InActive Status.
+ *      description: Manage User Active/InActive Status.
  *      responses:
  *          200:
  *              description: Page is working fine if got the json response!
@@ -18070,7 +18055,37 @@ app.post('/api/devsecops/active-status', function (req, res) {
 // #### End User Active Status #####
 
 
+// #### Start User Role #####
+/**
+ * @swagger
+ * /api/devsecops/user-role:
+ *  post:
+ *      tags:
+ *      - "User Management"
+ *      summary: User Role.
+ *      description: Manage User Role.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
 
+app.post('/api/devsecops/user-role', function (req, res) {
+    const data = [
+        {
+            "key": "developer",
+            'name': "Developer",
+            selected: true
+        },
+        {
+            "key": "manager",
+            'name': "Manager",
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End User Role #####
 
 
 // End Creating DevSecOps API For All Page
