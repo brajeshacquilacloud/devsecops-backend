@@ -4,7 +4,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 2,

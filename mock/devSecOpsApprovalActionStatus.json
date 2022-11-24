@@ -42,6 +42,7 @@
                     {
                         "name": "Approval Status",
                         "key": "approvalStatus",
+                        "type": "approvalStatus",
                         "display": true,
                         "filter": false
                     },
