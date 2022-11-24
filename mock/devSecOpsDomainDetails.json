@@ -5,25 +5,7 @@
                 "id": 1,
                 "leafTitle": "Section Title And Button",
                 "type": "section-title-and-button",
-                "apiKey": "devSecOpsRunPipelineButtonAPI",
-                "isHawkUI": true,
-                "size": 12,
-                "toolBarActions": [
-                    {
-                        "key": "addDomain",
-                        "title": "Run Pipeline",
-                        "type": "modal",
-                        "mode": "inline",
-                        "modalTitle": "Add New Domain",
-                        "componentsAPIKey": "addDomainAPI"
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "leafTitle": "Pipeline Status",
-                "type": "PipelineStatusCard",
-                "apiKey": "",
+                "apiKey": "devSecOpsDomainTitleAPI",
                 "isHawkUI": true,
                 "size": 12
             },

@@ -24,6 +24,7 @@ const devSecOpsPipelineScanSummary = require('./mock/devSecOpsPipelineScanSummar
 
 
 
+const devSecOpsDomainDetails = require('./mock/devSecOpsDomainDetails.json');
 const devSecOpsPipelineDetails = require('./mock/devSecOpsPipelineDetails.json');
 const devSecOpsNotification = require('./mock/devSecOpsNotification.json');
 const devSecOpsAnalytics = require('./mock/devSecOpsAnalytics.json');
@@ -78,6 +79,7 @@ const devSecOpsCusteredSimilarErrorsChartAPIData = require("./mock/data/devSecOp
 const devSecOpsFrequencyComponentChartAPIData = require("./mock/data/devSecOpsFrequencyComponentChartAPIData.json")
 const devSecOpsRootCauseAnalysisChartAPIData = require("./mock/data/devSecOpsRootCauseAnalysisChartAPIData.json")
 const devSecOpsNotificationAlertAPIData = require("./mock/data/devSecOpsNotificationAlertAPIData.json")
+const devSecOpsPipelineScanSummaryAPIData = require("./mock/data/devSecOpsPipelineScanSummaryAPIData.json")
 
 
 
@@ -5777,6 +5779,9 @@ app.post('/api/scenario', function (req, res) {
 
 
 
+        case "devSecOpsDomainDetails":
+            data = devSecOpsDomainDetails;
+            break;
         case "devSecOpsPipelineDetails":
             data = devSecOpsPipelineDetails;
             break;
@@ -18174,6 +18179,100 @@ app.post('/api/devsecops/user-role', function (req, res) {
     res.status(200).send(data);
 });
 // #### End User Role #####
+
+
+
+// #### Start Pipeline ScanSummary #####
+/**
+ * @swagger
+ * /api/devsecops/pipeline-scan-summary:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Pipeline ScanSummary.
+ *      description: Pipeline ScanSummary List.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/pipeline-scan-summary', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsPipelineScanSummaryAPIData);
+});
+
+// #### End Users List #####
+
+
+/**
+ * @swagger
+ * /api/devsecops/run-pipeline-button:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Run Pipeline Button.
+ *      description: Run Pipeline Button.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+// #### Start Run Pipeline Button #####
+app.post('/api/devsecops/run-pipeline-button', function (req, res) {
+    let data = [
+        {
+            "sectionTitle": "Pipeline Name",
+            "buttonTitle": "Run Pipeline"
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Run Pipeline Button #####
+
+
+
+
+
+/**
+ * @swagger
+ * /api/devsecops/domain-title:
+ *  post:
+ *      tags:
+ *      - "Domain Management"
+ *      summary: Domain Title.
+ *      description: Domain Title.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+// #### Start Domain Title #####
+app.post('/api/devsecops/domain-title', function (req, res) {
+    let data = [
+        {
+            "sectionTitle": "Domain Name",
+            "buttonTitle": ""
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Domain Title #####
+
+
+
+
+
+
+
+
+
 
 
 // End Creating DevSecOps API For All Page

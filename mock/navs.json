@@ -192,6 +192,16 @@
                     "className": "admin-icon"
                 },
                 {
+                    "id": "devSecOpsDomainDetails",
+                    "name": "Domain Details",
+                    "link": "/devsecops/devSecOpsDomainDetails",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": false,
+                    "className": "admin-icon"
+                },
+                {
                     "id": "devSecOpsPipelineDetails",
                     "name": "Pipeline Details",
                     "link": "/devsecops/devSecOpsPipelineDetails",
