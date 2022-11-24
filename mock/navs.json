@@ -162,16 +162,6 @@
                     "className": "admin-icon"
                 },
                 {
-                    "id": "devSecOpsOverviewCurrentPipelineDetails",
-                    "name": "Current Pipeline Details",
-                    "link": "/devsecops/devSecOpsOverviewCurrentPipelineDetails",
-                    "icon": "InboxIcon",
-                    "page": "ComponentsPage",
-                    "linkedeUrlParam": "nodeIndex",
-                    "isHawkUI": false,
-                    "className": "admin-icon"
-                },
-                {
                     "id": "devSecOpsAddDomainAddPipeline",
                     "name": "Pipeline",
                     "link": "/devsecops/add-domain-add-pipeline",
@@ -195,6 +185,16 @@
                     "id": "devSecOpsPipelineScanSummary",
                     "name": "Scan Summary",
                     "link": "/devsecops/devSecOpsPipelineScanSummary",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": false,
+                    "className": "admin-icon"
+                },
+                {
+                    "id": "devSecOpsPipelineDetails",
+                    "name": "Pipeline Details",
+                    "link": "/devsecops/devSecOpsPipelineDetails",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
