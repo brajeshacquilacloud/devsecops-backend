@@ -17997,7 +17997,7 @@ app.post('/api/devsecops/notification-alert', function (req, res) {
 /**
  * @swagger
  * /api/devsecops/delete-user:
- *  delete:
+ *  post:
  *      tags:
  *      - "User Management"
  *      summary: Delete User.
@@ -18009,7 +18009,7 @@ app.post('/api/devsecops/notification-alert', function (req, res) {
  */
 
 
-app.delete('/api/devsecops/delete-user', function (req, res) {
+app.post('/api/devsecops/delete-user', function (req, res) {
 
     let data = {
         key: 'UPDATE_PREF',
