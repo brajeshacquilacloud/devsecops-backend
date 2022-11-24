@@ -8,7 +8,7 @@
                 "type": "text-input",
                 "labelSize": 4,
                 "size": 8,
-                "defSelectKey": "devSecOpsAddUser"
+                "defSelectKey": "user-name"
             },
             {
                 "id": 2,
@@ -16,23 +16,26 @@
                 "type": "text-input",
                 "labelSize": 4,
                 "size": 8,
-                "defSelectKey": "devSecOpsAddUser"
+                "defSelectKey": "email-id"
             },
             {
                 "id": 3,
                 "leafTitle": "Role",
-                "type": "text-input",
+                "type": "select",
+                "mode": "multiple",
+                "defSelectKey": "user-role",
                 "labelSize": 4,
                 "size": 8,
-                "defSelectKey": "devSecOpsAddUser"
+                "apiKey": "providerSubscriptionId"
             },
             {
                 "id": 4,
                 "leafTitle": "Status",
-                "type": "text-input",
+                "type": "group-radio",
+                "defSelectKey": "user-status",
                 "labelSize": 4,
                 "size": 8,
-                "defSelectKey": "devSecOpsAddUser"
+                "apiKey": "devSecOpsUserActiveStatusAPI"
             }
         ]
     }

@@ -10014,7 +10014,6 @@ app.post('/api/auth/environmentlist', function (req, res) {
 });
 
 app.post('/api/auth/authlist', function (req, res) {
-
     const data = [
         {
             "key": "local",
@@ -18037,6 +18036,39 @@ app.post('/api/devsecops/delete-user', function (req, res) {
 });
 
 // #### End Users Delete #####
+
+
+// #### Start User Active Status #####
+/**
+ * @swagger
+ * /api/devsecops/active-status:
+ *  post:
+ *      tags:
+ *      - "User Management"
+ *      summary: User Active Status.
+ *      description: Manager User Active/InActive Status.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/active-status', function (req, res) {
+    const data = [
+        {
+            "key": "active",
+            'name': 'Active',
+        },
+        {
+            "key": "inactive",
+            'name': 'Inactive',
+        },
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End User Active Status #####
+
 
 
 
