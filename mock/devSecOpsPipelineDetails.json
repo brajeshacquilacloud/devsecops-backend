@@ -22,7 +22,7 @@
             {
                 "id": 2,
                 "leafTitle": "Pipeline Status",
-                "type": "PipelineStatusCard",
+                "type": "pipeline-status-card",
                 "apiKey": "",
                 "isHawkUI": true,
                 "size": 12

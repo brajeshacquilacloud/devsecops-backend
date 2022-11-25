@@ -3,145 +3,80 @@
         "leafs": [
             {
                 "id": 1,
-                "leafTitle": "Section Title And Button",
-                "type": "section-title-and-button",
-                "apiKey": "devSecOpsDomainTitleAPI",
+                "leafTitle": "Domain Details",
+                "type": "devSecOpsDomainDetailsLayout",
+                "defSelectKey": "defkeyDomainDetails",
                 "isHawkUI": true,
-                "size": 12
-            },
-            {
-                "id": 2,
-                "leafTitle": "Pipeline Status",
-                "isHawkUI": true,
-                "type": "hawkDatatable",
-                "apiKey": "pipelineStatusAPI",
-                "size": 6,
-                "noDataText": "No sub-users available",
-                "metrics": {},
-                "hideToolBar": true,
-                "defaultRowPerPage": 10,
-                "columns": [
+                "dataAPIKey": "devSecOpsDomainDetailsAPI",
+                "components": [
                     {
-                        "name": "Id",
-                        "key": "pipelineId",
-                        "display": false
-                    },
-                    {
-                        "name": "Pipeline Name",
-                        "key": "pipelineName",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Deployment",
-                        "key": "deployment",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Action",
-                        "key": "action",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "multiselect"
-                    },
-                    {
-                        "name": "Details",
-                        "key": "rowAction",
-                        "display": true,
+                        "id": 2,
+                        "dataApiKey": "pipelineStatusAPI",
+                        "isHawkUI": true,
+                        "type": "hawkDatatable",
+                        "header": "Pipeline Status",
+                        "hideToolBar": true,
+                        "noDataText": "No Pipeline Status Available",
+                        "size": 12,
                         "filter": false,
-                        "type": "rowAction",
-                        "rowActions": [
+                        "metrics": {},
+                        "selectableRows": "single",
+                        "defaultRowPerPage": 10,
+                        "columns": [
                             {
-                                "name": "Delete",
-                                "key": "action",
-                                "type": "delete",
-                                "display": true,
-                                "apiKey": "deleteUserAPI",
-                                "requestParams": [
-                                    {
-                                        "key": "pipelineId"
-                                    }
-                                ]
+                                "name": "Id",
+                                "key": "pipelineId",
+                                "display": false
                             },
                             {
-                                "name": "Edit",
-                                "key": "action",
-                                "type": "edit",
-                                "display": true,
-                                "drillTo": "modal",
-                                "modalTitle": "Pipeline Status Details",
-                                "drillParams": [
-                                    {
-                                        "key": "pipelineId"
-                                    }
-                                ],
-                                "componentsAPIKey": "devSecOpsEditUserComponentAPI"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": 3,
-                "leafTitle": "Scan Summary",
-                "isHawkUI": true,
-                "type": "hawkDatatable",
-                "apiKey": "pipelineScanSummaryAPI",
-                "size": 6,
-                "noDataText": "No sub-users available",
-                "metrics": {},
-                "hideToolBar": true,
-                "defaultRowPerPage": 10,
-                "columns": [
-                    {
-                        "name": "Id",
-                        "key": "incidentId",
-                        "display": false
-                    },
-                    {
-                        "name": "Incident",
-                        "key": "incident",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Risk",
-                        "key": "risk",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Stage",
-                        "key": "stage",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "multiselect"
-                    },
-                    {
-                        "name": "Details",
-                        "key": "rowAction",
-                        "display": true,
-                        "filter": false,
-                        "type": "rowAction",
-                        "rowActions": [
+                                "name": "Pipeline Name",
+                                "key": "pipelineName",
+                                "display": true
+                            },
                             {
-                                "name": "View",
+                                "name": "Deployment",
+                                "key": "deployment",
+                                "display": true
+                            },
+                            {
+                                "name": "Action",
                                 "key": "action",
-                                "type": "edit",
+                                "display": true
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
                                 "display": true,
-                                "drillTo": "modal",
-                                "modalTitle": "Edit user",
-                                "drillParams": [
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
                                     {
-                                        "key": "incidentId"
+                                        "name": "Delete",
+                                        "key": "action",
+                                        "type": "delete",
+                                        "display": true,
+                                        "apiKey": "deleteUserAPI",
+                                        "requestParams": [
+                                            {
+                                                "key": "pipelineId"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Edit",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Pipeline Status Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "pipelineId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
                                     }
-                                ],
-                                "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                ]
                             }
                         ]
                     }
