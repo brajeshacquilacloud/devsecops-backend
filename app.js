@@ -78,6 +78,7 @@ const devSecOpsFrequencyComponentChartAPIData = require("./mock/data/devSecOpsFr
 const devSecOpsRootCauseAnalysisChartAPIData = require("./mock/data/devSecOpsRootCauseAnalysisChartAPIData.json")
 const devSecOpsNotificationAlertAPIData = require("./mock/data/devSecOpsNotificationAlertAPIData.json")
 const devSecOpsPipelineScanSummaryAPIData = require("./mock/data/devSecOpsPipelineScanSummaryAPIData.json")
+const devSecOpsPipelineStatusAPIData = require("./mock/data/devSecOpsPipelineStatusAPIData.json")
 
 
 
@@ -18259,6 +18260,30 @@ app.post('/api/devsecops/domain-title', function (req, res) {
 
 
 
+
+// #### Start Pipeline Status #####
+/**
+ * @swagger
+ * /api/devsecops/pipeline-status:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Pipeline Status.
+ *      description: Pipeline Status List.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/pipeline-status', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsPipelineStatusAPIData);
+});
+
+// #### End Pipeline Status #####
 
 
 

@@ -10,12 +10,87 @@
                 "size": 12
             },
             {
+                "id": 2,
+                "leafTitle": "Pipeline Status",
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "apiKey": "pipelineStatusAPI",
+                "size": 6,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "hideToolBar": true,
+                "defaultRowPerPage": 10,
+                "columns": [
+                    {
+                        "name": "Id",
+                        "key": "pipelineId",
+                        "display": false
+                    },
+                    {
+                        "name": "Pipeline Name",
+                        "key": "pipelineName",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Deployment",
+                        "key": "deployment",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
+                    },
+                    {
+                        "name": "Action",
+                        "key": "action",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "multiselect"
+                    },
+                    {
+                        "name": "Details",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "deleteUserAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "pipelineId"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "action",
+                                "type": "edit",
+                                "display": true,
+                                "drillTo": "modal",
+                                "modalTitle": "Pipeline Status Details",
+                                "drillParams": [
+                                    {
+                                        "key": "pipelineId"
+                                    }
+                                ],
+                                "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "id": 3,
                 "leafTitle": "Scan Summary",
                 "isHawkUI": true,
                 "type": "hawkDatatable",
                 "apiKey": "pipelineScanSummaryAPI",
-                "size": 12,
+                "size": 6,
                 "noDataText": "No sub-users available",
                 "metrics": {},
                 "hideToolBar": true,
