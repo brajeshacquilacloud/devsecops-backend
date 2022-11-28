@@ -3,6 +3,94 @@
         "leafs": [
             {
                 "id": 1,
+                "type": "nextHeaderActionPanel",
+                "noDataText": "No Summary Data available",
+                "size": 12,
+                "pageActions": [
+                    {
+                        "key": "pageSearch",
+                        "title": "Search",
+                        "type": "search"
+                    },
+                    {
+                        "key": "domainPipelineSelection",
+                        "title": "Domain/Pipeline Name",
+                        "type": "domain-pipeline-menu-selection-dropdown"
+                    },
+                    {
+                        "modalTitle": "Pipeline",
+                        "title": "Time Range",
+                        "leafTitle": "Image Id",
+                        "type": "select",
+                        "defaultValue": "1 Hour",
+                        "options": [
+                            {
+                                "value": "all",
+                                "label": "All"
+                            },
+                            {
+                                "value": "1 Hour",
+                                "label": "1 Hour"
+                            },
+                            {
+                                "value": "8 Hours",
+                                "label": "8 Hours"
+                            },
+                            {
+                                "value": "24 Hours",
+                                "label": "24 Hours"
+                            },
+                            {
+                                "value": "This Week",
+                                "label": "This Week"
+                            },
+                            {
+                                "value": "Last Week",
+                                "label": "Last Week"
+                            },
+                            {
+                                "value": "Last 30 Days",
+                                "label": "Last 30 Days"
+                            },
+                            {
+                                "value": "This Month",
+                                "label": "This Month"
+                            },
+                            {
+                                "value": "Last 6 Months",
+                                "label": "Last 6 Months"
+                            },
+                            {
+                                "value": "1 Year",
+                                "label": "1 Year"
+                            },
+                            {
+                                "value": "Custom",
+                                "label": "Custom"
+                            }
+                        ]
+                    },
+                    {
+                        "toolbarTitle": "Export",
+                        "type": "download",
+                        "downloadOptions": [
+                            {
+                                "lable": "Download PDF",
+                                "apiKey": "cspBillSentInvoiceDownloadAPI",
+                                "fileName": "Billing Overview.pdf"
+                            },
+                            {
+                                "lable": "Download CSV",
+                                "fileName": "Billing Overview.csv",
+                                "componentsAPIKey": "extendedDownloadAPI",
+                                "modalTitle": "Download"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
                 "leafTitle": "Domain Details",
                 "type": "devSecOpsDomainDetailsLayout",
                 "defSelectKey": "defkeyDomainDetails",
@@ -17,7 +105,7 @@
                         "header": "Pipeline Status",
                         "hideToolBar": true,
                         "noDataText": "No Pipeline Status Available",
-                        "size": 12,
+                        "size": 6,
                         "filter": false,
                         "metrics": {},
                         "selectableRows": "single",
@@ -72,6 +160,89 @@
                                         "drillParams": [
                                             {
                                                 "key": "pipelineId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "ActiveInactivePipelineCard",
+                        "id": 2,
+                        "size": 3,
+                        "dataApiKey": "ActiveInactivePipelineCardAPIData"
+                    },
+                    {
+                        "type": "ActiveInactivePipelineCard",
+                        "id": 2,
+                        "size": 3,
+                        "dataApiKey": "ActiveInactivePipelineCardAPIData"
+                    },
+                    {
+                        "id": 3,
+                        "dataApiKey": "pipelineScanSummaryAPI",
+                        "isHawkUI": true,
+                        "type": "hawkDatatable",
+                        "header": "Scan Summary",
+                        "hideToolBar": true,
+                        "noDataText": "No Scan Summary Available",
+                        "size": 6,
+                        "filter": false,
+                        "metrics": {},
+                        "selectableRows": "single",
+                        "defaultRowPerPage": 10,
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "incidentId",
+                                "display": false
+                            },
+                            {
+                                "name": "Incident",
+                                "key": "incident",
+                                "display": true
+                            },
+                            {
+                                "name": "Risk",
+                                "key": "risk",
+                                "display": true
+                            },
+                            {
+                                "name": "Stage",
+                                "key": "stage",
+                                "display": true
+                            },
+                            {
+                                "name": "View",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
+                                    {
+                                        "name": "Delete",
+                                        "key": "action",
+                                        "type": "delete",
+                                        "display": true,
+                                        "apiKey": "deleteUserAPI",
+                                        "requestParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Edit",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Pipeline Status Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
                                             }
                                         ],
                                         "componentsAPIKey": "devSecOpsEditUserComponentAPI"

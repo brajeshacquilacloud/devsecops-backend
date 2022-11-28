@@ -18288,6 +18288,47 @@ app.post('/api/devsecops/pipeline-status', function (req, res) {
 
 
 
+/**
+ * @swagger
+ * /api/filters/timefilter:
+ *  post:
+ *      tags:
+ *      - "filters"
+ *      summary: Global TIME Filters.
+ *      description: Global TIME Filters List.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+// Start Mock API for the Global TIME filters.
+app.post('/api/filters/timefilter', function (req, res) {
+
+    const TIME_FILTER_LIST = [
+        'All',
+        '1 Hour',
+        '8 Hours',
+        '24 Hours',
+        'This Week',
+        'Last Week',
+        'Last 30 Days',
+        'This Month',
+        'Last 6 Months',
+        '1 Year',
+        'Custom',
+    ];
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.setHeader('Content-Type', 'application/json');
+    res.send(TIME_FILTER_LIST);
+});
+
+
+// #### End Mock API for the Global TIME filters. #####
+
 
 
 
