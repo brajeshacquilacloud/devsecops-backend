@@ -15,6 +15,11 @@
                 "defaultRowPerPage": 10,
                 "columns": [
                     {
+                        "name": "Id",
+                        "key": "serverId",
+                        "display": false
+                    },
+                    {
                         "name": "Server Name",
                         "key": "serverName",
                         "display": true,
@@ -24,6 +29,7 @@
                     {
                         "name": "Server Connected",
                         "key": "serverConnected",
+                        "type": "serverConnected",
                         "display": true,
                         "filter": false,
                         "filterType": "textField"
@@ -43,30 +49,18 @@
                         "type": "rowAction",
                         "rowActions": [
                             {
-                                "name": "Delete",
-                                "key": "action",
-                                "type": "delete",
-                                "display": true,
-                                "apiKey": "deleteUserAPI",
-                                "requestParams": [
-                                    {
-                                        "key": "instanceId"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Edit",
+                                "name": "Edit Server",
                                 "key": "action",
                                 "type": "edit",
                                 "display": true,
                                 "drillTo": "modal",
-                                "modalTitle": "Edit user",
+                                "modalTitle": "Edit Server Setting",
                                 "drillParams": [
                                     {
-                                        "key": "instanceId"
+                                        "key": "serverId"
                                     }
                                 ],
-                                "componentsAPIKey": "addUserComponentAPI"
+                                "componentsAPIKey": "devSecOpsEditServerSettingsComponentAPI"
                             }
                         ]
                     }
@@ -85,6 +79,11 @@
                 "pagination": false,
                 "defaultRowPerPage": 10,
                 "columns": [
+                    {
+                        "name": "Id",
+                        "key": "recurrenceId",
+                        "display": false
+                    },
                     {
                         "name": "Recurrence",
                         "key": "recurrence",
@@ -114,30 +113,18 @@
                         "type": "rowAction",
                         "rowActions": [
                             {
-                                "name": "Delete",
-                                "key": "action",
-                                "type": "delete",
-                                "display": true,
-                                "apiKey": "deleteUserAPI",
-                                "requestParams": [
-                                    {
-                                        "key": "instanceId"
-                                    }
-                                ]
-                            },
-                            {
                                 "name": "Edit",
                                 "key": "action",
                                 "type": "edit",
                                 "display": true,
                                 "drillTo": "modal",
-                                "modalTitle": "Edit user",
+                                "modalTitle": "Edit Recurrence Settings",
                                 "drillParams": [
                                     {
-                                        "key": "instanceId"
+                                        "key": "recurrenceId"
                                     }
                                 ],
-                                "componentsAPIKey": "addUserComponentAPI"
+                                "componentsAPIKey": "devSecOpsEditScheduleSettingsComponentAPI"
                             }
                         ]
                     }
@@ -156,6 +143,11 @@
                 "pagination": false,
                 "defaultRowPerPage": 10,
                 "columns": [
+                    {
+                        "name": "Id",
+                        "key": "otherSettingsId",
+                        "display": false
+                    },
                     {
                         "name": "Name",
                         "key": "name",
@@ -185,30 +177,18 @@
                         "type": "rowAction",
                         "rowActions": [
                             {
-                                "name": "Delete",
-                                "key": "action",
-                                "type": "delete",
-                                "display": true,
-                                "apiKey": "deleteUserAPI",
-                                "requestParams": [
-                                    {
-                                        "key": "instanceId"
-                                    }
-                                ]
-                            },
-                            {
                                 "name": "Edit",
                                 "key": "action",
                                 "type": "edit",
                                 "display": true,
                                 "drillTo": "modal",
-                                "modalTitle": "Edit user",
+                                "modalTitle": "Edit Other Settings",
                                 "drillParams": [
                                     {
-                                        "key": "instanceId"
+                                        "key": "otherSettingsId"
                                     }
                                 ],
-                                "componentsAPIKey": "addUserComponentAPI"
+                                "componentsAPIKey": "devSecOpsEditOtherSettingsComponentAPI"
                             }
                         ]
                     }

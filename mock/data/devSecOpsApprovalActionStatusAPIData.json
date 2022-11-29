@@ -39,7 +39,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Rejected"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 7,

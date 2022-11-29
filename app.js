@@ -8418,6 +8418,139 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ];
             break;
+        case 'devSecOpsEditServerSettingsModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add',
+                    disableActionButton: true,
+                    modalWidth: 500,
+                    modalActions: [
+                        {
+                            id: 'help',
+                            type: 'help',
+                            url: "http://google.com",
+                            target: "new",
+                        }
+                    ],
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Server Name",
+                            type: "text-input",
+                            inputType: 'string',
+                            labelSize: 4,
+                            size: 8,
+                            defSelectKey: 'server-name'
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "Server Connected",
+                            type: "group-radio",
+                            defSelectKey: 'server-connected',
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
+                        },
+
+                    ]
+                }
+            ];
+            break;
+        case 'devSecOpsEditScheduleSettingsModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add',
+                    disableActionButton: true,
+                    modalWidth: 500,
+                    modalActions: [
+                        {
+                            id: 'help',
+                            type: 'help',
+                            url: "http://google.com",
+                            target: "new",
+                        }
+                    ],
+                    leafs: [
+                        {
+                            id: 3,
+                            leafTitle: "Recurrence",
+                            type: "select",
+                            defSelectKey: "recurrence",
+                            mode: "single",
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsRecurrenceTypeAPI"
+                        },
+                        {
+                            id: 4,
+                            leafTitle: "Time",
+                            type: "text-input",
+                            defSelectKey: 'user-status',
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: ""
+                        },
+
+                    ]
+                }
+            ];
+            break;
+
+        case 'devSecOpsEditOtherSettingsModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add',
+                    disableActionButton: true,
+                    modalWidth: 500,
+                    modalActions: [
+                        {
+                            id: 'help',
+                            type: 'help',
+                            url: "http://google.com",
+                            target: "new",
+                        }
+                    ],
+                    leafs: [
+                        {
+                            id: 3,
+                            leafTitle: "Name",
+                            type: "select",
+                            defSelectKey: "name",
+                            mode: "single",
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsOtherSettingsNameAPI"
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "Yes/No",
+                            type: "group-radio",
+                            defSelectKey: 'yes-no',
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "Vulnerability Component",
+                            type: "text-input",
+                            inputType: 'string',
+                            defSelectKey: 'vulnerability-component',
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
+                        },
+                    ]
+                }
+            ];
+            break;
+
 
 
 
@@ -18328,6 +18461,166 @@ app.post('/api/filters/timefilter', function (req, res) {
 
 
 // #### End Mock API for the Global TIME filters. #####
+
+
+
+
+
+// #### Start server setting server connected active status #####
+/**
+ * @swagger
+ * /api/devsecops/server-setting-server-connected-active-status:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Server connected active status.
+ *      description: Manage Server connected Active/InActive Status.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/server-setting-server-connected-active-status', function (req, res) {
+    const data = [
+        {
+            "key": "true",
+            'name': 'Yes',
+        },
+        {
+            "key": "false",
+            'name': 'No',
+        },
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End server setting server connected active status #####
+
+
+
+
+
+// #### Start schedule setting recurrence #####
+/**
+ * @swagger
+ * /api/devsecops/schedule-setting-recurrence:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Schedule - Recurrence Time.
+ *      description: Manage Schedule - Recurrence Time Status.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/schedule-setting-recurrence', function (req, res) {
+    const data = [
+        {
+            "key": "true",
+            'name': 'Yes',
+        },
+        {
+            "key": "false",
+            'name': 'No',
+        },
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End schedule setting recurrence #####
+
+
+
+// #### Start Recurrence Type #####
+/**
+ * @swagger
+ * /api/devsecops/recurrence-type:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Recurrence Type.
+ *      description: Manage Recurrence Type.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/recurrence-type', function (req, res) {
+    const data = [
+        {
+            "key": "daily",
+            'name': "Daily",
+
+        },
+        {
+            "key": "weekly",
+            'name': "Weekly",
+            selected: true
+        },
+        {
+            "key": "Monthly",
+            'name': "Monthly",
+        },
+        {
+            "key": "yearly",
+            'name': "Yearly",
+        },
+        {
+            "key": "minutely",
+            'name': "Minutely",
+        },
+        {
+            "key": "hourly",
+            'name': "Hourly",
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Recurrence Type #####
+
+
+
+
+
+
+// #### Start Other Settings Name #####
+/**
+ * @swagger
+ * /api/devsecops/other-settings-name:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Other Settings Name.
+ *      description: Manage Other Settings Name.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/other-settings-name', function (req, res) {
+    const data = [
+        {
+            "key": "runRootCause",
+            'name': "Run Root Cause",
+
+        },
+        {
+            "key": "runFrequency",
+            'name': "Run Frequency",
+            selected: true
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Other Settings Name #####
+
 
 
 
