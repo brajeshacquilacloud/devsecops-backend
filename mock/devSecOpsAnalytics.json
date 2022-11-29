@@ -2,177 +2,97 @@
     {
         "leafs": [
             {
-                "id": 1,
-                "leafTitle": "All Incident",
-                "isHawkUI": true,
-                "type": "hawkDatatable",
-                "apiKey": "devSecOpsAllIncidentAPI",
+                "id": 1926,
+                "leafTitle": "Customer Profile",
+                "subTitle": "",
                 "size": 12,
-                "noDataText": "No sub-users available",
-                "metrics": {},
-                "hideToolBar": true,
-                "defaultRowPerPage": 10,
-                "columns": [
+                "type": "analyticsLayout",
+                "isHawkUI": true,
+                "apiKey": "customerOverviewDataAPI",
+                "components": [
                     {
-                        "name": "Id",
-                        "key": "incidentId",
-                        "display": false
-                    },
-                    {
-                        "name": "Incident Name",
-                        "key": "incidentName",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Risk Level",
-                        "key": "riskLevel",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Incident Details",
-                        "key": "rowAction",
-                        "display": true,
+                        "id": 4,
+                        "dataApiKey": "getCustomerContactData",
+                        "isHawkUI": true,
+                        "type": "hawkDataTable",
+                        "header": "Contact Detail",
+                        "hideToolBar": true,
+                        "noDataText": "No Contact Detail Available",
+                        "size": 12,
                         "filter": false,
-                        "type": "rowAction",
-                        "rowActions": [
+                        "metrics": {},
+                        "selectableRows": "single",
+                        "defaultRowPerPage": 10,
+                        "columns": [
                             {
-                                "name": "Delete",
-                                "key": "action",
-                                "type": "delete",
-                                "display": true,
-                                "apiKey": "deleteUserAPI",
-                                "requestParams": [
-                                    {
-                                        "key": "instanceId"
-                                    }
-                                ]
+                                "name": "First Name",
+                                "key": "firstName",
+                                "display": true
                             },
                             {
-                                "name": "Edit",
-                                "key": "action",
-                                "type": "edit",
-                                "display": true,
-                                "drillTo": "modal",
-                                "modalTitle": "Edit user",
-                                "drillParams": [
-                                    {
-                                        "key": "instanceId"
-                                    }
-                                ],
-                                "componentsAPIKey": "addUserComponentAPI"
+                                "name": "Last Name",
+                                "key": "lastName",
+                                "display": true
+                            },
+                            {
+                                "name": "User Id",
+                                "key": "userID",
+                                "display": true
+                            },
+                            {
+                                "name": "Email Id",
+                                "key": "emailId",
+                                "display": true
+                            },
+                            {
+                                "name": "Designation",
+                                "key": "designation",
+                                "display": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "dataApiKey": "getCustomerContactData",
+                        "isHawkUI": true,
+                        "type": "hawkDataTable",
+                        "header": "Contact Detail",
+                        "hideToolBar": true,
+                        "noDataText": "No Contact Detail Available",
+                        "size": 12,
+                        "filter": false,
+                        "metrics": {},
+                        "selectableRows": "single",
+                        "defaultRowPerPage": 10,
+                        "columns": [
+                            {
+                                "name": "First Name",
+                                "key": "firstName",
+                                "display": true
+                            },
+                            {
+                                "name": "Last Name",
+                                "key": "lastName",
+                                "display": true
+                            },
+                            {
+                                "name": "User Id",
+                                "key": "userID",
+                                "display": true
+                            },
+                            {
+                                "name": "Email Id",
+                                "key": "emailId",
+                                "display": true
+                            },
+                            {
+                                "name": "Designation",
+                                "key": "designation",
+                                "display": true
                             }
                         ]
                     }
                 ]
-            },
-            {
-                "id": 2,
-                "leafTitle": "Custered / Similar Errors",
-                "type": "line",
-                "lib": "google",
-                "legendPosition": "bottom",
-                "apiKey": "devSecOpsCusteredSimilarErrorsChartAPI",
-                "size": 4,
-                "height": 300,
-                "width": "75%",
-                "yAxis": {
-                    "title": "Cost",
-                    "format": "$#"
-                },
-                "xAxis": {
-                    "title": "Time"
-                },
-                "toolTipDateFormat": "MMM yyyy",
-                "lineColumns": [
-                    "x",
-                    "azure",
-                    "aws"
-                ],
-                "dateTimeIndex": 0,
-                "noDataText": "Data not available.",
-                "unit": {
-                    "value": "USD",
-                    "position": "prefix"
-                },
-                "isCustomizedTooltip": true,
-                "alert": {
-                    "column": "Alerts",
-                    "showAlertInLegend": false
-                }
-            },
-            {
-                "id": 3,
-                "leafTitle": "Frequency / Component",
-                "type": "line",
-                "lib": "google",
-                "legendPosition": "bottom",
-                "apiKey": "devSecOpsFrequencyComponentChartAPI",
-                "size": 4,
-                "height": 300,
-                "width": "75%",
-                "yAxis": {
-                    "title": "Cost",
-                    "format": "$#"
-                },
-                "xAxis": {
-                    "title": "Time"
-                },
-                "toolTipDateFormat": "MMM yyyy",
-                "lineColumns": [
-                    "x",
-                    "azure",
-                    "aws"
-                ],
-                "dateTimeIndex": 0,
-                "noDataText": "Data not available.",
-                "unit": {
-                    "value": "USD",
-                    "position": "prefix"
-                },
-                "isCustomizedTooltip": true,
-                "alert": {
-                    "column": "Alerts",
-                    "showAlertInLegend": false
-                }
-            },
-            {
-                "id": 4,
-                "leafTitle": "Root Cause Analysis",
-                "type": "line",
-                "lib": "google",
-                "legendPosition": "bottom",
-                "apiKey": "devSecOpsRootCauseAnalysisChartAPI",
-                "size": 4,
-                "height": 300,
-                "width": "75%",
-                "yAxis": {
-                    "title": "Cost",
-                    "format": "$#"
-                },
-                "xAxis": {
-                    "title": "Time"
-                },
-                "toolTipDateFormat": "MMM yyyy",
-                "lineColumns": [
-                    "x",
-                    "azure",
-                    "aws"
-                ],
-                "dateTimeIndex": 0,
-                "noDataText": "Data not available.",
-                "unit": {
-                    "value": "USD",
-                    "position": "prefix"
-                },
-                "isCustomizedTooltip": true,
-                "alert": {
-                    "column": "Alerts",
-                    "showAlertInLegend": false
-                }
             }
         ]
     }
