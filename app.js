@@ -8353,66 +8353,14 @@ app.post('/api/scenario/modal', function (req, res) {
                         {
                             id: 1,
                             leafTitle: "DevOps Tool:",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 6,
-                            size: 6,
+                            type: "stageDetailsSummaryCard",
+                            apiKey: "devSecOpsApprovalActionStatusStageDetailsSummaryData",
+                            noDataText: "No Summary Data available",
+                            metrics: {},
+                            size: 12,
                             defSelectKey: 'devops-tool'
-                        },
-                        {
-                            id: 2,
-                            leafTitle: "IP Address:",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 6,
-                            size: 6,
-                            defSelectKey: 'ip-address'
-                        },
-                        {
-                            id: 3,
-                            leafTitle: "Athorizatioin Key/Password:",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 6,
-                            size: 6,
-                            defSelectKey: "athorizatioin-key-password",
-                        },
-                        {
-                            id: 4,
-                            leafTitle: "Property File:",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 6,
-                            size: 6,
-                            defSelectKey: "property-file",
-                        },
-                        {
-                            id: 5,
-                            leafTitle: "SecOps Tool:",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 6,
-                            size: 6,
-                            defSelectKey: "secops-tool",
-                        },
-                        {
-                            id: 6,
-                            leafTitle: "Other Information:",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 6,
-                            size: 6,
-                            defSelectKey: "other-information",
-                        },
-                        {
-                            id: 7,
-                            leafTitle: "Other Information:",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 6,
-                            size: 6,
-                            defSelectKey: "other-information-2",
-                        },
+
+                        }
 
                     ]
                 }
@@ -18622,6 +18570,92 @@ app.post('/api/devsecops/other-settings-name', function (req, res) {
 // #### End Other Settings Name #####
 
 
+
+// #### Start Approval Action Status Stage Details Summary Data #####
+/**
+ * @swagger
+ * /api/devsecops/approval-action-status-stage-details-summary-data:
+ *  post:
+ *      tags:
+ *      - "Approval Action Status"
+ *      summary: Approval Action Status Stage Details Summary Data.
+ *      description: Manage Approval Action Status Stage Details Summary Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/approval-action-status-stage-details-summary-data', function (req, res) {
+    let data = [
+        {
+            "type": "info",
+            "list": [
+                {
+                    "name": "DevOps Tool",
+                    "value": 'Github'
+                },
+                {
+                    "name": "IP Address",
+                    "value": '192.30.252.0/22'
+                },
+                {
+                    "name": "Athorizatioin Key/Password",
+                    "value": '3eser45trgfyt6uyguh87t6r5df'
+                },
+                {
+                    "name": "Property File",
+                    "modal": {
+                        "title": "View",
+                        "modalTitle": "View Property File Details",
+                        "componentsAPIKey": "autoCreateDomainAPI",
+                    }
+                },
+                {
+                    "name": "SecOps Tool",
+                    "value": 'Grype'
+                },
+                {
+                    "name": "Other Information",
+                    "value": 'Description Here.'
+                },
+                {
+                    "name": "Other Information",
+                    "value": 'Description Here.'
+                },
+            ],
+        },
+        {
+            "name": "Sum Total",
+            "value": 43243.37,
+            "unit": "$",
+        },
+        {
+            "name": "Current Billing Cycle",
+            "value": 1369.27,
+            "trend": "up",
+            "color": "green",
+            "unit": "$",
+            "percentage": 24,
+        },
+        {
+            "name": "Total Bil",
+            "value": "1369.27",
+            "trend": "down",
+            "color": "red",
+            "unit": "$",
+            "percentage": 24,
+        }
+    ];
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+
+
+});
+
+
+// #### End Approval Action Status Stage Details Summary Data #####
 
 
 
