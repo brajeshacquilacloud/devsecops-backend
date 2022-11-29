@@ -18624,27 +18624,6 @@ app.post('/api/devsecops/approval-action-status-stage-details-summary-data', fun
                     "value": 'Description Here.'
                 },
             ],
-        },
-        {
-            "name": "Sum Total",
-            "value": 43243.37,
-            "unit": "$",
-        },
-        {
-            "name": "Current Billing Cycle",
-            "value": 1369.27,
-            "trend": "up",
-            "color": "green",
-            "unit": "$",
-            "percentage": 24,
-        },
-        {
-            "name": "Total Bil",
-            "value": "1369.27",
-            "trend": "down",
-            "color": "red",
-            "unit": "$",
-            "percentage": 24,
         }
     ];
 
