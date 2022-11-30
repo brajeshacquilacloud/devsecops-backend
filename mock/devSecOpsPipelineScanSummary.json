@@ -18,7 +18,7 @@
                 "dashboardSectionTitle": "Current Pieline Name",
                 "dashboardSectionRunPipelineTitle": "Run Pipeline",
                 "pipelineStatusTableTitle": "Pipeline Status",
-                "pipelineStatusData":{
+                "pipelineStatusData": {
                     "data": [
                         {
                             "testRun": 134,
@@ -28,8 +28,8 @@
                         }
                     ]
                 },
-                "scanSummaryTableGoToAnalyticsTitle":"Go To Analytics",
-                "scanSummaryTableGoToAnalyticsUrl":"https://google.com",
+                "scanSummaryTableGoToAnalyticsTitle": "Go To Analytics",
+                "scanSummaryTableGoToAnalyticsUrl": "https://google.com",
                 "scanSummaryTableTitle": "Scan Summary",
                 "scanSummaryColumns": {
                     "data": [

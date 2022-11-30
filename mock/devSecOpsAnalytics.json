@@ -2,22 +2,22 @@
     {
         "leafs": [
             {
-                "id": 1926,
-                "leafTitle": "Customer Profile",
+                "id": 1,
+                "leafTitle": "Analytics Page Layout",
                 "subTitle": "",
                 "size": 12,
                 "type": "analyticsLayout",
                 "isHawkUI": true,
-                "apiKey": "customerOverviewDataAPI",
+                "apiKey": "",
                 "components": [
                     {
-                        "id": 4,
-                        "dataApiKey": "getCustomerContactData",
+                        "id": 1,
+                        "dataApiKey": "devSecOpsAllIncidentAPI",
                         "isHawkUI": true,
                         "type": "hawkDataTable",
-                        "header": "Contact Detail",
+                        "header": "All Incident",
                         "hideToolBar": true,
-                        "noDataText": "No Contact Detail Available",
+                        "noDataText": "No Incident Available",
                         "size": 12,
                         "filter": false,
                         "metrics": {},
@@ -25,69 +25,131 @@
                         "defaultRowPerPage": 10,
                         "columns": [
                             {
-                                "name": "First Name",
-                                "key": "firstName",
+                                "name": "Id",
+                                "key": "incidentId",
+                                "display": false
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incidentName",
                                 "display": true
                             },
                             {
-                                "name": "Last Name",
-                                "key": "lastName",
+                                "name": "Risk Level",
+                                "key": "riskLevel",
                                 "display": true
                             },
                             {
-                                "name": "User Id",
-                                "key": "userID",
+                                "name": "Incident Details",
+                                "key": "incidentDetails",
+                                "display": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "dataApiKey": "devSecOpsAllIncidentAPI",
+                        "isHawkUI": true,
+                        "type": "hawkDataTable",
+                        "header": "2nd Table",
+                        "hideToolBar": true,
+                        "noDataText": "No Incident Available",
+                        "size": 12,
+                        "filter": false,
+                        "metrics": {},
+                        "selectableRows": "single",
+                        "defaultRowPerPage": 3,
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "incidentId",
+                                "display": false
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incidentName",
                                 "display": true
                             },
                             {
-                                "name": "Email Id",
-                                "key": "emailId",
+                                "name": "Risk Level",
+                                "key": "riskLevel",
                                 "display": true
                             },
                             {
-                                "name": "Designation",
-                                "key": "designation",
+                                "name": "Incident Details",
+                                "key": "incidentDetails",
+                                "display": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "dataApiKey": "devSecOpsAllIncidentAPI",
+                        "isHawkUI": true,
+                        "type": "hawkDataTable",
+                        "header": "3rd Table",
+                        "hideToolBar": true,
+                        "noDataText": "No Incident Available",
+                        "size": 12,
+                        "filter": false,
+                        "metrics": {},
+                        "selectableRows": "single",
+                        "defaultRowPerPage": 3,
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "incidentId",
+                                "display": false
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incidentName",
+                                "display": true
+                            },
+                            {
+                                "name": "Risk Level",
+                                "key": "riskLevel",
+                                "display": true
+                            },
+                            {
+                                "name": "Incident Details",
+                                "key": "incidentDetails",
                                 "display": true
                             }
                         ]
                     },
                     {
                         "id": 4,
-                        "dataApiKey": "getCustomerContactData",
+                        "dataApiKey": "devSecOpsAllIncidentAPI",
                         "isHawkUI": true,
                         "type": "hawkDataTable",
-                        "header": "Contact Detail",
+                        "header": "4th Table",
                         "hideToolBar": true,
-                        "noDataText": "No Contact Detail Available",
+                        "noDataText": "No Incident Available",
                         "size": 12,
                         "filter": false,
                         "metrics": {},
                         "selectableRows": "single",
-                        "defaultRowPerPage": 10,
+                        "defaultRowPerPage": 3,
                         "columns": [
                             {
-                                "name": "First Name",
-                                "key": "firstName",
+                                "name": "Id",
+                                "key": "incidentId",
+                                "display": false
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incidentName",
                                 "display": true
                             },
                             {
-                                "name": "Last Name",
-                                "key": "lastName",
+                                "name": "Risk Level",
+                                "key": "riskLevel",
                                 "display": true
                             },
                             {
-                                "name": "User Id",
-                                "key": "userID",
-                                "display": true
-                            },
-                            {
-                                "name": "Email Id",
-                                "key": "emailId",
-                                "display": true
-                            },
-                            {
-                                "name": "Designation",
-                                "key": "designation",
+                                "name": "Incident Details",
+                                "key": "incidentDetails",
                                 "display": true
                             }
                         ]
