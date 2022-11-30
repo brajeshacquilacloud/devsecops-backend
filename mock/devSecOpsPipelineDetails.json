@@ -54,6 +54,7 @@
                     {
                         "name": "Risk",
                         "key": "risk",
+                        "type": "riskLevel",
                         "display": true,
                         "filter": true,
                         "filterType": "textField"
@@ -61,6 +62,7 @@
                     {
                         "name": "Stage",
                         "key": "stage",
+                        "type": "stage",
                         "display": true,
                         "filter": true,
                         "filterType": "multiselect"

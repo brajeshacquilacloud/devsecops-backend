@@ -41,7 +41,7 @@
                         {
                             "name": "Risk Level",
                             "key": "status",
-                            "type": "step",
+                            "type": "riskLevel",
                             "display": true
                         },
                         {

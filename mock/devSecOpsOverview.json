@@ -71,7 +71,25 @@
                             "deployment": "Faulted",
                             "progressType": "warning",
                             "action": "Faulted message",
-                            "actionText": "Faulted message",
+                            "actionText": "Go to Terminal",
+                            "edit": "Edit",
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Faulted",
+                            "progressType": "warning",
+                            "action": "Faulted message",
+                            "actionText": "Go to Terminal",
+                            "edit": "Edit",
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Faulted",
+                            "progressType": "warning",
+                            "action": "Faulted message",
+                            "actionText": "Go to Terminal",
                             "edit": "Edit",
                             "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
@@ -80,7 +98,7 @@
                             "deployment": "Pending",
                             "progressType": "warning",
                             "action": "Approval Required",
-                            "actionText": "Approval Required",
+                            "actionText": "Approval Action",
                             "edit": "Edit",
                             "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
@@ -160,7 +178,16 @@
                             "deployment": "Faulted",
                             "progressType": "warning",
                             "action": "Faulted message",
-                            "actionText": "Faulted message",
+                            "actionText": "Go to Terminal",
+                            "edit": "Edit",
+                            "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
+                        },
+                        {
+                            "pipelineName": "Pipeline Name",
+                            "deployment": "Faulted",
+                            "progressType": "warning",
+                            "action": "Faulted message",
+                            "actionText": "Go to Terminal",
                             "edit": "Edit",
                             "drillTo": "devsecops/devSecOpsOverviewCurrentPipelineDetails"
                         },
@@ -186,7 +213,7 @@
                         {
                             "name": "Risk Level",
                             "key": "event",
-                            "type": "step",
+                            "type": "riskLevel",
                             "display": true
                         },
                         {
@@ -197,7 +224,7 @@
                         {
                             "name": "Step",
                             "key": "status",
-                            "type": "step",
+                            "type": "stage",
                             "display": true
                         },
                         {
