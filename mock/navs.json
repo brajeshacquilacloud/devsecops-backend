@@ -142,16 +142,6 @@
                     "className": "admin-icon"
                 },
                 {
-                    "id": "devSecOpsLandingPageFirstTimeDiscovery",
-                    "name": "Discovery of DevOps Pipelines",
-                    "link": "/devsecops/devSecOpsLandingPageFirstTimeDiscovery",
-                    "icon": "InboxIcon",
-                    "page": "ComponentsPage",
-                    "linkedeUrlParam": "nodeIndex",
-                    "isHawkUI": false,
-                    "className": "admin-icon"
-                },
-                {
                     "id": "devSecOpsOverview",
                     "name": "Overview",
                     "link": "/devsecops/overview",
@@ -159,7 +149,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Overview"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsAddDomainAddPipeline",
@@ -169,7 +168,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Pipeline"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsPipelineConfigureToolDetails",
@@ -179,7 +187,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Pipeline Configure Tool"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsPipelineScanSummary",
@@ -189,7 +206,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": false,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Scan Summary"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsDomainDetails",
@@ -199,7 +225,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": false,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Domain Details"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsPipelineDetails",
@@ -209,7 +244,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": false,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Pipeline Details"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsAnalytics",
@@ -219,7 +263,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Analytics"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsNotification",
@@ -229,7 +282,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Notification/Alert"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsApprovalActionStatus",
@@ -239,7 +301,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Approval Action Status"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsUserManagement",
@@ -249,7 +320,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "User Management"
+                        ]
+                    }
                 },
                 {
                     "id": "devSecOpsSettings",
@@ -259,7 +339,16 @@
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
                     "isHawkUI": true,
-                    "className": "admin-icon"
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Settings"
+                        ]
+                    }
                 }
             ]
         },
