@@ -8346,7 +8346,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     dataAPIKey: 'listResourceOrderListAPI',
                     actionButtonText: 'Add',
                     disableActionButton: true,
-                    modalWidth: 500,
+                    modalWidth: 700,
                     modalActions: [
                     ],
                     leafs: [
@@ -8447,7 +8447,6 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ];
             break;
-
         case 'devSecOpsEditOtherSettingsModal':
             data = [
                 {
@@ -8498,7 +8497,33 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ];
             break;
+        case 'devSecOpsNotificationAlertStatusModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add',
+                    disableActionButton: true,
+                    modalWidth: 700,
+                    modalActions: [
+                    ],
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Notification/Alert",
+                            type: "stageDetailsSummaryCard",
+                            apiKey: "devSecOpsNotificationAlertDetailsSummaryData",
+                            noDataText: "No Summary Data available",
+                            metrics: {},
+                            size: 12,
+                            defSelectKey: 'devops-tool'
 
+                        }
+
+                    ]
+                }
+            ];
+            break;
 
 
 
@@ -18632,9 +18657,53 @@ app.post('/api/devsecops/approval-action-status-stage-details-summary-data', fun
 
 
 });
-
-
 // #### End Approval Action Status Stage Details Summary Data #####
+
+
+
+// #### Start Notification/Alert Details Summary Data #####
+/**
+ * @swagger
+ * /api/devsecops/notification-alert-details-summary-data:
+ *  post:
+ *      tags:
+ *      - "Notification Alert"
+ *      summary: Notification Alert Details Summary Data.
+ *      description: Manage Notification Alert Details Summary Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/notification-alert-details-summary-data', function (req, res) {
+    let data = [
+        {
+            "type": "info",
+            "list": [
+                {
+                    "name": "Name",
+                    "value": 'Notification/Alert 1'
+                },
+                {
+                    "name": "Date/Time",
+                    "value": '10-10-22 10:34:22'
+                },
+                {
+                    "name": "Description",
+                    "value": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                }
+            ],
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Notification/Alert Details Summary Data #####
+
+
+
+
 
 
 

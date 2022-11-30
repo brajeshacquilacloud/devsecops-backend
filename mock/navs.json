@@ -212,9 +212,9 @@
                     "className": "admin-icon"
                 },
                 {
-                    "id": "devSecOpsNotification",
-                    "name": "Notification/Alert",
-                    "link": "/devsecops/notification",
+                    "id": "devSecOpsAnalytics",
+                    "name": "Analytics",
+                    "link": "/devsecops/devSecOpsAnalytics",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
@@ -222,9 +222,9 @@
                     "className": "admin-icon"
                 },
                 {
-                    "id": "devSecOpsAnalytics",
-                    "name": "Analytics",
-                    "link": "/devsecops/devSecOpsAnalytics",
+                    "id": "devSecOpsNotification",
+                    "name": "Notification/Alert",
+                    "link": "/devsecops/notification",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",

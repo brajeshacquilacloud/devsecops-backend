@@ -19,8 +19,8 @@
                         "display": false
                     },
                     {
-                        "name": "Notification Alert",
-                        "key": "notificationAlertMessage",
+                        "name": "Name",
+                        "key": "notificationAlertName",
                         "display": true,
                         "filter": true,
                         "filterType": "textField"
@@ -33,11 +33,11 @@
                         "filterType": "textField"
                     },
                     {
-                        "name": "Risk Level",
-                        "key": "notificationAlertRiskLevel",
+                        "name": "Description",
+                        "key": "notificationAlertDescription",
                         "display": true,
                         "filter": true,
-                        "filterType": "multiselect"
+                        "filterType": "textField"
                     },
                     {
                         "name": "Options",
@@ -47,30 +47,18 @@
                         "type": "rowAction",
                         "rowActions": [
                             {
-                                "name": "Delete",
-                                "key": "action",
-                                "type": "delete",
-                                "display": true,
-                                "apiKey": "deleteUserAPI",
-                                "requestParams": [
-                                    {
-                                        "key": "instanceId"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Edit",
+                                "name": "View",
                                 "key": "action",
                                 "type": "edit",
                                 "display": true,
                                 "drillTo": "modal",
-                                "modalTitle": "Edit user",
+                                "modalTitle": "Notification/Alert Details",
                                 "drillParams": [
                                     {
-                                        "key": "instanceId"
+                                        "key": "notificationAlertId"
                                     }
                                 ],
-                                "componentsAPIKey": "addUserComponentAPI"
+                                "componentsAPIKey": "devSecOpsNotificationAlertStatusComponentAPI"
                             }
                         ]
                     }
