@@ -1,0 +1,23 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Configure Tool Chain Page Layout",
+                "subTitle": "",
+                "size": 12,
+                "type": "configureToolChainLayout",
+                "isHawkUI": true,
+                "apiKey": "",
+                "components": [
+                    {
+                        "id": 1,
+                        "dataApiKey": "devSecOpsAllIncidentAPI",
+                        "isHawkUI": true,
+                        "type": "ConfigureSecOpsToolsChain"
+                    }
+                ]
+            }
+        ]
+    }
+]

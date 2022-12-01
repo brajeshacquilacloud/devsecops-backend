@@ -29,6 +29,7 @@ const devSecOpsAnalytics = require('./mock/devSecOpsAnalytics.json');
 const devSecOpsApprovalActionStatus = require('./mock/devSecOpsApprovalActionStatus.json');
 const devSecOpsUserManagement = require('./mock/devSecOpsUserManagement.json');
 const devSecOpsSettings = require('./mock/devSecOpsSettings.json');
+const devSecOpsConfigureToolChain = require('./mock/devSecOpsConfigureToolChain.json');
 // End DevSecOps Import Files
 
 const finDomain = require('./mock/finDomain.json');
@@ -5792,6 +5793,9 @@ app.post('/api/scenario', function (req, res) {
             break;
         case "devSecOpsSettings":
             data = devSecOpsSettings;
+            break;
+        case "devSecOpsConfigureToolChain":
+            data = devSecOpsConfigureToolChain;
             break;
 
         // End DevSecOps API Calling Scenario

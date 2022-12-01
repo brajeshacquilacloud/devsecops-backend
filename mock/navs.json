@@ -142,6 +142,26 @@
                     "className": "admin-icon"
                 },
                 {
+                    "id": "devSecOpsConfigureToolChain",
+                    "name": "Configure Tool Chain",
+                    "link": "/devsecops/configure-tool-chain",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": false,
+                    "hideKey": "devSecOpsHideTittle",
+                    "className": "admin-icon",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Pipeline",
+                            "Configure Tool Chain"
+                        ]
+                    }
+                },
+                {
                     "id": "devSecOpsOverview",
                     "name": "Overview",
                     "link": "/devsecops/overview",
