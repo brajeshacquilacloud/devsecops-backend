@@ -2,6 +2,19 @@
     {
         "leafs": [
             {
+                "id": 8,
+                "type": "nextHeaderActionPanel",
+                "noDataText": "No Summary Data available",
+                "size": 12,
+                "pageActions": [
+                    {
+                        "key": "pageSearch",
+                        "title": "Search",
+                        "type": "search"
+                    }
+                ]
+            },
+            {
                 "id": 4,
                 "leafTitle": "Section Title And Button",
                 "type": "section-title-and-button",
