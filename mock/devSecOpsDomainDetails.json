@@ -115,31 +115,27 @@
             },
             {
                 "id": 2,
-                "leafTitle": "Domain Details",
-                "type": "devSecOpsDomainDetailsLayout",
-                "defSelectKey": "defkeyDomainDetails",
+                "leafTitle": "Domain Details Page Layout",
+                "subTitle": "",
+                "size": 12,
+                "type": "analyticsLayout",
                 "isHawkUI": true,
-                "dataAPIKey": "devSecOpsDomainDetailsAPI",
+                "apiKey": "",
                 "components": [
                     {
-                        "id": 2,
+                        "id": 1,
                         "dataApiKey": "pipelineStatusAPI",
                         "isHawkUI": true,
-                        "type": "hawkDatatable",
+                        "type": "hawkDataTable",
                         "header": "Pipeline Status",
                         "hideToolBar": true,
                         "noDataText": "No Pipeline Status Available",
-                        "size": 6,
+                        "size": 12,
                         "filter": false,
                         "metrics": {},
                         "selectableRows": "single",
                         "defaultRowPerPage": 10,
                         "columns": [
-                            {
-                                "name": "Id",
-                                "key": "pipelineId",
-                                "display": false
-                            },
                             {
                                 "name": "Pipeline Name",
                                 "key": "pipelineName",
@@ -148,47 +144,14 @@
                             {
                                 "name": "Deployment",
                                 "key": "deployment",
+                                "type": "pipeline-development-status",
                                 "display": true
                             },
                             {
                                 "name": "Action",
                                 "key": "action",
+                                "type": "pipeline-actions",
                                 "display": true
-                            },
-                            {
-                                "name": "Details",
-                                "key": "rowAction",
-                                "display": true,
-                                "filter": false,
-                                "type": "rowAction",
-                                "rowActions": [
-                                    {
-                                        "name": "Delete",
-                                        "key": "action",
-                                        "type": "delete",
-                                        "display": true,
-                                        "apiKey": "deleteUserAPI",
-                                        "requestParams": [
-                                            {
-                                                "key": "pipelineId"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "name": "Edit",
-                                        "key": "action",
-                                        "type": "edit",
-                                        "display": true,
-                                        "drillTo": "modal",
-                                        "modalTitle": "Pipeline Status Details",
-                                        "drillParams": [
-                                            {
-                                                "key": "pipelineId"
-                                            }
-                                        ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
-                                    }
-                                ]
                             }
                         ]
                     },
@@ -200,80 +163,9 @@
                     },
                     {
                         "type": "ActiveInactivePipelineCard",
-                        "id": 2,
-                        "size": 3,
-                        "dataApiKey": "ActiveInactivePipelineCardAPIData"
-                    },
-                    {
                         "id": 3,
-                        "dataApiKey": "pipelineScanSummaryAPI",
-                        "isHawkUI": true,
-                        "type": "hawkDatatable",
-                        "header": "Scan Summary",
-                        "hideToolBar": true,
-                        "noDataText": "No Scan Summary Available",
-                        "size": 6,
-                        "filter": false,
-                        "metrics": {},
-                        "selectableRows": "single",
-                        "defaultRowPerPage": 10,
-                        "columns": [
-                            {
-                                "name": "Id",
-                                "key": "incidentId",
-                                "display": false
-                            },
-                            {
-                                "name": "Incident",
-                                "key": "incident",
-                                "display": true
-                            },
-                            {
-                                "name": "Risk",
-                                "key": "risk",
-                                "display": true
-                            },
-                            {
-                                "name": "Stage",
-                                "key": "stage",
-                                "display": true
-                            },
-                            {
-                                "name": "View",
-                                "key": "rowAction",
-                                "display": true,
-                                "filter": false,
-                                "type": "rowAction",
-                                "rowActions": [
-                                    {
-                                        "name": "Delete",
-                                        "key": "action",
-                                        "type": "delete",
-                                        "display": true,
-                                        "apiKey": "deleteUserAPI",
-                                        "requestParams": [
-                                            {
-                                                "key": "incidentId"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "name": "Edit",
-                                        "key": "action",
-                                        "type": "edit",
-                                        "display": true,
-                                        "drillTo": "modal",
-                                        "modalTitle": "Pipeline Status Details",
-                                        "drillParams": [
-                                            {
-                                                "key": "incidentId"
-                                            }
-                                        ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
-                                    }
-                                ]
-                            }
-                        ]
+                        "size": 3,
+                        "dataApiKey": "ActiveInactivePipelineCardAPIData"
                     }
                 ]
             }
