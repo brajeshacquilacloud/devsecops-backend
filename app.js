@@ -81,6 +81,8 @@ const devSecOpsNotificationAlertAPIData = require("./mock/data/devSecOpsNotifica
 const devSecOpsPipelineScanSummaryAPIData = require("./mock/data/devSecOpsPipelineScanSummaryAPIData.json")
 const devSecOpsPipelineStatusAPIData = require("./mock/data/devSecOpsPipelineStatusAPIData.json")
 
+const devSecOpsConfigureToolsChainAPIData = require("./mock/data/devSecOpsConfigureToolsChainAPIData.json")
+const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = require("./mock/data/devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData.json")
 
 
 
@@ -18704,6 +18706,79 @@ app.post('/api/devsecops/notification-alert-details-summary-data', function (req
     res.status(200).send(data);
 });
 // #### End Notification/Alert Details Summary Data #####
+
+
+
+
+
+
+
+
+
+
+// #### Start Analytics Page All Incident Table Data #####
+/**
+ * @swagger
+ * /api/devsecops/configure-tools-chain:
+ *  post:
+ *      tags:
+ *      - "Configure Tools Chain"
+ *      summary: Configure Tools Chain.
+ *      description: Configure Tools Chain Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/configure-tools-chain', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsConfigureToolsChainAPIData);
+});
+
+// #### End Configure Tools Chain Page #####
+
+
+
+
+// #### Start configure tools chain domain pipeline sidebar navigation Data #####
+/**
+ * @swagger
+ * /api/devsecops/configure-tools-chain-domain-pipeline-sidebar-navigation:
+ *  post:
+ *      tags:
+ *      - "Configure Tools Chain"
+ *      summary: configure tools chain domain pipeline sidebar navigation.
+ *      description: configure tools chain domain pipeline sidebar navigation Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/configure-tools-chain-domain-pipeline-sidebar-navigation', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData);
+});
+
+// #### End configure tools chain domain pipeline sidebar navigation Page #####
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

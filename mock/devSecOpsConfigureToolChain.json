@@ -12,9 +12,21 @@
                 "components": [
                     {
                         "id": 1,
-                        "dataApiKey": "devSecOpsAllIncidentAPI",
+                        "dataApiKey": "devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPI",
                         "isHawkUI": true,
-                        "type": "ConfigureSecOpsToolsChain"
+                        "type": "ConfigureToolsChain-domain-pipeline-sidebar-navigation",
+                        "subComponents": [
+                            {}
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "dataApiKey": "devSecOpsConfigureToolsChainAPI",
+                        "isHawkUI": true,
+                        "type": "ConfigureToolsChain",
+                        "subComponents": [
+                            {}
+                        ]
                     }
                 ]
             }
