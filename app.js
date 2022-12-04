@@ -13,7 +13,7 @@ const adminSettings = require('./mock/adminSettings.json');
 const govOverview = require('./mock/govOverview.json');
 
 // Start DevSecOps Import Files
-const devSecOpsWelcome = require("./mock/devSecOpsWelcome.json")
+const devSecOpsWelcomeLayout = require("./mock/devSecOpsWelcomeLayout.json")
 const devSecOpsAddDomainAddPipeline = require('./mock/devSecOpsAddDomainAddPipeline.json');
 const devSecOpsLandingPageFirstTimeDiscovery = require('./mock/devSecOpsLandingPageFirstTimeDiscovery.json');
 const devSecOpsOverview = require('./mock/devSecOpsOverview.json');
@@ -67,6 +67,7 @@ const tabData = require("./mock/data/tabData.json")
 
 
 
+const devSecOpsWelcomeAPIData = require("./mock/data/devSecOpsWelcomeAPIData.json")
 const devSecOpsDomainCardAPIData = require("./mock/data/devSecOpsDomainCardAPIData.json")
 const devSecOpsUsersListAPIData = require("./mock/data/devSecOpsUsersListAPIData.json")
 const devSecOpsServerSettingsAPIData = require("./mock/data/devSecOpsServerSettingsAPIData.json")
@@ -5754,8 +5755,8 @@ app.post('/api/scenario', function (req, res) {
             break;
 
         // Start DevSecOps API Calling Scenario
-        case "devSecOpsWelcome":
-            data = devSecOpsWelcome;
+        case "devSecOpsWelcomeLayout":
+            data = devSecOpsWelcomeLayout;
             break;
         case "devSecOpsAddDomainAddPipeline":
             data = devSecOpsAddDomainAddPipeline;
@@ -17603,17 +17604,8 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
 
 // #### Start Welcome Page #####
 app.post('/api/devsecops/welcome', function (req, res) {
-    let data = [
-        {
-            "img": 'finops_productcard.svg',
-            "heading": "Let us discover your DevOps & CI/CD Environment.",
-            "buttonTitle": "Start Discovery",
-            "redirectionURL": "/devsecops/pipeline"
-        }
-    ]
     setResponseHeaders(res);
-    res.status(200).send(data);
-    // res.status(200).send(devSecOpsWelcome);
+    res.status(200).send(devSecOpsWelcomeAPIData);
 });
 // #### End Welcome Page #####
 

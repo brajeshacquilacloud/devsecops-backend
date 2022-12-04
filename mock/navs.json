@@ -132,7 +132,7 @@
             "isHawkUI": true,
             "subNavs": [
                 {
-                    "id": "devSecOpsWelcome",
+                    "id": "devSecOpsWelcomeLayout",
                     "name": "Welcome",
                     "link": "/devsecops/welcome",
                     "icon": "InboxIcon",

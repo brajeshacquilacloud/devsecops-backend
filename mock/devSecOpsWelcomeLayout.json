@@ -4,17 +4,19 @@
             {
                 "id": 1,
                 "leafTitle": "Welcome User",
-                "type": "devSecOpsWelcome",
-                "defSelectKey": "defkeywelcome",
+                "subTitle": "",
+                "size": 12,
+                "type": "devSecOpsWelcomeLayout",
                 "isHawkUI": true,
-                "dataAPIKey": "devSecOpsWelcomeAPI",
+                "apiKey": "devSecOpsWelcomeAPI",
                 "components": [
                     {
                         "id": 1,
                         "type": "company-logo",
-                        "logoURL": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/wfa4rkgjbrrupxx6ymjh",
-                        "dataApiKey": "getCompanyLogoDetails",
-                        "size": 12
+                        "header": "Company Logo",
+                        "dataApiKey": "devSecOpsWelcomeAPI",
+                        "size": 12,
+                        "logoURL": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/wfa4rkgjbrrupxx6ymjh"
                     },
                     {
                         "id": 2,
