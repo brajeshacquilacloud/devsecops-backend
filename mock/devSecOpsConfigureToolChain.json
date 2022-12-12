@@ -9,6 +9,53 @@
                 "type": "configureToolChainLayout",
                 "isHawkUI": true,
                 "apiKey": "",
+                "navigations": [
+                    {
+                        "id": "domainname1",
+                        "name": "Domain Name 1",
+                        "link": "/domainname",
+                        "icon": "aquilaService",
+                        "page": "ComponentsPage",
+                        "linkedeUrlParam": "nodeIndex",
+                        "isHawkUI": true,
+                        "className": "admin-icon",
+                        "subNavs": [
+                            {
+                                "name": "Pipeline 1",
+                                "link": "/domainname/pipeline1",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropPipeline1",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "aquilaServices",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "Pipeline 2",
+                                "link": "/domainname/pipeline2",
+                                "icon": "InboxIcon",
+                                "apiKey":"DragAndDropPipeline2",
+                                "page": "ComponentsPage",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "aquilaServices",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "Pipeline 3",
+                                "link": "/domainname/pipeline3",
+                                "icon": "InboxIcon",
+                                "apiKey":"DragAndDropPipeline3",
+                                "page": "ComponentsPage",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "aquilaServices",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            }
+                        ]
+                    }
+                ],
                 "components": [
                     {
                         "id": 1,
