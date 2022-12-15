@@ -35,7 +35,7 @@
                                 "name": "Pipeline 2",
                                 "link": "/domainname/pipeline2",
                                 "icon": "InboxIcon",
-                                "apiKey":"DragAndDropPipeline2",
+                                "apiKey": "DragAndDropPipeline2",
                                 "page": "ComponentsPage",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "aquilaServices",
@@ -46,7 +46,7 @@
                                 "name": "Pipeline 3",
                                 "link": "/domainname/pipeline3",
                                 "icon": "InboxIcon",
-                                "apiKey":"DragAndDropPipeline3",
+                                "apiKey": "DragAndDropPipeline3",
                                 "page": "ComponentsPage",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "aquilaServices",
@@ -57,15 +57,6 @@
                     }
                 ],
                 "components": [
-                    {
-                        "id": 1,
-                        "dataApiKey": "devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPI",
-                        "isHawkUI": true,
-                        "type": "ConfigureToolsChain-domain-pipeline-sidebar-navigation",
-                        "subComponents": [
-                            {}
-                        ]
-                    },
                     {
                         "id": 2,
                         "dataApiKey": "devSecOpsConfigureToolsChainAPI",
