@@ -118,7 +118,7 @@
                 "leafTitle": "Domain Details Page Layout",
                 "subTitle": "",
                 "size": 12,
-                "type": "analyticsLayout",
+                "type": "devSecOpsDomainDetailsLayout",
                 "isHawkUI": true,
                 "apiKey": "",
                 "components": [
@@ -152,6 +152,14 @@
                                 "key": "action",
                                 "type": "pipeline-actions",
                                 "display": true
+                            },
+                            {
+                                "name": "Edit",
+                                "key": "edit",
+                                "type": "drill",
+                                "secKey": "drillTo",
+                                "display": true,
+                                "sort": false
                             }
                         ]
                     },
@@ -166,6 +174,73 @@
                         "id": 3,
                         "size": 3,
                         "dataApiKey": "ActiveInactivePipelineCardAPIData"
+                    },
+                    {
+                        "id": 4,
+                        "dataApiKey": "pipelineScanSummaryAPI",
+                        "isHawkUI": true,
+                        "type": "hawkDataTable",
+                        "header": "Scan Summary",
+                        "hideToolBar": true,
+                        "noDataText": "No Scan Summary Available",
+                        "size": 12,
+                        "filter": false,
+                        "metrics": {},
+                        "selectableRows": "single",
+                        "defaultRowPerPage": 8,
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "incidentId",
+                                "display": false
+                            },
+                            {
+                                "name": "Incident",
+                                "key": "incident",
+                                "display": true,
+                                "filter": true,
+                                "filterType": "textField"
+                            },
+                            {
+                                "name": "Risk",
+                                "key": "risk",
+                                "type": "riskLevel",
+                                "display": true,
+                                "filter": true,
+                                "filterType": "textField"
+                            },
+                            {
+                                "name": "Stage",
+                                "key": "stage",
+                                "type": "stage",
+                                "display": true,
+                                "filter": true,
+                                "filterType": "multiselect"
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
+                                    {
+                                        "name": "View",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Edit user",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             }

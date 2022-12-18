@@ -3,66 +3,77 @@
         "pipelineId": 1,
         "pipelineName": "Pipeline Name",
         "deployment": "Running",
-        "action": "Build"
+        "action": "Stop Pipeline",
+        "edit": "Edit"
     },
     {
         "pipelineId": 2,
         "pipelineName": "Pipeline Name",
         "deployment": "Running",
-        "action": "Deploy"
+        "action": "Run Pipeline",
+        "edit": "Edit"
     },
     {
         "pipelineId": 3,
         "pipelineName": "Pipeline Name",
         "deployment": "Completed",
-        "action": "Source Control"
+        "action": "Faulted message",
+        "edit": "Edit"
     },
     {
         "pipelineId": 4,
         "pipelineName": "Pipeline Name",
         "deployment": "Running",
-        "action": "Build"
+        "action": "Faulted message",
+        "edit": "Edit"
     },
     {
         "pipelineId": 5,
         "pipelineName": "Pipeline Name",
         "deployment": "Running",
-        "action": "Deploy"
+        "action": "Faulted message",
+        "edit": "Edit"
     },
     {
         "pipelineId": 6,
         "pipelineName": "Pipeline Name",
         "deployment": "Completed",
-        "action": "Source Control"
+        "action": "Approval Required",
+        "edit": "Edit"
     },
     {
         "pipelineId": 7,
         "pipelineName": "Pipeline Name",
         "deployment": "Faulted",
-        "action": "Build"
+        "action": "Run Pipeline",
+        "edit": "Edit"
     },
     {
         "pipelineId": 8,
         "pipelineName": "Pipeline Name",
         "deployment": "Faulted",
-        "action": "Deploy"
+        "action": "Stop Pipeline",
+        "edit": "Edit"
     },
     {
         "pipelineId": 9,
         "pipelineName": "Pipeline Name",
         "deployment": "Pending",
-        "action": "Source Control"
+        "action": "Stop Pipeline",
+        "edit": "Edit"
     },
     {
         "pipelineId": 10,
         "pipelineName": "Pipeline Name",
         "deployment": "Completed",
-        "action": "Source Control"
+        "action": "Run Pipeline",
+        "edit": "Edit"
     },
     {
         "pipelineId": 11,
         "pipelineName": "Pipeline Name",
         "deployment": "Pending",
-        "action": "Deploy"
+        "action": "Stop Pipeline",
+        "edit": "Edit"
     }
 ]
