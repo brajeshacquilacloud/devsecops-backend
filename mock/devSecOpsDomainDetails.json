@@ -164,16 +164,16 @@
                         ]
                     },
                     {
-                        "type": "ActiveInactivePipelineCard",
                         "id": 2,
-                        "size": 3,
-                        "dataApiKey": "ActiveInactivePipelineCardAPIData"
+                        "type": "activeInactivePipelineCard",
+                        "size": 12,
+                        "dataApiKey": "devSecOpsActiveInactivePipelineCardAPI"
                     },
                     {
-                        "type": "ActiveInactivePipelineCard",
                         "id": 3,
-                        "size": 3,
-                        "dataApiKey": "ActiveInactivePipelineCardAPIData"
+                        "type": "activeInactivePipelineCard",
+                        "size": 12,
+                        "dataApiKey": "devSecOpsActiveInactivePipelineCardAPI"
                     },
                     {
                         "id": 4,

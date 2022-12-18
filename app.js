@@ -85,6 +85,8 @@ const devSecOpsPipelineStatusAPIData = require("./mock/data/devSecOpsPipelineSta
 const devSecOpsConfigureToolsChainAPIData = require("./mock/data/devSecOpsConfigureToolsChainAPIData.json")
 const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = require("./mock/data/devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData.json")
 
+const devSecOpsActiveInactivePipelineCardAPIData = require("./mock/data/devSecOpsActiveInactivePipelineCardAPIData.json")
+
 
 
 
@@ -20014,6 +20016,31 @@ app.post('/api/devsecops/configure-tools-chain-domain-pipeline-sidebar-navigatio
 
 // #### End configure tools chain domain pipeline sidebar navigation Page #####
 
+
+
+// #### Start active inactive pipeline card #####
+/**
+ * @swagger
+ * /api/devsecops/active-inactive-pipeline-card:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Active inactive pipeline card summary.
+ *      description: active inactive pipeline card.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/active-inactive-pipeline-card', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsActiveInactivePipelineCardAPIData);
+});
+
+// #### Start active inactive pipeline card #####
 
 
 
