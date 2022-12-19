@@ -16,7 +16,6 @@ const govOverview = require('./mock/govOverview.json');
 const devSecOpsWelcomeLayout = require("./mock/devSecOpsWelcomeLayout.json")
 const devSecOpsAddDomainAddPipeline = require('./mock/devSecOpsAddDomainAddPipeline.json');
 const devSecOpsLandingPageFirstTimeDiscovery = require('./mock/devSecOpsLandingPageFirstTimeDiscovery.json');
-const devSecOpsOverview = require('./mock/devSecOpsOverview.json');
 const devSecOpsPipelineConfigureToolDetails = require('./mock/devSecOpsPipelineConfigureToolDetails.json');
 const devSecOpsPipelineScanSummary = require('./mock/devSecOpsPipelineScanSummary.json');
 
@@ -5766,9 +5765,6 @@ app.post('/api/scenario', function (req, res) {
             break;
         case "devSecOpsLandingPageFirstTimeDiscovery":
             data = devSecOpsLandingPageFirstTimeDiscovery;
-            break;
-        case "devSecOpsOverview":
-            data = devSecOpsOverview;
             break;
         case "devSecOpsPipelineConfigureToolDetails":
             data = devSecOpsPipelineConfigureToolDetails;
