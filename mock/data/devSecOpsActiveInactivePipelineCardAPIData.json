@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "cardTitle": "Active/Inactive Pipeline",
+        "totalPipeline": 143,
+        "activePipeline": 85,
+        "inactivePipeline": 10,
+        "percentage": 12,
+        "trend": "down"
+    }
+]

@@ -173,7 +173,7 @@
                         "id": 3,
                         "type": "activeInactivePipelineCard",
                         "size": 12,
-                        "dataApiKey": "devSecOpsActiveInactivePipelineCardAPI"
+                        "dataApiKey": "devSecOpsTriggerExecutedCardAPI"
                     },
                     {
                         "id": 4,

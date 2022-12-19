@@ -86,6 +86,7 @@ const devSecOpsConfigureToolsChainAPIData = require("./mock/data/devSecOpsConfig
 const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = require("./mock/data/devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData.json")
 
 const devSecOpsActiveInactivePipelineCardAPIData = require("./mock/data/devSecOpsActiveInactivePipelineCardAPIData.json")
+const devSecOpsTriggerExecutedCardAPIData = require("./mock/data/devSecOpsTriggerExecutedCardAPIData.json")
 
 
 
@@ -18396,7 +18397,7 @@ app.post('/api/devsecops/pipeline-status', function (req, res) {
  * /api/filters/timefilter:
  *  post:
  *      tags:
- *      - "filters"
+ *      - "Filters"
  *      summary: Global TIME Filters.
  *      description: Global TIME Filters List.
  *      responses:
@@ -20040,7 +20041,34 @@ app.post('/api/devsecops/active-inactive-pipeline-card', function (req, res) {
     res.status(200).send(devSecOpsActiveInactivePipelineCardAPIData);
 });
 
-// #### Start active inactive pipeline card #####
+// #### End active inactive pipeline card #####
+
+
+
+// #### Start Trigger Executed Card #####
+/**
+ * @swagger
+ * /api/devsecops/trigger-executed-card:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Trigger Executed card summary.
+ *      description: Trigger Executed card.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/trigger-executed-card', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsTriggerExecutedCardAPIData);
+});
+
+// #### End Trigger Executed Card #####
+
 
 
 
