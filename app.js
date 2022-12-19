@@ -18077,25 +18077,16 @@ app.post('/api/devsecops/all-incident', function (req, res) {
  *              description: Page is working fine if got the json response!
  *
  */
-
-
-
-
 app.post('/api/devsecops/custered-similar-errors-chart', function (req, res) {
-
-    //Add some delay on purpose.
-    addDelay();
     setResponseHeaders(res);
-    res.send(devSecOpsCusteredSimilarErrorsChartAPIData);
+    res.status(200).send(devSecOpsCusteredSimilarErrorsChartAPIData);
 
 });
-
 // #### End Custered Similar Errors Chart Data #####
 
 
 
 // #### Start Frequency Component Chart Data #####
-
 /**
  * @swagger
  * /api/devsecops/frequency-component-chart:
@@ -18109,25 +18100,15 @@ app.post('/api/devsecops/custered-similar-errors-chart', function (req, res) {
  *              description: Page is working fine if got the json response!
  *
  */
-
-
-
-
 app.post('/api/devsecops/frequency-component-chart', function (req, res) {
-
-    //Add some delay on purpose.
-    addDelay();
     setResponseHeaders(res);
-    res.send(devSecOpsFrequencyComponentChartAPIData);
-
+    res.status(200).send(devSecOpsFrequencyComponentChartAPIData);
 });
-
 // #### End Frequency Component Chart Data #####
 
 
 
 // #### Start Root Cause Analysis Chart Data #####
-
 /**
  * @swagger
  * /api/devsecops/root-cause-analysis-chart:
@@ -18141,16 +18122,10 @@ app.post('/api/devsecops/frequency-component-chart', function (req, res) {
  *              description: Page is working fine if got the json response!
  *
  */
-
 app.post('/api/devsecops/root-cause-analysis-chart', function (req, res) {
-
-    //Add some delay on purpose.
-    addDelay();
     setResponseHeaders(res);
-    res.send(devSecOpsRootCauseAnalysisChartAPIData);
-
+    res.status(200).send(devSecOpsRootCauseAnalysisChartAPIData);
 });
-
 // #### End Root Cause Analysis Chart Data #####
 
 

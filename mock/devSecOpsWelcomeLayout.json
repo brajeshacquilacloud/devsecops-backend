@@ -161,21 +161,21 @@
                     },
                     {
                         "id": 2,
+                        "type": "card-analytics-graph",
                         "dataApiKey": "devSecOpsCusteredSimilarErrorsChartAPI",
-                        "isHawkUI": true,
-                        "type": "card-analytics-graph"
+                        "isHawkUI": true
                     },
                     {
                         "id": 3,
+                        "type": "card-analytics-graph",
                         "dataApiKey": "devSecOpsFrequencyComponentChartAPI",
-                        "isHawkUI": true,
-                        "type": "card-analytics-graph"
+                        "isHawkUI": true
                     },
                     {
                         "id": 4,
+                        "type": "card-analytics-graph",
                         "dataApiKey": "devSecOpsRootCauseAnalysisChartAPI",
-                        "isHawkUI": true,
-                        "type": "card-analytics-graph"
+                        "isHawkUI": true
                     }
                 ]
             }
