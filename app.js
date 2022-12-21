@@ -67,6 +67,13 @@ const tabData = require("./mock/data/tabData.json")
 
 
 const devSecOpsWelcomeAPIData = require("./mock/data/devSecOpsWelcomeAPIData.json")
+const devSecOpsWelcomeLogoAPIData = require("./mock/data/devSecOpsWelcomeLogoAPIData.json")
+const devSecOpsWelcomeMessageAPIData = require("./mock/data/devSecOpsWelcomeMessageAPIData.json")
+const devSecOpsWelcomeButtonAPIData = require("./mock/data/devSecOpsWelcomeButtonAPIData.json")
+
+
+
+
 const devSecOpsDomainCardAPIData = require("./mock/data/devSecOpsDomainCardAPIData.json")
 const devSecOpsUsersListAPIData = require("./mock/data/devSecOpsUsersListAPIData.json")
 const devSecOpsServerSettingsAPIData = require("./mock/data/devSecOpsServerSettingsAPIData.json")
@@ -17587,6 +17594,8 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
 
 // Start Creating DevSecOps API For All Page
 
+
+// #### Start Welcome Page #####
 /**
  * @swagger
  * /api/devsecops/welcome:
@@ -17600,13 +17609,76 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
  *              description: Page is working fine if got the json response!
  *
  */
-
-// #### Start Welcome Page #####
 app.post('/api/devsecops/welcome', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsWelcomeAPIData);
 });
 // #### End Welcome Page #####
+
+
+// #### Start Welcome logo #####
+/**
+ * @swagger
+ * /api/devsecops/welcome-logo:
+ *  post:
+ *      tags:
+ *      - "Landing Page (First Time)"
+ *      summary: Welcome logo.
+ *      description: Show this page to first time loggedIn User.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+app.post('/api/devsecops/welcome-logo', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsWelcomeLogoAPIData);
+});
+// #### End Welcome logo #####
+
+
+
+// #### Start Welcome Message #####
+/**
+ * @swagger
+ * /api/devsecops/welcome-message:
+ *  post:
+ *      tags:
+ *      - "Landing Page (First Time)"
+ *      summary: Welcome Message.
+ *      description: Show this page to first time loggedIn User.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+app.post('/api/devsecops/welcome-message', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsWelcomeMessageAPIData);
+});
+// #### End Welcome Message #####
+
+
+// #### Start Welcome Button #####
+/**
+ * @swagger
+ * /api/devsecops/welcome-button:
+ *  post:
+ *      tags:
+ *      - "Landing Page (First Time)"
+ *      summary: Welcome Button.
+ *      description: Show this page to first time loggedIn User.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+app.post('/api/devsecops/welcome-button', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsWelcomeButtonAPIData);
+});
+// #### End Welcome Button #####
+
 
 
 /**
@@ -17622,7 +17694,6 @@ app.post('/api/devsecops/welcome', function (req, res) {
  *              description: Page is working fine if got the json response with list of domain cards object!
  *
  */
-
 // #### Start Domain Card Page #####
 app.post('/api/devsecops/domain-card', function (req, res) {
     setResponseHeaders(res);

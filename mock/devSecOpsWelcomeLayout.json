@@ -3,113 +3,30 @@
         "leafs": [
             {
                 "id": 1,
-                "type": "nextHeaderActionPanel",
-                "noDataText": "No Summary Data available",
+                "leafTitle": "Welcome Page Layout",
+                "subTitle": "",
                 "size": 12,
-                "pageActions": [
+                "type": "devSecOpsWelcomeLayout",
+                "isHawkUI": true,
+                "apiKey": "",
+                "components": [
                     {
-                        "key": "pageSearch",
-                        "title": "Search",
-                        "type": "search"
+                        "id": 1,
+                        "type": "welcomeLogo",
+                        "size": 12,
+                        "dataApiKey": "devSecOpsWelcomeLogoAPI"
                     },
                     {
-                        "modalTitle": "Pipeline Name",
-                        "title": "Pipeline Name",
-                        "leafTitle": "Pipeline Name",
-                        "type": "select",
-                        "defaultValue": "Pipeline 1",
-                        "options": [
-                            {
-                                "value": "Pipeline1",
-                                "label": "Pipeline 1"
-                            },
-                            {
-                                "value": "Pipeline2",
-                                "label": "Pipeline2"
-                            },
-                            {
-                                "value": "Pipeline3",
-                                "label": "Pipeline 3"
-                            },
-                            {
-                                "value": "Pipeline4",
-                                "label": "Pipeline 4"
-                            },
-                            {
-                                "value": "Pipeline5",
-                                "label": "Pipeline 5"
-                            }
-                        ]
+                        "id": 2,
+                        "type": "welcomeMessage",
+                        "size": 12,
+                        "dataApiKey": "devSecOpsWelcomeMessageAPI"
                     },
                     {
-                        "modalTitle": "Time Range",
-                        "title": "Time Range",
-                        "leafTitle": "Time Range",
-                        "type": "select",
-                        "defaultValue": "1 Hour",
-                        "options": [
-                            {
-                                "value": "all",
-                                "label": "All"
-                            },
-                            {
-                                "value": "1 Hour",
-                                "label": "1 Hour"
-                            },
-                            {
-                                "value": "8 Hours",
-                                "label": "8 Hours"
-                            },
-                            {
-                                "value": "24 Hours",
-                                "label": "24 Hours"
-                            },
-                            {
-                                "value": "This Week",
-                                "label": "This Week"
-                            },
-                            {
-                                "value": "Last Week",
-                                "label": "Last Week"
-                            },
-                            {
-                                "value": "Last 30 Days",
-                                "label": "Last 30 Days"
-                            },
-                            {
-                                "value": "This Month",
-                                "label": "This Month"
-                            },
-                            {
-                                "value": "Last 6 Months",
-                                "label": "Last 6 Months"
-                            },
-                            {
-                                "value": "1 Year",
-                                "label": "1 Year"
-                            },
-                            {
-                                "value": "Custom",
-                                "label": "Custom"
-                            }
-                        ]
-                    },
-                    {
-                        "toolbarTitle": "Export",
-                        "type": "download",
-                        "downloadOptions": [
-                            {
-                                "lable": "Download PDF",
-                                "apiKey": "cspBillSentInvoiceDownloadAPI",
-                                "fileName": "Billing Overview.pdf"
-                            },
-                            {
-                                "lable": "Download CSV",
-                                "fileName": "Billing Overview.csv",
-                                "componentsAPIKey": "extendedDownloadAPI",
-                                "modalTitle": "Download"
-                            }
-                        ]
+                        "id": 3,
+                        "type": "welcomeButton",
+                        "size": 12,
+                        "dataApiKey": "devSecOpsWelcomeButtonAPI"
                     }
                 ]
             }
