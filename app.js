@@ -64,15 +64,10 @@ const cspCustomerProfile = require("./mock/customerProfile.json")
 const infoGraph = require("./mock/data/infoGraph.json")
 const tabData = require("./mock/data/tabData.json")
 
-
-
 const devSecOpsWelcomeAPIData = require("./mock/data/devSecOpsWelcomeAPIData.json")
 const devSecOpsWelcomeLogoAPIData = require("./mock/data/devSecOpsWelcomeLogoAPIData.json")
 const devSecOpsWelcomeMessageAPIData = require("./mock/data/devSecOpsWelcomeMessageAPIData.json")
 const devSecOpsWelcomeButtonAPIData = require("./mock/data/devSecOpsWelcomeButtonAPIData.json")
-
-
-
 
 const devSecOpsDomainCardAPIData = require("./mock/data/devSecOpsDomainCardAPIData.json")
 const devSecOpsUsersListAPIData = require("./mock/data/devSecOpsUsersListAPIData.json")
@@ -95,11 +90,7 @@ const devSecOpsActiveInactivePipelineCardAPIData = require("./mock/data/devSecOp
 const devSecOpsTriggerExecutedCardAPIData = require("./mock/data/devSecOpsTriggerExecutedCardAPIData.json")
 
 
-
-
-
 const fs = require("fs");
-
 
 
 // Swagger Code Start Here

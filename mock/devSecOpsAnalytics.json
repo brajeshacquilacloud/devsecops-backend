@@ -134,7 +134,7 @@
                         "filter": false,
                         "metrics": {},
                         "selectableRows": "single",
-                        "defaultRowPerPage": 10,
+                        "defaultRowPerPage": 20,
                         "columns": [
                             {
                                 "name": "Id",
