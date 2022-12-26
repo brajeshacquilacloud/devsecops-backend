@@ -1,0 +1,184 @@
+[
+    {
+        "leafs": [
+            {
+                "id": 1,
+                "type": "nextHeaderActionPanel",
+                "noDataText": "No Summary Data available",
+                "size": 12,
+                "pageActions": [
+                    {
+                        "key": "pageSearch",
+                        "title": "Search",
+                        "type": "search"
+                    },
+                    {
+                        "modalTitle": "Pipeline Name",
+                        "title": "Pipeline Name",
+                        "leafTitle": "Pipeline Name",
+                        "type": "select",
+                        "defaultValue": "Pipeline 1",
+                        "options": [
+                            {
+                                "value": "Pipeline1",
+                                "label": "Pipeline 1"
+                            },
+                            {
+                                "value": "Pipeline2",
+                                "label": "Pipeline2"
+                            },
+                            {
+                                "value": "Pipeline3",
+                                "label": "Pipeline 3"
+                            },
+                            {
+                                "value": "Pipeline4",
+                                "label": "Pipeline 4"
+                            },
+                            {
+                                "value": "Pipeline5",
+                                "label": "Pipeline 5"
+                            }
+                        ]
+                    },
+                    {
+                        "modalTitle": "Time Range",
+                        "title": "Time Range",
+                        "leafTitle": "Time Range",
+                        "type": "select",
+                        "defaultValue": "1 Hour",
+                        "options": [
+                            {
+                                "value": "all",
+                                "label": "All"
+                            },
+                            {
+                                "value": "1 Hour",
+                                "label": "1 Hour"
+                            },
+                            {
+                                "value": "8 Hours",
+                                "label": "8 Hours"
+                            },
+                            {
+                                "value": "24 Hours",
+                                "label": "24 Hours"
+                            },
+                            {
+                                "value": "This Week",
+                                "label": "This Week"
+                            },
+                            {
+                                "value": "Last Week",
+                                "label": "Last Week"
+                            },
+                            {
+                                "value": "Last 30 Days",
+                                "label": "Last 30 Days"
+                            },
+                            {
+                                "value": "This Month",
+                                "label": "This Month"
+                            },
+                            {
+                                "value": "Last 6 Months",
+                                "label": "Last 6 Months"
+                            },
+                            {
+                                "value": "1 Year",
+                                "label": "1 Year"
+                            },
+                            {
+                                "value": "Custom",
+                                "label": "Custom"
+                            }
+                        ]
+                    },
+                    {
+                        "toolbarTitle": "Export",
+                        "type": "download",
+                        "downloadOptions": [
+                            {
+                                "lable": "Download PDF",
+                                "apiKey": "cspBillSentInvoiceDownloadAPI",
+                                "fileName": "Billing Overview.pdf"
+                            },
+                            {
+                                "lable": "Download CSV",
+                                "fileName": "Billing Overview.csv",
+                                "componentsAPIKey": "extendedDownloadAPI",
+                                "modalTitle": "Download"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "leafTitle": "Scan Summary Page Layout",
+                "subTitle": "",
+                "size": 12,
+                "type": "scanSummaryLayout",
+                "isHawkUI": true,
+                "apiKey": "",
+                "components": [
+                    {
+                        "id": 1,
+                        "dataApiKey": "devSecOpsAllIncidentAPI",
+                        "isHawkUI": true,
+                        "type": "hawkDataTable",
+                        "header": "All Incident",
+                        "hideToolBar": true,
+                        "noDataText": "No Incident Available",
+                        "size": 12,
+                        "filter": false,
+                        "metrics": {},
+                        "selectableRows": "single",
+                        "defaultRowPerPage": 20,
+                        "columns": [
+                            {
+                                "name": "Id",
+                                "key": "incidentId",
+                                "display": false
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incidentName",
+                                "display": true
+                            },
+                            {
+                                "name": "Risk Level",
+                                "key": "riskLevel",
+                                "type": "riskLevel",
+                                "display": true
+                            },
+                            {
+                                "name": "Incident Details",
+                                "key": "incidentDetails",
+                                "display": true
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "type": "card-analytics-graph",
+                        "dataApiKey": "devSecOpsCusteredSimilarErrorsChartAPI",
+                        "isHawkUI": true
+                    },
+                    {
+                        "id": 3,
+                        "type": "card-analytics-graph",
+                        "dataApiKey": "devSecOpsFrequencyComponentChartAPI",
+                        "isHawkUI": true
+                    },
+                    {
+                        "id": 4,
+                        "type": "card-analytics-graph",
+                        "dataApiKey": "devSecOpsRootCauseAnalysisChartAPI",
+                        "isHawkUI": true
+                    }
+                ]
+            }
+        ]
+    }
+]

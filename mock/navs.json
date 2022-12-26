@@ -219,6 +219,25 @@
                     }
                 },
                 {
+                    "id": "devSecOpsScanSummary",
+                    "name": "Scan Summary",
+                    "link": "/devsecops/devSecOpsScanSummary",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": false,
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Scan Summary"
+                        ]
+                    }
+                },
+                {
                     "id": "devSecOpsDomainDetails",
                     "name": "Domain Details",
                     "link": "/devsecops/devSecOpsDomainDetails",
