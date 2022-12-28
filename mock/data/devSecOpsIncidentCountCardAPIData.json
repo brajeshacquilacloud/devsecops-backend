@@ -1,0 +1,10 @@
+[
+    {
+        "cardTitle": "Incident Count",
+        "totalPipeline": 324,
+        "activePipeline": "",
+        "inactivePipeline": "",
+        "percentage": 8,
+        "trend": "down"
+    }
+]

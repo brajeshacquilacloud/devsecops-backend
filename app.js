@@ -89,6 +89,10 @@ const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = requi
 
 const devSecOpsActiveInactivePipelineCardAPIData = require("./mock/data/devSecOpsActiveInactivePipelineCardAPIData.json")
 const devSecOpsTriggerExecutedCardAPIData = require("./mock/data/devSecOpsTriggerExecutedCardAPIData.json")
+const devSecOpsIncidentCountCardAPIData = require("./mock/data/devSecOpsIncidentCountCardAPIData.json")
+const devSecOpsIncidentRiskLevelCardAPIData = require("./mock/data/devSecOpsIncidentRiskLevelCardAPIData.json")
+
+
 
 
 const fs = require("fs");
@@ -20110,18 +20114,299 @@ app.post('/api/devsecops/trigger-executed-card', function (req, res) {
 
 
 
+// #### Start Trigger Executed Card #####
+/**
+ * @swagger
+ * /api/devsecops/scan-summary-tabs:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Scan Summary Page Data.
+ *      description: Scan Summary Page Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+app.post("/api/devsecops/scan-summary-tabs", function (req, res) {
+    const data = [
+        {
+            "name": "Source Control",
+            "value": 'DevOps: Trivy',
+            "unit": "INR",
+            "timeSeries": [
+                {
+                    "date": "2020-03-14",
+                    "Bill Amount": 0
+                },
+                {
+                    "date": "2020-04-14",
+                    "Bill Amount": 49557.95
+                },
+                {
+                    "date": "2020-04-28",
+                    "Bill Amount": 51057.95
+                },
+                {
+                    "date": "2020-05-14",
+                    "Bill Amount": 335575.43
+                },
+                {
+                    "date": "2020-05-28",
+                    "Bill Amount": 337075.43
+                },
+                {
+                    "date": "2020-06-14",
+                    "Bill Amount": 823467.95
+                },
+                {
+                    "date": "2020-07-14",
+                    "Bill Amount": 954633.12
+                },
+                {
+                    "date": "2020-08-14",
+                    "Bill Amount": 969742.84
+                }
+            ]
+        },
+        {
+            "name": "Build",
+            "value": "DevOps: Jenkins",
+            "unit": "INR",
+            "timeSeries": [
+                {
+                    "date": "2020-03-14",
+                    "Customers": 42
+                },
+                {
+                    "date": "2020-04-14",
+                    "Customers": 43
+                },
+                {
+                    "date": "2020-04-28",
+                    "Customers": 50
+                },
+                {
+                    "date": "2020-05-14",
+                    "Customers": 51
+                },
+                {
+                    "date": "2020-05-28",
+                    "Customers": 54
+                },
+                {
+                    "date": "2020-06-14",
+                    "Customers": 60
+                },
+                {
+                    "date": "2020-07-14",
+                    "Customers": 65
+                },
+                {
+                    "date": "2020-08-14",
+                    "Customers": 66
+                }
+            ]
+        },
+        {
+            "name": "Dev Test",
+            "value": "DevOps: Junit",
+            "unit": "INR",
+            "timeSeries": [
+                {
+                    "date": "2020-03-14",
+                    "Amount Consumed": 0,
+                    "PO Left": 4020413
+                },
+                {
+                    "date": "2020-04-14",
+                    "Amount Consumed": 49557.95,
+                    "PO Left": 3970855.04
+                },
+                {
+                    "date": "2020-04-28",
+                    "Amount Consumed": 51057.95,
+                    "PO Left": 3969355.04
+                },
+                {
+                    "date": "2020-05-14",
+                    "Amount Consumed": 335575.43,
+                    "PO Left": 3684837.56
+                },
+                {
+                    "date": "2020-05-28",
+                    "Amount Consumed": 337075.43,
+                    "PO Left": 3683337.56
+                },
+                {
+                    "date": "2020-06-14",
+                    "Amount Consumed": 823467.95,
+                    "PO Left": 3196945.04
+                },
+                {
+                    "date": "2020-07-14",
+                    "Amount Consumed": 954633.12,
+                    "PO Left": 3065779.87
+                },
+                {
+                    "date": "2020-08-14",
+                    "Amount Consumed": 969742.84,
+                    "PO Left": 3050670.15
+                }
+            ]
+        },
+        {
+            "name": "Deploy",
+            "value": "DevOps: Github",
+            "unit": "INR",
+            "timeSeries": [
+                {
+                    "date": "2020-03-14",
+                    "Amount Consumed": 0,
+                    "PO Left": 4020413
+                },
+                {
+                    "date": "2020-04-14",
+                    "Amount Consumed": 49557.95,
+                    "PO Left": 3970855.04
+                },
+                {
+                    "date": "2020-04-28",
+                    "Amount Consumed": 51057.95,
+                    "PO Left": 3969355.04
+                },
+                {
+                    "date": "2020-05-14",
+                    "Amount Consumed": 335575.43,
+                    "PO Left": 3684837.56
+                },
+                {
+                    "date": "2020-05-28",
+                    "Amount Consumed": 337075.43,
+                    "PO Left": 3683337.56
+                },
+                {
+                    "date": "2020-06-14",
+                    "Amount Consumed": 823467.95,
+                    "PO Left": 3196945.04
+                },
+                {
+                    "date": "2020-07-14",
+                    "Amount Consumed": 954633.12,
+                    "PO Left": 3065779.87
+                },
+                {
+                    "date": "2020-08-14",
+                    "Amount Consumed": 969742.84,
+                    "PO Left": 3050670.15
+                }
+            ]
+        },
+        {
+            "name": "Run Time",
+            "value": "DevOps: Github",
+            "unit": "INR",
+            "timeSeries": [
+                {
+                    "date": "2020-03-14",
+                    "Amount Consumed": 0,
+                    "PO Left": 4020413
+                },
+                {
+                    "date": "2020-04-14",
+                    "Amount Consumed": 49557.95,
+                    "PO Left": 3970855.04
+                },
+                {
+                    "date": "2020-04-28",
+                    "Amount Consumed": 51057.95,
+                    "PO Left": 3969355.04
+                },
+                {
+                    "date": "2020-05-14",
+                    "Amount Consumed": 335575.43,
+                    "PO Left": 3684837.56
+                },
+                {
+                    "date": "2020-05-28",
+                    "Amount Consumed": 337075.43,
+                    "PO Left": 3683337.56
+                },
+                {
+                    "date": "2020-06-14",
+                    "Amount Consumed": 823467.95,
+                    "PO Left": 3196945.04
+                },
+                {
+                    "date": "2020-07-14",
+                    "Amount Consumed": 954633.12,
+                    "PO Left": 3065779.87
+                },
+                {
+                    "date": "2020-08-14",
+                    "Amount Consumed": 969742.84,
+                    "PO Left": 3050670.15
+                }
+            ]
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+})
 
 
 
 
+// #### Start Incident Count Card #####
+/**
+ * @swagger
+ * /api/devsecops/incident-count-card:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Incident Count Card summary.
+ *      description: Incident Count Card card.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/incident-count-card', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsIncidentCountCardAPIData);
+});
+
+// #### End Incident Count Card #####
 
 
 
 
+// #### Start Incident Risk Level Card #####
+/**
+ * @swagger
+ * /api/devsecops/incident-risk-level-card:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Incident Risk Level Card summary.
+ *      description: Incident Risk Level Card card.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
 
 
 
+app.post('/api/devsecops/incident-risk-level-card', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsIncidentRiskLevelCardAPIData);
+});
 
+// #### End Incident Risk Level Card #####
 
 
 

@@ -124,58 +124,23 @@
                 "components": [
                     {
                         "id": 1,
-                        "dataApiKey": "devSecOpsAllIncidentAPI",
-                        "isHawkUI": true,
-                        "type": "hawkDataTable",
-                        "header": "All Incident",
-                        "hideToolBar": true,
-                        "noDataText": "No Incident Available",
+                        "type": "activeInactivePipelineCard",
                         "size": 12,
-                        "filter": false,
-                        "metrics": {},
-                        "selectableRows": "single",
-                        "defaultRowPerPage": 20,
-                        "columns": [
-                            {
-                                "name": "Id",
-                                "key": "incidentId",
-                                "display": false
-                            },
-                            {
-                                "name": "Incident Name",
-                                "key": "incidentName",
-                                "display": true
-                            },
-                            {
-                                "name": "Risk Level",
-                                "key": "riskLevel",
-                                "type": "riskLevel",
-                                "display": true
-                            },
-                            {
-                                "name": "Incident Details",
-                                "key": "incidentDetails",
-                                "display": true
-                            }
-                        ]
+                        "dataApiKey": "devSecOpsIncidentCountCardAPI"
                     },
                     {
                         "id": 2,
-                        "type": "card-analytics-graph",
-                        "dataApiKey": "devSecOpsCusteredSimilarErrorsChartAPI",
-                        "isHawkUI": true
+                        "type": "incidentRiskLevelCard",
+                        "size": 12,
+                        "dataApiKey": "devSecOpsIncidentRiskLevelCard"
                     },
                     {
                         "id": 3,
-                        "type": "card-analytics-graph",
-                        "dataApiKey": "devSecOpsFrequencyComponentChartAPI",
-                        "isHawkUI": true
-                    },
-                    {
-                        "id": 4,
-                        "type": "card-analytics-graph",
-                        "dataApiKey": "devSecOpsRootCauseAnalysisChartAPI",
-                        "isHawkUI": true
+                        "type": "tabDevOpsStagesAndTools",
+                        "dataApiKey": "devSecOpsScanSummaryTabsData",
+                        "noDataText": "No Data available",
+                        "metrics": {},
+                        "size": 12
                     }
                 ]
             }
