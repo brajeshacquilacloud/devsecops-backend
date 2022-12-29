@@ -20132,13 +20132,66 @@ app.post("/api/devsecops/scan-summary-tabs", function (req, res) {
     const data = [
         {
             "name": "Source Control",
-            "devOpsToolName": 'DevOps: Trivy',
-            "secOpsToolName": 'SecOps: Snyk',
+            "devOpsToolName": 'Trivy',
+            "secOpsToolName": 'Snyk',
             "unit": "INR",
             "timeSeries": [
                 {
                     "date": "2020-03-14",
-                    "Bill Amount": 0
+                    "Bill Amount": 01
+                }
+            ],
+            "scanSummaryTableData": [
+                {
+                    "id": 1,
+                    "dataApiKey": "devSecOpsAllIncidentAPI",
+                    "isHawkUI": true,
+                    "type": "hawkDataTable",
+                    "header": "All Incident",
+                    "hideToolBar": true,
+                    "noDataText": "No Incident Available",
+                    "size": 12,
+                    "filter": false,
+                    "metrics": {},
+                    "selectableRows": "single",
+                    "defaultRowPerPage": 20,
+                    "columns": [
+                        {
+                            "name": "Id",
+                            "key": "incidentId",
+                            "display": false
+                        },
+                        {
+                            "name": "Incident Name",
+                            "key": "incidentName",
+                            "display": true
+                        },
+                        {
+                            "name": "Risk Level",
+                            "key": "riskLevel",
+                            "type": "riskLevel",
+                            "display": true
+                        },
+                        {
+                            "name": "Incident Details",
+                            "key": "incidentDetails",
+                            "display": true
+                        }
+                    ]
+                },
+            ]
+
+
+        },
+        {
+            "name": "Build",
+            "devOpsToolName": "Jenkins",
+            "secOpsToolName": 'Grype',
+            "unit": "INR",
+            "timeSeries": [
+                {
+                    "date": "2020-03-14",
+                    "Customers": 42
                 }
             ],
             "scanSummaryTableData": [
@@ -20159,34 +20212,38 @@ app.post("/api/devsecops/scan-summary-tabs", function (req, res) {
             ]
         },
         {
-            "name": "Build",
-            "devOpsToolName": "DevOps: Jenkins",
-            "secOpsToolName": 'SecOps: Grype',
-            "unit": "INR",
-            "timeSeries": [
-                {
-                    "date": "2020-03-14",
-                    "Customers": 42
-                }
-            ]
-        },
-        {
             "name": "Dev Test",
-            "devOpsToolName": "DevOps: Junit",
-            "secOpsToolName": 'SecOps: Qualys',
+            "devOpsToolName": "Junit",
+            "secOpsToolName": 'Qualys',
             "unit": "INR",
             "timeSeries": [
                 {
                     "date": "2020-03-14",
                     "Amount Consumed": 0,
                     "PO Left": 4020413
+                }
+            ],
+            "scanSummaryTableData": [
+                {
+                    "event": "Incident Name",
+                    "status": "High",
+                    "discoveryTime": "3-5-2022 10:00AM",
+                    "description": "description",
+                    "action": "View"
+                },
+                {
+                    "event": "Incident Name",
+                    "status": "Medium",
+                    "discoveryTime": "3-5-2022 10:00AM",
+                    "description": "description",
+                    "action": "View"
                 }
             ]
         },
         {
             "name": "Deploy",
-            "devOpsToolName": "DevOps: Github",
-            "secOpsToolName": 'SecOps: Grype',
+            "devOpsToolName": "Github",
+            "secOpsToolName": 'Grype',
             "unit": "INR",
             "timeSeries": [
                 {
@@ -20194,18 +20251,50 @@ app.post("/api/devsecops/scan-summary-tabs", function (req, res) {
                     "Amount Consumed": 0,
                     "PO Left": 4020413
                 }
+            ],
+            "scanSummaryTableData": [
+                {
+                    "event": "Incident Name",
+                    "status": "High",
+                    "discoveryTime": "3-5-2022 10:00AM",
+                    "description": "description",
+                    "action": "View"
+                },
+                {
+                    "event": "Incident Name",
+                    "status": "Medium",
+                    "discoveryTime": "3-5-2022 10:00AM",
+                    "description": "description",
+                    "action": "View"
+                }
             ]
         },
         {
             "name": "Run Time",
-            "devOpsToolName": "DevOps: Github",
-            "secOpsToolName": 'SecOps: Grype',
+            "devOpsToolName": "Github",
+            "secOpsToolName": 'Grype',
             "unit": "INR",
             "timeSeries": [
                 {
                     "date": "2020-03-14",
                     "Amount Consumed": 0,
                     "PO Left": 4020413
+                }
+            ],
+            "scanSummaryTableData": [
+                {
+                    "event": "Incident Name",
+                    "status": "High",
+                    "discoveryTime": "3-5-2022 10:00AM",
+                    "description": "description",
+                    "action": "View"
+                },
+                {
+                    "event": "Incident Name",
+                    "status": "Medium",
+                    "discoveryTime": "3-5-2022 10:00AM",
+                    "description": "description",
+                    "action": "View"
                 }
             ]
         }
