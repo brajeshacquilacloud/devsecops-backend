@@ -20132,220 +20132,80 @@ app.post("/api/devsecops/scan-summary-tabs", function (req, res) {
     const data = [
         {
             "name": "Source Control",
-            "value": 'DevOps: Trivy',
+            "devOpsToolName": 'DevOps: Trivy',
+            "secOpsToolName": 'SecOps: Snyk',
             "unit": "INR",
             "timeSeries": [
                 {
                     "date": "2020-03-14",
                     "Bill Amount": 0
+                }
+            ],
+            "scanSummaryTableData": [
+                {
+                    "event": "Incident Name",
+                    "status": "High",
+                    "discoveryTime": "3-5-2022 10:00AM",
+                    "description": "description",
+                    "action": "View"
                 },
                 {
-                    "date": "2020-04-14",
-                    "Bill Amount": 49557.95
-                },
-                {
-                    "date": "2020-04-28",
-                    "Bill Amount": 51057.95
-                },
-                {
-                    "date": "2020-05-14",
-                    "Bill Amount": 335575.43
-                },
-                {
-                    "date": "2020-05-28",
-                    "Bill Amount": 337075.43
-                },
-                {
-                    "date": "2020-06-14",
-                    "Bill Amount": 823467.95
-                },
-                {
-                    "date": "2020-07-14",
-                    "Bill Amount": 954633.12
-                },
-                {
-                    "date": "2020-08-14",
-                    "Bill Amount": 969742.84
+                    "event": "Incident Name",
+                    "status": "Medium",
+                    "discoveryTime": "3-5-2022 10:00AM",
+                    "description": "description",
+                    "action": "View"
                 }
             ]
         },
         {
             "name": "Build",
-            "value": "DevOps: Jenkins",
+            "devOpsToolName": "DevOps: Jenkins",
+            "secOpsToolName": 'SecOps: Grype',
             "unit": "INR",
             "timeSeries": [
                 {
                     "date": "2020-03-14",
                     "Customers": 42
-                },
-                {
-                    "date": "2020-04-14",
-                    "Customers": 43
-                },
-                {
-                    "date": "2020-04-28",
-                    "Customers": 50
-                },
-                {
-                    "date": "2020-05-14",
-                    "Customers": 51
-                },
-                {
-                    "date": "2020-05-28",
-                    "Customers": 54
-                },
-                {
-                    "date": "2020-06-14",
-                    "Customers": 60
-                },
-                {
-                    "date": "2020-07-14",
-                    "Customers": 65
-                },
-                {
-                    "date": "2020-08-14",
-                    "Customers": 66
                 }
             ]
         },
         {
             "name": "Dev Test",
-            "value": "DevOps: Junit",
+            "devOpsToolName": "DevOps: Junit",
+            "secOpsToolName": 'SecOps: Qualys',
             "unit": "INR",
             "timeSeries": [
                 {
                     "date": "2020-03-14",
                     "Amount Consumed": 0,
                     "PO Left": 4020413
-                },
-                {
-                    "date": "2020-04-14",
-                    "Amount Consumed": 49557.95,
-                    "PO Left": 3970855.04
-                },
-                {
-                    "date": "2020-04-28",
-                    "Amount Consumed": 51057.95,
-                    "PO Left": 3969355.04
-                },
-                {
-                    "date": "2020-05-14",
-                    "Amount Consumed": 335575.43,
-                    "PO Left": 3684837.56
-                },
-                {
-                    "date": "2020-05-28",
-                    "Amount Consumed": 337075.43,
-                    "PO Left": 3683337.56
-                },
-                {
-                    "date": "2020-06-14",
-                    "Amount Consumed": 823467.95,
-                    "PO Left": 3196945.04
-                },
-                {
-                    "date": "2020-07-14",
-                    "Amount Consumed": 954633.12,
-                    "PO Left": 3065779.87
-                },
-                {
-                    "date": "2020-08-14",
-                    "Amount Consumed": 969742.84,
-                    "PO Left": 3050670.15
                 }
             ]
         },
         {
             "name": "Deploy",
-            "value": "DevOps: Github",
+            "devOpsToolName": "DevOps: Github",
+            "secOpsToolName": 'SecOps: Grype',
             "unit": "INR",
             "timeSeries": [
                 {
                     "date": "2020-03-14",
                     "Amount Consumed": 0,
                     "PO Left": 4020413
-                },
-                {
-                    "date": "2020-04-14",
-                    "Amount Consumed": 49557.95,
-                    "PO Left": 3970855.04
-                },
-                {
-                    "date": "2020-04-28",
-                    "Amount Consumed": 51057.95,
-                    "PO Left": 3969355.04
-                },
-                {
-                    "date": "2020-05-14",
-                    "Amount Consumed": 335575.43,
-                    "PO Left": 3684837.56
-                },
-                {
-                    "date": "2020-05-28",
-                    "Amount Consumed": 337075.43,
-                    "PO Left": 3683337.56
-                },
-                {
-                    "date": "2020-06-14",
-                    "Amount Consumed": 823467.95,
-                    "PO Left": 3196945.04
-                },
-                {
-                    "date": "2020-07-14",
-                    "Amount Consumed": 954633.12,
-                    "PO Left": 3065779.87
-                },
-                {
-                    "date": "2020-08-14",
-                    "Amount Consumed": 969742.84,
-                    "PO Left": 3050670.15
                 }
             ]
         },
         {
             "name": "Run Time",
-            "value": "DevOps: Github",
+            "devOpsToolName": "DevOps: Github",
+            "secOpsToolName": 'SecOps: Grype',
             "unit": "INR",
             "timeSeries": [
                 {
                     "date": "2020-03-14",
                     "Amount Consumed": 0,
                     "PO Left": 4020413
-                },
-                {
-                    "date": "2020-04-14",
-                    "Amount Consumed": 49557.95,
-                    "PO Left": 3970855.04
-                },
-                {
-                    "date": "2020-04-28",
-                    "Amount Consumed": 51057.95,
-                    "PO Left": 3969355.04
-                },
-                {
-                    "date": "2020-05-14",
-                    "Amount Consumed": 335575.43,
-                    "PO Left": 3684837.56
-                },
-                {
-                    "date": "2020-05-28",
-                    "Amount Consumed": 337075.43,
-                    "PO Left": 3683337.56
-                },
-                {
-                    "date": "2020-06-14",
-                    "Amount Consumed": 823467.95,
-                    "PO Left": 3196945.04
-                },
-                {
-                    "date": "2020-07-14",
-                    "Amount Consumed": 954633.12,
-                    "PO Left": 3065779.87
-                },
-                {
-                    "date": "2020-08-14",
-                    "Amount Consumed": 969742.84,
-                    "PO Left": 3050670.15
                 }
             ]
         }
