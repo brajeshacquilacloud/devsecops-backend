@@ -143,6 +143,329 @@
                         "size": 12
                     }
                 ]
+            },
+            {
+                "id": 4,
+                "leafTitle": "",
+                "type": "tab",
+                "size": 12,
+                "tabs": [
+                    {
+                        "id": 1,
+                        "defSelectKey": "sourceControl",
+                        "tabTitle": "Source Control",
+                        "tabSubTitle": "Trivy",
+                        "leafTitle": "Snyk",
+                        "columnTitle": "Source Control...",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
+                        "apiKey": "devSecOpsScanSummarySourceControlTableAPI",
+                        "size": 12,
+                        "noDataAddIcon": true,
+                        "hideToolBar": true,
+                        "noDataText": "Select A Services to see avaliable Services.",
+                        "columns": [
+                            {
+                                "name": "Incident Id",
+                                "key": "incidentId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incident"
+                            },
+                            {
+                                "name": "Risk Level",
+                                "key": "risk",
+                                "type": "riskLevel"
+                            },
+                            {
+                                "name": "Discovery Time",
+                                "key": "discoveryTime"
+                            },
+                            {
+                                "name": "Description",
+                                "key": "description"
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
+                                    {
+                                        "name": "View",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Incident Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "defSelectKey": "build",
+                        "tabTitle": "Build",
+                        "tabSubTitle": "Jenkins",
+                        "leafTitle": "Grype",
+                        "columnTitle": "Build...",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
+                        "apiKey": "devSecOpsScanSummaryBuildTableAPI",
+                        "size": 12,
+                        "noDataAddIcon": true,
+                        "hideToolBar": true,
+                        "noDataText": "Select A Services to see avaliable Services.",
+                        "columns": [
+                            {
+                                "name": "Incident Id",
+                                "key": "incidentId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incident"
+                            },
+                            {
+                                "name": "Risk Level",
+                                "key": "risk",
+                                "type": "riskLevel"
+                            },
+                            {
+                                "name": "Discovery Time",
+                                "key": "discoveryTime"
+                            },
+                            {
+                                "name": "Description",
+                                "key": "description"
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
+                                    {
+                                        "name": "View",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Incident Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "defSelectKey": "devTest",
+                        "tabTitle": "Dev Test",
+                        "tabSubTitle": "Junit",
+                        "leafTitle": "Qualys",
+                        "columnTitle": "Dev Test...",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
+                        "apiKey": "devSecOpsScanSummaryDevTestTableAPI",
+                        "size": 12,
+                        "noDataAddIcon": true,
+                        "hideToolBar": true,
+                        "noDataText": "Select A Services to see avaliable Services.",
+                        "columns": [
+                            {
+                                "name": "Incident Id",
+                                "key": "incidentId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incident"
+                            },
+                            {
+                                "name": "Risk Level",
+                                "key": "risk",
+                                "type": "riskLevel"
+                            },
+                            {
+                                "name": "Discovery Time",
+                                "key": "discoveryTime"
+                            },
+                            {
+                                "name": "Description",
+                                "key": "description"
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
+                                    {
+                                        "name": "View",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Incident Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "defSelectKey": "deploy",
+                        "tabTitle": "Deploy",
+                        "tabSubTitle": "Github",
+                        "leafTitle": "Grype",
+                        "columnTitle": "Deploy...",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
+                        "apiKey": "devSecOpsScanSummaryDeployTableAPI",
+                        "size": 12,
+                        "noDataAddIcon": true,
+                        "hideToolBar": true,
+                        "noDataText": "Select A Services to see avaliable Services.",
+                        "columns": [
+                            {
+                                "name": "Incident Id",
+                                "key": "incidentId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incident"
+                            },
+                            {
+                                "name": "Risk Level",
+                                "key": "risk",
+                                "type": "riskLevel"
+                            },
+                            {
+                                "name": "Discovery Time",
+                                "key": "discoveryTime"
+                            },
+                            {
+                                "name": "Description",
+                                "key": "description"
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
+                                    {
+                                        "name": "View",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Incident Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 5,
+                        "defSelectKey": "runTime",
+                        "tabTitle": "Run Time",
+                        "tabSubTitle": "Github",
+                        "leafTitle": "Grype",
+                        "columnTitle": "Run Time...",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
+                        "apiKey": "devSecOpsScanSummaryRunTimeTableAPI",
+                        "size": 12,
+                        "noDataAddIcon": true,
+                        "hideToolBar": true,
+                        "noDataText": "Select A Services to see avaliable Services.",
+                        "columns": [
+                            {
+                                "name": "Incident Id",
+                                "key": "incidentId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Incident Name",
+                                "key": "incident"
+                            },
+                            {
+                                "name": "Risk Level",
+                                "key": "risk",
+                                "type": "riskLevel"
+                            },
+                            {
+                                "name": "Discovery Time",
+                                "key": "discoveryTime"
+                            },
+                            {
+                                "name": "Description",
+                                "key": "description"
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
+                                    {
+                                        "name": "View",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Incident Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }

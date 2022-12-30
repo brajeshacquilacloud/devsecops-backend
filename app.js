@@ -92,6 +92,12 @@ const devSecOpsTriggerExecutedCardAPIData = require("./mock/data/devSecOpsTrigge
 const devSecOpsIncidentCountCardAPIData = require("./mock/data/devSecOpsIncidentCountCardAPIData.json")
 const devSecOpsIncidentRiskLevelCardAPIData = require("./mock/data/devSecOpsIncidentRiskLevelCardAPIData.json")
 
+const devSecOpsScanSummarySourceControlTableAPIData = require("./mock/data/devSecOpsScanSummarySourceControlTableAPIData.json")
+const devSecOpsScanSummaryBuildTableAPIData = require("./mock/data/devSecOpsScanSummaryBuildTableAPIData.json")
+const devSecOpsScanSummaryDevTestTableAPIData = require("./mock/data/devSecOpsScanSummaryDevTestTableAPIData.json")
+const devSecOpsScanSummaryDeployTableAPIData = require("./mock/data/devSecOpsScanSummaryDeployTableAPIData.json")
+const devSecOpsScanSummaryRunTimeTableAPIData = require("./mock/data/devSecOpsScanSummaryRunTimeTableAPIData.json")
+
 
 
 
@@ -20348,14 +20354,150 @@ app.post('/api/devsecops/incident-count-card', function (req, res) {
  *
  */
 
-
-
 app.post('/api/devsecops/incident-risk-level-card', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(devSecOpsIncidentRiskLevelCardAPIData);
 });
 
 // #### End Incident Risk Level Card #####
+
+
+
+
+// #### Start scan summary source control table #####
+/**
+ * @swagger
+ * /api/devsecops/scan-summary-source-control-table:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Scan summary source control table.
+ *      description: Scan summary source control table List.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/scan-summary-source-control-table', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsScanSummarySourceControlTableAPIData);
+});
+
+// #### End scan summary source control table #####
+
+
+
+// #### Start scan summary build table #####
+/**
+ * @swagger
+ * /api/devsecops/scan-summary-build-table:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Scan summary build table.
+ *      description: Scan summary build table List.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/scan-summary-build-table', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsScanSummaryBuildTableAPIData);
+});
+
+// #### End scan summary build table #####
+
+
+
+
+
+// #### Start scan summary dev test table #####
+/**
+ * @swagger
+ * /api/devsecops/scan-summary-dev-test-table:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Scan summary dev test table.
+ *      description: Scan summary dev test table List.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/scan-summary-dev-test-table', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsScanSummaryDevTestTableAPIData);
+});
+
+// #### End scan summary dev test table #####
+
+
+
+
+
+// #### Start scan summary deploy table #####
+/**
+ * @swagger
+ * /api/devsecops/scan-summary-deploy-table:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Scan summary deploy table.
+ *      description: Scan summary deploy table List.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/scan-summary-deploy-table', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsScanSummaryDeployTableAPIData);
+});
+
+// #### End scan summary deploy table #####
+
+
+
+// #### Start scan summary Run Time table #####
+/**
+ * @swagger
+ * /api/devsecops/scan-summary-run-time-table:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Scan summary Run Time table.
+ *      description: Scan summary Run Time table List.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/scan-summary-run-time-table', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsScanSummaryRunTimeTableAPIData);
+});
+
+// #### End scan summary Run Time table #####
+
+
+
 
 
 
