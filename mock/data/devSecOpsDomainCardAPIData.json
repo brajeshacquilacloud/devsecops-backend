@@ -15,7 +15,7 @@
     },
     {
         "id": 3,
-        "domainName": "DevSecOps Domain",
+        "domainName": "DevOps Domain",
         "lastScan": "2022-10-23 11:00AM",
         "pipelineCount": "34",
         "scanTest": "834"

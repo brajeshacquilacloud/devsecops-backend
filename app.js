@@ -17,9 +17,6 @@ const devSecOpsWelcomeLayout = require("./mock/devSecOpsWelcomeLayout.json")
 const devSecOpsAddDomainAddPipeline = require('./mock/devSecOpsAddDomainAddPipeline.json');
 const devSecOpsLandingPageFirstTimeDiscovery = require('./mock/devSecOpsLandingPageFirstTimeDiscovery.json');
 const devSecOpsPipelineConfigureToolDetails = require('./mock/devSecOpsPipelineConfigureToolDetails.json');
-const devSecOpsPipelineScanSummary = require('./mock/devSecOpsPipelineScanSummary.json');
-
-
 
 const devSecOpsDomainDetails = require('./mock/devSecOpsDomainDetails.json');
 const devSecOpsPipelineDetails = require('./mock/devSecOpsPipelineDetails.json');
@@ -81,10 +78,10 @@ const devSecOpsCusteredSimilarErrorsChartAPIData = require("./mock/data/devSecOp
 const devSecOpsFrequencyComponentChartAPIData = require("./mock/data/devSecOpsFrequencyComponentChartAPIData.json")
 const devSecOpsRootCauseAnalysisChartAPIData = require("./mock/data/devSecOpsRootCauseAnalysisChartAPIData.json")
 const devSecOpsNotificationAlertAPIData = require("./mock/data/devSecOpsNotificationAlertAPIData.json")
-const devSecOpsPipelineScanSummaryAPIData = require("./mock/data/devSecOpsPipelineScanSummaryAPIData.json")
 const devSecOpsPipelineStatusAPIData = require("./mock/data/devSecOpsPipelineStatusAPIData.json")
 
 const devSecOpsConfigureToolsChainAPIData = require("./mock/data/devSecOpsConfigureToolsChainAPIData.json")
+const devSecOpsPipelineScanSummaryAPIData = require("./mock/data/devSecOpsPipelineScanSummaryAPIData.json")
 const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = require("./mock/data/devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData.json")
 
 const devSecOpsActiveInactivePipelineCardAPIData = require("./mock/data/devSecOpsActiveInactivePipelineCardAPIData.json")
@@ -5778,12 +5775,6 @@ app.post('/api/scenario', function (req, res) {
         case "devSecOpsPipelineConfigureToolDetails":
             data = devSecOpsPipelineConfigureToolDetails;
             break;
-        case "devSecOpsPipelineScanSummary":
-            data = devSecOpsPipelineScanSummary;
-            break;
-
-
-
         case "devSecOpsDomainDetails":
             data = devSecOpsDomainDetails;
             break;
@@ -17806,7 +17797,7 @@ app.post('/api/devsecops/pipeline-card', function (req, res) {
         },
         {
             "id": 3,
-            "pipelineName": "DevSecOps Pipeline",
+            "pipelineName": "DevOps Pipeline",
             "lastScan": "2022-10-28 11:00AM",
             "scanTest": "123"
         }
@@ -18327,6 +18318,16 @@ app.post('/api/devsecops/user-role', function (req, res) {
 
 
 
+
+
+
+
+
+
+
+
+
+
 // #### Start Pipeline ScanSummary #####
 /**
  * @swagger
@@ -18349,7 +18350,7 @@ app.post('/api/devsecops/pipeline-scan-summary', function (req, res) {
     res.status(200).send(devSecOpsPipelineScanSummaryAPIData);
 });
 
-// #### End Users List #####
+// #### End Pipeline ScanSummary #####
 
 
 /**
@@ -20116,199 +20117,6 @@ app.post('/api/devsecops/trigger-executed-card', function (req, res) {
 });
 
 // #### End Trigger Executed Card #####
-
-
-
-
-// #### Start Trigger Executed Card #####
-/**
- * @swagger
- * /api/devsecops/scan-summary-tabs:
- *  post:
- *      tags:
- *      - "Scan Summary"
- *      summary: Scan Summary Page Data.
- *      description: Scan Summary Page Data.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response!
- *
- */
-app.post("/api/devsecops/scan-summary-tabs", function (req, res) {
-    const data = [
-        {
-            "name": "Source Control.............",
-            "devOpsToolName": 'Trivy',
-            "secOpsToolName": 'Snyk',
-            "unit": "INR",
-            "timeSeries": [
-                {
-                    "date": "2020-03-14",
-                    "Bill Amount": 01
-                }
-            ],
-            "scanSummaryTableData": [
-                {
-                    "id": 1,
-                    "dataApiKey": "devSecOpsAllIncidentAPI",
-                    "isHawkUI": true,
-                    "type": "hawkDataTable",
-                    "header": "All Incident",
-                    "hideToolBar": true,
-                    "noDataText": "No Incident Available",
-                    "size": 12,
-                    "filter": false,
-                    "metrics": {},
-                    "selectableRows": "single",
-                    "defaultRowPerPage": 20,
-                    "columns": [
-                        {
-                            "name": "Id",
-                            "key": "incidentId",
-                            "display": false
-                        },
-                        {
-                            "name": "Incident Name",
-                            "key": "incidentName",
-                            "display": true
-                        },
-                        {
-                            "name": "Risk Level",
-                            "key": "riskLevel",
-                            "type": "riskLevel",
-                            "display": true
-                        },
-                        {
-                            "name": "Incident Details",
-                            "key": "incidentDetails",
-                            "display": true
-                        }
-                    ]
-                },
-            ]
-
-
-        },
-        {
-            "name": "Build",
-            "devOpsToolName": "Jenkins",
-            "secOpsToolName": 'Grype',
-            "unit": "INR",
-            "timeSeries": [
-                {
-                    "date": "2020-03-14",
-                    "Customers": 42
-                }
-            ],
-            "scanSummaryTableData": [
-                {
-                    "event": "Incident Name",
-                    "status": "High",
-                    "discoveryTime": "3-5-2022 10:00AM",
-                    "description": "description",
-                    "action": "View"
-                },
-                {
-                    "event": "Incident Name",
-                    "status": "Medium",
-                    "discoveryTime": "3-5-2022 10:00AM",
-                    "description": "description",
-                    "action": "View"
-                }
-            ]
-        },
-        {
-            "name": "Dev Test",
-            "devOpsToolName": "Junit",
-            "secOpsToolName": 'Qualys',
-            "unit": "INR",
-            "timeSeries": [
-                {
-                    "date": "2020-03-14",
-                    "Amount Consumed": 0,
-                    "PO Left": 4020413
-                }
-            ],
-            "scanSummaryTableData": [
-                {
-                    "event": "Incident Name",
-                    "status": "High",
-                    "discoveryTime": "3-5-2022 10:00AM",
-                    "description": "description",
-                    "action": "View"
-                },
-                {
-                    "event": "Incident Name",
-                    "status": "Medium",
-                    "discoveryTime": "3-5-2022 10:00AM",
-                    "description": "description",
-                    "action": "View"
-                }
-            ]
-        },
-        {
-            "name": "Deploy",
-            "devOpsToolName": "Github",
-            "secOpsToolName": 'Grype',
-            "unit": "INR",
-            "timeSeries": [
-                {
-                    "date": "2020-03-14",
-                    "Amount Consumed": 0,
-                    "PO Left": 4020413
-                }
-            ],
-            "scanSummaryTableData": [
-                {
-                    "event": "Incident Name",
-                    "status": "High",
-                    "discoveryTime": "3-5-2022 10:00AM",
-                    "description": "description",
-                    "action": "View"
-                },
-                {
-                    "event": "Incident Name",
-                    "status": "Medium",
-                    "discoveryTime": "3-5-2022 10:00AM",
-                    "description": "description",
-                    "action": "View"
-                }
-            ]
-        },
-        {
-            "name": "Run Time",
-            "devOpsToolName": "Github",
-            "secOpsToolName": 'Grype',
-            "unit": "INR",
-            "timeSeries": [
-                {
-                    "date": "2020-03-14",
-                    "Amount Consumed": 0,
-                    "PO Left": 4020413
-                }
-            ],
-            "scanSummaryTableData": [
-                {
-                    "event": "Incident Name",
-                    "status": "High",
-                    "discoveryTime": "3-5-2022 10:00AM",
-                    "description": "description",
-                    "action": "View"
-                },
-                {
-                    "event": "Incident Name",
-                    "status": "Medium",
-                    "discoveryTime": "3-5-2022 10:00AM",
-                    "description": "description",
-                    "action": "View"
-                }
-            ]
-        }
-    ]
-    setResponseHeaders(res);
-    res.status(200).send(data);
-})
-
 
 
 

@@ -133,14 +133,6 @@
                         "type": "incidentRiskLevelCard",
                         "size": 12,
                         "dataApiKey": "devSecOpsIncidentRiskLevelCard"
-                    },
-                    {
-                        "id": 3,
-                        "type": "tabDevOpsStagesAndTools",
-                        "dataApiKey": "devSecOpsScanSummaryTabsData",
-                        "noDataText": "No Data available",
-                        "metrics": {},
-                        "size": 12
                     }
                 ]
             },
