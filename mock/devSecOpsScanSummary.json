@@ -148,14 +148,15 @@
                 "id": 4,
                 "leafTitle": "",
                 "type": "tab",
+                "tabType": "card",
                 "size": 12,
                 "tabs": [
                     {
                         "id": 1,
                         "defSelectKey": "sourceControl",
                         "tabTitle": "Source Control",
-                        "tabSubTitle": "Trivy",
-                        "leafTitle": "Snyk",
+                        "devOpsTool": "Trivy",
+                        "secOpsTool": "Snyk",
                         "columnTitle": "Source Control...",
                         "type": "hawkDatatable",
                         "mode": "inline",
@@ -163,7 +164,7 @@
                         "size": 12,
                         "noDataAddIcon": true,
                         "hideToolBar": true,
-                        "noDataText": "Select A Services to see avaliable Services.",
+                        "noDataText": "No Incident Available",
                         "columns": [
                             {
                                 "name": "Incident Id",
@@ -217,8 +218,8 @@
                         "id": 2,
                         "defSelectKey": "build",
                         "tabTitle": "Build",
-                        "tabSubTitle": "Jenkins",
-                        "leafTitle": "Grype",
+                        "devOpsTool": "Jenkins",
+                        "secOpsTool": "Grype",
                         "columnTitle": "Build...",
                         "type": "hawkDatatable",
                         "mode": "inline",
@@ -226,7 +227,7 @@
                         "size": 12,
                         "noDataAddIcon": true,
                         "hideToolBar": true,
-                        "noDataText": "Select A Services to see avaliable Services.",
+                        "noDataText": "No Incident Available",
                         "columns": [
                             {
                                 "name": "Incident Id",
@@ -280,8 +281,8 @@
                         "id": 3,
                         "defSelectKey": "devTest",
                         "tabTitle": "Dev Test",
-                        "tabSubTitle": "Junit",
-                        "leafTitle": "Qualys",
+                        "devOpsTool": "Junit",
+                        "secOpsTool": "Qualys",
                         "columnTitle": "Dev Test...",
                         "type": "hawkDatatable",
                         "mode": "inline",
@@ -289,7 +290,7 @@
                         "size": 12,
                         "noDataAddIcon": true,
                         "hideToolBar": true,
-                        "noDataText": "Select A Services to see avaliable Services.",
+                        "noDataText": "No Incident Available",
                         "columns": [
                             {
                                 "name": "Incident Id",
@@ -343,8 +344,8 @@
                         "id": 4,
                         "defSelectKey": "deploy",
                         "tabTitle": "Deploy",
-                        "tabSubTitle": "Github",
-                        "leafTitle": "Grype",
+                        "devOpsTool": "Github",
+                        "secOpsTool": "Grype",
                         "columnTitle": "Deploy...",
                         "type": "hawkDatatable",
                         "mode": "inline",
@@ -352,7 +353,7 @@
                         "size": 12,
                         "noDataAddIcon": true,
                         "hideToolBar": true,
-                        "noDataText": "Select A Services to see avaliable Services.",
+                        "noDataText": "No Incident Available",
                         "columns": [
                             {
                                 "name": "Incident Id",
@@ -406,8 +407,8 @@
                         "id": 5,
                         "defSelectKey": "runTime",
                         "tabTitle": "Run Time",
-                        "tabSubTitle": "Github",
-                        "leafTitle": "Grype",
+                        "devOpsTool": "Github",
+                        "secOpsTool": "Grype",
                         "columnTitle": "Run Time...",
                         "type": "hawkDatatable",
                         "mode": "inline",
@@ -415,7 +416,7 @@
                         "size": 12,
                         "noDataAddIcon": true,
                         "hideToolBar": true,
-                        "noDataText": "Select A Services to see avaliable Services.",
+                        "noDataText": "No Incident Available",
                         "columns": [
                             {
                                 "name": "Incident Id",

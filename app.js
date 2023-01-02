@@ -20137,7 +20137,7 @@ app.post('/api/devsecops/trigger-executed-card', function (req, res) {
 app.post("/api/devsecops/scan-summary-tabs", function (req, res) {
     const data = [
         {
-            "name": "Source Control",
+            "name": "Source Control.............",
             "devOpsToolName": 'Trivy',
             "secOpsToolName": 'Snyk',
             "unit": "INR",
