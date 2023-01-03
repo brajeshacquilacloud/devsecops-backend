@@ -13,6 +13,11 @@
                         "type": "search"
                     },
                     {
+                        "key": "DomainPipelineName",
+                        "title": "Domain / Pipeline Name",
+                        "type": "domain-pipeline-menu-selection-dropdown"
+                    },
+                    {
                         "modalTitle": "Pipeline Name",
                         "title": "Pipeline Name",
                         "leafTitle": "Pipeline Name",
