@@ -1,0 +1,101 @@
+[
+    {
+        "approvalActionStatusHistoryId": 1,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Approved"
+    },
+    {
+        "approvalActionStatusHistoryId": 2,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Rejected"
+    },
+    {
+        "approvalActionStatusHistoryId": 3,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Pending"
+    },
+    {
+        "approvalActionStatusHistoryId": 4,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Pending"
+    },
+    {
+        "approvalActionStatusHistoryId": 5,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Approved"
+    },
+    {
+        "approvalActionStatusHistoryId": 6,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Approved"
+    },
+    {
+        "approvalActionStatusHistoryId": 7,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Approved"
+    },
+    {
+        "approvalActionStatusHistoryId": 8,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Rejected"
+    },
+    {
+        "approvalActionStatusHistoryId": 9,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Approved"
+    },
+    {
+        "approvalActionStatusHistoryId": 10,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Approved"
+    },
+    {
+        "approvalActionStatusHistoryId": 11,
+        "pipeline": "Pipeline Name",
+        "domain": "Domain Name",
+        "stage": "Stage Name",
+        "approver": "Approver Name",
+        "dateTime": "12-3-22 10:34:23",
+        "approvalStatus": "Rejected"
+    }
+]

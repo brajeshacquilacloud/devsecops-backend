@@ -2,70 +2,140 @@
     {
         "leafs": [
             {
-                "id": 3,
+                "id": 1,
                 "leafTitle": "",
-                "isHawkUI": true,
-                "type": "hawkDatatable",
-                "apiKey": "devSecOpsApprovalActionStatusAPI",
+                "type": "tab",
+                "tabType": "card",
                 "size": 12,
-                "noDataText": "No sub-users available",
-                "metrics": {},
-                "hideToolBar": true,
-                "defaultRowPerPage": 10,
-                "columns": [
+                "tabs": [
                     {
-                        "name": "Id",
-                        "key": "approvalActionStatusId",
-                        "display": false
-                    },
-                    {
-                        "name": "Stage",
-                        "key": "stage",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Pipeline",
-                        "key": "pipeline",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "textField"
-                    },
-                    {
-                        "name": "Domain",
-                        "key": "domain",
-                        "display": true,
-                        "filter": true,
-                        "filterType": "multiselect"
-                    },
-                    {
-                        "name": "Approval Status",
-                        "key": "approvalStatus",
-                        "type": "approvalStatus",
-                        "display": true,
-                        "filter": false
-                    },
-                    {
-                        "name": "Stage Details",
-                        "key": "rowAction",
-                        "display": true,
-                        "filter": false,
-                        "type": "rowAction",
-                        "rowActions": [
+                        "id": 1,
+                        "defSelectKey": "approvalAction",
+                        "tabTitle": "Approval Action",
+                        "columnTitle": "Approval Action...",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
+                        "apiKey": "devSecOpsApprovalActionStatusAPI",
+                        "size": 12,
+                        "noDataAddIcon": true,
+                        "hideToolBar": true,
+                        "noDataText": "No Approval Available",
+                        "columns": [
                             {
-                                "name": "View",
-                                "key": "action",
-                                "type": "edit",
+                                "name": "Approval Action Status",
+                                "key": "approvalActionStatusId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Stage",
+                                "key": "stage"
+                            },
+                            {
+                                "name": "Pipeline",
+                                "key": "pipeline"
+                            },
+                            {
+                                "name": "Domain",
+                                "key": "domain"
+                            },
+                            {
+                                "name": "Approval Status",
+                                "key": "approvalStatus",
+                                "type": "approvalStatus",
                                 "display": true,
-                                "drillTo": "modal",
-                                "modalTitle": "Stage Details",
-                                "drillParams": [
+                                "filter": false
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
                                     {
-                                        "key": "approvalActionStatusId"
+                                        "name": "View",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Incident Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
                                     }
-                                ],
-                                "componentsAPIKey": "devSecOpsEditApprovalActionStatusComponentAPI"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "defSelectKey": "approvalHistory",
+                        "tabTitle": "Approval History",
+                        "columnTitle": "Approval History...",
+                        "type": "hawkDatatable",
+                        "mode": "inline",
+                        "apiKey": "devSecOpsApprovalActionStatusHistoryAPI",
+                        "size": 12,
+                        "noDataAddIcon": true,
+                        "hideToolBar": true,
+                        "noDataText": "No Approval Available",
+                        "columns": [
+                            {
+                                "name": "Approval Action Status History Id",
+                                "key": "approvalActionStatusHistoryId",
+                                "display": false,
+                                "isRowSelection": true
+                            },
+                            {
+                                "name": "Pipeline",
+                                "key": "pipeline"
+                            },
+                            {
+                                "name": "domain",
+                                "key": "domain"
+                            },
+                            {
+                                "name": "Stage",
+                                "key": "stage"
+                            },
+                            {
+                                "name": "Approver",
+                                "key": "approver"
+                            },
+                            {
+                                "name": "Date / Time",
+                                "key": "dateTime"
+                            },
+                            {
+                                "name": "Approval Status",
+                                "key": "approvalStatus"
+                            },
+                            {
+                                "name": "Details",
+                                "key": "rowAction",
+                                "display": true,
+                                "filter": false,
+                                "type": "rowAction",
+                                "rowActions": [
+                                    {
+                                        "name": "View",
+                                        "key": "action",
+                                        "type": "edit",
+                                        "display": true,
+                                        "drillTo": "modal",
+                                        "modalTitle": "Incident Details",
+                                        "drillParams": [
+                                            {
+                                                "key": "incidentId"
+                                            }
+                                        ],
+                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                    }
+                                ]
                             }
                         ]
                     }

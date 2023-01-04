@@ -73,6 +73,7 @@ const devSecOpsServerSettingsAPIData = require("./mock/data/devSecOpsServerSetti
 const devSecOpsScheduleSettingsAPIData = require("./mock/data/devSecOpsScheduleSettingsAPIData.json")
 const devSecOpsOtherSettingsAPIData = require("./mock/data/devSecOpsOtherSettingsAPIData.json")
 const devSecOpsApprovalActionStatusAPIData = require("./mock/data/devSecOpsApprovalActionStatusAPIData.json")
+const devSecOpsApprovalActionStatusHistoryAPIData = require("./mock/data/devSecOpsApprovalActionStatusHistoryAPIData.json")
 const devSecOpsAllIncidentAPIData = require("./mock/data/devSecOpsAllIncidentAPIData.json")
 const devSecOpsCusteredSimilarErrorsChartAPIData = require("./mock/data/devSecOpsCusteredSimilarErrorsChartAPIData.json")
 const devSecOpsFrequencyComponentChartAPIData = require("./mock/data/devSecOpsFrequencyComponentChartAPIData.json")
@@ -20303,6 +20304,36 @@ app.post('/api/devsecops/scan-summary-run-time-table', function (req, res) {
 });
 
 // #### End scan summary Run Time table #####
+
+
+
+
+
+
+// #### Start Approval Action Status History List #####
+/**
+ * @swagger
+ * /api/devsecops/approval-action-status-history:
+ *  post:
+ *      tags:
+ *      - "Approval Action Status"
+ *      summary: Approval Action Status History List.
+ *      description: List of Approval Action Status History.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/approval-action-status-history', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsApprovalActionStatusHistoryAPIData);
+});
+
+// #### End Approval Action Status History List #####
+
 
 
 
