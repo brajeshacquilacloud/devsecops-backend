@@ -20339,6 +20339,42 @@ app.post('/api/devsecops/approval-action-status-history', function (req, res) {
 
 
 
+// #### Start approval action status history reason #####
+/**
+ * @swagger
+ * /api/devsecops/approval-action-status-history-reason:
+ *  post:
+ *      tags:
+ *      - "Approval Action Status"
+ *      summary: Approval Action Status Details Summary Data.
+ *      description: Manage Approval Action Status Details Summary Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/approval-action-status-history-reason', function (req, res) {
+    let data = [
+        {
+            "type": "info",
+            "list": [
+                {
+                    "name": "reason",
+                    "value": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                }
+            ],
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End approval action status history reason #####
+
+
+
+
+
 
 
 

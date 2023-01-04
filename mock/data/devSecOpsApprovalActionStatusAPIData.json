@@ -11,28 +11,28 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Rejected"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 3,
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 4,
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Rejected"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 5,
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 6,
@@ -46,34 +46,34 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 8,
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 9,
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 10,
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 11,
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Initial"
     }
 ]

@@ -112,7 +112,10 @@
                             },
                             {
                                 "name": "Approval Status",
-                                "key": "approvalStatus"
+                                "key": "approvalStatus",
+                                "type": "approvalStatus",
+                                "display": true,
+                                "filter": false
                             },
                             {
                                 "name": "Details",
