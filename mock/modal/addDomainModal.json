@@ -6,6 +6,7 @@
                 "id": 1,
                 "leafTitle": "Domain Name",
                 "type": "text-input",
+                "inputType": "string",
                 "labelSize": 4,
                 "size": 8,
                 "defSelectKey": "addDomain",
