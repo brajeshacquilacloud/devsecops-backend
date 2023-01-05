@@ -46,7 +46,30 @@
                 "type": "addDomainCard",
                 "apiKey": "devSecOpsDomainCardAPI",
                 "isHawkUI": true,
-                "size": 3
+                "size": 3,
+                "columns": [
+                    {
+                        "name": "Options",
+                        "key": "rowAction",
+                        "display": true,
+                        "filter": false,
+                        "type": "rowAction",
+                        "rowActions": [
+                            {
+                                "name": "Delete",
+                                "key": "action",
+                                "type": "delete",
+                                "display": true,
+                                "apiKey": "devSecOpsDeleteDomainCardAPI",
+                                "requestParams": [
+                                    {
+                                        "key": "id"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "id": 2,
