@@ -8536,6 +8536,23 @@ app.post('/api/scenario/modal', function (req, res) {
             ];
             break;
 
+        case 'devSecOpsApprovalActionStatusHistoryReasonModal':
+            data = [
+                {
+                    modalWidth: 700,
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Reason",
+                            type: "stageDetailsSummaryCard",
+                            apiKey: "devSecOpsApprovalActionStatusHistoryReasonAPI",
+                            noDataText: "No Reason available",
+                        }
+
+                    ]
+                }
+            ];
+            break;
 
 
         // End DevSecOps API Mapping
@@ -20360,7 +20377,7 @@ app.post('/api/devsecops/approval-action-status-history-reason', function (req, 
             "type": "info",
             "list": [
                 {
-                    "name": "reason",
+                    "name": "Reason",
                     "value": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                 }
             ],

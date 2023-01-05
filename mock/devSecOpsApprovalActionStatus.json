@@ -47,7 +47,7 @@
                                 "filter": false
                             },
                             {
-                                "name": "Details",
+                                "name": "Options",
                                 "key": "rowAction",
                                 "display": true,
                                 "filter": false,
@@ -59,13 +59,13 @@
                                         "type": "edit",
                                         "display": true,
                                         "drillTo": "modal",
-                                        "modalTitle": "Incident Details",
+                                        "modalTitle": "Reason",
                                         "drillParams": [
                                             {
-                                                "key": "incidentId"
+                                                "key": "approvalActionStatusId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                        "componentsAPIKey": "devSecOpsApprovalActionStatusHistoryReasonComponentAPI"
                                     }
                                 ]
                             }
@@ -118,7 +118,7 @@
                                 "filter": false
                             },
                             {
-                                "name": "Details",
+                                "name": "Options",
                                 "key": "rowAction",
                                 "display": true,
                                 "filter": false,
@@ -130,13 +130,13 @@
                                         "type": "edit",
                                         "display": true,
                                         "drillTo": "modal",
-                                        "modalTitle": "Incident Details",
+                                        "modalTitle": "Reason",
                                         "drillParams": [
                                             {
-                                                "key": "incidentId"
+                                                "key": "approvalActionStatusHistoryId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                        "componentsAPIKey": "devSecOpsApprovalActionStatusHistoryReasonComponentAPI"
                                     }
                                 ]
                             }
