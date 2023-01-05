@@ -15,7 +15,12 @@
                         "type": "modal",
                         "mode": "inline",
                         "modalTitle": "Add New User",
-                        "componentsAPIKey": "addUserAPI"
+                        "componentsAPIKey": "devSecOpsAddUserComponentAPI",
+                        "drillParams": [
+                            {
+                                "key": "email"
+                            }
+                        ]
                     }
                 ]
             },

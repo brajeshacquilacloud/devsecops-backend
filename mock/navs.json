@@ -330,7 +330,22 @@
                             "Home",
                             "User Management"
                         ]
-                    }
+                    },
+                    "pageActions": [
+                        {
+                            "key": "add",
+                            "title": "Add User",
+                            "type": "modal",
+                            "modalTitle": "Add User",
+                            "componentsAPIKey": "devSecOpsAddUserComponentAPI",
+                            "isHawkUI": true,
+                            "drillParams": [
+                                {
+                                    "key": "email"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "id": "devSecOpsSettings",

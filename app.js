@@ -6131,7 +6131,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     dataAPIKey: 'listResourceOrderListAPI',
                     actionButtonText: 'Add',
-                    disableActionButton: true,
+                    disableActionButton: false,
                     modalWidth: 500,
                     modalActions: [
                         {
@@ -8282,16 +8282,79 @@ app.post('/api/scenario/modal', function (req, res) {
         case "addDomainAPI":
             data = addDomainModal;
             break;
-        case "addUserAPI":
-            data = addUserModal;
+        case "devSecOpsAddUserModal":
+            data = [
+                {
+                    actionAPIKey: "devSecOpsAddUserAPI",
+                    dataAPIKey: "listResourceOrderListAPI",
+                    actionButtonText: "Add User",
+                    disableActionButton: false,
+                    modalWidth: 500,
+                    modalActions: [
+                        {
+                            id: "help",
+                            type: "help",
+                            url: "http://google.com",
+                            target: "new"
+                        }
+                    ],
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Name",
+                            type: "text-input",
+                            inputType: "string",
+                            labelSize: 4,
+                            size: 8,
+                            defSelectKey: "user-name"
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "Email",
+                            type: "text-input",
+                            inputType: "string",
+                            labelSize: 4,
+                            size: 8,
+                            defSelectKey: "email-id",
+                            metrics: {
+                                email: "user_email"
+                            },
+                            validation: {
+                                isRequired: true,
+                                message: "Please enter correct email address",
+                                type: "email"
+                            }
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "Role",
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "user-role",
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsUserRoleAPI"
+                        },
+                        {
+                            id: 4,
+                            leafTitle: "Status",
+                            type: "group-radio",
+                            defSelectKey: "user-status",
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsUserActiveStatusAPI"
+                        }
+                    ]
+                }
+            ];
             break;
         case 'devSecOpsEditUserModal':
             data = [
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     dataAPIKey: 'listResourceOrderListAPI',
-                    actionButtonText: 'Add',
-                    disableActionButton: true,
+                    actionButtonText: 'Apply',
+                    disableActionButton: false,
                     modalWidth: 500,
                     modalActions: [
                         {
@@ -20387,6 +20450,36 @@ app.post('/api/devsecops/approval-action-status-history-reason', function (req, 
     res.status(200).send(data);
 });
 // #### End approval action status history reason #####
+
+
+
+
+
+// #### Start add user environment #####
+/**
+ * @swagger
+ * /api/devsecops/add-user-environment:
+ *  post:
+ *      tags:
+ *      - "User Management"
+ *      summary: Add user success message.
+ *      description: Add user success message.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+app.post('/api/devsecops/add-user-environment', function (req, res) {
+    let data = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'Details saved succesfully, refereshing your experience',
+    };
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End add user environment #####
 
 
 
