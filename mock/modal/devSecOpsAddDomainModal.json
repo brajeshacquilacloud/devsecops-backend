@@ -1,6 +1,18 @@
 [
     {
-        "actionAPIKey": "addDomainAPI",
+        "actionAPIKey": "devSecOpsAddDomainAPI",
+        "dataAPIKey": "listResourceOrderListAPI",
+        "actionButtonText": "Apply",
+        "disableActionButton": false,
+        "modalWidth": 500,
+        "modalActions": [
+            {
+                "id": "help",
+                "type": "help",
+                "url": "http://google.com",
+                "target": "new"
+            }
+        ],
         "leafs": [
             {
                 "id": 1,

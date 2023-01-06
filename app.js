@@ -37,8 +37,9 @@ const heatMap = require('./mock/data/heatMap.json');
 
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 
-const addDomainModal = require('./mock/modal/addDomainModal.json');
-const addUserModal = require('./mock/modal/addUserModal.json');
+const devSecOpsAddDomainModal = require('./mock/modal/devSecOpsAddDomainModal.json');
+const devSecOpsAddUserModal = require('./mock/modal/devSecOpsAddUserModal.json');
+const devSecOpsEditUserModal = require('./mock/modal/devSecOpsEditUserModal.json');
 
 const executeScheduleAPIModal = require('./mock/modal/executeScheduleAPIModal.json');
 const recommendedScheduleApiModal = require('./mock/modal/recommendedScheduleApiModal.json');
@@ -8279,139 +8280,14 @@ app.post('/api/scenario/modal', function (req, res) {
             break;
 
         // Start DevSecOps API Mapping
-        case "addDomainAPI":
-            data = addDomainModal;
+        case "devSecOpsAddDomainModal":
+            data = devSecOpsAddDomainModal;
             break;
         case "devSecOpsAddUserModal":
-            data = [
-                {
-                    actionAPIKey: "devSecOpsAddUserAPI",
-                    dataAPIKey: "listResourceOrderListAPI",
-                    actionButtonText: "Add User",
-                    disableActionButton: false,
-                    modalWidth: 500,
-                    modalActions: [
-                        {
-                            id: "help",
-                            type: "help",
-                            url: "http://google.com",
-                            target: "new"
-                        }
-                    ],
-                    leafs: [
-                        {
-                            id: 1,
-                            leafTitle: "Name",
-                            type: "text-input",
-                            inputType: "string",
-                            labelSize: 4,
-                            size: 8,
-                            defSelectKey: "userName"
-                        },
-                        {
-                            id: 2,
-                            leafTitle: "Email",
-                            type: "text-input",
-                            inputType: "string",
-                            labelSize: 4,
-                            size: 8,
-                            defSelectKey: "emailId",
-                            metrics: {
-                                email: "user_email"
-                            },
-                            validation: {
-                                isRequired: true,
-                                message: "Please enter correct email address",
-                                type: "email"
-                            }
-                        },
-                        {
-                            id: 3,
-                            leafTitle: "Role",
-                            type: "select",
-                            mode: "multiple",
-                            defSelectKey: "userRole",
-                            labelSize: 4,
-                            size: 8,
-                            apiKey: "devSecOpsUserRoleAPI"
-                        },
-                        {
-                            id: 4,
-                            leafTitle: "Status",
-                            type: "group-radio",
-                            defSelectKey: "userStatus",
-                            labelSize: 4,
-                            size: 8,
-                            apiKey: "devSecOpsUserActiveStatusAPI"
-                        }
-                    ]
-                }
-            ];
+            data = devSecOpsAddUserModal;
             break;
         case 'devSecOpsEditUserModal':
-            data = [
-                {
-                    actionAPIKey: 'addEditEnvironmentAPI',
-                    dataAPIKey: 'listResourceOrderListAPI',
-                    actionButtonText: 'Apply',
-                    disableActionButton: false,
-                    modalWidth: 500,
-                    modalActions: [
-                        {
-                            id: 'help',
-                            type: 'help',
-                            url: "http://google.com",
-                            target: "new",
-                        }
-                    ],
-                    leafs: [
-                        {
-                            id: 1,
-                            leafTitle: "Name",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 4,
-                            size: 8,
-                            defSelectKey: 'userName'
-                        },
-                        {
-                            id: 2,
-                            leafTitle: "Email",
-                            type: "text-input",
-                            inputType: 'string',
-                            labelSize: 4,
-                            size: 8,
-                            defSelectKey: 'emailId',
-                            metrics: '{ "email" : "user_email"}',
-                            validation: {
-                                isRequired: true,
-                                message: 'Please enter correct email address',
-                                type: 'email'
-                            }
-                        },
-                        {
-                            id: 3,
-                            leafTitle: "User Role",
-                            type: "select",
-                            defSelectKey: "userRole",
-                            mode: "multiple",
-                            labelSize: 4,
-                            size: 8,
-                            apiKey: "devSecOpsUserRoleAPI"
-                        },
-                        {
-                            id: 4,
-                            leafTitle: "Status",
-                            type: "group-radio",
-                            defSelectKey: 'userStatus',
-                            labelSize: 4,
-                            size: 8,
-                            apiKey: "devSecOpsUserActiveStatusAPI"
-                        },
-
-                    ]
-                }
-            ];
+            data = devSecOpsEditUserModal;
             break;
         case 'devSecOpsEditApprovalActionStatusModal':
             data = [
@@ -17837,7 +17713,6 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
 
     fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newRecord, (err) => {
         if (err) throw err;
-        // setResponseHeaders(res);
         res.status(200).send("Added Successfully");
     });
 });
@@ -20480,6 +20355,38 @@ app.post('/api/devsecops/add-user-environment', function (req, res) {
     res.status(200).send(data);
 });
 // #### End add user environment #####
+
+
+
+
+// #### Start add user environment #####
+/**
+ * @swagger
+ * /api/devsecops/add-domain-environment:
+ *  post:
+ *      tags:
+ *      - "Domain Management"
+ *      summary: Add domain success message.
+ *      description: Add domain success message.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+app.post('/api/devsecops/add-domain-environment', function (req, res) {
+    let data = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'Details saved succesfully, refereshing your experience',
+    };
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End add domain environment #####
+
+
+
 
 
 

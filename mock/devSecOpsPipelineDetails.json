@@ -126,7 +126,7 @@
                         "title": "Run Pipeline",
                         "type": "modal",
                         "mode": "inline",
-                        "modalTitle": "Add New Domain",
+                        "modalTitle": "Add New Domain....",
                         "componentsAPIKey": "addDomainAPI"
                     }
                 ]

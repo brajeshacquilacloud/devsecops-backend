@@ -1,0 +1,64 @@
+[
+    {
+        "actionAPIKey": "addEditEnvironmentAPI",
+        "dataAPIKey": "listResourceOrderListAPI",
+        "actionButtonText": "Apply",
+        "disableActionButton": false,
+        "modalWidth": 500,
+        "modalActions": [
+            {
+                "id": "help",
+                "type": "help",
+                "url": "http://google.com",
+                "target": "new"
+            }
+        ],
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Name",
+                "type": "text-input",
+                "inputType": "string",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "userName"
+            },
+            {
+                "id": 2,
+                "leafTitle": "Email",
+                "type": "text-input",
+                "inputType": "string",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "emailId",
+                "metrics": {
+                    "email": "user_email"
+                },
+                "validation": {
+                    "isRequired": true,
+                    "message": "Please enter correct email address",
+                    "type": "email"
+                }
+            },
+            {
+                "id": 3,
+                "leafTitle": "User Role",
+                "type": "select",
+                "defSelectKey": "userRole",
+                "mode": "multiple",
+                "labelSize": 4,
+                "size": 8,
+                "apiKey": "devSecOpsUserRoleAPI"
+            },
+            {
+                "id": 4,
+                "leafTitle": "Status",
+                "type": "group-radio",
+                "defSelectKey": "userStatus",
+                "labelSize": 4,
+                "size": 8,
+                "apiKey": "devSecOpsUserActiveStatusAPI"
+            }
+        ]
+    }
+]

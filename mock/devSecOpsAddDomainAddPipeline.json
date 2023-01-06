@@ -26,9 +26,13 @@
                         "key": "addDomain",
                         "title": "Add Domain",
                         "type": "modal",
-                        "mode": "inline",
                         "modalTitle": "Add New Domain",
-                        "componentsAPIKey": "addDomainAPI"
+                        "componentsAPIKey": "devSecOpsAddDomainComponentAPI",
+                        "drillParams": [
+                            {
+                                "key": "domainName"
+                            }
+                        ]
                     }
                 ]
             },
