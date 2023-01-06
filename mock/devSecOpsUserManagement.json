@@ -13,7 +13,6 @@
                         "key": "addUser",
                         "title": "Add User",
                         "type": "modal",
-                        "mode": "inline",
                         "modalTitle": "Add New User",
                         "componentsAPIKey": "devSecOpsAddUserComponentAPI",
                         "drillParams": [

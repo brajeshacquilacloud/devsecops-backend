@@ -8306,7 +8306,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             inputType: "string",
                             labelSize: 4,
                             size: 8,
-                            defSelectKey: "user-name"
+                            defSelectKey: "userName"
                         },
                         {
                             id: 2,
@@ -8315,7 +8315,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             inputType: "string",
                             labelSize: 4,
                             size: 8,
-                            defSelectKey: "email-id",
+                            defSelectKey: "emailId",
                             metrics: {
                                 email: "user_email"
                             },
@@ -8330,7 +8330,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             leafTitle: "Role",
                             type: "select",
                             mode: "multiple",
-                            defSelectKey: "user-role",
+                            defSelectKey: "userRole",
                             labelSize: 4,
                             size: 8,
                             apiKey: "devSecOpsUserRoleAPI"
@@ -8339,7 +8339,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             id: 4,
                             leafTitle: "Status",
                             type: "group-radio",
-                            defSelectKey: "user-status",
+                            defSelectKey: "userStatus",
                             labelSize: 4,
                             size: 8,
                             apiKey: "devSecOpsUserActiveStatusAPI"
@@ -8372,7 +8372,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             inputType: 'string',
                             labelSize: 4,
                             size: 8,
-                            defSelectKey: 'user-name'
+                            defSelectKey: 'userName'
                         },
                         {
                             id: 2,
@@ -8381,7 +8381,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             inputType: 'string',
                             labelSize: 4,
                             size: 8,
-                            defSelectKey: 'email-id',
+                            defSelectKey: 'emailId',
                             metrics: '{ "email" : "user_email"}',
                             validation: {
                                 isRequired: true,
@@ -8393,7 +8393,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             id: 3,
                             leafTitle: "User Role",
                             type: "select",
-                            defSelectKey: "user-role",
+                            defSelectKey: "userRole",
                             mode: "multiple",
                             labelSize: 4,
                             size: 8,
@@ -8403,7 +8403,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             id: 4,
                             leafTitle: "Status",
                             type: "group-radio",
-                            defSelectKey: 'user-status',
+                            defSelectKey: 'userStatus',
                             labelSize: 4,
                             size: 8,
                             apiKey: "devSecOpsUserActiveStatusAPI"
@@ -8445,8 +8445,8 @@ app.post('/api/scenario/modal', function (req, res) {
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     dataAPIKey: 'listResourceOrderListAPI',
-                    actionButtonText: 'Add',
-                    disableActionButton: true,
+                    actionButtonText: 'Apply',
+                    disableActionButton: false,
                     modalWidth: 500,
                     modalActions: [
                         {
@@ -8485,8 +8485,8 @@ app.post('/api/scenario/modal', function (req, res) {
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     dataAPIKey: 'listResourceOrderListAPI',
-                    actionButtonText: 'Add',
-                    disableActionButton: true,
+                    actionButtonText: 'Apply',
+                    disableActionButton: false,
                     modalWidth: 500,
                     modalActions: [
                         {
@@ -8498,7 +8498,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     ],
                     leafs: [
                         {
-                            id: 3,
+                            id: 1,
                             leafTitle: "Recurrence",
                             type: "select",
                             defSelectKey: "recurrence",
@@ -8508,10 +8508,10 @@ app.post('/api/scenario/modal', function (req, res) {
                             apiKey: "devSecOpsRecurrenceTypeAPI"
                         },
                         {
-                            id: 4,
+                            id: 2,
                             leafTitle: "Time",
                             type: "text-input",
-                            defSelectKey: 'user-status',
+                            defSelectKey: 'recurrenceTime',
                             labelSize: 4,
                             size: 8,
                             apiKey: ""
@@ -8526,8 +8526,8 @@ app.post('/api/scenario/modal', function (req, res) {
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     dataAPIKey: 'listResourceOrderListAPI',
-                    actionButtonText: 'Add',
-                    disableActionButton: true,
+                    actionButtonText: 'Apply',
+                    disableActionButton: false,
                     modalWidth: 500,
                     modalActions: [
                         {
@@ -8552,7 +8552,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             id: 2,
                             leafTitle: "Yes/No",
                             type: "group-radio",
-                            defSelectKey: 'yes-no',
+                            defSelectKey: 'yesNo',
                             labelSize: 4,
                             size: 8,
                             apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
@@ -8562,7 +8562,7 @@ app.post('/api/scenario/modal', function (req, res) {
                             leafTitle: "Vulnerability Component",
                             type: "text-input",
                             inputType: 'string',
-                            defSelectKey: 'vulnerability-component',
+                            defSelectKey: 'vulnerabilityComponent',
                             labelSize: 4,
                             size: 8,
                             apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
