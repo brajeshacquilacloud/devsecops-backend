@@ -59,13 +59,13 @@
                                         "type": "edit",
                                         "display": true,
                                         "drillTo": "modal",
-                                        "modalTitle": "Reason",
+                                        "modalTitle": "Stage Details",
                                         "drillParams": [
                                             {
                                                 "key": "approvalActionStatusId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsApprovalActionStatusHistoryReasonComponentAPI"
+                                        "componentsAPIKey": "devSecOpsEditApprovalActionStatusComponentAPI"
                                     }
                                 ]
                             }

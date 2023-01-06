@@ -40,6 +40,7 @@ const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 const devSecOpsAddDomainModal = require('./mock/modal/devSecOpsAddDomainModal.json');
 const devSecOpsAddUserModal = require('./mock/modal/devSecOpsAddUserModal.json');
 const devSecOpsEditUserModal = require('./mock/modal/devSecOpsEditUserModal.json');
+const devSecOpsApprovalActionStageDetailModal = require('./mock/modal/devSecOpsApprovalActionStageDetailModal.json');
 
 const executeScheduleAPIModal = require('./mock/modal/executeScheduleAPIModal.json');
 const recommendedScheduleApiModal = require('./mock/modal/recommendedScheduleApiModal.json');
@@ -8289,32 +8290,8 @@ app.post('/api/scenario/modal', function (req, res) {
         case 'devSecOpsEditUserModal':
             data = devSecOpsEditUserModal;
             break;
-        case 'devSecOpsEditApprovalActionStatusModal':
-            data = [
-                {
-                    actionAPIKey: 'addEditEnvironmentAPI',
-                    dataAPIKey: 'listResourceOrderListAPI',
-                    actionButtonText: 'Add',
-                    disableActionButton: true,
-                    modalWidth: 700,
-                    modalActions: [
-                    ],
-                    leafs: [
-                        {
-                            id: 1,
-                            leafTitle: "DevOps Tool:",
-                            type: "stageDetailsSummaryCard",
-                            apiKey: "devSecOpsApprovalActionStatusStageDetailsSummaryData",
-                            noDataText: "No Summary Data available",
-                            metrics: {},
-                            size: 12,
-                            defSelectKey: 'devops-tool'
-
-                        }
-
-                    ]
-                }
-            ];
+        case 'devSecOpsApprovalActionStageDetailModal':
+            data = devSecOpsApprovalActionStageDetailModal;
             break;
         case 'devSecOpsEditServerSettingsModal':
             data = [
@@ -8474,7 +8451,6 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ];
             break;
-
         case 'devSecOpsApprovalActionStatusHistoryReasonModal':
             data = [
                 {
@@ -18617,6 +18593,10 @@ app.post('/api/devsecops/approval-action-status-stage-details-summary-data', fun
             "type": "info",
             "list": [
                 {
+                    "name": "Stage",
+                    "value": 'Source Control'
+                },
+                {
                     "name": "DevOps Tool",
                     "value": 'Github'
                 },
@@ -18627,14 +18607,6 @@ app.post('/api/devsecops/approval-action-status-stage-details-summary-data', fun
                 {
                     "name": "Athorizatioin Key/Password",
                     "value": '3eser45trgfyt6uyguh87t6r5df'
-                },
-                {
-                    "name": "Property File",
-                    "modal": {
-                        "title": "View",
-                        "modalTitle": "View Property File Details",
-                        "componentsAPIKey": "autoCreateDomainAPI",
-                    }
                 },
                 {
                     "name": "SecOps Tool",
@@ -20384,12 +20356,6 @@ app.post('/api/devsecops/add-domain-environment', function (req, res) {
     res.status(200).send(data);
 });
 // #### End add domain environment #####
-
-
-
-
-
-
 
 
 

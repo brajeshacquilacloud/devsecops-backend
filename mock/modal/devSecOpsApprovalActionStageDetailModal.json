@@ -1,0 +1,29 @@
+[
+    {
+        "actionAPIKey": "addEditEnvironmentAPI",
+        "dataAPIKey": "listResourceOrderListAPI",
+        "actionButtonText": "Apply",
+        "disableActionButton": true,
+        "modalWidth": 700,
+        "modalActions": [
+            {
+                "id": "help",
+                "type": "help",
+                "url": "http://google.com",
+                "target": "new"
+            }
+        ],
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Stage Details",
+                "type": "stageDetailsSummaryCard",
+                "apiKey": "devSecOpsApprovalActionStatusStageDetailsSummaryData",
+                "noDataText": "No Stage Details Data available",
+                "metrics": {},
+                "size": 12,
+                "defSelectKey": "stageDetails"
+            }
+        ]
+    }
+]
