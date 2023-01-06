@@ -18575,19 +18575,19 @@ app.post('/api/devsecops/other-settings-name', function (req, res) {
 // #### Start Approval Action Status Stage Details Summary Data #####
 /**
  * @swagger
- * /api/devsecops/approval-action-status-stage-details-summary-data:
+ * /api/devsecops/approval-action-stage-detail:
  *  post:
  *      tags:
  *      - "Approval Action Status"
  *      summary: Approval Action Status Stage Details Summary Data.
- *      description: Manage Approval Action Status Stage Details Summary Data.
+ *      description: Approval Action Status Stage Details Summary Data.
  *      responses:
  *          200:
  *              description: Page is working fine if got the json response!
  *
  */
 
-app.post('/api/devsecops/approval-action-status-stage-details-summary-data', function (req, res) {
+app.post('/api/devsecops/approval-action-stage-detail', function (req, res) {
     let data = [
         {
             "type": "info",
@@ -18619,7 +18619,7 @@ app.post('/api/devsecops/approval-action-status-stage-details-summary-data', fun
                 {
                     "name": "Other Information",
                     "value": 'Description Here.'
-                },
+                }
             ],
         }
     ];

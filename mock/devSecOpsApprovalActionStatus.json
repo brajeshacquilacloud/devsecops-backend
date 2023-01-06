@@ -65,7 +65,7 @@
                                                 "key": "approvalActionStatusId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsEditApprovalActionStatusComponentAPI"
+                                        "componentsAPIKey": "devSecOpsApprovalActionStageDetailComponentAPI"
                                     }
                                 ]
                             }
@@ -95,7 +95,7 @@
                                 "key": "pipeline"
                             },
                             {
-                                "name": "domain",
+                                "name": "Domain",
                                 "key": "domain"
                             },
                             {
