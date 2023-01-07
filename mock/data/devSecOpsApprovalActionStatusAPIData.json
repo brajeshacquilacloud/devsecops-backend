@@ -4,6 +4,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -11,6 +12,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -18,6 +20,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -25,6 +28,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -32,6 +36,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -39,6 +44,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -46,6 +52,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -53,6 +60,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -60,6 +68,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -67,6 +76,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     },
     {
@@ -74,6 +84,7 @@
         "stage": "Stage Name",
         "pipeline": "Pipeline Name",
         "domain": "Domain Name",
+        "progressType": "success",
         "approvalStatus": "Initial"
     }
 ]

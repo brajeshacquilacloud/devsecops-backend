@@ -40,6 +40,23 @@
                                 "key": "domain"
                             },
                             {
+                                "name": "Reason",
+                                "key": "progressType",
+                                "secKey": "componentsAPIKey",
+                                "titleKey": "model",
+                                "type": "state-modal",
+                                "drillTo": "modal",
+                                "modalTitle": "Add Reason",
+                                "drillParams": [
+                                    {
+                                        "key": "approvalActionStatusId"
+                                    },
+                                    {
+                                        "key": "email"
+                                    }
+                                ]
+                            },
+                            {
                                 "name": "Approval Status",
                                 "key": "approvalStatus",
                                 "type": "approvalStatus",

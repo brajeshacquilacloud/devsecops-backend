@@ -8469,6 +8469,58 @@ app.post('/api/scenario/modal', function (req, res) {
             ];
             break;
 
+        case 'devSecOpsAddApprovalActionStatusReasonModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add Reason',
+                    disableActionButton: false,
+                    modalWidth: 500,
+                    modalActions: [
+                        {
+                            id: 'help',
+                            type: 'help',
+                            url: "http://google.com",
+                            target: "new",
+                        }
+                    ],
+                    leafs: [
+                        {
+                            id: 3,
+                            leafTitle: "User ID",
+                            type: "text-input",
+                            defSelectKey: 'user-id',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 4,
+                            leafTitle: "First Name",
+                            type: "text-input",
+                            defSelectKey: 'first-name',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        },
+                        {
+                            id: 5,
+                            leafTitle: "Last Name",
+                            type: "text-input",
+                            defSelectKey: 'last-name',
+                            inputType: 'string',
+                            labelSize: 3,
+                            size: 9,
+                        }
+                    ]
+                }
+            ];
+            break;
+
+
+
+
 
         // End DevSecOps API Mapping
 
@@ -9278,18 +9330,182 @@ app.post('/api/user/userlist', function (req, res) {
 
     if (req.body.drillParams && (req.body.drillParams.billingCycleFilter || req.body.drillParams.customerId)) {
         data = [
-            { salesAmount: 4321.54, userId: 1, model: 'Season', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 100000) },
-            { salesAmount: 312452.54, userId: 2, model: 'Amount', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34) },
-            { salesAmount: 4565332.54, userId: 7, model: 'Season', desc: "Test#-3", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high, please rescale, Manage resource before exhaust', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 99878767) }
+            {
+                salesAmount: 4321.54,
+                userId: 1,
+                model: 'Season',
+                desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"],
+                progress: 90,
+                progressType: 'success',
+                alert: null,
+                fileName: 'test-image-1.pdf',
+                mark: false,
+                project: ['prj-1', 'prj-2'],
+                status: 'processing',
+                severity: ['critical'],
+                email: 'i.am.test.user@gmail.com',
+                roleName: 'Admin',
+                accounts: Math.floor(Date.now() / 100000)
+            },
+            {
+                salesAmount: 312452.54,
+                userId: 2,
+                model: 'Amount',
+                desc: "Test#-2",
+                progress: 30,
+                progressType: 'warning',
+                alert: 'Attention seeker alert',
+                fileName: 'test-image-2.pdf',
+                mark: false,
+                project: ['prj-2', 'prj-5'],
+                status: true,
+                severity: ['low'],
+                email: 'a2i.user@hotmail.com',
+                roleName: 'Chain Admin',
+                accounts: Math.floor(Date.now() / 5500.34)
+            },
+            {
+                salesAmount: 4565332.54,
+                userId: 7,
+                model: 'Season',
+                desc: "Test#-3",
+                progress: 100,
+                progressType: 'success',
+                alert: 'Get summary info for your selected resource, Consumption is high, please rescale, Manage resource before exhaust',
+                fileName: 'test-image-7.pdf',
+                mark: false,
+                project: ['prj-1', 'prj-0'],
+                status: true,
+                severity: ['medium'],
+                email: 'acq.123@gmail.com',
+                roleName: 'View',
+                accounts: Math.floor(Date.now() / 99878767)
+            }
         ];
     } else {
         data = [
-            { editAPIKey: 'addEditRatePack', viewChart: '', salesAmount: 603243240.64, userId: 1, model: 'Season', desc: "Test#-1", progress: 90, progressType: 'success', alert: null, fileName: 'test-image-1.pdf', mark: false, project: ['prj-1', 'prj-2'], status: 'processing', severity: ['critical'], email: 'i.am.test.user@gmail.com', roleName: 'Admin', accounts: Math.floor(Date.now() / 10000.4), 'currency': '€', "componentsAPIKey": "addUserComponentAPI" },
-            { editAPIKey: 'addEditRatePack', viewChart: '', salesAmount: 12243.43, userId: 2, model: 'Season', desc: "Test#-2", progress: 30, progressType: 'warning', alert: 'Attention seeker alert', fileName: 'test-image-2.pdf', mark: false, project: ['prj-2', 'prj-5'], status: true, severity: ['low'], email: 'a2i.user@hotmail.com', roleName: 'Chain Admin', accounts: Math.floor(Date.now() / 5500.34), 'currency': '¥', "componentsAPIKey": "autoCreateDomainAPI" },
-            { editAPIKey: 'addUserComponentAPI', viewChart: '', salesAmount: null, userId: 3, model: 'Amount', desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"], progress: 20, progressType: 'danger', alert: 'Manage resource before exhaust', fileName: null, mark: false, project: ['prj-2', 'prj-6'], status: true, severity: ['low'], email: 'power.admin@global.in', roleName: 'API list', accounts: '12345', 'currency': '₹', "componentsAPIKey": "getScaleInOutAPI" },
-            { editAPIKey: 'addUserComponentAPI', viewChart: '', salesAmount: null, userId: 4, model: 'Amount', desc: "Test#-4", progress: 75, progressType: 'info', alert: 'Consumption is high, please rescale', fileName: 'test-image-4.pdf', mark: false, project: ['prj-1', 'prj-4'], status: false, severity: ['critical'], email: 'admin.user@yahoo.in', roleName: 'Network Admin', accounts: Math.floor(Date.now() / 9898.14), 'currency': '£', "componentsAPIKey": "addUserComponentAPI" },
-            { editAPIKey: 'editEnvComponentAPI', viewChart: '', salesAmount: 32432.312, userId: 6, model: 'Season', progress: 10, progressType: 'danger', alert: 'Go for it', fileName: null, mark: false, project: ['prj-7', 'prj-9'], status: true, severity: ['critical'], email: 'chain.clouds@global.com', roleName: 'Solo Man', accounts: '12343243245.44', 'currency': '$' },
-            { editAPIKey: 'editEnvComponentAPI', viewChart: '', salesAmount: 7123.312, userId: 7, model: 'Amount', desc: "Test#-6", progress: 100, progressType: 'success', alert: 'Get summary info for your selected resource, Consumption is high.', fileName: 'test-image-7.pdf', mark: false, project: ['prj-1', 'prj-0'], status: true, severity: ['medium'], email: 'acq.123@gmail.com', roleName: 'View', accounts: Math.floor(Date.now() / 998787.33) }
+            {
+                editAPIKey: 'addEditRatePack',
+                viewChart: '',
+                salesAmount: 603243240.64,
+                userId: 1,
+                model: 'Season',
+                desc: "Test#-1",
+                progress: 90,
+                progressType: 'success',
+                alert: null,
+                fileName: 'test-image-1.pdf',
+                mark: false,
+                project: ['prj-1', 'prj-2'],
+                status: 'processing',
+                severity: ['critical'],
+                email: 'i.am.test.user@gmail.com',
+                roleName: 'Admin',
+                accounts: Math.floor(Date.now() / 10000.4),
+                'currency': '€',
+                "componentsAPIKey": "addUserComponentAPI"
+            },
+            {
+                editAPIKey: 'addEditRatePack',
+                viewChart: '',
+                salesAmount: 12243.43,
+                userId: 2,
+                model: 'Season',
+                desc: "Test#-2",
+                progress: 30,
+                progressType: 'warning',
+                alert: 'Attention seeker alert',
+                fileName: 'test-image-2.pdf',
+                mark: false,
+                project: ['prj-2', 'prj-5'],
+                status: true,
+                severity: ['low'],
+                email: 'a2i.user@hotmail.com',
+                roleName: 'Chain Admin',
+                accounts: Math.floor(Date.now() / 5500.34),
+                'currency': '¥',
+                "componentsAPIKey": "autoCreateDomainAPI"
+            },
+            {
+                editAPIKey: 'addUserComponentAPI',
+                viewChart: '',
+                salesAmount: null,
+                userId: 3,
+                model: 'Amount',
+                desc: ["Test#-1: this is just test data", "Test#-2: this is just test data", "Test#-3: this is just test data", "Test#-4: end of the test data"],
+                progress: 20,
+                progressType: 'danger',
+                alert: 'Manage resource before exhaust',
+                fileName: null,
+                mark: false,
+                project: ['prj-2', 'prj-6'],
+                status: true,
+                severity: ['low'],
+                email: 'power.admin@global.in',
+                roleName: 'API list',
+                accounts: '12345',
+                'currency': '₹',
+                "componentsAPIKey": "getScaleInOutAPI"
+            },
+            {
+                editAPIKey: 'addUserComponentAPI',
+                viewChart: '',
+                salesAmount: null,
+                userId: 4,
+                model: 'Amount',
+                desc: "Test#-4",
+                progress: 75,
+                progressType: 'info',
+                alert: 'Consumption is high, please rescale',
+                fileName: 'test-image-4.pdf',
+                mark: false,
+                project: ['prj-1', 'prj-4'],
+                status: false,
+                severity: ['critical'],
+                email: 'admin.user@yahoo.in',
+                roleName: 'Network Admin',
+                accounts: Math.floor(Date.now() / 9898.14),
+                'currency': '£',
+                "componentsAPIKey": "addUserComponentAPI"
+            },
+            {
+                editAPIKey: 'editEnvComponentAPI',
+                viewChart: '',
+                salesAmount: 32432.312,
+                userId: 6,
+                model: 'Season',
+                progress: 10,
+                progressType: 'danger',
+                alert: 'Go for it',
+                fileName: null,
+                mark: false,
+                project: ['prj-7', 'prj-9'],
+                status: true,
+                severity: ['critical'],
+                email: 'chain.clouds@global.com',
+                roleName: 'Solo Man',
+                accounts: '12343243245.44',
+                'currency': '$'
+            },
+            {
+                editAPIKey: 'editEnvComponentAPI',
+                viewChart: '',
+                salesAmount: 7123.312,
+                userId: 7,
+                model: 'Amount',
+                desc: "Test#-6",
+                progress: 100,
+                progressType: 'success',
+                alert: 'Get summary info for your selected resource, Consumption is high.',
+                fileName: 'test-image-7.pdf',
+                mark: false,
+                project: ['prj-1', 'prj-0'],
+                status: true,
+                severity: ['medium'],
+                email: 'acq.123@gmail.com',
+                roleName: 'View',
+                accounts: Math.floor(Date.now() / 998787.33)
+            }
         ];
     }
     setResponseHeaders(res);
