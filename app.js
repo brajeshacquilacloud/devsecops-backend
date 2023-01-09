@@ -6553,7 +6553,7 @@ app.post('/api/scenario/modal', function (req, res) {
                 {
                     actionAPIKey: 'addEditEnvironmentAPI',
                     actionButtonText: 'Add',
-                    modalWidth: 500,
+                    modalWidth: 700,
                     leafs: [
                         {
                             id: 1,
