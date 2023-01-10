@@ -9401,9 +9401,9 @@ app.post('/api/user/userlist', function (req, res) {
                 severity: ['critical'],
                 email: 'i.am.test.user@gmail.com',
                 roleName: 'Admin',
-                accounts: Math.floor(Date.now() / 10000.4),
-                'currency': '€',
-                "componentsAPIKey": "addUserComponentAPI"
+                accounts: 986532,
+                currency: '€',
+                componentsAPIKey: "addUserComponentAPI"
             },
             {
                 editAPIKey: 'addEditRatePack',
@@ -9422,9 +9422,9 @@ app.post('/api/user/userlist', function (req, res) {
                 severity: ['low'],
                 email: 'a2i.user@hotmail.com',
                 roleName: 'Chain Admin',
-                accounts: Math.floor(Date.now() / 5500.34),
-                'currency': '¥',
-                "componentsAPIKey": "autoCreateDomainAPI"
+                accounts: 326598,
+                currency: '¥',
+                componentsAPIKey: "autoCreateDomainAPI"
             },
             {
                 editAPIKey: 'addUserComponentAPI',
@@ -9443,9 +9443,9 @@ app.post('/api/user/userlist', function (req, res) {
                 severity: ['low'],
                 email: 'power.admin@global.in',
                 roleName: 'API list',
-                accounts: '12345',
-                'currency': '₹',
-                "componentsAPIKey": "getScaleInOutAPI"
+                accounts: '323245',
+                currency: '₹',
+                componentsAPIKey: "getScaleInOutAPI"
             },
             {
                 editAPIKey: 'addUserComponentAPI',
