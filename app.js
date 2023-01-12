@@ -18809,34 +18809,37 @@ app.post('/api/devsecops/approval-action-stage-detail', function (req, res) {
             "type": "info",
             "list": [
                 {
-                    "name": "Stage",
-                    "value": 'Source Control'
-                },
-                {
                     "name": "DevOps Tool",
-                    "value": 'Github'
+                    "value": 'Github',
+                    "toolIcon": true
                 },
                 {
                     "name": "IP Address",
-                    "value": '192.30.252.0/22'
+                    "value": '192.30.252.0/22',
+                    "toolIcon": false
                 },
                 {
                     "name": "Athorizatioin Key/Password",
-                    "value": '3eser45trgfyt6uyguh87t6r5df'
+                    "value": '3eser45trgfyt6uyguh87t6r5df',
+                    "toolIcon": false
                 },
                 {
                     "name": "SecOps Tool",
-                    "value": 'Grype'
+                    "value": 'Grype',
+                    "toolIcon": true
                 },
                 {
                     "name": "Other Information",
-                    "value": 'Description Here.'
+                    "value": 'Description Here.',
+                    "toolIcon": false
                 },
                 {
                     "name": "Other Information",
-                    "value": 'Description Here.'
+                    "value": 'Description Here.',
+                    "toolIcon": false
                 }
             ],
+            "stageName": "Source Control"
         }
     ];
 
