@@ -162,6 +162,26 @@
                     }
                 },
                 {
+                    "id": "devSecOpsPipelineConfigureToolDetails",
+                    "name": "Configure Tool Chain Preview",
+                    "link": "/devsecops/devSecOpsConfigureToolChainPreview",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Pipline",
+                            "Configure Tool Chain"
+                        ]
+                    }
+                },
+                {
                     "id": "devSecOpsAddDomainAddPipeline",
                     "name": "Pipeline",
                     "link": "/devsecops/add-domain-add-pipeline",
@@ -177,25 +197,6 @@
                         "parentHierarchy": [
                             "Home",
                             "Pipeline"
-                        ]
-                    }
-                },
-                {
-                    "id": "devSecOpsPipelineConfigureToolDetails",
-                    "name": "Pipeline Configure Tool",
-                    "link": "/devsecops/devSecOpsPipelineConfigureToolDetails",
-                    "icon": "InboxIcon",
-                    "page": "ComponentsPage",
-                    "linkedeUrlParam": "nodeIndex",
-                    "isHawkUI": true,
-                    "className": "admin-icon",
-                    "hideKey": "devSecOpsHideTittle",
-                    "hierarchyNavigation": {
-                        "hideKey": "breadcrumHide",
-                        "id": "groupId",
-                        "parentHierarchy": [
-                            "Home",
-                            "Pipeline Configure Tool"
                         ]
                     }
                 },
