@@ -18892,7 +18892,22 @@ app.post('/api/devsecops/notification-alert-details-summary-data', function (req
 });
 // #### End Notification/Alert Details Summary Data #####
 
-// ############ devsecops   DragAndDrop #################//
+
+
+// ############ Devsecops DragAndDrop #################//
+/**
+ * @swagger
+ * /api/devsecops/DragAndDropPipeline1:
+ *  post:
+ *      tags:
+ *      - "Configure Tools Chain"
+ *      summary: DevOps 1st Pipeline Tools List.
+ *      description: List of all DevOps Tools for select one of them.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
 
 app.post("/api/devsecops/DragAndDropPipeline1", function (req, res) {
     let data = [
@@ -19355,6 +19370,21 @@ app.post("/api/devsecops/DragAndDropPipeline1", function (req, res) {
     res.status(200).send(data);
 })
 
+
+/**
+ * @swagger
+ * /api/devsecops/DragAndDropPipeline2:
+ *  post:
+ *      tags:
+ *      - "Configure Tools Chain"
+ *      summary: DevOps 2nd Pipeline Tools List.
+ *      description: List of all DevOps Tools for select one of them.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
 app.post('/api/devsecops/DragAndDropPipeline2', function (req, res) {
     let data = [
         {
@@ -19712,6 +19742,21 @@ app.post('/api/devsecops/DragAndDropPipeline2', function (req, res) {
     res.status(200).send(data);
 });
 
+
+/**
+ * @swagger
+ * /api/devsecops/DragAndDropPipeline3:
+ *  post:
+ *      tags:
+ *      - "Configure Tools Chain"
+ *      summary: DevOps 3rd Pipeline Tools List.
+ *      description: List of all DevOps Tools for select one of them.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
 app.post('/api/devsecops/DragAndDropPipeline3', function (req, res) {
     let data = [
         {
@@ -19988,10 +20033,7 @@ app.post('/api/devsecops/DragAndDropPipeline3', function (req, res) {
 });
 
 
-
-//??????????????????????????????????????????????????????????????//
 ////////// Drag and Drop  Tool settings form data api ////////////
-
 
 
 app.post("/api/devsecops/DragAndDropSourceControl", function (req, res) {

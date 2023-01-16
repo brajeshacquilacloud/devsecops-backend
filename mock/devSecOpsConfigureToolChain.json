@@ -21,7 +21,7 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "Pipeline 1",
+                                "name": "FinOps",
                                 "link": "/domainname/pipeline1",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
@@ -32,7 +32,7 @@
                                 "className": "admin-icon"
                             },
                             {
-                                "name": "Pipeline 2",
+                                "name": "BillOps",
                                 "link": "/domainname/pipeline2",
                                 "icon": "InboxIcon",
                                 "apiKey": "DragAndDropPipeline2",
@@ -43,7 +43,7 @@
                                 "className": "admin-icon"
                             },
                             {
-                                "name": "Pipeline 3",
+                                "name": "DevOps",
                                 "link": "/domainname/pipeline3",
                                 "icon": "InboxIcon",
                                 "apiKey": "DragAndDropPipeline3",
