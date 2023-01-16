@@ -8,11 +8,11 @@
                 "size": 12,
                 "type": "configureToolChainLayout",
                 "isHawkUI": true,
-                "apiKey": "",
+                "apiKey": "devSecOpsConfigureToolsChainAPI",
                 "navigations": [
                     {
                         "id": "domainname1",
-                        "name": "Domain Name 1",
+                        "name": "Aquila Clouds",
                         "link": "/domainname",
                         "icon": "aquilaService",
                         "page": "ComponentsPage",

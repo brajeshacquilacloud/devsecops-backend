@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "pipelineId": "1",
+        "PipelineName": "FinOps Pipeline"
+    },
+    {
+        "pipelineId": "2",
+        "PipelineName": "BilOps Pipeline"
+    },
+    {
+        "pipelineId": "3",
+        "PipelineName": "DevOps Pipeline"
+    }
+]
