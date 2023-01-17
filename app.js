@@ -89,6 +89,7 @@ const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = requi
 const devSecOpsDragAndDropPipeline1 = require("./mock/data/devSecOpsDragAndDropPipeline1.json")
 const devSecOpsDragAndDropPipeline2 = require("./mock/data/devSecOpsDragAndDropPipeline2.json")
 const devSecOpsDragAndDropPipeline3 = require("./mock/data/devSecOpsDragAndDropPipeline3.json")
+const devSecOpsPipelineConfigureToolChainPreviewAPIData = require("./mock/data/devSecOpsPipelineConfigureToolChainPreviewAPIData.json")
 
 const devSecOpsActiveInactivePipelineCardAPIData = require("./mock/data/devSecOpsActiveInactivePipelineCardAPIData.json")
 const devSecOpsTriggerExecutedCardAPIData = require("./mock/data/devSecOpsTriggerExecutedCardAPIData.json")
@@ -19439,6 +19440,34 @@ app.post('/api/devsecops/add-domain-environment', function (req, res) {
     res.status(200).send(data);
 });
 // #### End add domain environment #####
+
+
+
+// #### Start Configure Tools Chain Preview API  #####
+/**
+ * @swagger
+ * /api/devsecops/pipeline-configure-tool-chain-preview:
+ *  post:
+ *      tags:
+ *      - "Configure Tools Chain"
+ *      summary: Pipeline Configure Tools Chain Preview.
+ *      description: We Can See Pipeline Configure Tools Chain Preview.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+
+
+app.post('/api/devsecops/pipeline-configure-tool-chain-preview', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send(devSecOpsPipelineConfigureToolChainPreviewAPIData);
+});
+
+// #### End Start Pipeline Configure Tools Chain Preview API #####
+
+
 
 
 

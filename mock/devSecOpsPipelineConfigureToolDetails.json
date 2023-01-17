@@ -21,7 +21,7 @@
                         "options": [
                             {
                                 "value": "Pipeline1",
-                                "label": "Pipeline 1"
+                                "label": "Pipeline 166666666888"
                             },
                             {
                                 "value": "Pipeline2",
@@ -116,9 +116,9 @@
             {
                 "id": 1,
                 "isHawkUI": true,
-                "defSelectKey": "devSecOpsPipelineConfigureToolDetails",
-                "apiKey": "devSecOpsPipelineConfigureToolDetailsAPI",
-                "leafTitle": "Pipeline Configure Tool Details",
+                "defSelectKey": "devSecOpsPipelineConfigureToolChainPreview",
+                "apiKey": "devSecOpsPipelineConfigureToolChainPreviewAPI",
+                "leafTitle": "Pipeline Configure Tool Chain Preview",
                 "type": "devSecOpsPipelineConfigureToolDetails",
                 "size": 12
             }
