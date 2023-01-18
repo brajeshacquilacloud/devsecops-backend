@@ -86,7 +86,7 @@ const devSecOpsPipelineStatusAPIData = require("./mock/data/devSecOpsPipelineSta
 const devSecOpsConfigureToolsChainAPIData = require("./mock/data/devSecOpsConfigureToolsChainAPIData.json")
 const devSecOpsPipelineScanSummaryAPIData = require("./mock/data/devSecOpsPipelineScanSummaryAPIData.json")
 const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = require("./mock/data/devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData.json")
-const devSecOpsDragAndDropPipeline1 = require("./mock/data/devSecOpsDragAndDropPipeline1.json")
+const DragAndDropGetPipeline = require("./mock/data/DragAndDropGetPipeline.json")
 const devSecOpsDragAndDropPipeline2 = require("./mock/data/devSecOpsDragAndDropPipeline2.json")
 const devSecOpsDragAndDropPipeline3 = require("./mock/data/devSecOpsDragAndDropPipeline3.json")
 const devSecOpsPipelineConfigureToolChainPreviewAPIData = require("./mock/data/devSecOpsPipelineConfigureToolChainPreviewAPIData.json")
@@ -18901,21 +18901,21 @@ app.post('/api/devsecops/notification-alert-details-summary-data', function (req
 // ############ Devsecops DragAndDrop #################//
 /**
  * @swagger
- * /api/devsecops/DragAndDropPipeline1:
+ * /api/devsecops/DragAndDropGetPipeline:
  *  post:
  *      tags:
  *      - "Configure Tools Chain"
- *      summary: DevOps 1st Pipeline Tools List.
- *      description: List of all DevOps Tools for select one of them.
+ *      summary: Get Pipeline Data .
+ *      description: Get Pipeline Data at first time.
  *      responses:
  *          200:
  *              description: Page is working fine if got the json response!
  *
  */
 
-app.post("/api/devsecops/DragAndDropPipeline1", function (req, res) {
+app.post("/api/devsecops/DragAndDropGetPipeline", function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(devSecOpsDragAndDropPipeline1);
+    res.status(200).send(DragAndDropGetPipeline);
 })
 
 
