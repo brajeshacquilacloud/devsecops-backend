@@ -17902,6 +17902,7 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
     let data = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
     let TotalRecords = JSON.parse(data);
     let uuid = "DevSecOps" + Math.random().toString(16).slice(2);
+    console.log("req.body:::", req.body)
 
     TotalRecords.push(req.body)
 
@@ -19442,7 +19443,6 @@ app.post('/api/devsecops/add-domain-environment', function (req, res) {
 // #### End add domain environment #####
 
 
-
 // #### Start Configure Tools Chain Preview API  #####
 /**
  * @swagger
@@ -19466,6 +19466,56 @@ app.post('/api/devsecops/pipeline-configure-tool-chain-preview', function (req, 
 });
 
 // #### End Start Pipeline Configure Tools Chain Preview API #####
+
+
+
+/**
+ * @swagger
+ * /api/devsecops/domain-card/{id}:
+ *  post:
+ *      tags:
+ *      - "Domain Management"
+ *      summary: Get Domain by Id.
+ *      description: Get single domain details by id.
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            required: true
+ *            description: Numeric ID required
+ *            schema:
+ *              type: integer
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response with list of domain cards object!
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          items:
+ *                              $ref: '#components/schema/domain-card'
+ *
+ */
+// #### Start Get Domain Card by Id #####
+
+app.post('/api/devsecops/domain-card/:id', function (req, res) {
+    const getDomainID = req.params["id"]
+
+    let data = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
+    let TotalRecords = JSON.parse(data);
+
+    const filterData = TotalRecords.find(domain => domain.id == getDomainID)
+
+    let newRecord = JSON.stringify(filterData);
+
+    setResponseHeaders(res);
+    res.status(200).send(newRecord);
+});
+// #### End Get Domain Card by Id #####
+
+
+
+
+
 
 
 
