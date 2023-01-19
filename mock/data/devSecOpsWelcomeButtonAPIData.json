@@ -1,6 +1,4 @@
-[
-    {
-        "buttonTitle": "Start Discovery",
-        "redirectionURL": "/devsecops/pipeline"
-    }
-]
+{
+    "buttonTitle": "Start Discovery",
+    "redirectionURL": "/devsecops/add-domain"
+}
