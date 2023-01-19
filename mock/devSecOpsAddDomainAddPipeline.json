@@ -82,40 +82,6 @@
                 "apiKey": "devSecOpsClearfixDivAPI",
                 "isHawkUI": true,
                 "size": 12
-            },
-            {
-                "id": 6,
-                "leafTitle": "Section Title And Button",
-                "type": "section-title-and-button",
-                "apiKey": "devSecOpsAddPipelineButtonAPI",
-                "isHawkUI": true,
-                "size": 12,
-                "toolBarActions": [
-                    {
-                        "key": "addPipeline",
-                        "title": "Add Pipeline",
-                        "type": "modal",
-                        "mode": "inline",
-                        "modalTitle": "Add Pipeline",
-                        "componentsAPIKey": "addFinAccountsAPI"
-                    }
-                ]
-            },
-            {
-                "id": 7,
-                "leafTitle": "clearfix div",
-                "type": "clearfix-div",
-                "apiKey": "devSecOpsClearfixDivAPI",
-                "isHawkUI": true,
-                "size": 12
-            },
-            {
-                "id": 3,
-                "leafTitle": "Added Pipeline Card",
-                "type": "addPipelineCard",
-                "apiKey": "devSecOpsPipelineCardAPI",
-                "isHawkUI": true,
-                "size": 3
             }
         ]
     }

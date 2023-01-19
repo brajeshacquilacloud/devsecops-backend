@@ -12,7 +12,7 @@
                 "navigations": [
                     {
                         "id": "domainname1",
-                        "name": "Aquila Clouds",
+                        "name": "Aquila Clouds Domain",
                         "link": "/domainname",
                         "icon": "aquilaService",
                         "page": "ComponentsPage",
@@ -21,7 +21,7 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "FinOps",
+                                "name": "FinOps Pipeline",
                                 "link": "/domainname/pipeline1",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
@@ -32,7 +32,7 @@
                                 "className": "admin-icon"
                             },
                             {
-                                "name": "BillOps",
+                                "name": "BillOps Pipeline",
                                 "link": "/domainname/pipeline2",
                                 "icon": "InboxIcon",
                                 "apiKey": "DragAndDropPipeline2",
@@ -43,7 +43,7 @@
                                 "className": "admin-icon"
                             },
                             {
-                                "name": "DevOps",
+                                "name": "DevOps Pipeline",
                                 "link": "/domainname/pipeline3",
                                 "icon": "InboxIcon",
                                 "apiKey": "DragAndDropPipeline3",

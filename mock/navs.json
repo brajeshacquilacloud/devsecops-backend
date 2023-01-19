@@ -162,29 +162,9 @@
                     }
                 },
                 {
-                    "id": "devSecOpsPipelineConfigureToolDetails",
-                    "name": "Configure Tool Chain Preview",
-                    "link": "/devsecops/devSecOpsConfigureToolChainPreview",
-                    "icon": "InboxIcon",
-                    "page": "ComponentsPage",
-                    "linkedeUrlParam": "nodeIndex",
-                    "isHawkUI": true,
-                    "className": "admin-icon",
-                    "hideKey": "devSecOpsHideTittle",
-                    "hierarchyNavigation": {
-                        "hideKey": "breadcrumHide",
-                        "id": "groupId",
-                        "parentHierarchy": [
-                            "Home",
-                            "Pipline",
-                            "Configure Tool Chain"
-                        ]
-                    }
-                },
-                {
                     "id": "devSecOpsAddDomainAddPipeline",
-                    "name": "Pipeline",
-                    "link": "/devsecops/add-domain-add-pipeline",
+                    "name": "Domain / Pipeline ",
+                    "link": "/devsecops/add-domain",
                     "icon": "InboxIcon",
                     "page": "ComponentsPage",
                     "linkedeUrlParam": "nodeIndex",
