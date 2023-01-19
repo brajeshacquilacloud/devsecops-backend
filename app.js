@@ -17907,6 +17907,10 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
         if (err) throw err;
         setResponseHeaders(res);
         res.status(200).send(resposeData);
+        setTimeout(() => {
+            console.log("asdddddddddddddddd")
+        }, 2000);
+
     });
 
 });
@@ -17953,8 +17957,6 @@ app.post('/api/devsecops/pipeline-card', function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(data);
 });
-// #### End Pipeline Card Page #####
-
 
 
 /**
@@ -19506,6 +19508,29 @@ app.post('/api/devsecops/domain-card/:id', function (req, res) {
     res.status(200).send(newRecord);
 });
 // #### End Get Domain Card by Id #####
+
+/**
+ * @swagger
+ * /api/devsecops/add-pipeline:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Add New Pipeline
+ *      description: Add new pipeline cards here.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response with list of domain cards object!
+ *
+ */
+
+// #### Start Pipeline Card Page #####
+app.post('/api/devsecops/add-pipeline', function (req, res) {
+    setResponseHeaders(res);
+    res.status(200).send('data from add_pipeline');
+});
+
+// #### End Pipeline Card Page #####
+
 
 
 

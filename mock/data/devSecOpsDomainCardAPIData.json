@@ -6,13 +6,5 @@
         "pipelineCount": "1",
         "scanTest": "0",
         "userId": "999"
-    },
-    {
-        "id": "DevSecOps540624cc9e9cb",
-        "domainName": "BillOps Domain",
-        "lastScan": "2022-10-21 11:00AM",
-        "pipelineCount": "1",
-        "scanTest": "0",
-        "userId": "999"
     }
 ]

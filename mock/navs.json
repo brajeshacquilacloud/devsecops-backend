@@ -142,6 +142,25 @@
                     "className": "admin-icon"
                 },
                 {
+                    "id": "devSecOpsAddDomainAddPipeline",
+                    "name": "Domain / Pipeline ",
+                    "link": "/devsecops/add-domain",
+                    "icon": "InboxIcon",
+                    "page": "ComponentsPage",
+                    "linkedeUrlParam": "nodeIndex",
+                    "isHawkUI": true,
+                    "className": "admin-icon",
+                    "hideKey": "devSecOpsHideTittle",
+                    "hierarchyNavigation": {
+                        "hideKey": "breadcrumHide",
+                        "id": "groupId",
+                        "parentHierarchy": [
+                            "Home",
+                            "Pipeline"
+                        ]
+                    }
+                },
+                {
                     "id": "devSecOpsConfigureToolChain",
                     "name": "Configure Tool Chain",
                     "link": "/devsecops/configure-tool-chain",
@@ -158,25 +177,6 @@
                             "Home",
                             "Pipeline",
                             "Configure Tool Chain"
-                        ]
-                    }
-                },
-                {
-                    "id": "devSecOpsAddDomainAddPipeline",
-                    "name": "Domain / Pipeline ",
-                    "link": "/devsecops/add-domain",
-                    "icon": "InboxIcon",
-                    "page": "ComponentsPage",
-                    "linkedeUrlParam": "nodeIndex",
-                    "isHawkUI": true,
-                    "className": "admin-icon",
-                    "hideKey": "devSecOpsHideTittle",
-                    "hierarchyNavigation": {
-                        "hideKey": "breadcrumHide",
-                        "id": "groupId",
-                        "parentHierarchy": [
-                            "Home",
-                            "Pipeline"
                         ]
                     }
                 },

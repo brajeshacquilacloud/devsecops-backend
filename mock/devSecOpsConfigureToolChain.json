@@ -8,11 +8,11 @@
                 "size": 12,
                 "type": "configureToolChainLayout",
                 "isHawkUI": true,
-                "apiKey": "devSecOpsConfigureToolsChainAPI",
+                "apiKey": "",
                 "navigations": [
                     {
-                        "id": "domainname1",
-                        "name": "Aquila Clouds Domain",
+                        "id": "DevSecOps1f7ae2d41d8b1",
+                        "name": "FinOps Domain",
                         "link": "/domainname",
                         "icon": "aquilaService",
                         "page": "ComponentsPage",
@@ -22,32 +22,9 @@
                         "subNavs": [
                             {
                                 "name": "FinOps Pipeline",
-                                "link": "/domainname/pipeline1",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
-                                "apiKey": "DragAndDropPipeline1",
-                                "linkedeUrlParam": "nodeIndex",
-                                "id": "aquilaServices",
-                                "isHawkUI": true,
-                                "className": "admin-icon"
-                            },
-                            {
-                                "name": "BillOps Pipeline",
-                                "link": "/domainname/pipeline2",
-                                "icon": "InboxIcon",
-                                "apiKey": "DragAndDropPipeline2",
-                                "page": "ComponentsPage",
-                                "linkedeUrlParam": "nodeIndex",
-                                "id": "aquilaServices",
-                                "isHawkUI": true,
-                                "className": "admin-icon"
-                            },
-                            {
-                                "name": "DevOps Pipeline",
-                                "link": "/domainname/pipeline3",
-                                "icon": "InboxIcon",
-                                "apiKey": "DragAndDropPipeline3",
-                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "aquilaServices",
                                 "isHawkUI": true,
