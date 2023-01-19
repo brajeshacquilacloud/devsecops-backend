@@ -64,7 +64,6 @@ const cspCustomerProfile = require("./mock/customerProfile.json")
 const infoGraph = require("./mock/data/infoGraph.json")
 const tabData = require("./mock/data/tabData.json")
 
-const devSecOpsWelcomeAPIData = require("./mock/data/devSecOpsWelcomeAPIData.json")
 const devSecOpsWelcomeLogoAPIData = require("./mock/data/devSecOpsWelcomeLogoAPIData.json")
 const devSecOpsWelcomeMessageAPIData = require("./mock/data/devSecOpsWelcomeMessageAPIData.json")
 const devSecOpsWelcomeButtonAPIData = require("./mock/data/devSecOpsWelcomeButtonAPIData.json")
@@ -17744,28 +17743,6 @@ app.post('/api/finops-domain-extended-summary', function (req, res) {
 
 // Start Creating DevSecOps API For All Page
 
-
-// #### Start Welcome Page #####
-/**
- * @swagger
- * /api/devsecops/welcome:
- *  post:
- *      tags:
- *      - "Landing Page (First Time)"
- *      summary: Welcome page.
- *      description: Show this page to first time loggedIn User.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response!
- *
- */
-app.post('/api/devsecops/welcome', function (req, res) {
-    setResponseHeaders(res);
-    res.status(200).send(devSecOpsWelcomeAPIData);
-});
-// #### End Welcome Page #####
-
-
 // #### Start Welcome logo #####
 /**
  * @swagger
@@ -17858,8 +17835,6 @@ app.post('/api/devsecops/domain-card', function (req, res) {
  *          domain-card:
  *              type: object
  *              properties:
- *                  id:
- *                      type: string
  *                  domainName:
  *                      type: string
  *                  lastScan:
@@ -17868,6 +17843,8 @@ app.post('/api/devsecops/domain-card', function (req, res) {
  *                      type: integer
  *                  scanTest:
  *                      type: integer
+ *                  userId:
+ *                      type: string
  */
 
 
@@ -17899,23 +17876,41 @@ app.post('/api/devsecops/domain-card', function (req, res) {
 
 // #### Start Add New Domain Card Page #####
 app.post('/api/devsecops/add-domain-card', function (req, res) {
+
     let data = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
     let TotalRecords = JSON.parse(data);
     let uuid = "DevSecOps" + Math.random().toString(16).slice(2);
-    console.log("req.body:::", req.body)
 
-    TotalRecords.push(req.body)
+    const { userId } = req.body
+    const { params } = req.body
+
+    const addNewRecored = {
+        id: uuid,
+        domainName: params[0]?.value,
+        lastScan: "",
+        pipelineCount: "1",
+        scanTest: "",
+        userId: userId
+    }
+
+    TotalRecords.push(addNewRecored)
 
     let newRecord = JSON.stringify(TotalRecords);
 
+    let resposeData = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'Domain Added succesfully, refereshing your experience',
+    };
+
     fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newRecord, (err) => {
         if (err) throw err;
-        res.status(200).send("Added Successfully");
+        setResponseHeaders(res);
+        res.status(200).send(resposeData);
     });
+
 });
 // #### End Add New Domain Card Page #####
-
-
 
 
 

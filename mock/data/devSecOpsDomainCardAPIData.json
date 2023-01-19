@@ -1,37 +1,18 @@
 [
     {
-        "id": 1,
+        "id": "DevSecOps1f7ae2d41d8b1",
         "domainName": "FinOps Domain",
         "lastScan": "2022-10-21 11:00AM",
-        "pipelineCount": "34",
-        "scanTest": "942"
+        "pipelineCount": "1",
+        "scanTest": "0",
+        "userId": "999"
     },
     {
-        "id": 2,
+        "id": "DevSecOps540624cc9e9cb",
         "domainName": "BillOps Domain",
-        "lastScan": "2022-10-22 11:00AM",
-        "pipelineCount": "34",
-        "scanTest": "541"
-    },
-    {
-        "id": 3,
-        "domainName": "DevOps Domain",
-        "lastScan": "2022-10-23 11:00AM",
-        "pipelineCount": "34",
-        "scanTest": "834"
-    },
-    {
-        "id": 4,
-        "domainName": "InfraOps Domain",
-        "lastScan": "2022-10-24 11:00AM",
-        "pipelineCount": "34",
-        "scanTest": "111"
-    },
-    {
-        "id": "5",
-        "domainName": "FinOps Example",
-        "lastScan": "string",
-        "pipelineCount": 0,
-        "scanTest": 0
+        "lastScan": "2022-10-21 11:00AM",
+        "pipelineCount": "1",
+        "scanTest": "0",
+        "userId": "999"
     }
 ]
