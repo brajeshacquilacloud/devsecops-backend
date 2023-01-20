@@ -1,10 +1,10 @@
 [
     {
-        "id": "DevSecOps1f7ae2d41d8b1",
-        "domainName": "FinOps Domain",
-        "lastScan": "2022-10-21 11:00AM",
+        "id": "domainIde5796d8a33f35",
+        "domainName": "FinOps",
+        "lastScan": "",
         "pipelineCount": "1",
-        "scanTest": "0",
+        "scanTest": "",
         "userId": "999"
     }
 ]

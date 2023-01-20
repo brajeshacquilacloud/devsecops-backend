@@ -9,9 +9,12 @@
                 "type": "configureToolChainLayout",
                 "isHawkUI": true,
                 "apiKey": "",
+                "userId": "999",
                 "navigations": [
                     {
                         "id": "DevSecOps1f7ae2d41d8b1",
+                        "userId": "999",
+                        "domainID": "DevSecOps1f7ae2d41d8b1",
                         "name": "FinOps Domain",
                         "link": "/domainname",
                         "icon": "aquilaService",
@@ -21,7 +24,7 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "FinOps Pipeline",
+                                "name": "Default Pipeline Name",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",

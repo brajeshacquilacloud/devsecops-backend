@@ -17877,15 +17877,54 @@ app.post('/api/devsecops/domain-card', function (req, res) {
 // #### Start Add New Domain Card Page #####
 app.post('/api/devsecops/add-domain-card', function (req, res) {
 
-    let data = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
-    let TotalRecords = JSON.parse(data);
-    let uuid = "DevSecOps" + Math.random().toString(16).slice(2);
+    let domainData = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
+    let TotalDomainRecords = JSON.parse(domainData);
+    let domainUuid = "domainId" + Math.random().toString(16).slice(2);
+    let pipelineUuid = "pipelineId" + Math.random().toString(16).slice(2);
+    let navigationUuid = "navigationId" + Math.random().toString(16).slice(2);
+    let piplineNavigationLeafData = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
+    console.log(piplineNavigationLeafData, "piplineNavigationLeafData")
+    let TotalPiplineNavigationLeafData = piplineNavigationLeafData.toString();
 
-    const { userId } = req.body
     const { params } = req.body
+    const { userId } = req.body
+    const Dummy = {
+        id: navigationUuid,
+        userId: userId,
+        domainID: domainUuid,
+        name: params[0]?.value,
+        link: "/domainname",
+        icon: "aquilaService",
+        page: "ComponentsPage",
+        linkedeUrlParam: "nodeIndex",
+        isHawkUI: true,
+        className: "admin-icon",
+        subNavs: [
+            {
+                name: "Default Pipeline Name",
+                icon: "InboxIcon",
+                page: "ComponentsPage",
+                apiKey: "DragAndDropGetPipeline",
+                linkedeUrlParam: "nodeIndex",
+                id: pipelineUuid,
+                domainID: domainUuid,
+                isHawkUI: true,
+                className: "admin-icon"
+            }
+        ]
+    }
+    console.log('TotalPiplineNavigationLeafData', TotalPiplineNavigationLeafData)
 
-    const addNewRecored = {
-        id: uuid,
+    const getConfigToolChainLeafs = JSON.parse(TotalPiplineNavigationLeafData)?.[0].leafs.find(val => val?.userId === userId)
+    const clonegetConfigToolChainLeafs = JSON.parse(JSON.stringify(getConfigToolChainLeafs))
+    clonegetConfigToolChainLeafs?.navigations?.push(JSON.parse(JSON.stringify(Dummy)))
+
+    console.log('getConfigToolChainLeafs', getConfigToolChainLeafs)
+
+    console.log("clonegetConfigToolChainLeafs", clonegetConfigToolChainLeafs)
+
+    const addNewDomainRecored = {
+        id: domainUuid,
         domainName: params[0]?.value,
         lastScan: "",
         pipelineCount: "1",
@@ -17893,9 +17932,11 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
         userId: userId
     }
 
-    TotalRecords.push(addNewRecored)
+    TotalDomainRecords.push(addNewDomainRecored)
 
-    let newRecord = JSON.stringify(TotalRecords);
+    let newDomainRecord = JSON.stringify(TotalDomainRecords);
+    let newLeafRecord = JSON.stringify(getConfigToolChainLeafs);
+
 
     let resposeData = {
         key: 'SAVE_INST',
@@ -17903,10 +17944,14 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
         message: 'Domain Added succesfully, refereshing your experience',
     };
 
-    fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newRecord, (err) => {
+    fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newDomainRecord, (err) => {
         if (err) throw err;
         setResponseHeaders(res);
         res.status(200).send(resposeData);
+
+        // fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
+        //     if (err) throw err;
+        // })
         setTimeout(() => {
             console.log("asdddddddddddddddd")
         }, 2000);
