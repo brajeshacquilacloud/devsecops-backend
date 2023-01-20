@@ -1,7 +1,15 @@
 [
     {
-        "id": "domainIde5796d8a33f35",
-        "domainName": "FinOps",
+        "id": "domainId8fa8bf8ad7169",
+        "domainName": "Domain1",
+        "lastScan": "",
+        "pipelineCount": "1",
+        "scanTest": "",
+        "userId": "999"
+    },
+    {
+        "id": "domainIdc0de433fe88d5",
+        "domainName": "Domain2",
         "lastScan": "",
         "pipelineCount": "1",
         "scanTest": "",

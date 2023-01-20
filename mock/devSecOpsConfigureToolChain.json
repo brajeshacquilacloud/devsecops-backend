@@ -12,10 +12,10 @@
                 "userId": "999",
                 "navigations": [
                     {
-                        "id": "DevSecOps1f7ae2d41d8b1",
+                        "id": "navigationId7efbef4a07ca9",
                         "userId": "999",
-                        "domainID": "DevSecOps1f7ae2d41d8b1",
-                        "name": "FinOps Domain",
+                        "domainID": "domainId8fa8bf8ad7169",
+                        "name": "Domain1",
                         "link": "/domainname",
                         "icon": "aquilaService",
                         "page": "ComponentsPage",
@@ -29,7 +29,33 @@
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
                                 "linkedeUrlParam": "nodeIndex",
-                                "id": "aquilaServices",
+                                "id": "pipelineId5450d862756ac",
+                                "domainID": "domainId8fa8bf8ad7169",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "navigationId676e066dcf444",
+                        "userId": "999",
+                        "domainID": "domainIdc0de433fe88d5",
+                        "name": "Domain2",
+                        "link": "/domainname",
+                        "icon": "aquilaService",
+                        "page": "ComponentsPage",
+                        "linkedeUrlParam": "nodeIndex",
+                        "isHawkUI": true,
+                        "className": "admin-icon",
+                        "subNavs": [
+                            {
+                                "name": "Default Pipeline Name",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineId9157cf970e9ec",
+                                "domainID": "domainIdc0de433fe88d5",
                                 "isHawkUI": true,
                                 "className": "admin-icon"
                             }

@@ -17935,7 +17935,7 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
     TotalDomainRecords.push(addNewDomainRecored)
 
     let newDomainRecord = JSON.stringify(TotalDomainRecords);
-    let newLeafRecord = JSON.stringify(getConfigToolChainLeafs);
+    let newLeafRecord = JSON.stringify([{ leafs: [clonegetConfigToolChainLeafs] }]);
 
 
     let resposeData = {
@@ -17949,9 +17949,9 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
         setResponseHeaders(res);
         res.status(200).send(resposeData);
 
-        // fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
-        //     if (err) throw err;
-        // })
+        fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
+            if (err) throw err;
+        })
         setTimeout(() => {
             console.log("asdddddddddddddddd")
         }, 2000);
