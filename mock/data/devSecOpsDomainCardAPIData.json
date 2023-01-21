@@ -1,15 +1,7 @@
 [
     {
-        "id": "domainId8fa8bf8ad7169",
-        "domainName": "Domain1",
-        "lastScan": "",
-        "pipelineCount": "1",
-        "scanTest": "",
-        "userId": "999"
-    },
-    {
-        "id": "domainIdc0de433fe88d5",
-        "domainName": "Domain2",
+        "id": "domainId37e7ab4e79d95",
+        "domainName": "BillOps Domain",
         "lastScan": "",
         "pipelineCount": "1",
         "scanTest": "",
