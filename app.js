@@ -86,8 +86,6 @@ const devSecOpsConfigureToolsChainAPIData = require("./mock/data/devSecOpsConfig
 const devSecOpsPipelineScanSummaryAPIData = require("./mock/data/devSecOpsPipelineScanSummaryAPIData.json")
 const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = require("./mock/data/devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData.json")
 const DragAndDropGetPipeline = require("./mock/data/DragAndDropGetPipeline.json")
-const devSecOpsDragAndDropPipeline2 = require("./mock/data/devSecOpsDragAndDropPipeline2.json")
-const devSecOpsDragAndDropPipeline3 = require("./mock/data/devSecOpsDragAndDropPipeline3.json")
 const devSecOpsPipelineConfigureToolChainPreviewAPIData = require("./mock/data/devSecOpsPipelineConfigureToolChainPreviewAPIData.json")
 
 const devSecOpsActiveInactivePipelineCardAPIData = require("./mock/data/devSecOpsActiveInactivePipelineCardAPIData.json")
@@ -18960,47 +18958,6 @@ app.post("/api/devsecops/DragAndDropGetPipeline", function (req, res) {
     setResponseHeaders(res);
     res.status(200).send(DragAndDropGetPipeline);
 })
-
-
-/**
- * @swagger
- * /api/devsecops/DragAndDropPipeline2:
- *  post:
- *      tags:
- *      - "Configure Tools Chain"
- *      summary: DevOps 2nd Pipeline Tools List.
- *      description: List of all DevOps Tools for select one of them.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response!
- *
- */
-
-app.post('/api/devsecops/DragAndDropPipeline2', function (req, res) {
-    setResponseHeaders(res);
-    res.status(200).send(devSecOpsDragAndDropPipeline2);
-});
-
-
-/**
- * @swagger
- * /api/devsecops/DragAndDropPipeline3:
- *  post:
- *      tags:
- *      - "Configure Tools Chain"
- *      summary: DevOps 3rd Pipeline Tools List.
- *      description: List of all DevOps Tools for select one of them.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response!
- *
- */
-
-app.post('/api/devsecops/DragAndDropPipeline3', function (req, res) {
-    setResponseHeaders(res);
-    res.status(200).send(devSecOpsDragAndDropPipeline3);
-});
-
 
 ////////// Drag and Drop  Tool settings form data api ////////////
 

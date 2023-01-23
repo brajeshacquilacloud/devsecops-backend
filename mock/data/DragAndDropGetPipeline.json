@@ -1,660 +1,776 @@
-[
-    {
-        "pipelineStageName": "Source Control",
-        "athorizationKey": "13j506jelrkmf578ktf",
-        "apiKeyForFormData": "sourceControlSettingFormData",
-        "otherInfo": "other_information",
-        "type": "pipelineStage",
-        "pipelineTool": "",
-        "pipelineStageCurrentStepStatus": "inactive",
-        "defSelectKey": "Source_Control",
-        "stage": [
-            {
-                "name": "Tool Name",
-                "type": "select",
-                "inputType": "select",
-                "defSelectKey": "Server_name",
-                "list": [
-                    {
-                        "key": 0,
-                        "draggableId": "Jenkins",
-                        "index": 0,
-                        "secOpsToolIcon": "/Jenkins.svg",
-                        "brandingColor": "#d24939",
-                        "secOpsToolName": "Jenkins",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 1,
-                        "draggableId": "Grype",
-                        "index": 1,
-                        "secOpsToolIcon": "/grype.svg",
-                        "brandingColor": "#4A8CFD",
-                        "secOpsToolName": "Grype",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 2,
-                        "draggableId": "SonarQube",
-                        "secOpsToolIcon": "/sonar-qube.svg",
-                        "index": 2,
-                        "brandingColor": "#79A9CA",
-                        "secOpsToolName": "Sonar Qube",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 3,
-                        "draggableId": "Trivy",
-                        "secOpsToolIcon": "/trivy.svg",
-                        "index": 3,
-                        "brandingColor": "#F69421",
-                        "secOpsToolName": "Trivy",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 4,
-                        "draggableId": "Qualys",
-                        "secOpsToolIcon": "/qualys.svg",
-                        "index": 4,
-                        "brandingColor": "#ED2E26",
-                        "pipelineCardStepStatus": "",
-                        "secOpsToolName": "Qualys",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 5,
-                        "draggableId": "BlackDuck",
-                        "secOpsToolIcon": "/black-duck.svg",
-                        "index": 5,
-                        "brandingColor": "#000000",
-                        "secOpsToolName": "Black Duck",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    }
-                ]
-            },
-            {
-                "name": "Server Name / IP Address",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "server_name_ip_address"
-            },
-            {
-                "name": "Authorization Key/ Password",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "athorizationKeyPassword"
-            },
-            {
-                "name": "Property File",
-                "type": "textarea",
-                "inputType": "file",
-                "defSelectKey": "propertyFile"
-            },
-            {
-                "name": "First Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalName"
-            },
-            {
-                "name": "First Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalEmail"
-            },
-            {
-                "name": "Second Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalName"
-            },
-            {
-                "name": "Second Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalEmail"
-            }
-        ]
-    },
-    {
-        "pipelineStageName": "Build Tool",
-        "athorizationKey": "13j506jelrkmf578kte",
-        "apiKeyForFormData": "buildToolSettingFormData",
-        "otherInfo": "other_information",
-        "type": "pipelineStage",
-        "pipelineTool": "",
-        "pipelineStageCurrentStepStatus": "inactive",
-        "defSelectKey": "Build_Tool",
-        "stage": [
-            {
-                "name": "Tool Name",
-                "type": "select",
-                "inputType": "select",
-                "defSelectKey": "Server_name",
-                "list": [
-                    {
-                        "key": 0,
-                        "draggableId": "Jenkins",
-                        "index": 0,
-                        "secOpsToolIcon": "/Jenkins.svg",
-                        "brandingColor": "#d24939",
-                        "secOpsToolName": "Jenkins",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 1,
-                        "draggableId": "Grype",
-                        "index": 1,
-                        "secOpsToolIcon": "/grype.svg",
-                        "brandingColor": "#4A8CFD",
-                        "secOpsToolName": "Grype",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 2,
-                        "draggableId": "SonarQube",
-                        "secOpsToolIcon": "/sonar-qube.svg",
-                        "index": 2,
-                        "brandingColor": "#79A9CA",
-                        "secOpsToolName": "Sonar Qube",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 3,
-                        "draggableId": "Trivy",
-                        "secOpsToolIcon": "/trivy.svg",
-                        "index": 3,
-                        "brandingColor": "#F69421",
-                        "secOpsToolName": "Trivy",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 4,
-                        "draggableId": "Qualys",
-                        "secOpsToolIcon": "/qualys.svg",
-                        "index": 4,
-                        "brandingColor": "#ED2E26",
-                        "pipelineCardStepStatus": "",
-                        "secOpsToolName": "Qualys",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 5,
-                        "draggableId": "BlackDuck",
-                        "secOpsToolIcon": "/black-duck.svg",
-                        "index": 5,
-                        "brandingColor": "#000000",
-                        "secOpsToolName": "Black Duck",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    }
-                ]
-            },
-            {
-                "name": "Server Name / IP Address",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "server_name_ip_address"
-            },
-            {
-                "name": "Authorization Key/ Password",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "athorizationKeyPassword"
-            },
-            {
-                "name": "Property File",
-                "type": "textarea",
-                "inputType": "file",
-                "defSelectKey": "propertyFile"
-            },
-            {
-                "name": "First Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalName"
-            },
-            {
-                "name": "First Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalEmail"
-            },
-            {
-                "name": "Second Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalName"
-            },
-            {
-                "name": "Second Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalEmail"
-            }
-        ]
-    },
-    {
-        "pipelineStageName": "Dev Test",
-        "athorizationKey": "13j506jelrkmf578ktw",
-        "apiKeyForFormData": "devTestSettingFormData",
-        "otherInfo": "other_information",
-        "type": "pipelineStage",
-        "pipelineTool": "",
-        "pipelineStageCurrentStepStatus": "inactive",
-        "defSelectKey": "Dev_Tool",
-        "stage": [
-            {
-                "name": "Tool Name",
-                "type": "select",
-                "inputType": "select",
-                "defSelectKey": "Server_name",
-                "list": [
-                    {
-                        "key": 0,
-                        "draggableId": "Jenkins",
-                        "index": 0,
-                        "secOpsToolIcon": "/Jenkins.svg",
-                        "brandingColor": "#d24939",
-                        "secOpsToolName": "Jenkins",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 1,
-                        "draggableId": "Grype",
-                        "index": 1,
-                        "secOpsToolIcon": "/grype.svg",
-                        "brandingColor": "#4A8CFD",
-                        "secOpsToolName": "Grype",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 2,
-                        "draggableId": "SonarQube",
-                        "secOpsToolIcon": "/sonar-qube.svg",
-                        "index": 2,
-                        "brandingColor": "#79A9CA",
-                        "secOpsToolName": "Sonar Qube",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 3,
-                        "draggableId": "Trivy",
-                        "secOpsToolIcon": "/trivy.svg",
-                        "index": 3,
-                        "brandingColor": "#F69421",
-                        "secOpsToolName": "Trivy",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 4,
-                        "draggableId": "Qualys",
-                        "secOpsToolIcon": "/qualys.svg",
-                        "index": 4,
-                        "brandingColor": "#ED2E26",
-                        "pipelineCardStepStatus": "",
-                        "secOpsToolName": "Qualys",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 5,
-                        "draggableId": "BlackDuck",
-                        "secOpsToolIcon": "/black-duck.svg",
-                        "index": 5,
-                        "brandingColor": "#000000",
-                        "secOpsToolName": "Black Duck",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    }
-                ]
-            },
-            {
-                "name": "Server Name / IP Address",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "server_name_ip_address"
-            },
-            {
-                "name": "Authorization Key/ Password",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "athorizationKeyPassword"
-            },
-            {
-                "name": "Property File",
-                "type": "textarea",
-                "inputType": "file",
-                "defSelectKey": "propertyFile"
-            },
-            {
-                "name": "Property File",
-                "type": "textarea",
-                "inputType": "file",
-                "defSelectKey": "propertyFile"
-            },
-            {
-                "name": "First Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalName"
-            },
-            {
-                "name": "First Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalEmail"
-            },
-            {
-                "name": "Second Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalName"
-            },
-            {
-                "name": "Second Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalEmail"
-            }
-        ]
-    },
-    {
-        "pipelineStageName": "Deploy",
-        "athorizationKey": "13j506jelrkmf578ktq",
-        "otherInfo": "other_information",
-        "apiKeyForFormData": "deploySettingFormData",
-        "type": "pipelineStage",
-        "pipelineTool": "",
-        "pipelineStageCurrentStepStatus": "inactive",
-        "defSelectKey": "Deploy_Tool",
-        "stage": [
-            {
-                "name": "Tool Name",
-                "type": "select",
-                "inputType": "select",
-                "defSelectKey": "Server_name",
-                "list": [
-                    {
-                        "key": 0,
-                        "draggableId": "Jenkins",
-                        "index": 0,
-                        "secOpsToolIcon": "/Jenkins.svg",
-                        "brandingColor": "#d24939",
-                        "secOpsToolName": "Jenkins",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 1,
-                        "draggableId": "Grype",
-                        "index": 1,
-                        "secOpsToolIcon": "/grype.svg",
-                        "brandingColor": "#4A8CFD",
-                        "secOpsToolName": "Grype",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 2,
-                        "draggableId": "SonarQube",
-                        "secOpsToolIcon": "/sonar-qube.svg",
-                        "index": 2,
-                        "brandingColor": "#79A9CA",
-                        "secOpsToolName": "Sonar Qube",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 3,
-                        "draggableId": "Trivy",
-                        "secOpsToolIcon": "/trivy.svg",
-                        "index": 3,
-                        "brandingColor": "#F69421",
-                        "secOpsToolName": "Trivy",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 4,
-                        "draggableId": "Qualys",
-                        "secOpsToolIcon": "/qualys.svg",
-                        "index": 4,
-                        "brandingColor": "#ED2E26",
-                        "pipelineCardStepStatus": "",
-                        "secOpsToolName": "Qualys",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 5,
-                        "draggableId": "BlackDuck",
-                        "secOpsToolIcon": "/black-duck.svg",
-                        "index": 5,
-                        "brandingColor": "#000000",
-                        "secOpsToolName": "Black Duck",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    }
-                ]
-            },
-            {
-                "name": "Server Name / IP Address",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "server_name_ip_address"
-            },
-            {
-                "name": "Authorization Key/ Password",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "athorizationKeyPassword"
-            },
-            {
-                "name": "Property File",
-                "type": "textarea",
-                "inputType": "file",
-                "defSelectKey": "propertyFile"
-            },
-            {
-                "name": "Property File",
-                "type": "textarea",
-                "inputType": "file",
-                "defSelectKey": "propertyFile"
-            },
-            {
-                "name": "First Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalName"
-            },
-            {
-                "name": "First Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalEmail"
-            },
-            {
-                "name": "Second Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalName"
-            },
-            {
-                "name": "Second Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalEmail"
-            }
-        ]
-    },
-    {
-        "pipelineStageName": "Run Time",
-        "athorizationKey": "13j506jelrkmf578q",
-        "otherInfo": "other_information",
-        "apiKeyForFormData": "RunTimeSettingFormData",
-        "type": "pipelineStage",
-        "pipelineTool": "",
-        "pipelineStageCurrentStepStatus": "inactive",
-        "defSelectKey": "Run_Time",
-        "stage": [
-            {
-                "name": "Tool Name",
-                "type": "select",
-                "inputType": "select",
-                "defSelectKey": "Server_name",
-                "list": [
-                    {
-                        "key": 0,
-                        "draggableId": "Jenkins",
-                        "index": 0,
-                        "secOpsToolIcon": "/Jenkins.svg",
-                        "brandingColor": "#d24939",
-                        "secOpsToolName": "Jenkins",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 1,
-                        "draggableId": "Grype",
-                        "index": 1,
-                        "secOpsToolIcon": "/grype.svg",
-                        "brandingColor": "#4A8CFD",
-                        "secOpsToolName": "Grype",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 2,
-                        "draggableId": "SonarQube",
-                        "secOpsToolIcon": "/sonar-qube.svg",
-                        "index": 2,
-                        "brandingColor": "#79A9CA",
-                        "secOpsToolName": "Sonar Qube",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 3,
-                        "draggableId": "Trivy",
-                        "secOpsToolIcon": "/trivy.svg",
-                        "index": 3,
-                        "brandingColor": "#F69421",
-                        "secOpsToolName": "Trivy",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 4,
-                        "draggableId": "Qualys",
-                        "secOpsToolIcon": "/qualys.svg",
-                        "index": 4,
-                        "brandingColor": "#ED2E26",
-                        "pipelineCardStepStatus": "",
-                        "secOpsToolName": "Qualys",
-                        "type": "pipelineTool",
-                        "list": []
-                    },
-                    {
-                        "key": 5,
-                        "draggableId": "BlackDuck",
-                        "secOpsToolIcon": "/black-duck.svg",
-                        "index": 5,
-                        "brandingColor": "#000000",
-                        "secOpsToolName": "Black Duck",
-                        "pipelineCardStepStatus": "",
-                        "type": "pipelineTool",
-                        "list": []
-                    }
-                ]
-            },
-            {
-                "name": "Server Name / IP Address",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "server_name_ip_address"
-            },
-            {
-                "name": "Authorization Key/ Password",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "athorizationKeyPassword"
-            },
-            {
-                "name": "Property File",
-                "type": "textarea",
-                "inputType": "file",
-                "defSelectKey": "propertyFile"
-            },
-            {
-                "name": "Property File",
-                "type": "textarea",
-                "inputType": "file",
-                "defSelectKey": "propertyFile"
-            },
-            {
-                "name": "First Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalName"
-            },
-            {
-                "name": "First Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "firstLevelApprovalEmail"
-            },
-            {
-                "name": "Second Level Approval Name",
-                "type": "text",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalName"
-            },
-            {
-                "name": "Second Level Approval Email",
-                "type": "email",
-                "inputType": "text",
-                "defSelectKey": "secondLevelApprovalEmail"
-            }
-        ]
-    }
-]
+{
+    "devOpsToolChainStep": [
+        {
+            "id": "devOpsToolChainStepSourceControl",
+            "pipelineStageName": "Source Control",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_devOps_source_control",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#A3A3A3",
+                            "secOpsToolName": "Jenkins..asd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_devOps_source_control",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..asd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_devOps_source_control",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..asd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_devOps_source_control",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..asd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_devOps_source_control",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..asd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_devOps_source_control",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..asd",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "devOpsToolChainStepBuildTool",
+            "pipelineStageName": "Build Tool",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_devOps_build_tool",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..bd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_devOps_build_tool",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..bd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_devOps_build_tool",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..bd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_devOps_build_tool",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..bd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_devOps_build_tool",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..bd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_devOps_build_tool",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..bd",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "devOpsToolChainStepDevTest",
+            "pipelineStageName": "Dev Test",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_devOps_dev_test",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..dd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_devOps_dev_test",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..dd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_devOps_dev_test",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..dd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_devOps_dev_test",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..dd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_devOps_dev_test",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..dd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_devOps_dev_test",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..dd",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "devOpsToolChainStepDeploy",
+            "pipelineStageName": "Deploy",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_devOps_deploy",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..ded",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_devOps_deploy",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..ded",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_devOps_deploy",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..ded",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_devOps_deploy",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..ded",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_devOps_deploy",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..ded",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_devOps_deploy",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..ded",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "devOpsToolChainStepRunTime",
+            "pipelineStageName": "Run Time",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_devOps_run_time",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..rd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_devOps_run_time",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..rd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_devOps_run_time",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..rd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_devOps_run_time",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..rd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_devOps_run_time",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..rd",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_devOps_run_time",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..rd",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "secOpsToolChainStep": [
+        {
+            "id": "secOpsToolChainStepSourceControl",
+            "pipelineStageName": "Source Control..s",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_secOps_source_control",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..s",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_secOps_source_control",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..s",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_secOps_source_control",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..s",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_secOps_source_control",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..s",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_secOps_source_control",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..s",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_secOps_source_control",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..s",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "secOpsToolChainStepBuildTool",
+            "pipelineStageName": "Build Tool",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_secOps_build_tool",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..bs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_secOps_build_tool",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..bs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_secOps_build_tool",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..bs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_secOps_build_tool",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..bs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_secOps_build_tool",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..bs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_secOps_build_tool",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..bs",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "secOpsToolChainStepDevTest",
+            "pipelineStageName": "Dev Test",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_secOps_dev_test",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..ds",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_secOps_dev_test",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..ds",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_secOps_dev_test",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..ds",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_secOps_dev_test",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..ds",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_secOps_dev_test",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..ds",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_secOps_dev_test",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..ds",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "secOpsToolChainStepDeploy",
+            "pipelineStageName": "Deploy",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_secOps_deploy",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..des",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_secOps_deploy",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..des",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_secOps_deploy",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..des",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_secOps_deploy",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..des",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_secOps_deploy",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..des",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_secOps_deploy",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..des",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "secOpsToolChainStepRunTime",
+            "pipelineStageName": "Run Time",
+            "type": "pipelineStage",
+            "pipelineStageCurrentStepStatus": "inactive",
+            "stagesToolList": [
+                {
+                    "id": 0,
+                    "name": "Tool Name",
+                    "type": "select",
+                    "inputType": "select",
+                    "defSelectKey": "Server_name",
+                    "list": [
+                        {
+                            "id": 0,
+                            "key": 0,
+                            "index": 0,
+                            "draggableId": "Jenkins_secOps_run_time",
+                            "secOpsToolIcon": "/Jenkins.svg",
+                            "brandingColor": "#d24939",
+                            "secOpsToolName": "Jenkins..rs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 1,
+                            "key": 1,
+                            "index": 1,
+                            "draggableId": "Grype_secOps_run_time",
+                            "secOpsToolIcon": "/grype.svg",
+                            "brandingColor": "#4A8CFD",
+                            "secOpsToolName": "Grype..rs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 2,
+                            "key": 2,
+                            "index": 2,
+                            "draggableId": "SonarQube_secOps_run_time",
+                            "secOpsToolIcon": "/sonar-qube.svg",
+                            "brandingColor": "#79A9CA",
+                            "secOpsToolName": "Sonar Qube..rs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 3,
+                            "key": 3,
+                            "index": 3,
+                            "draggableId": "Trivy_secOps_run_time",
+                            "secOpsToolIcon": "/trivy.svg",
+                            "brandingColor": "#F69421",
+                            "secOpsToolName": "Trivy..rs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 4,
+                            "key": 4,
+                            "index": 4,
+                            "draggableId": "Qualys_secOps_run_time",
+                            "secOpsToolIcon": "/qualys.svg",
+                            "brandingColor": "#ED2E26",
+                            "secOpsToolName": "Qualys..rs",
+                            "type": "pipelineTool"
+                        },
+                        {
+                            "id": 5,
+                            "key": 5,
+                            "index": 5,
+                            "draggableId": "BlackDuck_secOps_run_time",
+                            "secOpsToolIcon": "/black-duck.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Black Duck..rs",
+                            "type": "pipelineTool"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
