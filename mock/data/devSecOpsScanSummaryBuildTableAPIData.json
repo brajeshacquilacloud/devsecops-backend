@@ -16,7 +16,7 @@
     {
         "incidentId": 3,
         "incident": "Incident Name",
-        "risk": "Medium",
+        "risk": "Critical",
         "discoveryTime": "3-5-2022 10:00AM",
         "description": "Description Here"
     },

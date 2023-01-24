@@ -72,8 +72,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..asd",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..asd",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         },
@@ -149,8 +193,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..bd",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..bd",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         },
@@ -226,8 +314,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..dd",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..dd",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         },
@@ -303,8 +435,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..ded",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..ded",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         },
@@ -380,8 +556,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..rd",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..rd",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         }
@@ -459,8 +679,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..s",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..s",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         },
@@ -536,8 +800,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..bs",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..bs",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         },
@@ -613,8 +921,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..ds",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..ds",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         },
@@ -690,8 +1042,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..des",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..des",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         },
@@ -767,8 +1163,52 @@
                             "brandingColor": "#000000",
                             "secOpsToolName": "Black Duck..rs",
                             "type": "pipelineTool"
+                        },
+                        {
+                            "id": 6,
+                            "key": 6,
+                            "index": 6,
+                            "draggableId": "Github_devOps_source_control",
+                            "secOpsToolIcon": "/github.svg",
+                            "brandingColor": "#000000",
+                            "secOpsToolName": "Github..rs",
+                            "type": "pipelineTool"
                         }
                     ]
+                }
+            ],
+            "eventTrigger": [
+                {
+                    "name": "Server Name / IP Address",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "server_name_ip_address"
+                },
+                {
+                    "name": "Authorization Key/ Password",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "athorizationKeyPassword"
+                },
+                {
+                    "name": "Property File",
+                    "type": "textarea",
+                    "inputType": "file",
+                    "defSelectKey": "propertyFile"
+                }
+            ],
+            "approvalAction": [
+                {
+                    "name": "Level Approval Name",
+                    "type": "text",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalName"
+                },
+                {
+                    "name": "Level Approval Email",
+                    "type": "email",
+                    "inputType": "text",
+                    "defSelectKey": "firstLevelApprovalEmail"
                 }
             ]
         }

@@ -2,7 +2,7 @@
     {
         "incidentId": 1,
         "incident": "Incident Name",
-        "risk": "High",
+        "risk": "Critical",
         "stage": "Build"
     },
     {

@@ -4,76 +4,76 @@
         "pipelineName": "Pipeline Name",
         "deployment": "Running",
         "action": "Stop Pipeline",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 2,
         "pipelineName": "Pipeline Name",
         "deployment": "Running",
         "action": "Run Pipeline",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 3,
         "pipelineName": "Pipeline Name",
         "deployment": "Completed",
         "action": "Faulted message",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 4,
         "pipelineName": "Pipeline Name",
         "deployment": "Running",
         "action": "Faulted message",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 5,
         "pipelineName": "Pipeline Name",
         "deployment": "Running",
         "action": "Faulted message",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 6,
         "pipelineName": "Pipeline Name",
         "deployment": "Completed",
         "action": "Approval Required",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 7,
         "pipelineName": "Pipeline Name",
         "deployment": "Faulted",
         "action": "Run Pipeline",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 8,
         "pipelineName": "Pipeline Name",
         "deployment": "Faulted",
         "action": "Stop Pipeline",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 9,
         "pipelineName": "Pipeline Name",
         "deployment": "Pending",
         "action": "Stop Pipeline",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 10,
         "pipelineName": "Pipeline Name",
         "deployment": "Completed",
         "action": "Run Pipeline",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     },
     {
         "pipelineId": 11,
         "pipelineName": "Pipeline Name",
         "deployment": "Pending",
         "action": "Stop Pipeline",
-        "edit": "Edit"
+        "drillTo": "devsecops/devSecOpsPipelineDetails"
     }
 ]

@@ -1,6 +1,7 @@
 [
     {
         "cardTitle": "Incident Risk Level",
+        "critical": 15,
         "high": 16,
         "medium": 148,
         "low": 207
