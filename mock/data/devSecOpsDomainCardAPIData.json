@@ -1,18 +1,1 @@
-[
-    {
-        "id": "domainId37e7ab4e79d95",
-        "domainName": "BillOps Domain",
-        "lastScan": "",
-        "pipelineCount": "1",
-        "scanTest": "",
-        "userId": "999"
-    },
-    {
-        "id": "domainId61738552f4fbd",
-        "domainName": "FinOps Domain",
-        "lastScan": "",
-        "pipelineCount": "1",
-        "scanTest": "",
-        "userId": "999"
-    }
-]
+[{"id":"domainId56408d1eb8a1c","domainName":"BillOps Domain","lastScan":"","pipelineCount":"1","scanTest":"","userId":"999"}]
