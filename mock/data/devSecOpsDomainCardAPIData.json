@@ -6,5 +6,13 @@
         "pipelineCount": "1",
         "scanTest": "",
         "userId": "999"
+    },
+    {
+        "id": "domainId61738552f4fbd",
+        "domainName": "FinOps Domain",
+        "lastScan": "",
+        "pipelineCount": "1",
+        "scanTest": "",
+        "userId": "999"
     }
 ]

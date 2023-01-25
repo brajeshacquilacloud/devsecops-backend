@@ -36,6 +36,31 @@
                                 "className": "admin-icon"
                             }
                         ]
+                    },
+                    {
+                        "id": "navigationId2d9794f11b32",
+                        "userId": "999",
+                        "domainID": "domainId61738552f4fbd",
+                        "name": "FinOps Domain",
+                        "link": "/domainname",
+                        "icon": "aquilaService",
+                        "page": "ComponentsPage",
+                        "linkedeUrlParam": "nodeIndex",
+                        "isHawkUI": true,
+                        "className": "admin-icon",
+                        "subNavs": [
+                            {
+                                "name": "Default Pipeline Name",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineId3469a2211458a",
+                                "domainID": "domainId61738552f4fbd",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            }
+                        ]
                     }
                 ],
                 "components": [
