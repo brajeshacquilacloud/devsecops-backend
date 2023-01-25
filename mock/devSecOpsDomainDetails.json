@@ -120,136 +120,70 @@
             },
             {
                 "id": 2,
-                "leafTitle": "Domain Details Page Layout",
-                "subTitle": "",
-                "size": 12,
-                "type": "devSecOpsDomainDetailsLayout",
+                "leafTitle": "Section Title And Button",
+                "type": "section-title-and-button",
+                "apiKey": "devSecOpsDomainTitleAPI",
                 "isHawkUI": true,
-                "apiKey": "",
-                "components": [
+                "size": 12
+            },
+            {
+                "id": 3,
+                "leafTitle": "Active Inactive Pipeline Card",
+                "type": "activeInactivePipelineCard",
+                "apiKey": "devSecOpsActiveInactivePipelineCardAPI",
+                "isHawkUI": true,
+                "size": 6
+            },
+            {
+                "id": 4,
+                "leafTitle": "Trigger Executed Card",
+                "type": "activeInactivePipelineCard",
+                "apiKey": "devSecOpsTriggerExecutedCardAPI",
+                "isHawkUI": true,
+                "size": 6
+            },
+            {
+                "id": 5,
+                "leafTitle": "Scan Summary",
+                "isHawkUI": true,
+                "type": "hawkDatatable",
+                "apiKey": "pipelineStatusAPI",
+                "size": 12,
+                "noDataText": "No sub-users available",
+                "metrics": {},
+                "hideToolBar": true,
+                "defaultRowPerPage": 10,
+                "columns": [
                     {
-                        "id": 1,
-                        "dataApiKey": "pipelineStatusAPI",
-                        "isHawkUI": true,
-                        "type": "hawkDataTable",
-                        "header": "Pipeline Status",
-                        "hideToolBar": true,
-                        "noDataText": "No Pipeline Status Available",
-                        "size": 12,
-                        "filter": false,
-                        "metrics": {},
-                        "selectableRows": "single",
-                        "defaultRowPerPage": 10,
-                        "columns": [
-                            {
-                                "name": "Pipeline ID",
-                                "key": "pipelineId",
-                                "display": false
-                            },
-                            {
-                                "name": "Pipeline Name",
-                                "key": "pipelineName",
-                                "display": true
-                            },
-                            {
-                                "name": "Deployment",
-                                "key": "deployment",
-                                "type": "pipeline-development-status",
-                                "display": true
-                            },
-                            {
-                                "name": "Action",
-                                "key": "action",
-                                "type": "pipeline-actions",
-                                "display": true
-                            },
-                            {
-                                "name": "Details",
-                                "key": "drillTo",
-                                "type": "drill",
-                                "secKey": "drillTo",
-                                "display": true
-                            }
-                        ]
+                        "name": "Id",
+                        "key": "pipelineId",
+                        "display": false
                     },
                     {
-                        "id": 2,
-                        "type": "activeInactivePipelineCard",
-                        "size": 12,
-                        "dataApiKey": "devSecOpsActiveInactivePipelineCardAPI"
+                        "name": "Pipeline Name",
+                        "key": "pipelineName",
+                        "display": true,
+                        "filter": true,
+                        "filterType": "textField"
                     },
                     {
-                        "id": 3,
-                        "type": "activeInactivePipelineCard",
-                        "size": 12,
-                        "dataApiKey": "devSecOpsTriggerExecutedCardAPI"
+                        "name": "Deployment",
+                        "key": "deployment",
+                        "type": "pipeline-development-status",
+                        "display": true
                     },
                     {
-                        "id": 4,
-                        "dataApiKey": "pipelineScanSummaryAPI",
-                        "isHawkUI": true,
-                        "type": "hawkDataTable",
-                        "header": "Scan Summary",
-                        "hideToolBar": true,
-                        "noDataText": "No Scan Summary Available",
-                        "size": 12,
-                        "filter": false,
-                        "metrics": {},
-                        "selectableRows": "single",
-                        "defaultRowPerPage": 8,
-                        "columns": [
-                            {
-                                "name": "Id",
-                                "key": "incidentId",
-                                "display": false
-                            },
-                            {
-                                "name": "Incident",
-                                "key": "incident",
-                                "display": true,
-                                "filter": true,
-                                "filterType": "textField"
-                            },
-                            {
-                                "name": "Risk",
-                                "key": "risk",
-                                "type": "riskLevel",
-                                "display": true,
-                                "filter": true,
-                                "filterType": "textField"
-                            },
-                            {
-                                "name": "Stage",
-                                "key": "stage",
-                                "type": "stage",
-                                "display": true,
-                                "filter": true,
-                                "filterType": "multiselect"
-                            },
-                            {
-                                "name": "Details",
-                                "key": "rowAction",
-                                "display": true,
-                                "filter": false,
-                                "type": "rowAction",
-                                "rowActions": [
-                                    {
-                                        "name": "View",
-                                        "key": "action",
-                                        "type": "edit",
-                                        "display": true,
-                                        "drillTo": "modal",
-                                        "modalTitle": "Edit user",
-                                        "drillParams": [
-                                            {
-                                                "key": "incidentId"
-                                            }
-                                        ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
-                                    }
-                                ]
-                            }
-                        ]
+                        "name": "Action",
+                        "key": "action",
+                        "type": "pipeline-actions",
+                        "display": true
+                    },
+                    {
+                        "name": "Details",
+                        "key": "drillTo",
+                        "type": "drill",
+                        "secKey": "drillTo",
+                        "display": true
                     }
                 ]
             }

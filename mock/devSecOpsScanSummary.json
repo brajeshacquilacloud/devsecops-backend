@@ -147,9 +147,9 @@
                         "id": 1,
                         "defSelectKey": "sourceControl",
                         "tabTitle": "Source Control",
-                        "devOpsTool": "Trivy",
-                        "secOpsTool": "Snyk",
-                        "columnTitle": "Source Control...",
+                        "devOpsTool": "github",
+                        "secOpsTool": "grype",
+                        "columnTitle": "Source Control",
                         "type": "hawkDatatable",
                         "mode": "inline",
                         "apiKey": "devSecOpsScanSummarySourceControlTableAPI",
@@ -200,7 +200,7 @@
                                                 "key": "incidentId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                        "componentsAPIKey": "devSecOpsScanSummaryIncidentDetailsModalComponentAPI"
                                     }
                                 ]
                             }
@@ -210,9 +210,9 @@
                         "id": 2,
                         "defSelectKey": "build",
                         "tabTitle": "Build",
-                        "devOpsTool": "Jenkins",
-                        "secOpsTool": "Grype",
-                        "columnTitle": "Build...",
+                        "devOpsTool": "jenkins",
+                        "secOpsTool": "trivy",
+                        "columnTitle": "Build",
                         "type": "hawkDatatable",
                         "mode": "inline",
                         "apiKey": "devSecOpsScanSummaryBuildTableAPI",
@@ -263,7 +263,7 @@
                                                 "key": "incidentId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                        "componentsAPIKey": "devSecOpsScanSummaryIncidentDetailsModalComponentAPI"
                                     }
                                 ]
                             }
@@ -273,8 +273,8 @@
                         "id": 3,
                         "defSelectKey": "devTest",
                         "tabTitle": "Dev Test",
-                        "devOpsTool": "Junit",
-                        "secOpsTool": "Qualys",
+                        "devOpsTool": "junit",
+                        "secOpsTool": "qualys",
                         "columnTitle": "Dev Test...",
                         "type": "hawkDatatable",
                         "mode": "inline",
@@ -326,7 +326,7 @@
                                                 "key": "incidentId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                        "componentsAPIKey": "devSecOpsScanSummaryIncidentDetailsModalComponentAPI"
                                     }
                                 ]
                             }
@@ -336,9 +336,9 @@
                         "id": 4,
                         "defSelectKey": "deploy",
                         "tabTitle": "Deploy",
-                        "devOpsTool": "Github",
-                        "secOpsTool": "Grype",
-                        "columnTitle": "Deploy...",
+                        "devOpsTool": "github",
+                        "secOpsTool": "sonar-qube",
+                        "columnTitle": "Deploy",
                         "type": "hawkDatatable",
                         "mode": "inline",
                         "apiKey": "devSecOpsScanSummaryDeployTableAPI",
@@ -389,7 +389,7 @@
                                                 "key": "incidentId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                        "componentsAPIKey": "devSecOpsScanSummaryIncidentDetailsModalComponentAPI"
                                     }
                                 ]
                             }
@@ -399,9 +399,9 @@
                         "id": 5,
                         "defSelectKey": "runTime",
                         "tabTitle": "Run Time",
-                        "devOpsTool": "Github",
-                        "secOpsTool": "Grype",
-                        "columnTitle": "Run Time...",
+                        "devOpsTool": "bitbucket",
+                        "secOpsTool": "grype",
+                        "columnTitle": "Run Time",
                         "type": "hawkDatatable",
                         "mode": "inline",
                         "apiKey": "devSecOpsScanSummaryRunTimeTableAPI",
@@ -452,7 +452,7 @@
                                                 "key": "incidentId"
                                             }
                                         ],
-                                        "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                        "componentsAPIKey": "devSecOpsScanSummaryIncidentDetailsModalComponentAPI"
                                     }
                                 ]
                             }

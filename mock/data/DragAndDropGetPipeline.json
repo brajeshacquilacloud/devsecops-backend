@@ -38,7 +38,7 @@
                             "key": 3,
                             "index": 3,
                             "draggableId": "jenkins_devops_source_control",
-                            "secOpsToolIcon": "/Jenkins.svg",
+                            "secOpsToolIcon": "/jenkins.svg",
                             "brandingColor": "#D33833",
                             "secOpsToolName": "Jenkins",
                             "type": "pipelineTool"
@@ -149,7 +149,7 @@
                             "key": 3,
                             "index": 3,
                             "draggableId": "jenkins_devops_build_tool",
-                            "secOpsToolIcon": "/Jenkins.svg",
+                            "secOpsToolIcon": "/jenkins.svg",
                             "brandingColor": "#D33833",
                             "secOpsToolName": "Jenkins",
                             "type": "pipelineTool"
@@ -250,7 +250,7 @@
                             "key": 2,
                             "index": 2,
                             "draggableId": "jenkins_devops_dev_test",
-                            "secOpsToolIcon": "/Jenkins.svg",
+                            "secOpsToolIcon": "/jenkins.svg",
                             "brandingColor": "#D33833",
                             "secOpsToolName": "Jenkins",
                             "type": "pipelineTool"
@@ -391,7 +391,7 @@
                             "key": 6,
                             "index": 6,
                             "draggableId": "jenkins_devops_deploy",
-                            "secOpsToolIcon": "/Jenkins.svg",
+                            "secOpsToolIcon": "/jenkins.svg",
                             "brandingColor": "#D33833",
                             "secOpsToolName": "Jenkins",
                             "type": "pipelineTool"
@@ -502,7 +502,7 @@
                             "key": 6,
                             "index": 6,
                             "draggableId": "jenkins_devops_run_time",
-                            "secOpsToolIcon": "/Jenkins.svg",
+                            "secOpsToolIcon": "/jenkins.svg",
                             "brandingColor": "#D33833",
                             "secOpsToolName": "Jenkins",
                             "type": "pipelineTool"

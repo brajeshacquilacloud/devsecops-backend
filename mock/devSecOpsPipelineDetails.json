@@ -126,7 +126,7 @@
                         "title": "Run Pipeline",
                         "type": "modal",
                         "mode": "inline",
-                        "modalTitle": "Add New Domain....",
+                        "modalTitle": "Add New Domain",
                         "componentsAPIKey": "addDomainAPI"
                     }
                 ]
@@ -192,13 +192,13 @@
                                 "type": "edit",
                                 "display": true,
                                 "drillTo": "modal",
-                                "modalTitle": "Edit user",
+                                "modalTitle": "Incident Details",
                                 "drillParams": [
                                     {
                                         "key": "incidentId"
                                     }
                                 ],
-                                "componentsAPIKey": "devSecOpsEditUserComponentAPI"
+                                "componentsAPIKey": "devSecOpsScanSummaryIncidentDetailsModalComponentAPI"
                             }
                         ]
                     }

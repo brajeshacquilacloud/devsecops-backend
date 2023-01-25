@@ -8518,6 +8518,33 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ];
             break;
+        case 'devSecOpsScanSummaryIncidentDetailsModal':
+            data = [
+                {
+                    actionAPIKey: 'addEditEnvironmentAPI',
+                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionButtonText: 'Add',
+                    disableActionButton: true,
+                    modalWidth: 700,
+                    modalActions: [
+                    ],
+                    leafs: [
+                        {
+                            id: 1,
+                            leafTitle: "Scan Summary Incident Details",
+                            type: "stageDetailsSummaryCard",
+                            apiKey: "devSecOpsScanSummaryIncidentDetailsData",
+                            noDataText: "No Summary Data available",
+                            metrics: {},
+                            size: 12,
+                            defSelectKey: 'devops-tool'
+
+                        }
+
+                    ]
+                }
+            ];
+            break;
 
 
 
@@ -19532,6 +19559,40 @@ app.post('/api/devsecops/add-pipeline', function (req, res) {
 });
 
 // #### End Pipeline Card Page #####
+
+
+
+// #### Start Incident Details Data #####
+/**
+ * @swagger
+ * /api/devsecops/scan-summary-incident-details-data:
+ *  post:
+ *      tags:
+ *      - "Scan Summary"
+ *      summary: Scan Summary Details Summary Data.
+ *      description: Manage Scan Summary Details Summary Data.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/scan-summary-incident-details-data', function (req, res) {
+    let data = [
+        {
+            "type": "info",
+            "list": [
+                {
+                    "name": "Incident Details",
+                    "value": 'JSON File for incident details.'
+                }
+            ],
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Incident Details Data #####
 
 
 
