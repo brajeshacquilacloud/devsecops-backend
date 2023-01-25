@@ -84,7 +84,6 @@ const devSecOpsPipelineStatusAPIData = require("./mock/data/devSecOpsPipelineSta
 
 const devSecOpsConfigureToolsChainAPIData = require("./mock/data/devSecOpsConfigureToolsChainAPIData.json")
 const devSecOpsPipelineScanSummaryAPIData = require("./mock/data/devSecOpsPipelineScanSummaryAPIData.json")
-const devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData = require("./mock/data/devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData.json")
 const DragAndDropGetPipeline = require("./mock/data/DragAndDropGetPipeline.json")
 const devSecOpsPipelineConfigureToolChainPreviewAPIData = require("./mock/data/devSecOpsPipelineConfigureToolChainPreviewAPIData.json")
 
@@ -17990,47 +17989,6 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
 
 /**
  * @swagger
- * /api/devsecops/pipeline-card:
- *  post:
- *      tags:
- *      - "Pipeline Management"
- *      summary: Pipeline Cards
- *      description: List of all pipeline cards here.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response with list of domain cards object!
- *
- */
-
-// #### Start Pipeline Card Page #####
-app.post('/api/devsecops/pipeline-card', function (req, res) {
-    let data = [
-        {
-            "id": 1,
-            "pipelineName": "FinOps Pipeline",
-            "lastScan": "2022-10-26 11:00AM",
-            "scanTest": "541"
-        },
-        {
-            "id": 2,
-            "pipelineName": "BillOps Pipeline",
-            "lastScan": "2022-10-27 11:00AM",
-            "scanTest": "321"
-        },
-        {
-            "id": 3,
-            "pipelineName": "DevOps Pipeline",
-            "lastScan": "2022-10-28 11:00AM",
-            "scanTest": "123"
-        }
-    ]
-    setResponseHeaders(res);
-    res.status(200).send(data);
-});
-
-
-/**
- * @swagger
  * /api/devsecops/add-domain-button:
  *  post:
  *      tags:
@@ -18056,34 +18014,6 @@ app.post('/api/devsecops/add-domain-button', function (req, res) {
 });
 // #### End Add Domain Button #####
 
-
-
-/**
- * @swagger
- * /api/devsecops/add-pipeline-button:
- *  post:
- *      tags:
- *      - "Pipeline Management"
- *      summary: Add New Pipeline with title section.
- *      description: Add New Pipeline with title section.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response!
- *
- */
-
-// #### Start Add Pipeline Button #####
-app.post('/api/devsecops/add-pipeline-button', function (req, res) {
-    let data = [
-        {
-            "sectionTitle": "Pipeline",
-            "buttonTitle": "Add Pipeline"
-        }
-    ]
-    setResponseHeaders(res);
-    res.status(200).send(data);
-});
-// #### End Add Pipeline Button #####
 
 // #### Start Add clearfix div #####
 app.post('/api/devsecops/clearfix-div', function (req, res) {
@@ -19079,34 +19009,6 @@ app.post('/api/devsecops/configure-tools-chain', function (req, res) {
 // #### End Configure Tools Chain Page #####
 
 
-
-
-// #### Start configure tools chain domain pipeline sidebar navigation Data #####
-/**
- * @swagger
- * /api/devsecops/configure-tools-chain-domain-pipeline-sidebar-navigation:
- *  post:
- *      tags:
- *      - "Configure Tools Chain"
- *      summary: configure tools chain domain pipeline sidebar navigation.
- *      description: configure tools chain domain pipeline sidebar navigation Data.
- *      responses:
- *          200:
- *              description: Page is working fine if got the json response!
- *
- */
-
-
-
-app.post('/api/devsecops/configure-tools-chain-domain-pipeline-sidebar-navigation', function (req, res) {
-    setResponseHeaders(res);
-    res.status(200).send(devSecOpsConfigureToolsChainDomainPipelineSidebarNavigationAPIData);
-});
-
-// #### End configure tools chain domain pipeline sidebar navigation Page #####
-
-
-
 // #### Start active inactive pipeline card #####
 /**
  * @swagger
@@ -19507,9 +19409,9 @@ app.post('/api/devsecops/pipeline-configure-tool-chain-preview', function (req, 
  *          - in: path
  *            name: id
  *            required: true
- *            description: Numeric ID required
+ *            description: Domain ID required
  *            schema:
- *              type: integer
+ *              type: string
  *      responses:
  *          200:
  *              description: Page is working fine if got the json response with list of domain cards object!
