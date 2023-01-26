@@ -1,114 +1,188 @@
 [
     {
-        "id": 1,
-        "leafTitle": "",
-        "type": "accordion",
-        "size": 12,
-        "accordion": [
+        "userId": 999,
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineIdb302d881a0593",
+        "selectedToolsDetails": [
             {
-                "id": 1,
+                "stagesId": 1,
                 "defSelectKey": "sourceControl",
-                "accordionTitle": "Source Control",
-                "devOpsTool": "Trivy",
-                "secOpsTool": "Snyk",
+                "stagesTitle": "Source Control",
+                "devOpsTool": "github",
                 "devOpsToolIpAddress": "192.30.252.0/00",
-                "secOpsToolIpAddress": "192.30.252.0/11",
                 "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d0",
+                "devOpsToolOtherInformation": "Description Here.",
+                "devOpsToolPropertyFile": "Dummy Data Here",
+                "devOpsToolApprovalAction": [
+                    {
+                        "approverName": "Sankrant Kumar",
+                        "approverEmail": "sankrant@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Harh Garg",
+                        "approverEmail": "harh@aquilaclouds.com"
+                    }
+                ],
+                "secOpsTool": "grype",
+                "secOpsToolIpAddress": "192.30.252.0/11",
                 "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d1",
-                "otherInformation1": "Description Here.",
-                "otherInformation2": "Description Here.",
-                "propertyFile": "Dummy Data Here",
-                "type": "hawkDatatable",
-                "mode": "inline",
-                "apiKey": "devSecOpsConfigureToolChainPreviewSourceControlTableAPI",
-                "size": 12,
-                "noDataAddIcon": true,
-                "hideToolBar": true,
-                "noDataText": "No Data Available"
+                "secOpsToolOtherInformation": "Description Here.",
+                "secOpsToolPropertyFile": "Dummy Data Here",
+                "secOpsToolApprovalAction": [
+                    {
+                        "approverName": "Pankaj Kumar",
+                        "approverEmail": "Pankaj@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Kalpesh",
+                        "approverEmail": "kalpesh@aquilaclouds.com"
+                    }
+                ],
+                "apiKey": "devSecOpsConfigureToolChainPreviewSourceControlTableAPI"
             },
             {
-                "id": 2,
+                "stagesId": 2,
                 "defSelectKey": "buildTool",
-                "accordionTitle": "build Tool",
-                "devOpsTool": "Trivy",
-                "secOpsTool": "Snyk",
-                "devOpsToolIpAddress": "192.30.252.0/22",
-                "secOpsToolIpAddress": "192.30.252.0/33",
-                "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d2",
-                "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d3",
-                "otherInformation1": "Description Here.",
-                "otherInformation2": "Description Here.",
-                "propertyFile": "Dummy Data Here",
-                "type": "hawkDatatable",
-                "mode": "inline",
-                "apiKey": "devSecOpsConfigureToolChainPreviewBuildToolTableAPI",
-                "size": 12,
-                "noDataAddIcon": true,
-                "hideToolBar": true,
-                "noDataText": "No Data Available"
+                "stagesTitle": "Build Tool",
+                "devOpsTool": "jenkins",
+                "devOpsToolIpAddress": "192.30.252.0/00",
+                "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d0",
+                "devOpsToolOtherInformation": "Description Here.",
+                "devOpsToolPropertyFile": "Dummy Data Here",
+                "devOpsToolApprovalAction": [
+                    {
+                        "approverName": "Sankrant Kumar",
+                        "approverEmail": "sankrant@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Harh Garg",
+                        "approverEmail": "harh@aquilaclouds.com"
+                    }
+                ],
+                "secOpsTool": "trivy",
+                "secOpsToolIpAddress": "192.30.252.0/11",
+                "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d1",
+                "secOpsToolOtherInformation": "Description Here.",
+                "secOpsToolPropertyFile": "Dummy Data Here",
+                "secOpsToolApprovalAction": [
+                    {
+                        "approverName": "Pankaj Kumar",
+                        "approverEmail": "Pankaj@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Kalpesh",
+                        "approverEmail": "kalpesh@aquilaclouds.com"
+                    }
+                ],
+                "apiKey": "devSecOpsConfigureToolChainPreviewBuildToolTableAPI"
             },
             {
-                "id": 3,
+                "stagesId": 3,
                 "defSelectKey": "devTest",
-                "accordionTitle": "Dev Test",
-                "devOpsTool": "Trivy",
-                "secOpsTool": "Snyk",
-                "devOpsToolIpAddress": "192.30.252.0/44",
-                "secOpsToolIpAddress": "192.30.252.0/55",
-                "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d4",
-                "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d5",
-                "otherInformation1": "Description Here.",
-                "otherInformation2": "Description Here.",
-                "propertyFile": "Dummy Data Here",
-                "type": "hawkDatatable",
-                "mode": "inline",
-                "apiKey": "devSecOpsConfigureToolChainPreviewDevTestTableAPI",
-                "size": 12,
-                "noDataAddIcon": true,
-                "hideToolBar": true,
-                "noDataText": "No Data Available"
+                "stagesTitle": "Dev Test",
+                "devOpsTool": "junit",
+                "devOpsToolIpAddress": "192.30.252.0/00",
+                "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d0",
+                "devOpsToolOtherInformation": "Description Here.",
+                "devOpsToolPropertyFile": "Dummy Data Here",
+                "devOpsToolApprovalAction": [
+                    {
+                        "approverName": "Sankrant Kumar",
+                        "approverEmail": "sankrant@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Harh Garg",
+                        "approverEmail": "harh@aquilaclouds.com"
+                    }
+                ],
+                "secOpsTool": "qualys",
+                "secOpsToolIpAddress": "192.30.252.0/11",
+                "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d1",
+                "secOpsToolOtherInformation": "Description Here.",
+                "secOpsToolPropertyFile": "Dummy Data Here",
+                "secOpsToolApprovalAction": [
+                    {
+                        "approverName": "Pankaj Kumar",
+                        "approverEmail": "Pankaj@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Kalpesh",
+                        "approverEmail": "kalpesh@aquilaclouds.com"
+                    }
+                ],
+                "apiKey": "devSecOpsConfigureToolChainPreviewDevTestTableAPI"
             },
             {
-                "id": 4,
+                "stagesId": 4,
                 "defSelectKey": "deploy",
-                "accordionTitle": "Deploy",
-                "devOpsTool": "Trivy",
-                "secOpsTool": "Snyk",
-                "devOpsToolIpAddress": "192.30.252.0/66",
-                "secOpsToolIpAddress": "192.30.252.0/77",
-                "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d6",
-                "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d7",
-                "otherInformation1": "Description Here.",
-                "otherInformation2": "Description Here.",
-                "propertyFile": "Dummy Data Here",
-                "type": "hawkDatatable",
-                "mode": "inline",
-                "apiKey": "devSecOpsConfigureToolChainPreviewDeployTableAPI",
-                "size": 12,
-                "noDataAddIcon": true,
-                "hideToolBar": true,
-                "noDataText": "No Data Available"
+                "stagesTitle": "Deploy",
+                "devOpsTool": "github",
+                "devOpsToolIpAddress": "192.30.252.0/00",
+                "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d0",
+                "devOpsToolOtherInformation": "Description Here.",
+                "devOpsToolPropertyFile": "Dummy Data Here",
+                "devOpsToolApprovalAction": [
+                    {
+                        "approverName": "Sankrant Kumar",
+                        "approverEmail": "sankrant@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Harh Garg",
+                        "approverEmail": "harh@aquilaclouds.com"
+                    }
+                ],
+                "secOpsTool": "sonarQube",
+                "secOpsToolIpAddress": "192.30.252.0/11",
+                "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d1",
+                "secOpsToolOtherInformation": "Description Here.",
+                "secOpsToolPropertyFile": "Dummy Data Here",
+                "secOpsToolApprovalAction": [
+                    {
+                        "approverName": "Pankaj Kumar",
+                        "approverEmail": "Pankaj@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Kalpesh",
+                        "approverEmail": "kalpesh@aquilaclouds.com"
+                    }
+                ],
+                "apiKey": "devSecOpsConfigureToolChainPreviewDeployTableAPI"
             },
             {
-                "id": 5,
+                "stagesId": 4,
                 "defSelectKey": "runTime",
-                "accordionTitle": "RunTime",
-                "devOpsTool": "Trivy",
-                "secOpsTool": "Snyk",
-                "devOpsToolIpAddress": "192.30.252.0/88",
-                "secOpsToolIpAddress": "192.30.252.0/99",
-                "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d8",
-                "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d9",
-                "otherInformation1": "Description Here.",
-                "otherInformation2": "Description Here.",
-                "propertyFile": "Dummy Data Here",
-                "type": "hawkDatatable",
-                "mode": "inline",
-                "apiKey": "devSecOpsConfigureToolChainPreviewRunTimeTableAPI",
-                "size": 12,
-                "noDataAddIcon": true,
-                "hideToolBar": true,
-                "noDataText": "No Data Available"
+                "stagesTitle": "Run Time",
+                "devOpsTool": "bitbucket",
+                "devOpsToolIpAddress": "192.30.252.0/00",
+                "devOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d0",
+                "devOpsToolOtherInformation": "Description Here.",
+                "devOpsToolPropertyFile": "Dummy Data Here",
+                "devOpsToolApprovalAction": [
+                    {
+                        "approverName": "Sankrant Kumar",
+                        "approverEmail": "sankrant@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Harh Garg",
+                        "approverEmail": "harh@aquilaclouds.com"
+                    }
+                ],
+                "secOpsTool": "grype",
+                "secOpsToolIpAddress": "192.30.252.0/11",
+                "secOpsToolAthorizatioinKeyPassword": "3eser45trgfyt6uyguh87t6r5d1",
+                "secOpsToolOtherInformation": "Description Here.",
+                "secOpsToolPropertyFile": "Dummy Data Here",
+                "secOpsToolApprovalAction": [
+                    {
+                        "approverName": "Pankaj Kumar",
+                        "approverEmail": "Pankaj@aquilaclouds.com"
+                    },
+                    {
+                        "approverName": "Kalpesh",
+                        "approverEmail": "kalpesh@aquilaclouds.com"
+                    }
+                ],
+                "apiKey": "devSecOpsConfigureToolChainPreviewRunTimeTableAPI"
             }
         ]
     }

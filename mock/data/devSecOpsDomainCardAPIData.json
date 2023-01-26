@@ -1,1 +1,10 @@
-[{"id":"domainId56408d1eb8a1c","domainName":"BillOps Domain","lastScan":"","pipelineCount":"1","scanTest":"","userId":"999"}]
+[
+    {
+        "id": "domainId56408d1eb8a1c",
+        "domainName": "BillOps Domain",
+        "lastScan": "",
+        "pipelineCount": "1",
+        "scanTest": "",
+        "userId": "999"
+    }
+]
