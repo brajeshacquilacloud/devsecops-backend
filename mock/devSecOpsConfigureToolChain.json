@@ -24,13 +24,38 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "Default Pipeline Name",
+                                "name": "Default Pipeline.",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "pipelineIdb302d881a0593",
                                 "domainID": "domainId56408d1eb8a1c",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "navigationId4c4d4adc0417f",
+                        "userId": "999",
+                        "domainID": "domainIdda3d8e95beda1",
+                        "name": "eee",
+                        "link": "/domainname",
+                        "icon": "aquilaService",
+                        "page": "ComponentsPage",
+                        "linkedeUrlParam": "nodeIndex",
+                        "isHawkUI": true,
+                        "className": "admin-icon",
+                        "subNavs": [
+                            {
+                                "name": "Default Pipeline Name",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineIdf872deafe4ebb",
+                                "domainID": "domainIdda3d8e95beda1",
                                 "isHawkUI": true,
                                 "className": "admin-icon"
                             }

@@ -19003,7 +19003,12 @@ app.post("/api/devsecops/DragAndDropRunTime", function (req, res) {
 
 app.post('/api/devsecops/configure-tools-chain', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send(devSecOpsConfigureToolsChainAPIData);
+    const { drillParams, userId } = req?.body
+    let piplineNavigationLeafData = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
+    const userData = JSON.parse(piplineNavigationLeafData)
+    const user = userData[0]?.leafs?.find(user => user?.userId === userId)?.navigations
+    const FiterUser = user?.filter(data => data.domainID === drillParams?.domainId)
+    res.status(200).send(JSON.stringify(FiterUser));
 });
 
 // #### End Configure Tools Chain Page #####
