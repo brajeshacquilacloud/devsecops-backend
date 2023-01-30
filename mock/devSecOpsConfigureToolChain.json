@@ -24,12 +24,23 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "Default Pipeline.",
+                                "name": "Default Pipeline 1",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "pipelineIdb302d881a0593",
+                                "domainID": "domainId56408d1eb8a1c",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "Default Pipeline 2",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineIdb302d881a0594",
                                 "domainID": "domainId56408d1eb8a1c",
                                 "isHawkUI": true,
                                 "className": "admin-icon"
@@ -67,10 +78,7 @@
                         "id": 2,
                         "dataApiKey": "devSecOpsConfigureToolsChainAPI",
                         "isHawkUI": true,
-                        "type": "ConfigureToolsChain",
-                        "subComponents": [
-                            {}
-                        ]
+                        "type": "ConfigureToolsChain"
                     }
                 ]
             }

@@ -38,6 +38,10 @@ const heatMap = require('./mock/data/heatMap.json');
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 
 const devSecOpsAddDomainModal = require('./mock/modal/devSecOpsAddDomainModal.json');
+// Begin for add new pipeline modal
+const devSecOpsAddPipelineModal = require('./mock/modal/devSecOpsAddPipelineModal.json');
+// End for add new pipeline modal
+
 const devSecOpsAddUserModal = require('./mock/modal/devSecOpsAddUserModal.json');
 const devSecOpsEditUserModal = require('./mock/modal/devSecOpsEditUserModal.json');
 const devSecOpsApprovalActionStageDetailModal = require('./mock/modal/devSecOpsApprovalActionStageDetailModal.json');
@@ -8283,6 +8287,9 @@ app.post('/api/scenario/modal', function (req, res) {
         // Start DevSecOps API Mapping
         case "devSecOpsAddDomainModal":
             data = devSecOpsAddDomainModal;
+            break;
+        case "devSecOpsAddPipelineModal":
+            data = devSecOpsAddPipelineModal;
             break;
         case "devSecOpsAddUserModal":
             data = devSecOpsAddUserModal;
@@ -17937,16 +17944,9 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
             }
         ]
     }
-    console.log('TotalPiplineNavigationLeafData', TotalPiplineNavigationLeafData)
-
     const getConfigToolChainLeafs = JSON.parse(TotalPiplineNavigationLeafData)?.[0].leafs.find(val => val?.userId === userId)
     const clonegetConfigToolChainLeafs = JSON.parse(JSON.stringify(getConfigToolChainLeafs))
     clonegetConfigToolChainLeafs?.navigations?.push(JSON.parse(JSON.stringify(Dummy)))
-
-    console.log('getConfigToolChainLeafs', getConfigToolChainLeafs)
-
-    console.log("clonegetConfigToolChainLeafs", clonegetConfigToolChainLeafs)
-
     const addNewDomainRecored = {
         id: domainUuid,
         domainName: params[0]?.value,
@@ -17984,7 +17984,6 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
 
 });
 // #### End Add New Domain Card Page #####
-
 
 
 /**
