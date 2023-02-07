@@ -24,23 +24,34 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "Default Pipeline 1",
-                                "icon": "InboxIcon",
-                                "page": "ComponentsPage",
-                                "apiKey": "DragAndDropGetPipeline",
-                                "linkedeUrlParam": "nodeIndex",
-                                "id": "pipelineIdb302d881a0593",
-                                "domainID": "domainId56408d1eb8a1c",
-                                "isHawkUI": true,
-                                "className": "admin-icon"
-                            },
-                            {
                                 "name": "Default Pipeline 2",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "pipelineIdb302d881a0594",
+                                "domainID": "domainId56408d1eb8a1c",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "Default Pipeline",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineIdb9cfc9cc9114d",
+                                "domainID": "domainId56408d1eb8a1c",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "Default Pipeline",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineId8f8e508078df9",
                                 "domainID": "domainId56408d1eb8a1c",
                                 "isHawkUI": true,
                                 "className": "admin-icon"
@@ -60,12 +71,34 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "Default Pipeline Name",
+                                "name": "Default 1",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "pipelineIdf872deafe4ebb",
+                                "domainID": "domainIdda3d8e95beda1",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "Default Pipeline",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineId059cd384ccbe4",
+                                "domainID": "domainIdda3d8e95beda1",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "Default 3",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineId6d9c1d37e0244",
                                 "domainID": "domainIdda3d8e95beda1",
                                 "isHawkUI": true,
                                 "className": "admin-icon"

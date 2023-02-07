@@ -3,15 +3,15 @@
         "id": "domainId56408d1eb8a1c",
         "domainName": "BillOps Domain",
         "lastScan": "",
-        "pipelineCount": "1",
+        "pipelineCount": 3,
         "scanTest": "",
         "userId": "999"
     },
     {
         "id": "domainIdda3d8e95beda1",
-        "domainName": "eee",
+        "domainName": "Secops Domain",
         "lastScan": "",
-        "pipelineCount": "1",
+        "pipelineCount": 2,
         "scanTest": "",
         "userId": "999"
     }

@@ -110,7 +110,8 @@ const fs = require("fs");
 
 // Swagger Code Start Here
 const swaggerJSDoc = require('swagger-jsdoc')
-const swaggerUi = require('swagger-ui-express')
+const swaggerUi = require('swagger-ui-express');
+const { Console } = require('console');
 const options = {
     definition: {
         openapi: '3.0.0',
@@ -17971,10 +17972,10 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
     fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newDomainRecord, (err) => {
         if (err) throw err;
         setResponseHeaders(res);
-        res.status(200).send(resposeData);
 
         fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
             if (err) throw err;
+            res.status(200).send(resposeData);
         })
         setTimeout(() => {
             console.log("asdddddddddddddddd")
@@ -19461,8 +19462,200 @@ app.post('/api/devsecops/domain-card/:id', function (req, res) {
 // #### Start Pipeline Card Page #####
 app.post('/api/devsecops/add-pipeline', function (req, res) {
     setResponseHeaders(res);
-    res.status(200).send('data from add_pipeline');
+    let domainsList = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
+    let parsedDomainsList = JSON.parse(domainsList);
+    let pipelineUuid = "pipelineId" + Math.random().toString(16).slice(2);
+    const body = req?.body
+    let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
+    let TotalDomainRecords = JSON.parse(userRecords);
+    const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.find(pipeline => pipeline.domainID === body?.drillParams?.domainId)?.subNavs
+    const defaultPipeLine = { ...subNavs[0] }
+    const addNewPipeLine = { ...defaultPipeLine, id: pipelineUuid, name: 'Default Pipeline' }
+    const updateSubNavs = [...subNavs, addNewPipeLine]
+    const updateNavigattions = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.map(pipeline => {
+        if (pipeline.domainID === body?.drillParams?.domainId) {
+            return { ...pipeline, subNavs: updateSubNavs }
+        }
+        return { ...pipeline }
+    })
+
+    const leafs = TotalDomainRecords[0].leafs?.map(user => {
+        if (user.userID === body.userID) {
+
+            return { ...user, navigations: updateNavigattions }
+        } return { ...user }
+    })
+    const cloneDomainRecords = JSON.parse(JSON.stringify(parsedDomainsList))
+    const updatePipeLineCount = cloneDomainRecords.find(domain => domain.id === body?.drillParams?.domainId)
+    const updateDomainData = { ...updatePipeLineCount, pipelineCount: updatePipeLineCount.pipelineCount + 1 }
+    const index = cloneDomainRecords.findIndex(el => el.id === updateDomainData.id)
+    cloneDomainRecords[index] = updateDomainData
+    let newDomainRecoreds = JSON.stringify(cloneDomainRecords);
+    let newLeafRecord = JSON.stringify([{ leafs: leafs }]);
+    let resposeData = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'PipeLine Added succesfully, refereshing your experience',
+    }; fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
+        if (err) throw err;
+        fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newDomainRecoreds, (err) => {
+            if (err) throw err;
+            res.status(200).send(resposeData);
+        })
+
+    });
+
 });
+
+/**
+ * @swagger
+ * /api/devsecops/rename-pipeline:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Rename Existing Pipeline
+ *      description: Rename pipeline cards here.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response with list of domain cards object!
+ *
+ */
+
+// #### Start Pipeline Card Page #####
+app.post('/api/devsecops/rename-pipeline', function (req, res) {
+    setResponseHeaders(res);
+    let domainsList = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
+    let parsedDomainsList = JSON.parse(domainsList);
+    // let pipelineUuid = "pipelineId" + Math.random().toString(16).slice(2);
+    const body = req?.body
+    let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
+    let TotalDomainRecords = JSON.parse(userRecords);
+    const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.find(pipeline => pipeline.domainID === body?.drillParams?.domainId)?.subNavs
+    const updateSubNavs = subNavs.map(nav => {
+        if (nav.id === body?.metrics?.pipeLineID) {
+            return { ...nav, name: body?.metrics?.pipeLineName }
+        }
+        return { ...nav }
+    })
+
+    const updateNavigattions = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.map(pipeline => {
+        if (pipeline.domainID === body?.drillParams?.domainId) {
+            return { ...pipeline, subNavs: updateSubNavs }
+        }
+        return { ...pipeline }
+    })
+    console.log(updateNavigattions)
+    const leafs = TotalDomainRecords[0].leafs?.map(user => {
+        if (user.userID === body.userID) {
+
+            return { ...user, navigations: updateNavigattions }
+        } return { ...user }
+    })
+    // const cloneDomainRecords = JSON.parse(JSON.stringify(parsedDomainsList))
+    // const updatePipeLineCount = cloneDomainRecords.find(domain => domain.id === body?.drillParams?.domainId)
+    // const updateDomainData = { ...updatePipeLineCount, pipelineCount: updatePipeLineCount.pipelineCount - 1 }
+    // const index = cloneDomainRecords.findIndex(el => el.id === updateDomainData.id)
+    // cloneDomainRecords[index] = updateDomainData
+    // let newDomainRecoreds = JSON.stringify(cloneDomainRecords);
+    let newLeafRecord = JSON.stringify([{ leafs: leafs }]);
+    let resposeData = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'PipeLine Added succesfully, refereshing your experience',
+    }; fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
+        if (err) throw err;
+        res.status(200).send(resposeData);
+    })
+});
+
+/**
+ * @swagger
+ * /api/devsecops/remove-pipeline:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Remove Existing Pipeline
+ *      description: Remove pipeline cards here.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response with list of domain cards object!
+ *
+ */
+
+// #### Start Pipeline Card Page #####
+app.post('/api/devsecops/remove-pipeline', function (req, res) {
+    setResponseHeaders(res);
+    let domainsList = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
+    let parsedDomainsList = JSON.parse(domainsList);
+    const body = req?.body
+    console.log(body, 'IN REMOVE PIPELINE')
+
+    let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
+    let TotalDomainRecords = JSON.parse(userRecords);
+    const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.find(pipeline => pipeline.domainID === body?.drillParams?.domainId)?.subNavs
+    const updateSubNavs = subNavs.filter(nav => nav.id !== body?.metrics?.id)
+
+    const updateNavigattions = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.map(pipeline => {
+        if (pipeline.domainID === body?.drillParams?.domainId) {
+            return { ...pipeline, subNavs: updateSubNavs }
+        }
+        return { ...pipeline }
+    })
+    console.log(updateNavigattions)
+    const leafs = TotalDomainRecords[0].leafs?.map(user => {
+        if (user.userID === body.userID) {
+
+            return { ...user, navigations: updateNavigattions }
+        } return { ...user }
+    })
+    const cloneDomainRecords = JSON.parse(JSON.stringify(parsedDomainsList))
+    const updatePipeLineCount = cloneDomainRecords.find(domain => domain.id === body?.drillParams?.domainId)
+    const updateDomainData = { ...updatePipeLineCount, pipelineCount: updatePipeLineCount.pipelineCount - 1 }
+    const index = cloneDomainRecords.findIndex(el => el.id === updateDomainData.id)
+    cloneDomainRecords[index] = updateDomainData
+    let newDomainRecoreds = JSON.stringify(cloneDomainRecords);
+    let newLeafRecord = JSON.stringify([{ leafs: leafs }]);
+    let resposeData = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'PipeLine Removed succesfully, refereshing your experience',
+    };
+    fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
+        if (err) throw err;
+        fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newDomainRecoreds, (err) => {
+            if (err) throw err;
+            res.status(200).send(resposeData);
+        })
+
+    });
+
+});
+
+
+/**
+ * @swagger
+ * /api/devsecops/move-pipeline:
+ *  post:
+ *      tags:
+ *      - "Pipeline Management"
+ *      summary: Move Existing Pipeline
+ *      description: Move pipeline cards here.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response with list of domain cards object!
+ *
+ */
+
+// #### Start Pipeline Card Page #####
+app.post('/api/devsecops/move-pipeline', function (req, res) {
+    console.log(req, ';REQ')
+    setResponseHeaders(res);
+    res.status(200).send('MovedSucess');
+
+
+});
+//     res.status(200).send('data from add_pipeline');
+// });
 
 // #### End Pipeline Card Page #####
 
