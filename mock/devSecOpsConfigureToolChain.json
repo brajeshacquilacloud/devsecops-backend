@@ -62,7 +62,7 @@
                         "id": "navigationId4c4d4adc0417f",
                         "userId": "999",
                         "domainID": "domainIdda3d8e95beda1",
-                        "name": "eee",
+                        "name": "Secops Domain",
                         "link": "/domainname",
                         "icon": "aquilaService",
                         "page": "ComponentsPage",
@@ -82,23 +82,23 @@
                                 "className": "admin-icon"
                             },
                             {
-                                "name": "Default Pipeline",
-                                "icon": "InboxIcon",
-                                "page": "ComponentsPage",
-                                "apiKey": "DragAndDropGetPipeline",
-                                "linkedeUrlParam": "nodeIndex",
-                                "id": "pipelineId059cd384ccbe4",
-                                "domainID": "domainIdda3d8e95beda1",
-                                "isHawkUI": true,
-                                "className": "admin-icon"
-                            },
-                            {
                                 "name": "Default 3",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "pipelineId6d9c1d37e0244",
+                                "domainID": "domainIdda3d8e95beda1",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "edIt",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineId075406f1401e2",
                                 "domainID": "domainIdda3d8e95beda1",
                                 "isHawkUI": true,
                                 "className": "admin-icon"

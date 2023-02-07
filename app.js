@@ -17915,7 +17915,6 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
     let pipelineUuid = "pipelineId" + Math.random().toString(16).slice(2);
     let navigationUuid = "navigationId" + Math.random().toString(16).slice(2);
     let piplineNavigationLeafData = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
-    console.log(piplineNavigationLeafData, "piplineNavigationLeafData")
     let TotalPiplineNavigationLeafData = piplineNavigationLeafData.toString();
 
     const { params } = req.body
@@ -17978,7 +17977,6 @@ app.post('/api/devsecops/add-domain-card', function (req, res) {
             res.status(200).send(resposeData);
         })
         setTimeout(() => {
-            console.log("asdddddddddddddddd")
         }, 2000);
 
     });
@@ -19523,6 +19521,7 @@ app.post('/api/devsecops/add-pipeline', function (req, res) {
 
 // #### Start Pipeline Card Page #####
 app.post('/api/devsecops/rename-pipeline', function (req, res) {
+    console.log('renamePipeLine')
     setResponseHeaders(res);
     let domainsList = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
     let parsedDomainsList = JSON.parse(domainsList);
@@ -19544,7 +19543,6 @@ app.post('/api/devsecops/rename-pipeline', function (req, res) {
         }
         return { ...pipeline }
     })
-    console.log(updateNavigattions)
     const leafs = TotalDomainRecords[0].leafs?.map(user => {
         if (user.userID === body.userID) {
 
@@ -19584,11 +19582,11 @@ app.post('/api/devsecops/rename-pipeline', function (req, res) {
 
 // #### Start Pipeline Card Page #####
 app.post('/api/devsecops/remove-pipeline', function (req, res) {
+    console.log("removePipeLine")
     setResponseHeaders(res);
     let domainsList = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
     let parsedDomainsList = JSON.parse(domainsList);
     const body = req?.body
-    console.log(body, 'IN REMOVE PIPELINE')
 
     let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
     let TotalDomainRecords = JSON.parse(userRecords);
@@ -19601,7 +19599,6 @@ app.post('/api/devsecops/remove-pipeline', function (req, res) {
         }
         return { ...pipeline }
     })
-    console.log(updateNavigattions)
     const leafs = TotalDomainRecords[0].leafs?.map(user => {
         if (user.userID === body.userID) {
 
@@ -19648,7 +19645,7 @@ app.post('/api/devsecops/remove-pipeline', function (req, res) {
 
 // #### Start Pipeline Card Page #####
 app.post('/api/devsecops/move-pipeline', function (req, res) {
-    console.log(req, ';REQ')
+    console.log('MOVE PIPELINE')
     setResponseHeaders(res);
     res.status(200).send('MovedSucess');
 
