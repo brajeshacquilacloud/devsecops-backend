@@ -19645,8 +19645,53 @@ app.post('/api/devsecops/remove-pipeline', function (req, res) {
 
 // #### Start Pipeline Card Page #####
 app.post('/api/devsecops/move-pipeline', function (req, res) {
-    console.log('MOVE PIPELINE')
+    console.log('MOVE PIPELINE', req.body)
     setResponseHeaders(res);
+    // let domainsList = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
+    // let parsedDomainsList = JSON.parse(domainsList);
+    // let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
+    // let TotalDomainRecords = JSON.parse(userRecords);
+    // const body = req?.body
+   
+    // if (body.metrics.selectedId === 'allDomains' && body.metrics.selectedId === 'All') {
+    //     const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)
+    //     console.log(subNavs)
+    // }
+    
+    // const updateSubNavs = subNavs.filter(nav => nav.id !== body?.metrics?.id)
+
+    // const updateNavigattions = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.map(pipeline => {
+    //     if (pipeline.domainID === body?.drillParams?.domainId) {
+    //         return { ...pipeline, subNavs: updateSubNavs }
+    //     }
+    //     return { ...pipeline }
+    // })
+    // const leafs = TotalDomainRecords[0].leafs?.map(user => {
+    //     if (user.userID === body.userID) {
+
+    //         return { ...user, navigations: updateNavigattions }
+    //     } return { ...user }
+    // })
+    // const cloneDomainRecords = JSON.parse(JSON.stringify(parsedDomainsList))
+    // const updatePipeLineCount = cloneDomainRecords.find(domain => domain.id === body?.drillParams?.domainId)
+    // const updateDomainData = { ...updatePipeLineCount, pipelineCount: updatePipeLineCount.pipelineCount - 1 }
+    // const index = cloneDomainRecords.findIndex(el => el.id === updateDomainData.id)
+    // cloneDomainRecords[index] = updateDomainData
+    // let newDomainRecoreds = JSON.stringify(cloneDomainRecords);
+    // let newLeafRecord = JSON.stringify([{ leafs: leafs }]);
+    // let resposeData = {
+    //     key: 'SAVE_INST',
+    //     variant: 'success',
+    //     message: 'PipeLine Removed succesfully, refereshing your experience',
+    // };
+    // fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
+    //     if (err) throw err;
+    //     fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newDomainRecoreds, (err) => {
+    //         if (err) throw err;
+    //         res.status(200).send(resposeData);
+    //     })
+
+    // });
     res.status(200).send('MovedSucess');
 
 
