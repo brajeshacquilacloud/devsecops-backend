@@ -19995,6 +19995,43 @@ app.post('/api/devsecops/add-server-button', function (req, res) {
 
 
 
+// #### Start process settings #####
+/**
+ * @swagger
+ * /api/devsecops/process-settings:
+ *  post:
+ *      tags:
+ *      - "Configure Tools Chain"
+ *      summary: process settings.
+ *      description: process settings.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/process-settings', function (req, res) {
+    let data = [
+        {
+            "ip": "1.0.0.127",
+            "auth": "new- auth",
+            "settings": "settings - string",
+            "domainId": "domainId56408d1eb8a1c",
+            "piplineID": "pipelineId56408d1eb8a1c",
+            "pipelineName": "pipeline - String",
+            "stepName": "devOpsToolChainStep/secOpsToolChainStep",
+            "toolChainStepId": "devOpsToolChainStepId56408d1eb8a1c",
+            "toolId": "githubId56408d1eb8a1c",
+            "toolName": "Github"
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End process settings #####
+
+
+
 
 
 
