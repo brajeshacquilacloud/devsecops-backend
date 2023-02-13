@@ -3,6 +3,23 @@
         "leafs": [
             {
                 "id": 1,
+                "leafTitle": "Section Title And Button",
+                "type": "section-title-and-button",
+                "apiKey": "devSecOpsAddServerButtonAPI",
+                "isHawkUI": true,
+                "size": 12,
+                "toolBarActions": [
+                    {
+                        "key": "",
+                        "title": "Add Server",
+                        "type": "modal",
+                        "modalTitle": "Add New Server",
+                        "componentsAPIKey": "devSecOpsAddDomainComponentAPI"
+                    }
+                ]
+            },
+            {
+                "id": 2,
                 "leafTitle": "Server Settings",
                 "isHawkUI": true,
                 "type": "hawkDatatable",
@@ -67,7 +84,7 @@
                 ]
             },
             {
-                "id": 2,
+                "id": 3,
                 "leafTitle": "Schedule",
                 "isHawkUI": true,
                 "type": "hawkDatatable",
@@ -99,8 +116,8 @@
                         "filterType": "textField"
                     },
                     {
-                        "name": "",
-                        "key": "settingComment",
+                        "name": "Applied Pipeline",
+                        "key": "appliedPipeline",
                         "display": true,
                         "filter": false,
                         "filterType": "textField"
@@ -131,7 +148,7 @@
                 ]
             },
             {
-                "id": 3,
+                "id": 4,
                 "leafTitle": "Other Settings",
                 "isHawkUI": true,
                 "type": "hawkDatatable",

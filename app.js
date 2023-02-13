@@ -8320,22 +8320,33 @@ app.post('/api/scenario/modal', function (req, res) {
                     leafs: [
                         {
                             id: 1,
-                            leafTitle: "Server Name",
+                            leafTitle: "Severname",
+                            type: "select",
+                            mode: "single",
+                            inputType: 'string',
+                            labelSize: 4,
+                            size: 8,
+                            defSelectKey: 'sever-name',
+                            apiKey: "devSecOpsServerSettingServerNameListAPI"
+                        },
+                        {
+                            id: 2,
+                            leafTitle: "Login Name",
                             type: "text-input",
                             inputType: 'string',
                             labelSize: 4,
                             size: 8,
-                            defSelectKey: 'server-name'
+                            defSelectKey: 'login-name'
                         },
                         {
-                            id: 2,
-                            leafTitle: "Server Connected",
-                            type: "group-radio",
-                            defSelectKey: 'server-connected',
+                            id: 3,
+                            leafTitle: "Password",
+                            type: "text-input",
+                            inputType: 'password',
                             labelSize: 4,
                             size: 8,
-                            apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
-                        },
+                            defSelectKey: 'password'
+                        }
 
                     ]
                 }
@@ -8362,20 +8373,31 @@ app.post('/api/scenario/modal', function (req, res) {
                             id: 1,
                             leafTitle: "Recurrence",
                             type: "select",
-                            defSelectKey: "recurrence",
                             mode: "single",
                             labelSize: 4,
                             size: 8,
+                            defSelectKey: "recurrence",
                             apiKey: "devSecOpsRecurrenceTypeAPI"
                         },
                         {
                             id: 2,
                             leafTitle: "Time",
-                            type: "text-input",
-                            defSelectKey: 'recurrenceTime',
+                            type: "select",
+                            mode: "single",
                             labelSize: 4,
                             size: 8,
-                            apiKey: ""
+                            defSelectKey: 'recurrenceTime',
+                            apiKey: "devSecOpsRecurrenceTimeAPI"
+                        },
+                        {
+                            id: 3,
+                            leafTitle: "Applied Pipeline",
+                            type: "select",
+                            mode: "multiple",
+                            defSelectKey: "appliedPipeline",
+                            labelSize: 4,
+                            size: 8,
+                            apiKey: "devSecOpsScheduleAppliedPipelineListAPI"
                         },
 
                     ]
@@ -8389,7 +8411,7 @@ app.post('/api/scenario/modal', function (req, res) {
                     dataAPIKey: 'listResourceOrderListAPI',
                     actionButtonText: 'Apply',
                     disableActionButton: false,
-                    modalWidth: 500,
+                    modalWidth: 700,
                     modalActions: [
                         {
                             id: 'help',
@@ -8400,33 +8422,24 @@ app.post('/api/scenario/modal', function (req, res) {
                     ],
                     leafs: [
                         {
-                            id: 3,
-                            leafTitle: "Name",
+                            id: 1,
+                            leafTitle: "Yes/No",
                             type: "select",
-                            defSelectKey: "name",
                             mode: "single",
-                            labelSize: 4,
-                            size: 8,
-                            apiKey: "devSecOpsOtherSettingsNameAPI"
+                            labelSize: 5,
+                            size: 7,
+                            defSelectKey: "yesNo",
+                            apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
                         },
                         {
                             id: 2,
-                            leafTitle: "Yes/No",
-                            type: "group-radio",
-                            defSelectKey: 'yesNo',
-                            labelSize: 4,
-                            size: 8,
-                            apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
-                        },
-                        {
-                            id: 3,
                             leafTitle: "Vulnerability Component",
-                            type: "text-input",
-                            inputType: 'string',
+                            type: "select",
+                            mode: "multiple",
+                            labelSize: 5,
+                            size: 7,
                             defSelectKey: 'vulnerabilityComponent',
-                            labelSize: 4,
-                            size: 8,
-                            apiKey: "devSecOpsServerSettingServerConnectedActiveStatusAPI"
+                            apiKey: "devSecOpsOtherSettingsVulnerabilityComponentListAPI"
                         },
                     ]
                 }
@@ -18651,6 +18664,7 @@ app.post('/api/devsecops/server-setting-server-connected-active-status', functio
         {
             "key": "true",
             'name': 'Yes',
+            selected: true
         },
         {
             "key": "false",
@@ -19652,12 +19666,12 @@ app.post('/api/devsecops/move-pipeline', function (req, res) {
     // let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
     // let TotalDomainRecords = JSON.parse(userRecords);
     // const body = req?.body
-   
+
     // if (body.metrics.selectedId === 'allDomains' && body.metrics.selectedId === 'All') {
     //     const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)
     //     console.log(subNavs)
     // }
-    
+
     // const updateSubNavs = subNavs.filter(nav => nav.id !== body?.metrics?.id)
 
     // const updateNavigattions = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.map(pipeline => {
@@ -19739,8 +19753,241 @@ app.post('/api/devsecops/scan-summary-incident-details-data', function (req, res
 
 
 
+// #### Start server setting server name list #####
+/**
+ * @swagger
+ * /api/devsecops/server-setting-server-name-list:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: server setting server name list.
+ *      description: Manage server setting server name list.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/server-setting-server-name-list', function (req, res) {
+    const data = [
+        {
+            "key": "sonarQube",
+            'name': "Sonar Qube",
+            selected: true
+        },
+        {
+            "key": "github",
+            'name': "Github",
+        },
+        {
+            "key": "ansible",
+            'name': "Ansible",
+        },
+        {
+            "key": "jenkins",
+            'name': "Jenkins",
+        },
+        {
+            "key": "circleCI",
+            'name': "CircleCI",
+        },
+        {
+            "key": "bitbucket",
+            'name': "Bitbucket",
+        },
+        {
+            "key": "gitLab",
+            'name': "GitLab",
+        },
+        {
+            "key": "jUnit",
+            'name': "JUnit",
+        },
+        {
+            "key": "grype",
+            'name': "Grype",
+        },
+        {
+            "key": "snyk",
+            'name': "Snyk",
+        },
+        {
+            "key": "blackDuck",
+            'name': "Black Duck",
+        },
+        {
+            "key": "triviy",
+            'name': "Triviy",
+        },
+        {
+            "key": "qualys",
+            'name': "Qualys",
+        },
+        {
+            "key": "snykMonitor",
+            'name': "Snyk (Monitor)",
+        },
+        {
+            "key": "sSLScan",
+            'name': "SSL Scan",
+        },
+        {
+            "key": "nmap",
+            'name': "Nmap",
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End server setting server name list #####
 
 
+
+
+
+// #### Start Recurrence Time #####
+/**
+ * @swagger
+ * /api/devsecops/recurrence-time:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Recurrence Time.
+ *      description: Manage Recurrence Time.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/recurrence-time', function (req, res) {
+    const data = [
+        {
+            "key": "0000",
+            'name': "00:00",
+            selected: true
+        },
+        {
+            "key": "0001",
+            'name': "00:01"
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End Recurrence Time #####
+
+
+
+
+
+
+
+// #### Start schedule applied pipeline list #####
+/**
+ * @swagger
+ * /api/devsecops/schedule-applied-pipeline-list:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: schedule applied pipeline list.
+ *      description: Manage schedule applied pipeline list.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/schedule-applied-pipeline-list', function (req, res) {
+    const data = [
+        {
+            "key": "pipeline1",
+            'name': "Pipeline 1",
+            selected: true
+        },
+        {
+            "key": "pipeline2",
+            'name': "Pipeline 2",
+            selected: true
+        },
+        {
+            "key": "pipeline3",
+            'name': "Pipeline 3",
+        },
+        {
+            "key": "pipeline4",
+            'name': "Pipeline 4",
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End schedule applied pipeline list #####
+
+
+
+
+// #### Start other settings vulnerability component list #####
+/**
+ * @swagger
+ * /api/devsecops/other-settings-vulnerability-component-list:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: other settings vulnerability component list.
+ *      description: Manage other settings vulnerability component list.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/other-settings-vulnerability-component-list', function (req, res) {
+    const data = [
+        {
+            "key": "network",
+            'name': "Network",
+            selected: true
+        },
+        {
+            "key": "applicationExploitability",
+            'name': "Application Exploitability",
+            selected: true
+        }
+    ];
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End other settings vulnerability component list #####
+
+
+
+// #### Start add server button #####
+/**
+ * @swagger
+ * /api/devsecops/add-server-button:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Add server button.
+ *      description: Add server button.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/add-server-button', function (req, res) {
+    let data = [
+        {
+            "sectionTitle": "",
+            "buttonTitle": ""
+        }
+    ]
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End add server button #####
 
 
 

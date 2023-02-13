@@ -2,6 +2,9 @@
     {
         "recurrence": "Weekly",
         "time": "10:00",
-        "settingComment": ""
+        "appliedPipeline": [
+            "Pipeline 1",
+            "Pipeline 2"
+        ]
     }
 ]
