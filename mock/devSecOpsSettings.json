@@ -14,7 +14,7 @@
                         "title": "Add Server",
                         "type": "modal",
                         "modalTitle": "Add New Server",
-                        "componentsAPIKey": "devSecOpsAddDomainComponentAPI"
+                        "componentsAPIKey": "devSecOpsAddServerComponentAPI"
                     }
                 ]
             },

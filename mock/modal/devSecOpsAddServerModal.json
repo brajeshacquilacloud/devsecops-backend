@@ -1,0 +1,48 @@
+[
+    {
+        "actionAPIKey": "",
+        "dataAPIKey": "",
+        "actionButtonText": "Apply",
+        "disableActionButton": false,
+        "modalWidth": 700,
+        "modalActions": [
+            {
+                "id": "help",
+                "type": "help",
+                "url": "https://aquilaclouds.com",
+                "target": "new"
+            }
+        ],
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Severname",
+                "type": "select",
+                "mode": "single",
+                "inputType": "string",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "sever-name",
+                "apiKey": "devSecOpsServerSettingServerNameListAPI"
+            },
+            {
+                "id": 2,
+                "leafTitle": "Login Name",
+                "type": "text-input",
+                "inputType": "string",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "login-name"
+            },
+            {
+                "id": 3,
+                "leafTitle": "Password",
+                "type": "text-input",
+                "inputType": "password",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "password"
+            }
+        ]
+    }
+]

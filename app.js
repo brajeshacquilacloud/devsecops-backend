@@ -38,6 +38,8 @@ const heatMap = require('./mock/data/heatMap.json');
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 
 const devSecOpsAddDomainModal = require('./mock/modal/devSecOpsAddDomainModal.json');
+const devSecOpsAddServerModal = require('./mock/modal/devSecOpsAddServerModal.json');
+
 // Begin for add new pipeline modal
 const devSecOpsAddPipelineModal = require('./mock/modal/devSecOpsAddPipelineModal.json');
 // End for add new pipeline modal
@@ -8565,7 +8567,9 @@ app.post('/api/scenario/modal', function (req, res) {
                 }
             ];
             break;
-
+        case "devSecOpsAddServerModal":
+            data = devSecOpsAddServerModal;
+            break;
 
 
 
