@@ -8306,8 +8306,8 @@ app.post('/api/scenario/modal', function (req, res) {
         case 'devSecOpsEditServerSettingsModal':
             data = [
                 {
-                    actionAPIKey: 'addEditEnvironmentAPI',
-                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionAPIKey: 'devSecOpsEditServerSettingSaveAPI',
+                    dataAPIKey: '',
                     actionButtonText: 'Apply',
                     disableActionButton: false,
                     modalWidth: 500,
@@ -8357,8 +8357,8 @@ app.post('/api/scenario/modal', function (req, res) {
         case 'devSecOpsEditScheduleSettingsModal':
             data = [
                 {
-                    actionAPIKey: 'addEditEnvironmentAPI',
-                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionAPIKey: '',
+                    dataAPIKey: '',
                     actionButtonText: 'Apply',
                     disableActionButton: false,
                     modalWidth: 500,
@@ -8409,8 +8409,8 @@ app.post('/api/scenario/modal', function (req, res) {
         case 'devSecOpsEditOtherSettingsModal':
             data = [
                 {
-                    actionAPIKey: 'addEditEnvironmentAPI',
-                    dataAPIKey: 'listResourceOrderListAPI',
+                    actionAPIKey: '',
+                    dataAPIKey: '',
                     actionButtonText: 'Apply',
                     disableActionButton: false,
                     modalWidth: 700,
@@ -20030,6 +20030,66 @@ app.post('/api/devsecops/process-settings', function (req, res) {
 });
 // #### End process settings #####
 
+
+
+// #### Start add new server save #####
+/**
+ * @swagger
+ * /api/devsecops/add-new-server-save:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: Add new server save.
+ *      description: Add new server save.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/add-new-server-save', function (req, res) {
+
+    let data = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'Details saved succesfully, refereshing your experience',
+    };
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End add new server save #####
+
+
+
+
+// #### Start edit server setting save #####
+/**
+ * @swagger
+ * /api/devsecops/edit-server-setting-save:
+ *  post:
+ *      tags:
+ *      - "Settings"
+ *      summary: edit server setting save.
+ *      description: edit server setting save.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/edit-server-setting-save', function (req, res) {
+
+    let data = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'Details saved succesfully, refereshing your experience',
+    };
+
+    setResponseHeaders(res);
+    res.status(200).send(data);
+});
+// #### End edit server setting save #####
 
 
 

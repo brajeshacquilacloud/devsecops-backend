@@ -1,6 +1,6 @@
 [
     {
-        "actionAPIKey": "",
+        "actionAPIKey": "devSecOpsAddNewServerSaveAPI",
         "dataAPIKey": "",
         "actionButtonText": "Apply",
         "disableActionButton": false,
