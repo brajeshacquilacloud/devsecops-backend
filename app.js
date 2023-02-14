@@ -114,6 +114,7 @@ const fs = require("fs");
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express');
 const { Console } = require('console');
+const { request } = require('http');
 const options = {
     definition: {
         openapi: '3.0.0',
@@ -18435,12 +18436,14 @@ app.post('/api/devsecops/delete-user', function (req, res) {
 app.post('/api/devsecops/active-status', function (req, res) {
     const data = [
         {
-            "key": "active",
-            'name': 'Active',
+            "key": "true",
+            "name": "Active",
+            "selected": true
         },
         {
-            "key": "inactive",
-            'name': 'Inactive',
+            "key": "false",
+            "name": "Inactive",
+            "selected": false
         },
     ];
     setResponseHeaders(res);
@@ -18467,12 +18470,12 @@ app.post('/api/devsecops/active-status', function (req, res) {
 app.post('/api/devsecops/user-role', function (req, res) {
     const data = [
         {
-            "key": "developer",
+            "key": "Developer",
             'name': "Developer",
             selected: true
         },
         {
-            "key": "manager",
+            "key": "Manager",
             'name': "Manager",
         }
     ];
@@ -19333,9 +19336,6 @@ app.post('/api/devsecops/approval-action-status-history-reason', function (req, 
 // #### End approval action status history reason #####
 
 
-
-
-
 // #### Start add user environment #####
 /**
  * @swagger
@@ -19351,17 +19351,40 @@ app.post('/api/devsecops/approval-action-status-history-reason', function (req, 
  *
  */
 app.post('/api/devsecops/add-user-environment', function (req, res) {
+
+    let userList = fs.readFileSync("./mock/data/devSecOpsUsersListAPIData.json");
+    let TotalRecords = JSON.parse(userList);
+
+    let uuid = "User" + Math.random().toString(16).slice(2);
+    let updatedUser = {
+        userId: uuid,
+    }
+
+    req.body.params.forEach(element => {
+        if (element.key === "roleName") {
+            return updatedUser.roleName = element.list[0]
+        }
+        return updatedUser[`${element.key}`] = element.value
+    });
+
+    TotalRecords.push(updatedUser)
+
+    const newRecord = JSON.stringify(TotalRecords);
+
     let data = {
         key: 'SAVE_INST',
         variant: 'success',
         message: 'Details saved succesfully, refereshing your experience',
     };
 
-    setResponseHeaders(res);
-    res.status(200).send(data);
+
+    fs.writeFile("./mock/data/devSecOpsUsersListAPIData.json", newRecord, (err) => {
+        if (err) throw err;
+        setResponseHeaders(res);
+        res.status(200).send(data);
+    });
 });
 // #### End add user environment #####
-
 
 
 
