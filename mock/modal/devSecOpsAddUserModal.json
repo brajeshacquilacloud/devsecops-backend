@@ -44,7 +44,7 @@
                 "id": 3,
                 "leafTitle": "Role",
                 "type": "select",
-                "mode": "single",
+                "mode": "default",
                 "defSelectKey": "roleName",
                 "labelSize": 4,
                 "size": 8,

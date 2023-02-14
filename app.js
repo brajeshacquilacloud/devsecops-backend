@@ -9057,7 +9057,6 @@ app.post('/api/user/environment/addeditenvironment', function (req, res) {
     };
 
     setResponseHeaders(res);
-    //res.status(500).send("Internal Server Error");
     res.status(200).send(data);
 });
 
@@ -18405,14 +18404,21 @@ app.post('/api/devsecops/notification-alert', function (req, res) {
 
 
 app.post('/api/devsecops/delete-user', function (req, res) {
-
+    let userList = fs.readFileSync("./mock/data/devSecOpsUsersListAPIData.json");
+    let TotalRecords = JSON.parse(userList);
+    const deleteUserID = req.body.params[0].value
+    const updatedRecords = TotalRecords.filter(user => user.userId !== deleteUserID)
+    const newRecord = JSON.stringify(updatedRecords);
     let data = {
-        key: 'UPDATE_PREF',
+        key: 'SAVE_INST',
         variant: 'success',
-        message: 'User deleted succesfully',
+        message: 'Details saved succesfully, refereshing your experience',
     };
-    setResponseHeaders(res);
-    res.status(200).send(data);
+    fs.writeFile("./mock/data/devSecOpsUsersListAPIData.json", newRecord, (err) => {
+        if (err) throw err;
+        setResponseHeaders(res);
+        res.status(200).send(data);
+    });
 });
 
 // #### End Users Delete #####
@@ -18477,6 +18483,7 @@ app.post('/api/devsecops/user-role', function (req, res) {
         {
             "key": "Manager",
             'name': "Manager",
+            selected: false
         }
     ];
     setResponseHeaders(res);
@@ -20114,6 +20121,81 @@ app.post('/api/devsecops/edit-server-setting-save', function (req, res) {
 });
 // #### End edit server setting save #####
 
+
+
+
+// #### Start Fetch User Details #####
+/**
+ * @swagger
+ * /api/devsecops/fetch-user-data:
+ *  post:
+ *      tags:
+ *      - "User Management"
+ *      summary: Fetch User Details.
+ *      description: Fetch User Details.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/fetch-user-data', function (req, res) {
+    let userList = fs.readFileSync("./mock/data/devSecOpsUsersListAPIData.json");
+    let TotalRecords = JSON.parse(userList);
+    const selectedUserId = req.body.drillParams.userId;
+    const fetchData = TotalRecords.find(user => user.userId === selectedUserId)
+    setResponseHeaders(res);
+    res.status(200).send(fetchData);
+});
+// #### End Fetch User Details #####
+
+
+// #### Start Edit User Details #####
+/**
+ * @swagger
+ * /api/devsecops/edit-user-data:
+ *  post:
+ *      tags:
+ *      - "User Management"
+ *      summary: Edit User Details.
+ *      description: Edit User Details.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+
+app.post('/api/devsecops/edit-user-data', function (req, res) {
+    let userList = fs.readFileSync("./mock/data/devSecOpsUsersListAPIData.json");
+    let TotalRecords = JSON.parse(userList);
+    const selectedUserId = req.body.drillParams.userId;
+    let updatedUser = {}
+    req.body.params.forEach(element => {
+        if (element.key === "roleName") {
+            return updatedUser.roleName = element.list[0]
+        }
+        return updatedUser[`${element.key}`] = element.value
+    });
+    const index = TotalRecords.findIndex(el => el.userId === selectedUserId)
+    TotalRecords[index] = updatedUser
+
+    const newRecord = JSON.stringify(TotalRecords);
+
+    let data = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'Details saved succesfully, refereshing your experience',
+    };
+
+
+    fs.writeFile("./mock/data/devSecOpsUsersListAPIData.json", newRecord, (err) => {
+        if (err) throw err;
+        setResponseHeaders(res);
+        res.status(200).send(data);
+    });
+
+});
+// #### End Edit User Details #####
 
 
 

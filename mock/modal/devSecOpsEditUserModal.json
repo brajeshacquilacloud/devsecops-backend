@@ -1,7 +1,7 @@
 [
     {
-        "actionAPIKey": "addEditEnvironmentAPI",
-        "dataAPIKey": "listResourceOrderListAPI",
+        "actionAPIKey": "editUserDataForEditAPI",
+        "dataAPIKey": "fetchUserDataForEditAPI",
         "actionButtonText": "Apply",
         "disableActionButton": false,
         "modalWidth": 500,
@@ -9,7 +9,7 @@
             {
                 "id": "help",
                 "type": "help",
-                "url": "http://google.com",
+                "url": "https://aquilaclouds.com",
                 "target": "new"
             }
         ],
@@ -21,7 +21,7 @@
                 "inputType": "string",
                 "labelSize": 4,
                 "size": 8,
-                "defSelectKey": "userName"
+                "defSelectKey": "name"
             },
             {
                 "id": 2,
@@ -30,7 +30,7 @@
                 "inputType": "string",
                 "labelSize": 4,
                 "size": 8,
-                "defSelectKey": "emailId",
+                "defSelectKey": "email",
                 "metrics": {
                     "email": "user_email"
                 },
@@ -44,8 +44,8 @@
                 "id": 3,
                 "leafTitle": "User Role",
                 "type": "select",
-                "defSelectKey": "userRole",
-                "mode": "multiple",
+                "defSelectKey": "roleName",
+                "mode": "default",
                 "labelSize": 4,
                 "size": 8,
                 "apiKey": "devSecOpsUserRoleAPI"
@@ -54,10 +54,13 @@
                 "id": 4,
                 "leafTitle": "Status",
                 "type": "group-radio",
-                "defSelectKey": "userStatus",
+                "defSelectKey": "status",
                 "labelSize": 4,
                 "size": 8,
-                "apiKey": "devSecOpsUserActiveStatusAPI"
+                "apiKey": "devSecOpsUserActiveStatusAPI",
+                "validation": {
+                    "isRequired": true
+                }
             }
         ]
     }
