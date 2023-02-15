@@ -1,79 +1,164 @@
 [
     {
-        "approvalActionStatusId": 1,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
-        "approvalStatus": "Initial"
-    },
-    {
-        "approvalActionStatusId": 2,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
-        "approvalStatus": "Initial"
-    },
-    {
         "approvalActionStatusId": 3,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineIdb302d881a0594",
+        "stage": "Dev Test",
+        "pipeline": "bill1",
+        "domain": "BillOps Domain",
         "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 4,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineIdb302d881a0594",
+        "stage": "Deploy",
+        "pipeline": "bill1",
+        "domain": "BillOps Domain",
         "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 5,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineIdb302d881a0594",
+        "stage": "Run Time",
+        "pipeline": "bill1",
+        "domain": "BillOps Domain",
         "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 6,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineId8f8e508078df9",
+        "stage": "Source Control",
+        "pipeline": "bill2",
+        "domain": "BillOps Domain",
         "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 7,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineId8f8e508078df9",
+        "stage": "Build Tool",
+        "pipeline": "bill2",
+        "domain": "BillOps Domain",
         "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 8,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineId8f8e508078df9",
+        "stage": "Dev Test",
+        "pipeline": "bill2",
+        "domain": "BillOps Domain",
         "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 9,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineId8f8e508078df9",
+        "stage": "Deploy",
+        "pipeline": "bill2",
+        "domain": "BillOps Domain",
         "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 10,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineId8f8e508078df9",
+        "stage": "Run Time",
+        "pipeline": "bill2",
+        "domain": "BillOps Domain",
         "approvalStatus": "Initial"
     },
     {
         "approvalActionStatusId": 11,
-        "stage": "Stage Name",
-        "pipeline": "Pipeline Name",
-        "domain": "Domain Name",
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineIdf872deafe4ebb",
+        "stage": "Source Control",
+        "pipeline": "sec1",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 12,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineIdf872deafe4ebb",
+        "stage": "Build Tool",
+        "pipeline": "sec1",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 13,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineIdf872deafe4ebb",
+        "stage": "Dev Test",
+        "pipeline": "sec1",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 14,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineIdf872deafe4ebb",
+        "stage": "Deploy",
+        "pipeline": "sec1",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 15,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineIdf872deafe4ebb",
+        "stage": "Run Time",
+        "pipeline": "sec1",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 16,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineId6d9c1d37e0244",
+        "stage": "Source Control",
+        "pipeline": "sec2",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 17,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineId6d9c1d37e0244",
+        "stage": "Build Tool",
+        "pipeline": "sec2",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 18,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineId6d9c1d37e0244",
+        "stage": "Dev Test",
+        "pipeline": "sec2",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 19,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineId6d9c1d37e0244",
+        "stage": "Deploy",
+        "pipeline": "sec2",
+        "domain": "Secops Domain",
+        "approvalStatus": "Initial"
+    },
+    {
+        "approvalActionStatusId": 20,
+        "domainId": "domainIdda3d8e95beda1",
+        "pipelineId": "pipelineId6d9c1d37e0244",
+        "stage": "Run Time",
+        "pipeline": "sec2",
+        "domain": "Secops Domain",
         "approvalStatus": "Initial"
     }
 ]

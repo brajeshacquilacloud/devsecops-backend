@@ -12,7 +12,7 @@
                         "id": 1,
                         "defSelectKey": "approvalAction",
                         "tabTitle": "Approval Action",
-                        "columnTitle": "Approval Action...",
+                        "columnTitle": "",
                         "type": "hawkDatatable",
                         "mode": "inline",
                         "apiKey": "devSecOpsApprovalActionStatusAPI",
@@ -26,6 +26,16 @@
                                 "key": "approvalActionStatusId",
                                 "display": false,
                                 "isRowSelection": true
+                            },
+                            {
+                                "name": "Domain Id",
+                                "key": "domainId",
+                                "display": false
+                            },
+                            {
+                                "name": "Pipeline Id",
+                                "key": "pipelineId",
+                                "display": false
                             },
                             {
                                 "name": "Stage",
@@ -44,7 +54,15 @@
                                 "key": "approvalStatus",
                                 "type": "approvalStatus",
                                 "display": true,
-                                "filter": false
+                                "filter": false,
+                                "drillTo": "modal",
+                                "modalTitle": "Reason",
+                                "componentsAPIKey": "addApprovalActionResonComponentAPI",
+                                "drillParams": [
+                                    {
+                                        "key": "approvalActionStatusId"
+                                    }
+                                ]
                             },
                             {
                                 "name": "Options",
@@ -89,6 +107,16 @@
                                 "key": "approvalActionStatusHistoryId",
                                 "display": false,
                                 "isRowSelection": true
+                            },
+                            {
+                                "name": "Domain Id",
+                                "key": "domainId",
+                                "display": false
+                            },
+                            {
+                                "name": "Pipeline Id",
+                                "key": "pipelineId",
+                                "display": false
                             },
                             {
                                 "name": "Pipeline",

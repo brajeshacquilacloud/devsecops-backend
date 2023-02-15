@@ -24,7 +24,7 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "Default Pipeline 2",
+                                "name": "bill1",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
@@ -35,18 +35,7 @@
                                 "className": "admin-icon"
                             },
                             {
-                                "name": "Default Pipeline",
-                                "icon": "InboxIcon",
-                                "page": "ComponentsPage",
-                                "apiKey": "DragAndDropGetPipeline",
-                                "linkedeUrlParam": "nodeIndex",
-                                "id": "pipelineIdb9cfc9cc9114d",
-                                "domainID": "domainId56408d1eb8a1c",
-                                "isHawkUI": true,
-                                "className": "admin-icon"
-                            },
-                            {
-                                "name": "Default Pipeline",
+                                "name": "bill2",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
@@ -71,7 +60,7 @@
                         "className": "admin-icon",
                         "subNavs": [
                             {
-                                "name": "Default 1",
+                                "name": "sec1",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
@@ -82,23 +71,12 @@
                                 "className": "admin-icon"
                             },
                             {
-                                "name": "Default 3",
+                                "name": "sec2",
                                 "icon": "InboxIcon",
                                 "page": "ComponentsPage",
                                 "apiKey": "DragAndDropGetPipeline",
                                 "linkedeUrlParam": "nodeIndex",
                                 "id": "pipelineId6d9c1d37e0244",
-                                "domainID": "domainIdda3d8e95beda1",
-                                "isHawkUI": true,
-                                "className": "admin-icon"
-                            },
-                            {
-                                "name": "edIt",
-                                "icon": "InboxIcon",
-                                "page": "ComponentsPage",
-                                "apiKey": "DragAndDropGetPipeline",
-                                "linkedeUrlParam": "nodeIndex",
-                                "id": "pipelineId075406f1401e2",
                                 "domainID": "domainIdda3d8e95beda1",
                                 "isHawkUI": true,
                                 "className": "admin-icon"
