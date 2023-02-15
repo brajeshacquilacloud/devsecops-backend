@@ -57,6 +57,7 @@
                                 "filter": false,
                                 "drillTo": "modal",
                                 "modalTitle": "Reason",
+                                "hideActionIcon": true,
                                 "componentsAPIKey": "addApprovalActionResonComponentAPI",
                                 "drillParams": [
                                     {

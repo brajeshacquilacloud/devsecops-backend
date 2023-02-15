@@ -1,0 +1,28 @@
+[
+    {
+        "actionAPIKey": "AddResoneSaveAPI",
+        "dataAPIKey": "",
+        "actionButtonText": "Apply",
+        "disableActionButton": false,
+        "modalWidth": 500,
+        "modalActions": [
+            {
+                "id": "help",
+                "type": "help",
+                "url": "https://aquilaclouds.com",
+                "target": "new"
+            }
+        ],
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Reason",
+                "type": "text-input",
+                "inputType": "string",
+                "labelSize": 4,
+                "size": 8,
+                "defSelectKey": "reason"
+            }
+        ]
+    }
+]

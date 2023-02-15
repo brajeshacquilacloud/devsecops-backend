@@ -47,6 +47,7 @@ const devSecOpsAddPipelineModal = require('./mock/modal/devSecOpsAddPipelineModa
 const devSecOpsAddUserModal = require('./mock/modal/devSecOpsAddUserModal.json');
 const devSecOpsEditUserModal = require('./mock/modal/devSecOpsEditUserModal.json');
 const devSecOpsApprovalActionStageDetailModal = require('./mock/modal/devSecOpsApprovalActionStageDetailModal.json');
+const addApprovalActionResonComponentModal = require('./mock/modal/addApprovalActionResonComponentModal.json');
 
 const executeScheduleAPIModal = require('./mock/modal/executeScheduleAPIModal.json');
 const recommendedScheduleApiModal = require('./mock/modal/recommendedScheduleApiModal.json');
@@ -8570,6 +8571,9 @@ app.post('/api/scenario/modal', function (req, res) {
             break;
         case "devSecOpsAddServerModal":
             data = devSecOpsAddServerModal;
+            break;
+        case "addApprovalActionResonComponentModal":
+            data = addApprovalActionResonComponentModal;
             break;
 
 
