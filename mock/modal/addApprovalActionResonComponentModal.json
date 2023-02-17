@@ -1,6 +1,6 @@
 [
     {
-        "actionAPIKey": "AddResoneSaveAPI",
+        "actionAPIKey": "addEditEnvironmentAPI",
         "dataAPIKey": "",
         "actionButtonText": "Apply",
         "disableActionButton": false,
