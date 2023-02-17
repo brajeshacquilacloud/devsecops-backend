@@ -80,6 +80,28 @@
                                 "domainID": "domainIdda3d8e95beda1",
                                 "isHawkUI": true,
                                 "className": "admin-icon"
+                            },
+                            {
+                                "name": "New Pipeline",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineId3386d2703a69f",
+                                "domainID": "domainIdda3d8e95beda1",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
+                            },
+                            {
+                                "name": "SecOps Pipeline",
+                                "icon": "InboxIcon",
+                                "page": "ComponentsPage",
+                                "apiKey": "DragAndDropGetPipeline",
+                                "linkedeUrlParam": "nodeIndex",
+                                "id": "pipelineId6c49e60955a81",
+                                "domainID": "domainIdda3d8e95beda1",
+                                "isHawkUI": true,
+                                "className": "admin-icon"
                             }
                         ]
                     }

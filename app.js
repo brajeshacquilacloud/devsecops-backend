@@ -38,6 +38,7 @@ const heatMap = require('./mock/data/heatMap.json');
 const addFinAccountsModal = require('./mock/modal/addFinAccountsModal.json');
 
 const devSecOpsAddDomainModal = require('./mock/modal/devSecOpsAddDomainModal.json');
+const devSecOpsAddNewPipelineModal = require('./mock/modal/devSecOpsAddNewPipelineModal.json');
 const devSecOpsAddServerModal = require('./mock/modal/devSecOpsAddServerModal.json');
 
 // Begin for add new pipeline modal
@@ -8292,6 +8293,9 @@ app.post('/api/scenario/modal', function (req, res) {
         // Start DevSecOps API Mapping
         case "devSecOpsAddDomainModal":
             data = devSecOpsAddDomainModal;
+            break;
+        case "devSecOpsAddNewPipelineModal":
+            data = devSecOpsAddNewPipelineModal;
             break;
         case "devSecOpsAddPipelineModal":
             data = devSecOpsAddPipelineModal;
@@ -19518,17 +19522,16 @@ app.post('/api/devsecops/add-pipeline', function (req, res) {
     const body = req?.body
     let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
     let TotalDomainRecords = JSON.parse(userRecords);
-    const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.find(pipeline => pipeline.domainID === body?.drillParams?.domainId)?.subNavs
+    const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.find(pipeline => pipeline.domainID === body?.params[1]?.value)?.subNavs
     const defaultPipeLine = { ...subNavs[0] }
-    const addNewPipeLine = { ...defaultPipeLine, id: pipelineUuid, name: 'Default Pipeline' }
+    const addNewPipeLine = { ...defaultPipeLine, id: pipelineUuid, name: body.params[0].value }
     const updateSubNavs = [...subNavs, addNewPipeLine]
     const updateNavigattions = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.map(pipeline => {
-        if (pipeline.domainID === body?.drillParams?.domainId) {
+        if (pipeline.domainID === body?.params[1].value) {
             return { ...pipeline, subNavs: updateSubNavs }
         }
         return { ...pipeline }
     })
-
     const leafs = TotalDomainRecords[0].leafs?.map(user => {
         if (user.userID === body.userID) {
 
@@ -19536,7 +19539,7 @@ app.post('/api/devsecops/add-pipeline', function (req, res) {
         } return { ...user }
     })
     const cloneDomainRecords = JSON.parse(JSON.stringify(parsedDomainsList))
-    const updatePipeLineCount = cloneDomainRecords.find(domain => domain.id === body?.drillParams?.domainId)
+    const updatePipeLineCount = cloneDomainRecords.find(domain => domain.id === body?.params[1].value)
     const updateDomainData = { ...updatePipeLineCount, pipelineCount: updatePipeLineCount.pipelineCount + 1 }
     const index = cloneDomainRecords.findIndex(el => el.id === updateDomainData.id)
     cloneDomainRecords[index] = updateDomainData

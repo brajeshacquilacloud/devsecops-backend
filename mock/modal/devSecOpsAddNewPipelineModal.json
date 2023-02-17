@@ -1,0 +1,31 @@
+[
+    {
+        "actionAPIKey": "devSecOpsAddPipelineAPI",
+        "dataAPIKey": "",
+        "actionButtonText": "Apply",
+        "disableActionButton": false,
+        "modalWidth": 500,
+        "modalActions": [
+            {
+                "id": "help",
+                "type": "help",
+                "url": "https://aquilaclouds.com",
+                "target": "new"
+            }
+        ],
+        "leafs": [
+            {
+                "id": 1,
+                "leafTitle": "Pipeline Name",
+                "type": "text-input",
+                "inputType": "string",
+                "labelSize": 4,
+                "size": 12,
+                "defSelectKey": "addPipeline",
+                "validation": {
+                    "isRequired": true
+                }
+            }
+        ]
+    }
+]
