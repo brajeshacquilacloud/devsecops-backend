@@ -42,6 +42,46 @@
             },
             {
                 "id": 3,
+                "leafTitle": "Password",
+                "type": "text-input",
+                "defSelectKey": "password",
+                "inputType": "password",
+                "labelSize": 4,
+                "size": 8,
+                "bindLeafData": [
+                    {
+                        "hideWhen": "okta",
+                        "bindWith": "authType",
+                        "id": 9
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "leafTitle": "Confirm Password",
+                "type": "text-input",
+                "defSelectKey": "confPassword",
+                "inputType": "password",
+                "labelSize": 4,
+                "size": 8,
+                "validation": {
+                    "message": "It should match with Password",
+                    "type": "conf-password"
+                },
+                "bindLeafData": [
+                    {
+                        "bindWith": "password",
+                        "isPrimary": true
+                    },
+                    {
+                        "hideWhen": "okta",
+                        "bindWith": "authType",
+                        "id": 9
+                    }
+                ]
+            },
+            {
+                "id": 5,
                 "leafTitle": "Role",
                 "type": "select",
                 "mode": "default",
@@ -51,7 +91,7 @@
                 "apiKey": "devSecOpsUserRoleAPI"
             },
             {
-                "id": 4,
+                "id": 6,
                 "leafTitle": "Status",
                 "type": "group-radio",
                 "defSelectKey": "status",

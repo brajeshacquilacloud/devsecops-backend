@@ -28,6 +28,7 @@
                 "leafTitle": "Email",
                 "type": "text-input",
                 "inputType": "string",
+                "readOnly": true,
                 "labelSize": 4,
                 "size": 8,
                 "defSelectKey": "email",
