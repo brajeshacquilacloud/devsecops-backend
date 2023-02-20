@@ -1,25 +1,5 @@
 [
     {
-        "approvalActionStatusId": 3,
-        "domainId": "domainId56408d1eb8a1c",
-        "pipelineId": "pipelineIdb302d881a0594",
-        "stage": "Dev Test",
-        "pipeline": "bill1",
-        "domain": "BillOps Domain",
-        "approvalStatus": "Initial",
-        "userId": "999"
-    },
-    {
-        "approvalActionStatusId": 4,
-        "domainId": "domainId56408d1eb8a1c",
-        "pipelineId": "pipelineIdb302d881a0594",
-        "stage": "Deploy",
-        "pipeline": "bill1",
-        "domain": "BillOps Domain",
-        "approvalStatus": "Initial",
-        "userId": 999
-    },
-    {
         "approvalActionStatusId": 5,
         "domainId": "domainId56408d1eb8a1c",
         "pipelineId": "pipelineIdb302d881a0594",

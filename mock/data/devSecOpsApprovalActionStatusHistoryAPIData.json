@@ -8,7 +8,9 @@
         "stage": "Source Control",
         "approver": "Approver Name",
         "dateTime": "12-3-22 10:34:23",
-        "approvalStatus": "Approved"
+        "approvalStatus": "Approved",
+        "reason": "All Good",
+        "userId": "999"
     },
     {
         "approvalActionStatusHistoryId": 2,
@@ -19,6 +21,34 @@
         "stage": "Build Tool",
         "approver": "Approver Name",
         "dateTime": "12-3-22 10:34:23",
-        "approvalStatus": "Rejected"
+        "approvalStatus": "Rejected",
+        "reason": "Wrong IP Address",
+        "userId": "999"
+    },
+    {
+        "approvalActionStatusHistoryId": 3,
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineIdb302d881a0594",
+        "pipeline": "bill1",
+        "domain": "BillOps Domain",
+        "stage": "Dev Test",
+        "approver": "Approvar Name",
+        "dateTime": "20-02-2023 17:05:24",
+        "approvalStatus": "Approved",
+        "reason": "Test Approved API",
+        "userId": "999"
+    },
+    {
+        "domainId": "domainId56408d1eb8a1c",
+        "pipelineId": "pipelineIdb302d881a0594",
+        "stage": "Deploy",
+        "pipeline": "bill1",
+        "domain": "BillOps Domain",
+        "approvalStatus": "Rejected",
+        "userId": "999",
+        "approvalActionStatusHistoryId": 4,
+        "approver": "Approvar Name",
+        "dateTime": "20-02-2023 17:33:38",
+        "reason": "Checking Rejection Reason API"
     }
 ]
