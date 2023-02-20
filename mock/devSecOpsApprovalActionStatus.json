@@ -56,9 +56,11 @@
                                 "display": true,
                                 "filter": false,
                                 "drillTo": "modal",
-                                "modalTitle": "Reason",
+                                "modalTitle": "Rejection Reason",
+                                "modalTitleApproval": "Approval Reason ",
                                 "hideActionIcon": true,
-                                "componentsAPIKey": "addApprovalActionResonComponentAPI",
+                                "componentsAPIKey": "addRejectionActionResonComponentAPI",
+                                "componentsAPIKeyApproval": "addApprovalActionResonComponentAPI",
                                 "drillParams": [
                                     {
                                         "key": "approvalActionStatusId"

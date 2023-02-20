@@ -6,7 +6,8 @@
         "stage": "Dev Test",
         "pipeline": "bill1",
         "domain": "BillOps Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": "999"
     },
     {
         "approvalActionStatusId": 4,
@@ -15,7 +16,8 @@
         "stage": "Deploy",
         "pipeline": "bill1",
         "domain": "BillOps Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 5,
@@ -24,7 +26,8 @@
         "stage": "Run Time",
         "pipeline": "bill1",
         "domain": "BillOps Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 6,
@@ -33,7 +36,8 @@
         "stage": "Source Control",
         "pipeline": "bill2",
         "domain": "BillOps Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 7,
@@ -42,7 +46,8 @@
         "stage": "Build Tool",
         "pipeline": "bill2",
         "domain": "BillOps Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 8,
@@ -51,7 +56,8 @@
         "stage": "Dev Test",
         "pipeline": "bill2",
         "domain": "BillOps Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 9,
@@ -60,7 +66,8 @@
         "stage": "Deploy",
         "pipeline": "bill2",
         "domain": "BillOps Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 10,
@@ -69,7 +76,8 @@
         "stage": "Run Time",
         "pipeline": "bill2",
         "domain": "BillOps Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 11,
@@ -78,7 +86,8 @@
         "stage": "Source Control",
         "pipeline": "sec1",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 12,
@@ -87,7 +96,8 @@
         "stage": "Build Tool",
         "pipeline": "sec1",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 13,
@@ -96,7 +106,8 @@
         "stage": "Dev Test",
         "pipeline": "sec1",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 14,
@@ -105,7 +116,8 @@
         "stage": "Deploy",
         "pipeline": "sec1",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 15,
@@ -114,7 +126,8 @@
         "stage": "Run Time",
         "pipeline": "sec1",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 16,
@@ -123,7 +136,8 @@
         "stage": "Source Control",
         "pipeline": "sec2",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 17,
@@ -132,7 +146,8 @@
         "stage": "Build Tool",
         "pipeline": "sec2",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 18,
@@ -141,7 +156,8 @@
         "stage": "Dev Test",
         "pipeline": "sec2",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 19,
@@ -150,7 +166,8 @@
         "stage": "Deploy",
         "pipeline": "sec2",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     },
     {
         "approvalActionStatusId": 20,
@@ -159,6 +176,7 @@
         "stage": "Run Time",
         "pipeline": "sec2",
         "domain": "Secops Domain",
-        "approvalStatus": "Initial"
+        "approvalStatus": "Initial",
+        "userId": 999
     }
 ]

@@ -1,6 +1,6 @@
 [
     {
-        "actionAPIKey": "approvalSaveAPI",
+        "actionAPIKey": "rejectionSaveAPI",
         "dataAPIKey": "",
         "actionButtonText": "Apply",
         "disableActionButton": false,
@@ -16,15 +16,15 @@
         "leafs": [
             {
                 "id": 1,
-                "leafTitle": "Approval Reason",
+                "leafTitle": "Rejection Reason",
                 "type": "text-input",
                 "inputType": "string",
                 "labelSize": 4,
                 "size": 8,
-                "defSelectKey": "approvalReason",
+                "defSelectKey": "rejectionReason",
                 "validation": {
                     "isRequired": true,
-                    "message": "Please enter approval reason"
+                    "message": "Please enter rejection reason"
                 }
             }
         ]

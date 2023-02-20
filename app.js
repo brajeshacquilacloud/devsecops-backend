@@ -27,6 +27,12 @@ const devSecOpsUserManagement = require('./mock/devSecOpsUserManagement.json');
 const devSecOpsSettings = require('./mock/devSecOpsSettings.json');
 const devSecOpsConfigureToolChain = require('./mock/devSecOpsConfigureToolChain.json');
 const devSecOpsScanSummary = require('./mock/devSecOpsScanSummary.json');
+const approvalActionStageDetailData = require('./mock/data/approvalActionStageDetailData.json');
+
+
+
+
+
 // End DevSecOps Import Files
 
 const finDomain = require('./mock/finDomain.json');
@@ -49,6 +55,9 @@ const devSecOpsAddUserModal = require('./mock/modal/devSecOpsAddUserModal.json')
 const devSecOpsEditUserModal = require('./mock/modal/devSecOpsEditUserModal.json');
 const devSecOpsApprovalActionStageDetailModal = require('./mock/modal/devSecOpsApprovalActionStageDetailModal.json');
 const addApprovalActionResonComponentModal = require('./mock/modal/addApprovalActionResonComponentModal.json');
+const addRejectionActionResonComponentModal = require('./mock/modal/addRejectionActionResonComponentModal.json');
+
+
 
 const executeScheduleAPIModal = require('./mock/modal/executeScheduleAPIModal.json');
 const recommendedScheduleApiModal = require('./mock/modal/recommendedScheduleApiModal.json');
@@ -8579,8 +8588,9 @@ app.post('/api/scenario/modal', function (req, res) {
         case "addApprovalActionResonComponentModal":
             data = addApprovalActionResonComponentModal;
             break;
-
-
+        case "addRejectionActionResonComponentModal":
+            data = addRejectionActionResonComponentModal;
+            break;
 
 
         // End DevSecOps API Mapping
@@ -18840,47 +18850,19 @@ app.post('/api/devsecops/other-settings-name', function (req, res) {
  */
 
 app.post('/api/devsecops/approval-action-stage-detail', function (req, res) {
-    let data = [
-        {
-            "type": "info",
-            "list": [
-                {
-                    "name": "DevOps Tool",
-                    "value": 'Github',
-                    "toolIcon": true
-                },
-                {
-                    "name": "IP Address",
-                    "value": '192.30.252.0/22',
-                    "toolIcon": false
-                },
-                {
-                    "name": "Athorizatioin Key/Password",
-                    "value": '3eser45trgfyt6uyguh87t6r5df',
-                    "toolIcon": false
-                },
-                {
-                    "name": "SecOps Tool",
-                    "value": 'Grype',
-                    "toolIcon": true
-                },
-                {
-                    "name": "Other Information",
-                    "value": 'Description Here.',
-                    "toolIcon": false
-                },
-                {
-                    "name": "Other Information",
-                    "value": 'Description Here.',
-                    "toolIcon": false
-                }
-            ],
-            "stageName": "Source Control"
-        }
-    ];
+    console.log("req.Body:::", req.body)
+    const approvalActionId = req.body.params[0].value
+    console.log("approvalActionId", approvalActionId)
+    let pipelineList = fs.readFileSync("./mock/data/approvalActionStageDetailData.json");
+
+    let TotalRecords = JSON.parse(pipelineList);
+    let filteredData = TotalRecords.filter(data => data.approvalActionStatusId === approvalActionId)
+    console.log("TotalRecords", TotalRecords)
+    console.log("filteredData", filteredData)
+
 
     setResponseHeaders(res);
-    res.status(200).send(data);
+    res.status(200).send(filteredData);
 
 
 });
@@ -20203,6 +20185,144 @@ app.post('/api/devsecops/edit-user-data', function (req, res) {
 
 });
 // #### End Edit User Details #####
+
+
+
+
+// #### Start approval save #####
+/**
+ * @swagger
+ * /api/devsecops/approval-save:
+ *  post:
+ *      tags:
+ *      - "Approval Action Status"
+ *      summary: approval save.
+ *      description: approval save.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+app.post('/api/devsecops/approval-save', function (req, res) {
+    const approvalActionStatusId = req.body.drillParams.approvalActionStatusId
+
+    let approvalPipelineStatusList = fs.readFileSync("./mock/data/devSecOpsApprovalActionStatusHistoryAPIData.json");
+    let allPipelineList = fs.readFileSync("./mock/data/devSecOpsApprovalActionStatusAPIData.json");
+
+    let TotalRecordsApprovalStatus = JSON.parse(approvalPipelineStatusList);
+    let TotalRecordsAllPipelineList = JSON.parse(allPipelineList);
+
+    const findSelectedID = TotalRecordsAllPipelineList.find(data => data.approvalActionStatusId === approvalActionStatusId)
+
+    var date = new Date();
+
+    var approvalTime =
+        ("00" + date.getDate()).slice(-2) + "-" +
+        ("00" + (date.getMonth() + 1)).slice(-2) + "-" +
+        date.getFullYear() + " " +
+        ("00" + date.getHours()).slice(-2) + ":" +
+        ("00" + date.getMinutes()).slice(-2) + ":" +
+        ("00" + date.getSeconds()).slice(-2);
+
+
+    const approvedRecord = {
+        ...findSelectedID,
+        approvalActionStatusHistoryId: findSelectedID.approvalActionStatusId,
+        approver: 'Approvar Name',
+        dateTime: approvalTime,
+        approvalStatus: "Approved",
+        userId: req.body.userId
+    }
+
+    delete approvedRecord.approvalActionStatusId
+
+    const moveRecoredToHistory = TotalRecordsApprovalStatus.push(approvedRecord)
+    const newRecord = JSON.stringify(TotalRecordsApprovalStatus);
+
+
+    const updatedList = TotalRecordsAllPipelineList.filter(data => data.approvalActionStatusId !== approvalActionStatusId)
+    const updatedRecord = JSON.stringify(updatedList);
+
+
+    let data = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'Details saved succesfully, refereshing your experience',
+    };
+
+
+    fs.writeFile("./mock/data/devSecOpsApprovalActionStatusHistoryAPIData.json", newRecord, (err) => {
+        if (err) throw err;
+
+        fs.writeFile("./mock/data/devSecOpsApprovalActionStatusAPIData.json", updatedRecord, (err) => {
+            if (err) throw err;
+            setResponseHeaders(res);
+            res.status(200).send(data);
+        });
+    });
+});
+// #### End approval save #####
+
+
+
+
+
+// #### Start rejection save #####
+/**
+ * @swagger
+ * /api/devsecops/rejection-save:
+ *  post:
+ *      tags:
+ *      - "Approval Action Status"
+ *      summary: rejection save.
+ *      description: rejection save.
+ *      responses:
+ *          200:
+ *              description: Page is working fine if got the json response!
+ *
+ */
+app.post('/api/devsecops/rejection-save', function (req, res) {
+    console.log("rejection-save::", req.body)
+    const approvalActionStatusId = req.body.drillParams.approvalActionStatusId
+    let approvalPipelineStatusList = fs.readFileSync("./mock/data/devSecOpsApprovalActionStatusHistoryAPIData.json");
+    let allPipelineList = fs.readFileSync("./mock/data/devSecOpsApprovalActionStatusAPIData.json");
+
+
+    let TotalRecordsApprovalStatus = JSON.parse(approvalPipelineStatusList);
+    let TotalRecordsAllPipelineList = JSON.parse(approvalPipelineStatusList);
+    // let uuid = "User" + Math.random().toString(16).slice(2);
+    // let updatedUser = {
+    //     userId: uuid,
+    // }
+
+    // req.body.params.forEach(element => {
+    //     if (element.key === "roleName") {
+    //         return updatedUser.roleName = element.list[0]
+    //     }
+    //     return updatedUser[`${element.key}`] = element.value
+    // });
+
+    // TotalRecords.push(updatedUser)
+
+    // const newRecord = JSON.stringify(TotalRecords);
+
+    let data = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'Details saved succesfully, refereshing your experience',
+    };
+
+
+    // fs.writeFile("./mock/data/devSecOpsUsersListAPIData.json", newRecord, (err) => {
+    //     if (err) throw err;
+    //     setResponseHeaders(res);
+    // });
+    res.status(200).send(data);
+});
+// #### End rejection save #####
+
+
+
 
 
 
