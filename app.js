@@ -135,7 +135,7 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:8080/'
+                url: 'https://blush-centipede-tam.cyclic.app/'
             }
         ]
     },
