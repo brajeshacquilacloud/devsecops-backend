@@ -19402,20 +19402,24 @@ app.post('/api/devsecops/add-user-environment', function (req, res) {
 
     TotalRecords.push(updatedUser)
 
-    const newRecord = JSON.stringify(TotalRecords);
+    let newRecord = JSON.stringify(TotalRecords);
 
-    let data = {
-        key: 'SAVE_INST',
-        variant: 'success',
-        message: 'Details saved succesfully, refereshing your experience',
-    };
+    async function writeFile() {
+        await fs.promises.writeFile("./mock/data/devSecOpsUsersListAPIData.json", newRecord, (err) => {
+            if (err) throw err;
+            setResponseHeaders(res);
 
+            let data = {
+                key: 'SAVE_INST',
+                variant: 'success',
+                message: 'Details saved succesfully, refereshing your experience',
+            };
+            res.status(200).send(data);
+        });
+    }
 
-    fs.writeFile("./mock/data/devSecOpsUsersListAPIData.json", newRecord, (err) => {
-        if (err) throw err;
-        setResponseHeaders(res);
-        res.status(200).send(data);
-    });
+    writeFile()
+
 });
 // #### End add user environment #####
 
