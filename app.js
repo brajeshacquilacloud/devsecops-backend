@@ -18880,7 +18880,7 @@ app.post('/api/devsecops/other-settings-name', function (req, res) {
  */
 
 app.post('/api/devsecops/approval-action-stage-detail', function (req, res) {
-    console.log("req.Body:::", req.body)
+
     const approvalActionId = req.body.params[0].value
     console.log("approvalActionId", approvalActionId)
     let pipelineList = fs.readFileSync("./mock/data/approvalActionStageDetailData.json");
