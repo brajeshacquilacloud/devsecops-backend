@@ -139,7 +139,7 @@ const options = {
         },
         servers: [
             {
-                url: 'https://blush-centipede-tam.cyclic.app/'
+                url: 'https://devsecops-backend.brajeshacquilac.repl.co/'
             }
         ]
     },
