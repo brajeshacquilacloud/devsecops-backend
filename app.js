@@ -135,7 +135,7 @@ const options = {
         },
         servers: [
             {
-                url: 'https://blush-centipede-tam.cyclic.app/'
+                url: 'http://localhost:8080/'
             }
         ]
     },
@@ -19627,47 +19627,46 @@ app.post('/api/devsecops/rename-pipeline', function (req, res) {
 app.post('/api/devsecops/remove-pipeline', function (req, res) {
     console.log("removePipeLine")
     setResponseHeaders(res);
-    let domainsList = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
-    let parsedDomainsList = JSON.parse(domainsList);
-    const body = req?.body
+    // let domainsList = fs.readFileSync("./mock/data/devSecOpsDomainCardAPIData.json");
+    // let parsedDomainsList = JSON.parse(domainsList);
+    // const body = req?.body
 
-    let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
-    let TotalDomainRecords = JSON.parse(userRecords);
-    const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.find(pipeline => pipeline.domainID === body?.drillParams?.domainId)?.subNavs
-    const updateSubNavs = subNavs.filter(nav => nav.id !== body?.metrics?.id)
+    // let userRecords = fs.readFileSync("./mock/devSecOpsConfigureToolChain.json");
+    // let TotalDomainRecords = JSON.parse(userRecords);
+    // const subNavs = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.find(pipeline => pipeline.domainID === body?.drillParams?.domainId)?.subNavs
+    // const updateSubNavs = subNavs.filter(nav => nav.id !== body?.metrics?.id)
 
-    const updateNavigattions = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.map(pipeline => {
-        if (pipeline.domainID === body?.drillParams?.domainId) {
-            return { ...pipeline, subNavs: updateSubNavs }
-        }
-        return { ...pipeline }
-    })
-    const leafs = TotalDomainRecords[0].leafs?.map(user => {
-        if (user.userID === body.userID) {
+    // const updateNavigattions = TotalDomainRecords[0]?.leafs?.find(user => user?.userId === body?.userId)?.navigations?.map(pipeline => {
+    //     if (pipeline.domainID === body?.drillParams?.domainId) {
+    //         return { ...pipeline, subNavs: updateSubNavs }
+    //     }
+    //     return { ...pipeline }
+    // })
+    // const leafs = TotalDomainRecords[0].leafs?.map(user => {
+    //     if (user.userID === body.userID) {
 
-            return { ...user, navigations: updateNavigattions }
-        } return { ...user }
-    })
-    const cloneDomainRecords = JSON.parse(JSON.stringify(parsedDomainsList))
-    const updatePipeLineCount = cloneDomainRecords.find(domain => domain.id === body?.drillParams?.domainId)
-    const updateDomainData = { ...updatePipeLineCount, pipelineCount: updatePipeLineCount.pipelineCount - 1 }
-    const index = cloneDomainRecords.findIndex(el => el.id === updateDomainData.id)
-    cloneDomainRecords[index] = updateDomainData
-    let newDomainRecoreds = JSON.stringify(cloneDomainRecords);
-    let newLeafRecord = JSON.stringify([{ leafs: leafs }]);
-    let resposeData = {
-        key: 'SAVE_INST',
-        variant: 'success',
-        message: 'PipeLine Removed succesfully, refereshing your experience',
-    };
-    fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
-        if (err) throw err;
-        fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newDomainRecoreds, (err) => {
-            if (err) throw err;
-            res.status(200).send(resposeData);
-        })
-
-    });
+    //         return { ...user, navigations: updateNavigattions }
+    //     } return { ...user }
+    // })
+    // const cloneDomainRecords = JSON.parse(JSON.stringify(parsedDomainsList))
+    // const updatePipeLineCount = cloneDomainRecords.find(domain => domain.id === body?.drillParams?.domainId)
+    // const updateDomainData = { ...updatePipeLineCount, pipelineCount: updatePipeLineCount.pipelineCount - 1 }
+    // const index = cloneDomainRecords.findIndex(el => el.id === updateDomainData.id)
+    // cloneDomainRecords[index] = updateDomainData
+    // let newDomainRecoreds = JSON.stringify(cloneDomainRecords);
+    // let newLeafRecord = JSON.stringify([{ leafs: leafs }]);
+    // let resposeData = {
+    //     key: 'SAVE_INST',
+    //     variant: 'success',
+    //     message: 'PipeLine Removed succesfully, refereshing your experience',
+    // };
+    // fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
+    //     if (err) throw err;
+    //     fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newDomainRecoreds, (err) => {
+    //         if (err) throw err;
+    //     })
+    // });
+    res.status(200).send(resposeData);
 
 });
 
