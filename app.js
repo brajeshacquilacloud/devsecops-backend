@@ -19655,18 +19655,18 @@ app.post('/api/devsecops/remove-pipeline', function (req, res) {
     // cloneDomainRecords[index] = updateDomainData
     // let newDomainRecoreds = JSON.stringify(cloneDomainRecords);
     // let newLeafRecord = JSON.stringify([{ leafs: leafs }]);
-    // let resposeData = {
-    //     key: 'SAVE_INST',
-    //     variant: 'success',
-    //     message: 'PipeLine Removed succesfully, refereshing your experience',
-    // };
+    let resposeData = {
+        key: 'SAVE_INST',
+        variant: 'success',
+        message: 'PipeLine Removed succesfully, refereshing your experience',
+    };
     // fs.writeFile("./mock/devSecOpsConfigureToolChain.json", newLeafRecord, (err) => {
     //     if (err) throw err;
     //     fs.writeFile("./mock/data/devSecOpsDomainCardAPIData.json", newDomainRecoreds, (err) => {
     //         if (err) throw err;
     //     })
     // });
-    res.status(200).send("pipeline removed");
+    res.status(200).send(resposeData);
 
 });
 
