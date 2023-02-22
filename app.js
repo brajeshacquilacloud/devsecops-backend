@@ -19666,7 +19666,7 @@ app.post('/api/devsecops/remove-pipeline', function (req, res) {
     //         if (err) throw err;
     //     })
     // });
-    res.status(200).send(resposeData);
+    res.status(200).send("pipeline removed");
 
 });
 
