@@ -15,7 +15,8 @@
   },
   "scripts": {
     "deploy": "git push heroku",
-    "start": "nodemon app.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "start:mock": "nodemon app.js",
     "system-test": "repo-tools test app",
     "test": "npm run system-test",
