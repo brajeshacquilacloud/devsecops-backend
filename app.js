@@ -3,6 +3,16 @@ var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8080
+
+const Sentry = require("@sentry/node");
+// or use es6 import statements
+// import * as Sentry from '@sentry/node';
+
+const Tracing = require("@sentry/tracing");
+// or use es6 import statements
+// import * as Tracing from '@sentry/tracing';
+
+
 const users = require('./mock/users.json');
 const cspOverview = require('./mock/cspOverview.json');
 const cspBilling = require('./mock/cspBilling.json');
@@ -28,10 +38,6 @@ const devSecOpsSettings = require('./mock/devSecOpsSettings.json');
 const devSecOpsConfigureToolChain = require('./mock/devSecOpsConfigureToolChain.json');
 const devSecOpsScanSummary = require('./mock/devSecOpsScanSummary.json');
 const approvalActionStageDetailData = require('./mock/data/approvalActionStageDetailData.json');
-
-
-
-
 
 // End DevSecOps Import Files
 
@@ -116,8 +122,6 @@ const devSecOpsScanSummaryDeployTableAPIData = require("./mock/data/devSecOpsSca
 const devSecOpsScanSummaryRunTimeTableAPIData = require("./mock/data/devSecOpsScanSummaryRunTimeTableAPIData.json")
 
 
-
-
 const fs = require("fs");
 
 
@@ -146,6 +150,32 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 // Swagger Code End Here
 
 
+// Begin Sentry Support
+Sentry.init({
+    dsn: "https://72b1d94618704357b7421ab82328eb9e@o4504723544276992.ingest.sentry.io/4504724013383680",
+
+    // Set tracesSampleRate to 1.0 to capture 100%
+    // of transactions for performance monitoring.
+    // We recommend adjusting this value in production
+    tracesSampleRate: 1.0,
+});
+
+const transaction = Sentry.startTransaction({
+    op: "test",
+    name: "My First Test Transaction",
+});
+
+setTimeout(() => {
+    try {
+        foo();
+    } catch (e) {
+        Sentry.captureException(e);
+    } finally {
+        transaction.finish();
+    }
+}, 99);
+
+// End Sentry Support
 
 
 app.use(bodyParser.urlencoded({
